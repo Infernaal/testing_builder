@@ -150,7 +150,6 @@ const route = useRoute()
 const activeTab = ref('wallet')
 
 // Watch route changes to update active tab
-import { watch } from 'vue'
 watch(() => route.path, (newPath) => {
   const pathToTab = {
     '/profile': 'profile',
