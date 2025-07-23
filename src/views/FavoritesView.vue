@@ -4,9 +4,18 @@
     <main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-24 overflow-y-auto">
       <!-- Total Balance Card -->
       <div class="bg-purple-50 border border-purple-200 rounded-2xl p-6 mb-6 relative">
-        <h2 class="text-2xl font-semibold text-black mb-6 leading-tight">
-          Forevers<br>Balance
-        </h2>
+        <div class="flex items-start justify-between mb-4">
+          <h2 class="text-2xl font-semibold text-black leading-tight">
+            Forevers<br>Balance
+          </h2>
+
+          <div class="flex items-center gap-2">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
+              <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
+            </svg>
+            <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
+          </div>
+        </div>
 
         <div class="flex items-center justify-end mb-4">
           <div class="flex items-center gap-2">
