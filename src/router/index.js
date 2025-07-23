@@ -40,6 +40,11 @@ const router = createRouter({
       name: 'holders',
       component: HoldersView,
     },
+    {
+      path: '/rent-out',
+      name: 'rent-out',
+      component: RentOutView,
+    },
     // Redirect /home to /wallet as default
     {
       path: '/home',
