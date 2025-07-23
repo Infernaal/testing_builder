@@ -12,7 +12,7 @@
         <button 
           @click="navigateTo('profile')"
           :class="[
-            'flex flex-col items-center gap-1 p-2 min-w-[52px]',
+            'flex flex-col items-center gap-1 p-1 sm:p-2 min-w-[48px] sm:min-w-[52px] flex-1',
             activeTab === 'profile' ? 'text-blue-700' : 'text-gray-600'
           ]"
         >
