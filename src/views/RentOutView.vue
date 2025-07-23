@@ -107,9 +107,7 @@
           <!-- Header -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-3">
-              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
-                <component :is="item.flagComponent" class="w-full h-full" />
-              </div>
+              <CountryFlag :country="item.code" />
               <span class="text-dbd-gray font-medium">{{ item.title }}</span>
             </div>
             <button class="bg-dbd-orange text-white px-3 py-2 rounded-full text-sm font-bold">
