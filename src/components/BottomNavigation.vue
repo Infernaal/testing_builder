@@ -177,10 +177,54 @@ const navigateTo = (tab) => {
 </script>
 
 <style scoped>
-/* Additional responsive styles if needed */
+/* Mobile first approach for Telegram mini app */
 @media (max-width: 375px) {
-  .min-w-[52px] {
-    min-width: 48px;
+  .fixed {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
+
+  .flex-1 {
+    min-width: 44px;
+  }
+
+  .text-xs {
+    font-size: 10px;
+    line-height: 12px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .fixed {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .flex-1 {
+    min-width: 52px;
+  }
+}
+
+@media (min-width: 769px) {
+  .fixed {
+    max-width: 480px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px 20px 0 0;
+  }
+}
+
+/* Safe area support for iOS */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 8px);
+}
+
+/* Touch interactions */
+button {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease-in-out;
 }
 </style>
