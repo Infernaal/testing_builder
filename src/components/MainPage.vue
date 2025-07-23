@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-.favorites-page {
+.main-page {
   font-family: 'Montserrat', sans-serif;
 }
 </style>
