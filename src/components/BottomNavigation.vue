@@ -4,7 +4,7 @@
     <div class="flex items-center justify-center px-2 py-3 safe-area-pb">
       <div class="flex items-center gap-2 sm:gap-4 w-full max-w-sm mx-auto px-2">
         <!-- Profile -->
-        <button 
+        <button
           @click="navigateTo('profile')"
           :class="[
             'flex flex-col items-center gap-1 p-1 sm:p-2 min-w-[48px] sm:min-w-[52px] flex-1',
@@ -12,37 +12,53 @@
           ]"
         >
           <div class="relative">
-            <div 
+            <div
               :class="[
-              'w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center',
-              activeTab === 'profile' ? 'bg-blue-700' : ''
-            ]"
+                activeTab === 'profile'
+                  ? 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-700'
+                  : 'w-6 h-6 sm:w-7 sm:h-7 rounded-lg',
+                'flex items-center justify-center transition-all duration-200'
+              ]"
             >
               <!-- Profile Avatar with Badge -->
-              <div class="relative w-8 h-8">
-                <div class="w-8 h-8 rounded-full border-2 border-purple-400 overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face" 
-                    alt="Profile" 
+              <div :class="[
+                'relative',
+                activeTab === 'profile' ? 'w-8 h-8' : 'w-6 h-6'
+              ]">
+                <div :class="[
+                  'rounded-full border-2 border-purple-400 overflow-hidden',
+                  activeTab === 'profile' ? 'w-8 h-8' : 'w-6 h-6'
+                ]">
+                  <img
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+                    alt="Profile"
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <!-- Silver Badge -->
-                <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center">
-                  <svg width="8" height="8" viewBox="0 0 8 8" class="text-white">
+                <div :class="[
+                  'absolute -bottom-1 -right-1 bg-gray-300 rounded-full border-2 border-white flex items-center justify-center',
+                  activeTab === 'profile' ? 'w-4 h-4' : 'w-3 h-3'
+                ]">
+                  <svg :class="activeTab === 'profile' ? 'w-2 h-2' : 'w-1.5 h-1.5'" viewBox="0 0 8 8" class="text-white">
                     <path d="M4 0L5 3H8L5.5 5L6.5 8L4 6L1.5 8L2.5 5L0 3H3L4 0Z" fill="currentColor"/>
                   </svg>
                 </div>
                 <!-- Dropdown Arrow -->
-                <div class="absolute -bottom-1 -right-1 w-3 h-3 bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center">
-                  <svg width="8" height="6" viewBox="0 0 8 6" class="text-gray-600">
+                <div :class="[
+                  'absolute -bottom-1 -right-1 bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center',
+                  activeTab === 'profile' ? 'w-3 h-3' : 'w-2.5 h-2.5'
+                ]">
+                  <svg :class="activeTab === 'profile' ? 'w-2 h-1.5' : 'w-1.5 h-1'" viewBox="0 0 8 6" class="text-gray-600">
                     <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
               </div>
             </div>
           </div>
-          <span class="text-xs sm:text-sm font-medium">Profile</span>
+          <span :class="[
+            activeTab === 'profile' ? 'text-xs sm:text-sm font-medium' : 'text-[10px] sm:text-xs font-medium'
+          ]">Profile</span>
         </button>
 
         <!-- Wallet -->
