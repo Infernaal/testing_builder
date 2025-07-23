@@ -1,11 +1,11 @@
 <template>
-  <div class="profile-page max-w-md mx-auto bg-white min-h-screen pb-24 lg:max-w-lg xl:max-w-xl">
+  <div class="profile-view w-full max-w-sm mx-auto bg-white min-h-screen relative">
     <!-- Content Container -->
-    <div class="content-container bg-white pt-4">
+    <div class="content-container bg-white px-4 pb-28 flex items-center justify-center min-h-screen">
       
       <!-- Profile Section -->
-      <div class="profile-section px-4 mb-4 sm:px-6">
-        <div class="profile-card bg-gray-50 rounded-2xl p-4 mb-4 sm:p-5 lg:p-6">
+      <div class="profile-section">
+        <div class="profile-card bg-gray-50 rounded-2xl p-6">
           <div class="flex flex-col items-center text-center">
             <div class="w-20 h-20 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 border-4 border-purple-300 mb-4"></div>
             <h2 class="text-2xl font-bold text-dbd-dark mb-2">Profile</h2>
@@ -16,16 +16,18 @@
 
     </div>
 
-    <!-- Bottom Navigation Component -->
-    <BottomNavigation />
+    <!-- Bottom Navigation Component - Fixed -->
+    <div class="fixed bottom-0 left-0 right-0 z-50">
+      <BottomNavigation />
+    </div>
   </div>
 </template>
 
 <script>
-import BottomNavigation from './BottomNavigation.vue'
+import BottomNavigation from '../components/BottomNavigation.vue'
 
 export default {
-  name: 'ProfilePage',
+  name: 'ProfileView',
   components: {
     BottomNavigation
   }
@@ -33,7 +35,20 @@ export default {
 </script>
 
 <style scoped>
-.profile-page {
+.profile-view {
   font-family: 'Montserrat', sans-serif;
+}
+
+/* Mobile first approach for Telegram mini app */
+@media (max-width: 430px) {
+  .profile-view {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .profile-view {
+    max-width: 400px;
+  }
 }
 </style>
