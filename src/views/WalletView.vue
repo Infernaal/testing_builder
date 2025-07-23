@@ -1,11 +1,11 @@
 <template>
-  <div class="wallet-page max-w-md mx-auto bg-white min-h-screen pb-24 lg:max-w-lg xl:max-w-xl">
+  <div class="wallet-view w-full max-w-sm mx-auto bg-white min-h-screen relative">
     <!-- Content Container -->
-    <div class="content-container bg-white pt-4">
+    <div class="content-container bg-white pt-4 pb-28 px-4">
 
       <!-- Forevers Balance Section -->
-      <div class="forevers-balance-section px-4 mb-4 sm:px-6">
-        <div class="balance-card bg-dbd-light-blue rounded-2xl p-4 mb-4 sm:p-5 lg:p-6">
+      <div class="forevers-balance-section mb-4">
+        <div class="balance-card bg-dbd-light-blue rounded-2xl p-4">
           <div class="flex items-center justify-between">
             <div class="balance-info">
               <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-dbd-dark mb-1">
