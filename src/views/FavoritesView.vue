@@ -155,9 +155,8 @@
 import { ref, computed, onMounted } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
 
-// Telegram WebApp support
-const isTelegram = ref(false)
-const allowAccess = ref(false)
+// App state
+const isLoading = ref(false)
 
 // Data - Ready for backend integration
 const totalBalance = ref(10196)
