@@ -17,15 +17,6 @@
           </div>
         </div>
 
-        <div class="flex items-center justify-end mb-4">
-          <div class="flex items-center gap-2">
-            <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
-              <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
-            </svg>
-            <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
-          </div>
-        </div>
-
         <div class="text-right">
           <p class="text-lg text-gray-600">Worth ${{ totalWorth.toLocaleString() }}</p>
         </div>
