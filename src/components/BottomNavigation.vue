@@ -7,7 +7,7 @@
 
     <!-- Navigation Items -->
     <div class="flex items-center justify-center px-2 pb-3 safe-area-pb">
-      <div class="flex items-center gap-4 w-full max-w-sm">
+      <div class="flex items-center gap-2 sm:gap-4 w-full max-w-sm mx-auto px-2">
         <!-- Profile -->
         <button 
           @click="navigateTo('profile')"
