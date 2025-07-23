@@ -1,7 +1,7 @@
 <template>
-  <div class="cart-view w-full max-w-sm mx-auto bg-white min-h-screen relative">
+  <div class="cart-view w-full max-w-md mx-auto bg-white min-h-screen">
     <!-- Content Container -->
-    <div class="content-container bg-white px-4 pb-28 flex items-center justify-center min-h-screen">
+    <div class="content-container bg-white px-4 pb-20 flex items-center justify-center min-h-screen">
       
       <!-- Cart Section -->
       <div class="cart-section">
