@@ -248,35 +248,11 @@ const handleAddBalance = (balanceId) => {
 
 // Initialize
 onMounted(async () => {
-  const tg = window?.Telegram?.WebApp
-  const isLocalhost = window.location.hostname === 'localhost'
-  const isTestDomain = window.location.hostname.includes('dubadu.com')
-
-  isTelegram.value = !!tg
-
-  if (isTelegram.value || isLocalhost || isTestDomain) {
-    allowAccess.value = true
-
-    if (isTelegram.value) {
-      // Initialize Telegram WebApp
-      tg.ready()
-      tg.expand()
-
-      // Set theme colors
-      tg.setHeaderColor('#F0F0F0')
-      tg.setBackgroundColor('#F0F0F0')
-    }
-
-    // Fetch data from backend
-    await Promise.all([
-      fetchBalancesFromBackend(),
-      fetchTotalBalance()
-    ])
-
-  } else {
-    // Redirect to bot if not authorized
-    window.location.href = 'https://t.me/your_bot_username'
-  }
+  // Fetch data from backend
+  await Promise.all([
+    fetchBalancesFromBackend(),
+    fetchTotalBalance()
+  ])
 })
 </script>
 
