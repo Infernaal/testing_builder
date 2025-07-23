@@ -183,38 +183,9 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import CountryFlag from '../components/CountryFlag.vue'
 
 const router = useRouter()
-
-// Flag components
-const GermanyFlag = {
-  template: `
-    <div class="w-full h-full relative bg-gray-300 rounded-full overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-1/3 bg-black"></div>
-      <div class="absolute top-1/3 left-0 w-full h-1/3 bg-red-600"></div>
-      <div class="absolute top-2/3 left-0 w-full h-1/3 bg-yellow-400"></div>
-    </div>
-  `
-}
-
-const UAEFlag = {
-  template: `
-    <div class="w-full h-full relative bg-gray-300 rounded-full overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-1/3 bg-green-600"></div>
-      <div class="absolute top-1/3 left-0 w-full h-1/3 bg-white"></div>
-      <div class="absolute top-2/3 left-0 w-full h-1/3 bg-black"></div>
-      <div class="absolute top-0 left-0 w-1/4 h-full bg-red-600"></div>
-    </div>
-  `
-}
-
-const KazakhstanFlag = {
-  template: `
-    <div class="w-full h-full bg-blue-400 rounded-full flex items-center justify-center">
-      <div class="w-3 h-3 bg-yellow-400 rounded-full"></div>
-    </div>
-  `
-}
 
 // Rent out data
 const foreversList = ref([
