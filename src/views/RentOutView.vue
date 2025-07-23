@@ -198,8 +198,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available',
-    availableAmount: 250,
-    flagComponent: GermanyFlag
+    availableAmount: 250
   },
   {
     id: 'uae',
@@ -210,8 +209,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available without restrictions',
-    availableAmount: 250,
-    flagComponent: UAEFlag
+    availableAmount: 250
   },
   {
     id: 'kz',
@@ -222,8 +220,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available',
-    availableAmount: 250,
-    flagComponent: KazakhstanFlag
+    availableAmount: 250
   },
   {
     id: 'pl',
@@ -234,8 +231,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available',
-    availableAmount: 250,
-    flagComponent: KazakhstanFlag
+    availableAmount: 250
   },
   {
     id: 'ua',
@@ -246,8 +242,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available',
-    availableAmount: 250,
-    flagComponent: KazakhstanFlag
+    availableAmount: 250
   },
   {
     id: 'us',
@@ -258,8 +253,7 @@ const foreversList = ref([
     rentalCost: 4,
     potentialIncome: 120,
     availableText: 'Available',
-    availableAmount: 250,
-    flagComponent: KazakhstanFlag
+    availableAmount: 250
   }
 ])
 
