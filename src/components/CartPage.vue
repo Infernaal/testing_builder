@@ -21,7 +21,7 @@
     </div>
 
     <!-- Bottom Navigation Component -->
-    <BottomNavigation :activeTab="'cart'" @navigate="handleNavigate" />
+    <BottomNavigation />
   </div>
 </template>
 
