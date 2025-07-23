@@ -154,7 +154,19 @@ const emit = defineEmits(['navigate'])
 
 // Methods
 const navigateTo = (tab) => {
-  emit('navigate', tab)
+  // Map tab names to routes
+  const routeMap = {
+    profile: '/profile',
+    wallet: '/wallet',
+    favorites: '/main',
+    cart: '/cart',
+    holders: '/holders'
+  }
+
+  // Use Vue Router for navigation
+  import { useRouter } from 'vue-router'
+  const router = useRouter()
+  router.push(routeMap[tab])
 }
 </script>
 
