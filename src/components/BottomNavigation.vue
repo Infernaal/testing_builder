@@ -6,7 +6,7 @@
     </div>
     
     <!-- Navigation Items -->
-    <div class="flex items-center justify-center px-1 pb-2">
+    <div class="flex items-center justify-center px-2 pb-3">
       <div class="flex items-center gap-4 w-full max-w-sm">
         <!-- Profile -->
         <button 
