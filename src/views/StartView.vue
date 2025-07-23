@@ -1,5 +1,5 @@
 <template>
-  <div class="start-view max-w-md mx-auto bg-white min-h-screen flex items-center justify-center">
+  <div class="start-view w-full max-w-sm mx-auto bg-white min-h-screen flex items-center justify-center">
     <div class="content-container text-center px-6">
       <!-- Logo Section -->
       <div class="logo-section mb-8">
