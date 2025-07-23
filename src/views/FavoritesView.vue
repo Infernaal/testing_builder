@@ -151,7 +151,10 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+
+const router = useRouter()
 
 // App state
 const isLoading = ref(false)
@@ -257,8 +260,7 @@ const fetchTotalBalance = async () => {
 
 // Methods
 const handleRentOut = () => {
-  console.log('Rent out Forevers')
-  // TODO: Implement rent out functionality with backend API
+  router.push('/rent-out')
 }
 
 const handleAddBalance = (balanceId) => {
