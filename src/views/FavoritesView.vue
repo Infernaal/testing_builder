@@ -162,7 +162,6 @@ const isLoading = ref(false)
 const totalBalance = ref(10196)
 const totalWorth = ref(56000)
 const balances = ref([]) // Will be populated from backend
-const isLoading = ref(false)
 
 // Flag classes for different countries
 const flagClasses = {
