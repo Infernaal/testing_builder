@@ -34,7 +34,7 @@ export default {
   name: 'StartView',
   methods: {
     navigateToHome() {
-      this.$router.push('/home')
+      this.$router.push('/wallet')
     }
   }
 }
