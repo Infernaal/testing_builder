@@ -1,17 +1,7 @@
 <template>
-  <div class="wallet-page max-w-md mx-auto bg-gray-100 min-h-screen pb-24 lg:max-w-lg xl:max-w-xl">
+  <div class="wallet-page max-w-md mx-auto bg-white min-h-screen pb-24 lg:max-w-lg xl:max-w-xl">
     <!-- Content Container -->
-    <div class="content-container bg-gray-100 rounded-t-2xl">
-      <!-- Top Bar without Header -->
-      <div class="top-bar px-4 py-2">
-        <div class="flex items-center justify-center mb-2">
-          <h1 class="text-lg font-medium text-center">
-            <span class="text-dbd-orange">DBD Capital</span>
-            <span class="text-dbd-primary"> Forevers Bot</span>
-          </h1>
-        </div>
-        <p class="text-center text-xs text-dbd-light-gray">mini App</p>
-      </div>
+    <div class="content-container bg-white pt-4">
 
       <!-- Forevers Balance Section -->
       <div class="forevers-balance-section px-4 mt-4 sm:px-6">
