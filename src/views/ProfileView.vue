@@ -16,10 +16,8 @@
 
     </div>
 
-    <!-- Bottom Navigation Component - Fixed -->
-    <div class="fixed bottom-0 left-0 right-0 z-50">
-      <BottomNavigation />
-    </div>
+    <!-- Bottom Navigation Component -->
+    <BottomNavigation />
   </div>
 </template>
 
