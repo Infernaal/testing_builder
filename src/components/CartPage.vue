@@ -32,12 +32,6 @@ export default {
   name: 'CartPage',
   components: {
     BottomNavigation
-  },
-  emits: ['navigate'],
-  methods: {
-    handleNavigate(tab) {
-      this.$emit('navigate', tab)
-    }
   }
 }
 </script>
