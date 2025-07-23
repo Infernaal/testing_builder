@@ -194,6 +194,7 @@ watch(() => route.path, (newPath) => {
     '/profile': 'profile',
     '/wallet': 'wallet',
     '/favorites': 'favorites',
+    '/rent-out': 'favorites', // RentOut is part of Favorites section
     '/cart': 'cart',
     '/holders': 'holders'
   }
