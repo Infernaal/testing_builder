@@ -17,7 +17,7 @@
     </div>
 
     <!-- Bottom Navigation Component -->
-    <BottomNavigation :activeTab="'profile'" @navigate="handleNavigate" />
+    <BottomNavigation />
   </div>
 </template>
 
