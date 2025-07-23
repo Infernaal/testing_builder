@@ -1,5 +1,5 @@
 <template>
-  <div class="wallet-page max-w-md mx-auto bg-gray-100 min-h-screen pb-24">
+  <div class="wallet-page max-w-md mx-auto bg-gray-100 min-h-screen pb-24 lg:max-w-lg xl:max-w-xl">
     <!-- Content Container -->
     <div class="content-container bg-gray-100 rounded-t-2xl">
       <!-- Top Bar without Header -->
