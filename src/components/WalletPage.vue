@@ -78,7 +78,7 @@
     </div>
 
     <!-- Bottom Navigation Component Placeholder -->
-    <BottomNavigation :activeTab="'wallet'" @navigate="handleNavigate" />
+    <BottomNavigation />
   </div>
 </template>
 
