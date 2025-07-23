@@ -29,7 +29,7 @@
 import BottomNavigation from './BottomNavigation.vue'
 
 export default {
-  name: 'FavoritesPage',
+  name: 'MainPage',
   components: {
     BottomNavigation
   },
