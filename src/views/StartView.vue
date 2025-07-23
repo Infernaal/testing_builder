@@ -81,9 +81,6 @@ const features = ref([
   { id: 3, text: 'Discover the amazing features this bot offers!' }
 ])
 
-// Telegram WebApp support
-const isTelegramWebApp = ref(false)
-
 // Computed styles for better performance
 const cardStyle = computed(() => ({
   background: `
@@ -94,14 +91,7 @@ const cardStyle = computed(() => ({
 
 // Handle start button click
 const handleStart = () => {
-  if (isTelegramWebApp.value && window.Telegram?.WebApp) {
-    // For Telegram WebApp, navigate to home and send data
-    router.push('/favorites')
-    window.Telegram.WebApp.sendData('start_bot')
-  } else {
-    // For regular web, just navigate to home
-    router.push('/favorites')
-  }
+  router.push('/favorites')
 }
 
 // Initialize Telegram WebApp
