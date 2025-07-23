@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StartView from '../views/StartView.vue'
-import WalletPage from '../components/WalletPage.vue'
-import ProfilePage from '../components/ProfilePage.vue'
-import MainPage from '../components/MainPage.vue'
-import CartPage from '../components/CartPage.vue'
-import HoldersPage from '../components/HoldersPage.vue'
+import WalletView from '../views/WalletView.vue'
+import ProfileView from '../views/ProfileView.vue'
+import FavoritesView from '../views/FavoritesView.vue'
+import CartView from '../views/CartView.vue'
+import HoldersView from '../views/HoldersView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,27 +17,27 @@ const router = createRouter({
     {
       path: '/profile',
       name: 'profile',
-      component: ProfilePage,
+      component: ProfileView,
     },
     {
       path: '/wallet',
       name: 'wallet',
-      component: WalletPage,
+      component: WalletView,
     },
     {
-      path: '/main',
-      name: 'main',
-      component: MainPage,
+      path: '/favorites',
+      name: 'favorites',
+      component: FavoritesView,
     },
     {
       path: '/cart',
       name: 'cart',
-      component: CartPage,
+      component: CartView,
     },
     {
       path: '/holders',
       name: 'holders',
-      component: HoldersPage,
+      component: HoldersView,
     },
     // Redirect /home to /wallet as default
     {
