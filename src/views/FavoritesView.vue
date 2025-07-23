@@ -257,20 +257,36 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.favorites-view {
-  font-family: 'Montserrat', sans-serif;
-}
-
 /* Mobile first approach for Telegram mini app */
-@media (max-width: 430px) {
-  .favorites-view {
+@media (max-width: 375px) {
+  main {
     max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .bg-purple-50 {
+    padding: 16px;
+  }
+
+  .text-3xl {
+    font-size: 24px;
   }
 }
 
-@media (min-width: 431px) and (max-width: 768px) {
-  .favorites-view {
-    max-width: 400px;
+@media (min-width: 376px) and (max-width: 768px) {
+  main {
+    max-width: 420px;
+  }
+
+  .bg-purple-50 {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  main {
+    max-width: 480px;
   }
 }
 
@@ -282,5 +298,21 @@ onMounted(async () => {
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 0;
+}
+
+/* Optimize font sizes for mobile */
+@media (max-width: 375px) {
+  .text-2xl {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .text-lg {
+    font-size: 16px;
+  }
+
+  .text-sm {
+    font-size: 12px;
+  }
 }
 </style>
