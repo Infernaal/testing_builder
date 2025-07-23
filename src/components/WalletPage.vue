@@ -64,8 +64,8 @@
       </div>
 
       <!-- Bonus Section -->
-      <div class="bonus-section px-4 mb-6">
-        <div class="bonus-card bg-dbd-light-orange rounded-2xl border border-purple-200 p-3">
+      <div class="bonus-section px-4 mb-6 sm:px-6">
+        <div class="bonus-card bg-dbd-light-orange rounded-2xl border border-purple-200 p-3 sm:p-4 lg:p-5">
           <!-- Header -->
           <div class="bonus-header flex items-center gap-2 mb-4">
             <div class="icon-wrapper w-10 h-10 bg-dbd-off-white rounded-2xl flex items-center justify-center shadow-sm">
