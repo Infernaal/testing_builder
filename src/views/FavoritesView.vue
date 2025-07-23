@@ -260,8 +260,7 @@ const fetchTotalBalance = async () => {
 
 // Methods
 const handleRentOut = () => {
-  console.log('Rent out Forevers')
-  // TODO: Implement rent out functionality with backend API
+  router.push('/rent-out')
 }
 
 const handleAddBalance = (balanceId) => {
