@@ -194,6 +194,28 @@ const mockBalances = [
     currentValue: 4000,
     potentialWorth: 8000,
     availableAmount: null
+  },
+  {
+    id: 'kz',
+    country: 'Forevers KZ',
+    code: 'KZ',
+    amount: 500,
+    usdRate: 2.5,
+    priceChange: -0.05,
+    currentValue: 1250,
+    potentialWorth: 2000,
+    availableAmount: 100
+  },
+  {
+    id: 'pl',
+    country: 'Forevers PL',
+    code: 'PL',
+    amount: 750,
+    usdRate: 3.2,
+    priceChange: 0.23,
+    currentValue: 2400,
+    potentialWorth: 3600,
+    availableAmount: null
   }
 ]
 
