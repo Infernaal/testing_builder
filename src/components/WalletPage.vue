@@ -89,12 +89,6 @@ export default {
   name: 'WalletPage',
   components: {
     BottomNavigation
-  },
-  emits: ['navigate'],
-  methods: {
-    handleNavigate(tab) {
-      this.$emit('navigate', tab)
-    }
   }
 }
 </script>
