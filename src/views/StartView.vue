@@ -49,4 +49,17 @@ button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(32, 25, 206, 0.3);
 }
+
+/* Mobile first approach for Telegram mini app */
+@media (max-width: 430px) {
+  .start-view {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 431px) and (max-width: 768px) {
+  .start-view {
+    max-width: 400px;
+  }
+}
 </style>
