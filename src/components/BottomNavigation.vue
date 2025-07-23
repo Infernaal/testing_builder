@@ -154,7 +154,7 @@ watch(() => route.path, (newPath) => {
   const pathToTab = {
     '/profile': 'profile',
     '/wallet': 'wallet',
-    '/main': 'favorites',
+    '/favorites': 'favorites',
     '/cart': 'cart',
     '/holders': 'holders'
   }
@@ -167,7 +167,7 @@ const navigateTo = (tab) => {
   const routeMap = {
     profile: '/profile',
     wallet: '/wallet',
-    favorites: '/main',
+    favorites: '/favorites',
     cart: '/cart',
     holders: '/holders'
   }
