@@ -1,85 +1,22 @@
 <template>
   <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat">
-    <!-- Header Section -->
-    <header class="relative bg-white pb-4">
-      <!-- Status Bar -->
-      <div class="flex justify-between items-center px-4 pt-4 pb-2">
-        <span class="text-lg font-medium text-dbd-dark">9:41</span>
-        <div class="bg-blue-600 rounded-full px-4 py-1">
-          <span class="text-white text-sm font-medium">TELEGRAM</span>
-        </div>
-        <div class="flex items-center gap-1">
-          <!-- Signal strength bars -->
-          <div class="flex gap-1">
-            <div class="w-1 h-4 bg-dbd-dark rounded-sm"></div>
-            <div class="w-1 h-3 bg-dbd-dark rounded-sm"></div>
-            <div class="w-1 h-2 bg-dbd-dark rounded-sm"></div>
-            <div class="w-1 h-1 bg-dbd-dark rounded-sm"></div>
+    <!-- Main Content -->
+    <main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-24 overflow-y-auto">
+      <!-- Back Button -->
+      <div class="mb-4">
+        <button 
+          @click="goBack"
+          class="w-11 h-11 rounded-full border border-gray-300 bg-dbd-off-white flex items-center justify-center"
+        >
+          <div class="relative w-5 h-5">
+            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full rotate-45 top-2 left-0.5"></div>
+            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full -rotate-45 top-2.5 left-0.5"></div>
           </div>
-          <!-- WiFi icon -->
-          <svg class="w-4 h-4 text-dbd-dark ml-2" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M2.93 7.93A9.5 9.5 0 0 1 10 5a9.5 9.5 0 0 1 7.07 2.93.75.75 0 1 0 1.06-1.06A11 11 0 0 0 10 3.5a11 11 0 0 0-8.13 3.37.75.75 0 1 0 1.06 1.06zM5.05 10.05A5.5 5.5 0 0 1 10 8a5.5 5.5 0 0 1 4.95 2.05.75.75 0 1 0 1.1-1.02A7 7 0 0 0 10 6.5a7 7 0 0 0-6.05 2.53.75.75 0 1 0 1.1 1.02zM7.17 12.17A1.5 1.5 0 0 1 10 11.5c.83 0 1.5.67 1.5 1.5a.75.75 0 0 0 1.5 0 3 3 0 0 0-6 0 .75.75 0 0 0 1.5 0z"/>
-          </svg>
-          <!-- Battery -->
-          <div class="ml-1 w-6 h-3 border border-dbd-dark rounded-sm relative">
-            <div class="w-full h-full bg-dbd-dark rounded-sm"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- DBD Logo -->
-      <div class="flex justify-center py-2">
-        <svg width="60" height="42" viewBox="0 0 60 42" fill="none">
-          <g clip-path="url(#clip0_38_17393)">
-            <path d="M58.3804 5.66168C57.3799 4.0435 55.9873 2.78187 54.1756 1.8905C52.3639 1.01284 50.2953 0.560303 47.9698 0.560303H37.8972V2.65845C38.6814 3.64581 39.0735 4.83888 39.0735 6.21022C39.0735 7.38957 38.7896 8.4455 38.2082 9.39172C38.1136 9.55628 38.0054 9.70713 37.8972 9.84426V11.3939C38.2758 11.7093 38.6138 12.0521 38.9112 12.4498C39.7089 13.5057 40.101 14.7811 40.101 16.2484C40.101 18.2369 39.3574 19.8413 37.8972 20.9932V22.1726H47.9698C50.3088 22.1726 52.3774 21.7338 54.1756 20.8424C55.9873 19.9647 57.3799 18.7031 58.3804 17.0712C59.3674 15.4393 59.8676 13.5469 59.8676 11.3664C59.8676 9.18602 59.3674 7.29357 58.3804 5.66168Z" fill="#2019CE"/>
-            <path d="M2.39308 40.809C1.64947 40.4113 1.05458 39.849 0.635451 39.1359C0.202803 38.4228 0 37.6 0 36.6949C0 35.7899 0.216323 34.9808 0.635451 34.254C1.0681 33.5409 1.64947 32.9786 2.39308 32.5809C3.1367 32.1832 3.97495 31.9775 4.92137 31.9775C5.7461 31.9775 6.47619 32.1284 7.13868 32.4164C7.80118 32.7043 8.34199 33.1295 8.77463 33.6917L7.15221 35.1728C6.57084 34.4597 5.86778 34.1031 5.04305 34.1031C4.55632 34.1031 4.12367 34.2128 3.74511 34.4322C3.36654 34.6516 3.06909 34.9533 2.86629 35.351C2.66349 35.7487 2.55532 36.2013 2.55532 36.7087C2.55532 37.2161 2.66349 37.6686 2.86629 38.0663C3.06909 38.464 3.36654 38.7657 3.74511 38.9851C4.12367 39.2045 4.55632 39.3142 5.04305 39.3142C5.86778 39.3142 6.57084 38.9576 7.15221 38.2446L8.76111 39.7256C8.32847 40.2741 7.77414 40.6993 7.12517 41.0009C6.46267 41.2889 5.73258 41.4398 4.90785 41.4398C3.98847 41.4123 3.1367 41.2204 2.39308 40.809Z" fill="#54565A"/>
-            <path d="M15.8592 39.465H12.0735L11.3705 41.234H8.78809L12.736 32.1558H15.2237L19.1851 41.234H16.5487L15.8592 39.465ZM15.1156 37.5725L13.9663 34.6653L12.8171 37.5725H15.1156Z" fill="#54565A"/>
-            <path d="M26.2428 32.5671C26.8377 32.8413 27.2974 33.2253 27.6219 33.7327C27.9464 34.2401 28.1086 34.8298 28.1086 35.5155C28.1086 36.2011 27.9464 36.7908 27.6219 37.2982C27.2974 37.8056 26.8377 38.1896 26.2428 38.4638C25.6479 38.7381 24.9449 38.8752 24.1337 38.8752H22.5788V41.2477H20.0505V32.1694H24.1472C24.9449 32.1557 25.6479 32.2928 26.2428 32.5671ZM25.1612 36.4891C25.4316 36.256 25.5533 35.9269 25.5533 35.5155C25.5533 35.0903 25.4181 34.7612 25.1612 34.5281C24.9043 34.295 24.4987 34.1715 23.9849 34.1715H22.5788V36.8319H23.9849C24.4987 36.8457 24.8908 36.7222 25.1612 36.4891Z" fill="#54565A"/>
-            <path d="M29.366 32.1558H31.8943V41.234H29.366V32.1558Z" fill="#54565A"/>
-            <path d="M36.1531 34.199H33.4084V32.1694H41.4259V34.199H38.6949V41.234H36.1666V34.199H36.1531Z" fill="#54565A"/>
-            <path d="M47.7264 39.465H43.9407L43.2376 41.234H40.6553L44.6032 32.1558H47.0909L51.0523 41.234H48.4159L47.7264 39.465ZM46.9827 37.5725L45.8335 34.6653L44.6843 37.5725H46.9827Z" fill="#54565A"/>
-            <path d="M51.9043 32.1558H54.4326V39.1907H58.705V41.2203H51.9043V32.1558Z" fill="#54565A"/>
-            <path d="M58.9213 25.9026H0.270508V28.1927H58.9213V25.9026Z" fill="#FF6800"/>
-          </g>
-        </svg>
-      </div>
-    </header>
-
-    <!-- Content Area -->
-    <div class="flex-1 bg-gray-100 rounded-t-2xl relative">
-      <!-- Navigation Header -->
-      <div class="relative bg-gray-100 pt-2 pb-4">
-        <div class="flex items-center justify-between px-4">
-          <button 
-            @click="goBack"
-            class="w-11 h-11 rounded-full border border-gray-300 bg-dbd-off-white flex items-center justify-center"
-          >
-            <div class="relative w-5 h-5">
-              <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full rotate-45 top-2 left-0.5"></div>
-              <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full -rotate-45 top-2.5 left-0.5"></div>
-            </div>
-          </button>
-
-          <div class="text-center">
-            <h1 class="text-lg font-medium">
-              <span class="text-dbd-orange">DBD Capital</span>
-              <span class="text-dbd-primary"> Forevers Bot</span>
-            </h1>
-            <p class="text-xs text-dbd-light-gray">mini App</p>
-          </div>
-
-          <button class="w-11 h-11 flex items-center justify-center">
-            <div class="flex flex-col gap-1">
-              <div class="w-1 h-1 bg-dbd-dark rounded-full"></div>
-              <div class="w-1 h-1 bg-dbd-dark rounded-full"></div>
-              <div class="w-1 h-1 bg-dbd-dark rounded-full"></div>
-            </div>
-          </button>
-        </div>
+        </button>
       </div>
 
       <!-- Forevers Available Section -->
-      <div class="px-4 mb-6">
+      <div class="mb-6">
         <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-3">
           <div class="flex items-center justify-between">
             <div>
@@ -98,7 +35,7 @@
       </div>
 
       <!-- Rent Out Cards List -->
-      <div class="px-4 space-y-4 pb-24">
+      <div class="space-y-4">
         <div 
           v-for="item in foreversList" 
           :key="item.id"
@@ -172,7 +109,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- Bottom Navigation -->
     <BottomNavigation />
@@ -273,30 +210,65 @@ const goBack = () => {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Mobile optimizations */
+/* Mobile first approach for Telegram mini app */
 @media (max-width: 375px) {
+  main {
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
   .text-3xl {
-    font-size: 28px;
+    font-size: 24px;
   }
   
   .text-xl {
     font-size: 18px;
   }
   
-  .px-4 {
-    padding-left: 12px;
-    padding-right: 12px;
+  .text-lg {
+    font-size: 16px;
+  }
+
+  .text-sm {
+    font-size: 12px;
   }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
-  .max-w-md {
+  main {
     max-width: 420px;
+  }
+
+  .bg-dbd-light-blue {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 769px) {
+  main {
+    max-width: 480px;
   }
 }
 
 /* Telegram mini app specific styles */
 .font-montserrat {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Optimize font sizes for mobile */
+@media (max-width: 375px) {
+  .text-2xl {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .text-lg {
+    font-size: 16px;
+  }
+
+  .text-sm {
+    font-size: 12px;
+  }
 }
 </style>
