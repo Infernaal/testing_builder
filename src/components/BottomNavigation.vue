@@ -142,16 +142,25 @@
 import { ref, defineEmits } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
-// Props
-const props = defineProps({
-  activeTab: {
-    type: String,
-    default: 'favorites'
-  }
-})
+// Router
+const router = useRouter()
+const route = useRoute()
 
-// Emits
-const emit = defineEmits(['navigate'])
+// Computed active tab based on current route
+const activeTab = ref('wallet')
+
+// Watch route changes to update active tab
+import { watch } from 'vue'
+watch(() => route.path, (newPath) => {
+  const pathToTab = {
+    '/profile': 'profile',
+    '/wallet': 'wallet',
+    '/main': 'favorites',
+    '/cart': 'cart',
+    '/holders': 'holders'
+  }
+  activeTab.value = pathToTab[newPath] || 'wallet'
+}, { immediate: true })
 
 // Methods
 const navigateTo = (tab) => {
@@ -164,9 +173,6 @@ const navigateTo = (tab) => {
     holders: '/holders'
   }
 
-  // Use Vue Router for navigation
-  import { useRouter } from 'vue-router'
-  const router = useRouter()
   router.push(routeMap[tab])
 }
 </script>
