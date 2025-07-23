@@ -19,9 +19,9 @@
           <div class="relative">
             <div 
               :class="[
-                'w-8 h-8 rounded-lg flex items-center justify-center',
-                activeTab === 'profile' ? 'bg-blue-700' : ''
-              ]"
+              'w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center',
+              activeTab === 'profile' ? 'bg-blue-700' : ''
+            ]"
             >
               <!-- Profile Avatar with Badge -->
               <div class="relative w-8 h-8">
