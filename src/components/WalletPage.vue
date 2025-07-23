@@ -14,8 +14,8 @@
       </div>
 
       <!-- Forevers Balance Section -->
-      <div class="forevers-balance-section px-4 mt-4">
-        <div class="balance-card bg-dbd-light-blue rounded-2xl p-3 mb-4">
+      <div class="forevers-balance-section px-4 mt-4 sm:px-6">
+        <div class="balance-card bg-dbd-light-blue rounded-2xl p-3 mb-4 sm:p-4 lg:p-5">
           <div class="flex items-center justify-between">
             <div class="balance-info">
               <h2 class="text-xl font-semibold text-dbd-dark mb-1">
