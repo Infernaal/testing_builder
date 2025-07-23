@@ -77,16 +77,18 @@
       </div>
     </div>
 
-    <!-- Bottom Navigation Component Placeholder -->
-    <BottomNavigation />
+    <!-- Bottom Navigation Component - Fixed -->
+    <div class="fixed bottom-0 left-0 right-0 z-50">
+      <BottomNavigation />
+    </div>
   </div>
 </template>
 
 <script>
-import BottomNavigation from './BottomNavigation.vue'
+import BottomNavigation from '../components/BottomNavigation.vue'
 
 export default {
-  name: 'WalletPage',
+  name: 'WalletView',
   components: {
     BottomNavigation
   }
@@ -94,12 +96,8 @@ export default {
 </script>
 
 <style scoped>
-.wallet-page {
+.wallet-view {
   font-family: 'Montserrat', sans-serif;
-}
-
-.content-container {
-  padding-top: 1rem;
 }
 
 .balance-card,
@@ -113,28 +111,16 @@ export default {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 640px) {
-  .wallet-page {
+/* Mobile first approach for Telegram mini app */
+@media (max-width: 430px) {
+  .wallet-view {
     max-width: 100%;
-  }
-  
-  .forevers-balance-section,
-  .loyalty-section,
-  .bonus-section {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
 
-@media (min-width: 641px) and (max-width: 1024px) {
-  .wallet-page {
-    max-width: 600px;
-  }
-  
-  .balance-card,
-  .loyalty-card,
-  .bonus-card {
-    padding: 1.5rem;
+@media (min-width: 431px) and (max-width: 768px) {
+  .wallet-view {
+    max-width: 400px;
   }
 }
 </style>
