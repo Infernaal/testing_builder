@@ -54,21 +54,21 @@
         <button 
           @click="navigateTo('wallet')"
           :class="[
-            'flex flex-col items-center gap-1 p-2 min-w-[52px]',
+            'flex flex-col items-center gap-1 p-1 sm:p-2 min-w-[48px] sm:min-w-[52px] flex-1',
             activeTab === 'wallet' ? 'text-blue-700' : 'text-gray-600'
           ]"
         >
-          <div 
+          <div
             :class="[
-              'w-8 h-8 rounded-lg flex items-center justify-center',
+              'w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center',
               activeTab === 'wallet' ? 'bg-blue-700' : ''
             ]"
           >
-            <svg width="20" height="18" viewBox="0 0 20 18" :class="activeTab === 'wallet' ? 'text-white' : 'text-gray-600'">
+            <svg width="18" height="16" viewBox="0 0 20 18" :class="activeTab === 'wallet' ? 'text-white' : 'text-gray-600'" class="w-4 h-4 sm:w-5 sm:h-5">
               <path d="M15.3369 0C16.7553 0 17.9215 1.10571 18.0293 2.50488C19.1647 2.82612 19.9999 3.87598 20 5.11914V15.2842C19.9998 16.7817 18.7879 18 17.2988 18H2.70117C1.21206 18 0.0002339 16.7817 0 15.2842V2.71582C0.000233829 1.21827 1.21206 0 2.70117 0H15.3369ZM2.70117 3.67188C1.90768 3.67188 1.2618 4.32114 1.26172 5.11914V15.2842C1.26195 16.082 1.90778 16.7314 2.70117 16.7314H17.2988C18.0922 16.7314 18.738 16.082 18.7383 15.2842V13.1484H14.7158C13.1219 13.1484 11.8244 11.8443 11.8242 10.2412C11.8242 8.63803 13.1217 7.33301 14.7158 7.33301H18.7383V5.11914C18.7382 4.32114 18.0923 3.67188 17.2988 3.67188H2.70117ZM14.7158 8.60254C13.8174 8.60254 13.0859 9.33767 13.0859 10.2412C13.0861 11.1446 13.8175 11.8799 14.7158 11.8799H18.7383V8.60254H14.7158ZM15.9404 9.6748C16.3756 9.6748 16.7283 9.99219 16.7285 10.3838C16.7285 10.7755 16.3757 11.0938 15.9404 11.0938C15.5052 11.0937 15.1523 10.7755 15.1523 10.3838C15.1526 9.99222 15.5053 9.67484 15.9404 9.6748ZM2.70117 1.26855C1.90778 1.26855 1.26195 1.91796 1.26172 2.71582V2.82227C1.67869 2.5571 2.17244 2.40332 2.70117 2.40332H16.7422C16.5994 1.75535 16.0235 1.26855 15.3369 1.26855H2.70117Z" fill="currentColor"/>
             </svg>
           </div>
-          <span class="text-xs font-medium">Wallet</span>
+          <span class="text-xs sm:text-sm font-medium">Wallet</span>
         </button>
 
         <!-- Favorites (Forevers) - Active -->
