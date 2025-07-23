@@ -94,29 +94,8 @@ const handleStart = () => {
   router.push('/favorites')
 }
 
-// Initialize Telegram WebApp
+// Initialize app
 onMounted(() => {
-  // Check if running in Telegram WebApp
-  if (window.Telegram?.WebApp) {
-    isTelegramWebApp.value = true
-
-    // Initialize Telegram WebApp
-    window.Telegram.WebApp.ready()
-    window.Telegram.WebApp.expand()
-
-    // Set theme colors
-    window.Telegram.WebApp.setHeaderColor('#FFFFFF')
-    window.Telegram.WebApp.setBackgroundColor('#FFFFFF')
-
-    // Setup main button
-    const mainButton = window.Telegram.WebApp.MainButton
-    mainButton.setText('Start')
-    mainButton.color = '#2019CE'
-    mainButton.textColor = '#FFFFFF'
-    mainButton.show()
-    mainButton.onClick(handleStart)
-  }
-
   // Prevent zoom on mobile
   const viewport = document.querySelector('meta[name="viewport"]')
   if (!viewport) {
