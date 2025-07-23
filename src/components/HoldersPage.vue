@@ -21,7 +21,7 @@
     </div>
 
     <!-- Bottom Navigation Component -->
-    <BottomNavigation :activeTab="'holders'" @navigate="handleNavigate" />
+    <BottomNavigation />
   </div>
 </template>
 
