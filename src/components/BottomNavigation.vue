@@ -140,6 +140,7 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
 
 // Props
 const props = defineProps({
