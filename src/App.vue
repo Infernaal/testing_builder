@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
-    <WalletPage />
+  <div class="min-h-screen bg-white">
+    <component :is="currentComponent" @navigate="handleNavigation" />
   </div>
 </template>
 
