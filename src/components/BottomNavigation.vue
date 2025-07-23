@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-white rounded-t-2xl shadow-lg border-t border-gray-100">
+  <div class="bg-white rounded-t-2xl shadow-lg border-t border-gray-100 mt-auto">
     <!-- Home Indicator -->
-    <div class="flex justify-center pt-4 pb-2">
-      <div class="w-35 h-1.5 bg-black rounded-full"></div>
+    <div class="flex justify-center pt-2 pb-1">
+      <div class="w-32 h-1 bg-black rounded-full opacity-30"></div>
     </div>
     
     <!-- Navigation Items -->
