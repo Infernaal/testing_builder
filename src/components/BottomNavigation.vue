@@ -47,7 +47,7 @@
               </div>
             </div>
           </div>
-          <span class="text-xs font-medium">Profile</span>
+          <span class="text-xs sm:text-sm font-medium">Profile</span>
         </button>
 
         <!-- Wallet -->
