@@ -665,14 +665,31 @@ const validateInput = () => {
 }
 
 const handleAddToCart = async () => {
-  // Validate input before proceeding
+  // Clear any pending validation timeout first
+  if (validationTimeout) {
+    clearTimeout(validationTimeout)
+    validationTimeout = null
+  }
+
+  // Force immediate validation before proceeding
   if (!validateInput()) {
     console.error('Invalid input')
     return
   }
 
-  if (!selectedBalance.value || foreversAmount.value <= 0) {
+  // Additional safety checks with explicit limits
+  const numericValue = Number(foreversAmount.value)
+
+  if (!selectedBalance.value || numericValue <= 0) {
     console.error('Invalid input')
+    inputError.value = 'invalid'
+    return
+  }
+
+  // Extra safety check for available amount limit
+  if (selectedBalance.value.availableAmount && numericValue > selectedBalance.value.availableAmount) {
+    console.error('Amount exceeds limit')
+    inputError.value = 'limit'
     return
   }
 
