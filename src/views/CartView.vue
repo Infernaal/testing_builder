@@ -214,6 +214,10 @@ const handleBack = () => {
   router.go(-1)
 }
 
+const selectPaymentMethod = (method) => {
+  selectedPaymentMethod.value = method
+}
+
 const handlePurchase = (paymentData) => {
   // Handle the purchase logic
   console.log('Purchase data:', paymentData)
@@ -226,6 +230,9 @@ const handlePurchase = (paymentData) => {
 
   // Clear cart after successful purchase
   clearCart()
+
+  // Reset payment method selection
+  selectedPaymentMethod.value = ''
 }
 
 const closeSuccessModal = () => {
