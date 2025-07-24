@@ -532,10 +532,17 @@ const handleInputChange = (event) => {
     inputError.value = ''
   }
 
-  // Validate input in real-time with debounce
-  setTimeout(() => {
-    validateInput()
-  }, 500)
+  // Clear previous timeout
+  if (validationTimeout) {
+    clearTimeout(validationTimeout)
+  }
+
+  // Validate input with debounce (only if user stops typing)
+  validationTimeout = setTimeout(() => {
+    if (numericValue) { // Only validate if there's content
+      validateInput()
+    }
+  }, 800)
 }
 
 const getErrorTitle = () => {
