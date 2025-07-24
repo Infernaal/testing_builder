@@ -259,18 +259,16 @@ const handleBuyForevers = () => {
     max-width: 420px;
   }
 
-  .fixed.bottom-24 {
-    border-radius: 16px 16px 0 0;
+  .h-12 {
+    height: 52px !important;
   }
 
-  .back-button {
-    min-width: 120px;
-    height: 52px;
+  .min-w-24 {
+    min-width: 120px !important;
   }
 
-  .buy-button {
-    height: 52px;
-    font-size: 18px;
+  .text-lg {
+    font-size: 18px !important;
   }
 }
 
@@ -278,13 +276,6 @@ const handleBuyForevers = () => {
 @media (min-width: 769px) {
   .cart-view {
     max-width: 480px;
-  }
-
-  .fixed.bottom-24 {
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 480px;
-    border-radius: 20px 20px 0 0;
   }
 }
 
