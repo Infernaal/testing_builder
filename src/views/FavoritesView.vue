@@ -760,6 +760,12 @@ onBeforeUnmount(() => {
     clearTimeout(successTimeout)
     successTimeout = null
   }
+
+  // Clear error notification timeout
+  if (errorTimeout) {
+    clearTimeout(errorTimeout)
+    errorTimeout = null
+  }
 })
 </script>
 
