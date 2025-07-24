@@ -12,7 +12,7 @@
           <div class="flex flex-col items-end gap-2">
             <div class="flex items-center gap-2">
               <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
-                <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
+                <path d="M30.667 7.381V1.333H7.129V9.011H1.333V15.059H7.129V30.108H13.894V22.728H19.615V16.680H13.894V15.059H25.132V9.011H13.894V7.381H30.667Z" fill="currentColor"/>
               </svg>
               <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
             </div>
@@ -58,7 +58,7 @@
           <!-- Token Info -->
           <div class="flex items-center gap-1 mb-3 flex-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
-              <path d="M23 5.53558V1H5.34689V6.75858H1V11.2942H5.34689V22.5807H10.4206V17.0457H14.7116V12.5102H10.4206V11.2942H18.8488V6.75858H10.4206V5.53558H23Z" fill="currentColor"/>
+              <path d="M23 5.536V1H5.347V6.759H1V11.294H5.347V22.581H10.421V17.046H14.712V12.510H10.421V11.294H18.849V6.759H10.421V5.536H23Z" fill="currentColor"/>
             </svg>
             <span class="text-lg font-semibold text-blue-700">{{ balance.amount.toLocaleString() }}</span>
             <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
@@ -110,7 +110,7 @@
                 <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
                 <div class="flex items-center gap-1">
                   <svg width="14" height="14" viewBox="0 0 14 14" class="text-black">
-                    <path d="M12.8602 1.40021H4.3802C4.00686 1.40021 3.7402 1.66687 3.7402 2.04021V4.65354H1.3402C0.966862 4.70687 0.700195 4.97354 0.700195 5.34687C0.700195 5.72021 0.966862 5.98687 1.3402 5.98687H3.7402V11.9602C3.7402 12.3335 4.00686 12.6002 4.3802 12.6002C4.75353 12.6002 5.0202 12.3335 5.0202 11.9602V9.18687H7.7402C8.11353 9.18687 8.3802 8.92021 8.3802 8.54687C8.3802 8.17354 8.11353 7.90687 7.7402 7.90687H5.0202V5.93354H10.1935C10.5669 5.93354 10.8335 5.66687 10.8335 5.29354C10.8335 4.92021 10.5669 4.65354 10.1935 4.65354H5.0202V2.68021H12.8069C13.1802 2.68021 13.4469 2.41354 13.4469 2.04021C13.4469 1.66687 13.2335 1.40021 12.8602 1.40021Z" fill="currentColor"/>
+                    <path d="M12.86 1.4H4.38C4.007 1.4 3.74 1.667 3.74 2.04V4.654H1.34C0.967 4.707 0.7 4.974 0.7 5.347C0.7 5.72 0.967 5.987 1.34 5.987H3.74V11.96C3.74 12.334 4.007 12.6 4.38 12.6C4.754 12.6 5.02 12.334 5.02 11.96V9.187H7.74C8.114 9.187 8.38 8.92 8.38 8.547C8.38 8.174 8.114 7.907 7.74 7.907H5.02V5.934H10.194C10.567 5.934 10.834 5.667 10.834 5.294C10.834 4.92 10.567 4.654 10.194 4.654H5.02V2.68H12.807C13.18 2.68 13.447 2.414 13.447 2.04C13.447 1.667 13.234 1.4 12.86 1.4Z" fill="currentColor"/>
                   </svg>
                   <span class="text-sm font-medium text-black">{{ balance.availableAmount }}</span>
                 </div>
@@ -136,7 +136,7 @@
         <div class="text-center">
           <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg width="32" height="32" viewBox="0 0 32 32" class="text-gray-400">
-              <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
+              <path d="M30.667 7.381V1.333H7.129V9.011H1.333V15.059H7.129V30.108H13.894V22.728H19.615V16.680H13.894V15.059H25.132V9.011H13.894V7.381H30.667Z" fill="currentColor"/>
             </svg>
           </div>
           <h3 class="text-lg font-medium text-gray-900 mb-2">No Balances Found</h3>
