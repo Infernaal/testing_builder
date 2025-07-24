@@ -201,11 +201,21 @@
         </div>
 
         <!-- Input Fields -->
-        <div class="bg-white border border-gray-700 rounded-full p-2 flex items-center gap-2 mb-6 min-h-[52px]">
+        <div :class="[
+          'bg-white rounded-full p-2 flex items-center gap-2 mb-6 min-h-[52px] transition-colors',
+          inputError ? 'border-2 border-red-500' : 'border border-gray-700',
+          isInputFocused && !inputError ? 'border-2 border-blue-700' : ''
+        ]">
           <!-- Forevers Input -->
           <div class="flex items-center gap-2">
-            <div class="w-9 h-9 bg-purple-50 rounded-full flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" class="text-black">
+            <div :class="[
+              'w-9 h-9 rounded-full flex items-center justify-center transition-colors',
+              isInputFocused && !inputError ? 'bg-blue-50' : 'bg-purple-50'
+            ]">
+              <svg width="24" height="24" viewBox="0 0 24 24" :class="[
+                'transition-colors',
+                inputError ? 'text-red-500' : (isInputFocused ? 'text-blue-700' : 'text-black')
+              ]">
                 <path d="M22.046 2.4H7.509C6.869 2.4 6.411 2.858 6.411 3.498V7.978H2.297C1.657 8.069 1.2 8.526 1.2 9.166C1.2 9.806 1.657 10.263 2.297 10.263H6.411V20.503C6.411 21.143 6.869 21.6 7.509 21.6C8.149 21.6 8.606 21.143 8.606 20.503V15.749H13.269C13.909 15.749 14.366 15.292 14.366 14.652C14.366 14.012 13.909 13.555 13.269 13.555H8.606V10.172H17.474C18.114 10.172 18.571 9.715 18.571 9.075C18.571 8.435 18.114 7.978 17.474 7.978H8.606V4.595H21.954C22.594 4.595 23.051 4.138 23.051 3.498C23.051 2.858 22.686 2.4 22.046 2.4Z" fill="currentColor"/>
               </svg>
             </div>
@@ -218,13 +228,16 @@
               </div>
               <input
                 ref="amountInput"
-                v-model.number="foreversAmount"
-                type="number"
-                min="1"
-                :max="selectedBalance?.availableAmount || 999999"
-                class="text-base font-semibold text-black bg-transparent border-none outline-none w-16"
+                v-model="foreversAmount"
+                type="text"
+                :class="[
+                  'text-base font-semibold bg-transparent border-none outline-none w-16',
+                  inputError ? 'text-red-500' : 'text-black'
+                ]"
                 placeholder="250"
-                @input="validateInput"
+                @input="handleInputChange"
+                @focus="handleInputFocus"
+                @blur="handleInputBlur"
               />
             </div>
           </div>
