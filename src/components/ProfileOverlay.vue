@@ -239,21 +239,6 @@ const handleUpgrade = () => {
   console.log('Upgrade clicked')
   // TODO: Add upgrade logic
 }
-
-const copyUserId = async () => {
-  try {
-    await navigator.clipboard.writeText(profileData.value.id)
-    console.log('User ID copied to clipboard')
-    // TODO: Show success notification
-  } catch (err) {
-    console.error('Failed to copy user ID:', err)
-  }
-}
-
-const toggleLanguageSelector = () => {
-  console.log('Language selector clicked')
-  // TODO: Add language selection logic
-}
 </script>
 
 <style scoped>
