@@ -388,15 +388,7 @@ const totalBalance = ref(10196)
 const totalWorth = ref(56000)
 const balances = ref([]) // Will be populated from backend
 
-// Flag classes for different countries
-const flagClasses = {
-  'DE': 'bg-gradient-to-b from-black via-red-600 to-yellow-400',
-  'UAE': 'bg-gradient-to-r from-green-600 via-white to-red-600',
-  'KZ': 'bg-blue-400',
-  'PL': 'bg-red-500',
-  'UA': 'bg-yellow-400 border-b-2 border-blue-500',
-  'US': 'bg-red-600 bg-gradient-to-r from-red-600 via-white to-blue-600'
-}
+// Flag classes are now handled by CountryFlag component
 
 // Mock data for development (remove when connecting to backend)
 const mockBalances = [
