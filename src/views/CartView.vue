@@ -115,6 +115,7 @@ import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
 import PaymentComponent from '../components/PaymentComponent.vue'
+import SuccessModal from '../components/SuccessModal.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
