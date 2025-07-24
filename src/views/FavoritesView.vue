@@ -291,6 +291,8 @@ const showEnterAmountModal = ref(false)
 const selectedBalance = ref(null)
 const foreversAmount = ref(250)
 const amountInput = ref(null)
+const inputError = ref('')
+const isInputFocused = ref(false)
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
@@ -425,6 +427,7 @@ const handleRentOut = () => {
 const openEnterAmountModal = (balance) => {
   selectedBalance.value = balance
   foreversAmount.value = 250 // Default amount
+  inputError.value = '' // Clear any previous errors
   showEnterAmountModal.value = true
 
   // Add keyboard listener for escape key
@@ -443,6 +446,8 @@ const closeEnterAmountModal = () => {
   showEnterAmountModal.value = false
   selectedBalance.value = null
   foreversAmount.value = 250
+  inputError.value = ''
+  isInputFocused.value = false
 
   // Remove keyboard listener
   document.removeEventListener('keydown', handleKeydown)
@@ -457,18 +462,49 @@ const handleKeydown = (event) => {
 }
 
 const validateInput = () => {
-  if (foreversAmount.value < 1) {
-    foreversAmount.value = 1
+  // Clear previous errors
+  inputError.value = ''
+
+  // Convert to string to check for text
+  const inputValue = String(foreversAmount.value)
+
+  // Check for empty value
+  if (!inputValue || inputValue.trim() === '' || inputValue === '0') {
+    inputError.value = 'empty'
+    return false
   }
 
-  if (selectedBalance.value?.availableAmount && foreversAmount.value > selectedBalance.value.availableAmount) {
-    foreversAmount.value = selectedBalance.value.availableAmount
+  // Check for non-numeric characters
+  if (!/^\d+$/.test(inputValue)) {
+    inputError.value = 'invalid'
+    return false
   }
+
+  // Convert back to number for further validation
+  const numValue = Number(inputValue)
+
+  // Check minimum value
+  if (numValue < 1) {
+    foreversAmount.value = 1
+    inputError.value = 'invalid'
+    return false
+  }
+
+  // Check maximum value (available amount)
+  if (selectedBalance.value?.availableAmount && numValue > selectedBalance.value.availableAmount) {
+    inputError.value = 'limit'
+    return false
+  }
+
+  return true
 }
 
 const handleAddToCart = async () => {
   // Validate input before proceeding
-  validateInput()
+  if (!validateInput()) {
+    console.error('Invalid input')
+    return
+  }
 
   if (!selectedBalance.value || foreversAmount.value <= 0) {
     console.error('Invalid input')
