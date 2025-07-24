@@ -235,7 +235,6 @@ const navigateTo = (tab) => {
 
   // Map tab names to routes
   const routeMap = {
-    profile: '/profile',
     wallet: '/wallet',
     favorites: '/favorites',
     cart: '/cart',
