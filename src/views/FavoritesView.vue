@@ -214,9 +214,7 @@
         <div class="mb-4">
           <button class="w-full h-11 border border-gray-200 bg-white rounded-full px-4 flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                <div :class="flagClasses[selectedBalance?.code || 'DE']" class="w-full h-full"></div>
-              </div>
+              <CountryFlag :country="selectedBalance?.code || 'DE'" class="w-6 h-6" />
               <span class="text-sm text-black font-medium">
                 1 Forevers {{ selectedBalance?.code || 'DE' }}
               </span>
