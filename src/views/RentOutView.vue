@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat">
-    <!-- Main Content -->
-    <main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-24 overflow-y-auto">
+  <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat telegram-webapp">
+    <!-- Fixed Header Section -->
+    <div class="w-full max-w-md mx-auto px-4 pt-4 pb-2 bg-gray-100 z-30">
       <!-- Back Button -->
       <div class="mb-4">
         <button 
@@ -15,8 +15,8 @@
         </button>
       </div>
 
-      <!-- Forevers Available Section -->
-      <div class="mb-6">
+      <!-- Forevers Available Section - Fixed -->
+      <div class="mb-4">
         <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-3">
           <div class="flex items-center justify-between">
             <div>
@@ -33,7 +33,10 @@
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- Scrollable Content Area -->
+    <div class="flex-1 w-full max-w-md mx-auto overflow-y-auto px-4 pb-24">
       <!-- Rent Out Cards List -->
       <div class="space-y-4">
         <div 
@@ -109,7 +112,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <!-- Bottom Navigation -->
     <BottomNavigation />
@@ -212,7 +215,7 @@ const goBack = () => {
 
 /* Mobile first approach for Telegram mini app */
 @media (max-width: 375px) {
-  main {
+  .w-full.max-w-md {
     max-width: 100%;
     padding-left: 12px;
     padding-right: 12px;
@@ -236,7 +239,7 @@ const goBack = () => {
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
-  main {
+  .w-full.max-w-md {
     max-width: 420px;
   }
 
@@ -246,8 +249,41 @@ const goBack = () => {
 }
 
 @media (min-width: 769px) {
-  main {
+  .w-full.max-w-md {
     max-width: 480px;
+  }
+}
+
+/* Telegram WebApp optimizations */
+.telegram-webapp {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar in scrollable area */
+.overflow-y-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure fixed header doesn't interfere with scrolling */
+.z-30 {
+  position: relative;
+  z-index: 30;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
   }
 }
 
