@@ -310,8 +310,8 @@ span, h1 {
 
 /* Scroll fade effect */
 .scroll-fade {
-  mask-image: linear-gradient(to bottom, black calc(100% - 64px), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 64px), transparent);
+  mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 48px), transparent);
 }
 
 /* Animations - Enhanced with slide-up effect */
