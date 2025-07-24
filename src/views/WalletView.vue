@@ -76,17 +76,7 @@
         </div>
       </div>
 
-      <!-- Payment Component (for wallet transactions) -->
-      <div class="payment-section">
-        <PaymentComponent
-          :total-amount="defaultAmount"
-          :loyalty-balance="loyaltyBalance"
-          :bonus-balance="bonusBalance"
-          :user-balance="userBalance"
-          @back="handleBack"
-          @purchase="handleWalletPurchase"
-        />
-      </div>
+
     </div>
 
     <!-- Success Modal -->
