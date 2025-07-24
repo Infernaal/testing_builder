@@ -59,7 +59,7 @@ const emit = defineEmits(['back', 'purchase'])
 /* Mobile optimizations for Telegram WebApp */
 @media (max-width: 375px) {
   .cart-bottom-component {
-    padding: 12px 14px;
+    padding: 12px 14px 24px 14px;
   }
 
   .action-buttons .back-button {
