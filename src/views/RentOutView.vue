@@ -270,13 +270,37 @@ const goBack = () => {
   }
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
+/* Small mobile devices */
+@media (min-width: 376px) and (max-width: 480px) {
+  .w-full.max-w-md {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .bg-dbd-light-blue {
+    padding: 16px;
+  }
+}
+
+/* Tablets and larger phones */
+@media (min-width: 481px) and (max-width: 768px) {
   .w-full.max-w-md {
     max-width: 420px;
   }
 
   .bg-dbd-light-blue {
     padding: 20px;
+  }
+
+  .text-4xl {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .text-2xl {
+    font-size: 20px;
+    line-height: 24px;
   }
 }
 
