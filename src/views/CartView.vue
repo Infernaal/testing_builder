@@ -203,19 +203,21 @@ const handleBuyForevers = () => {
     padding: 12px;
   }
 
-  .back-button {
-    min-width: 90px;
-    height: 44px;
-    padding-left: 12px;
-    padding-right: 12px;
-    font-size: 14px;
+  /* Mobile button optimizations */
+  .h-12 {
+    height: 44px !important;
   }
 
-  .buy-button {
-    height: 44px;
-    padding-left: 16px;
-    padding-right: 16px;
-    font-size: 16px;
+  .min-w-24 {
+    min-width: 90px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .flex-1 {
+    font-size: 16px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 
   /* Smaller text for mobile */
