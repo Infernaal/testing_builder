@@ -1,49 +1,9 @@
 <template>
-  <div class="cart-view w-full max-w-md mx-auto bg-white min-h-screen flex flex-col font-montserrat">
-    <!-- Top Bar -->
-    <div class="top-bar w-full h-17 flex-shrink-0 bg-white relative">
-      <div class="flex w-full justify-between items-center absolute left-0 top-4 h-9">
-        <div class="time flex px-1.5 justify-center items-center gap-2.5 flex-1">
-          <div class="time-text text-dbd-dark text-center text-lg font-semibold leading-6">
-            9:41
-          </div>
-        </div>
-        <div class="dbd-logo w-35 h-9 flex-shrink-0">
-          <div class="w-35 h-9 flex-shrink-0 rounded-8 bg-blue-600"></div>
-          <div class="telegram-text text-white text-center text-base font-medium leading-5 absolute left-9 top-2 w-23 h-5">
-            TELEGRAM
-          </div>
-        </div>
-        <div class="status-icons flex px-1.5 justify-center items-center gap-1.5 flex-1">
-          <!-- Status icons would go here -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Content Container with gray background and rounded top corners -->
-    <div class="content-container bg-dbd-off-white rounded-t-2xl flex-1 flex flex-col relative">
-      <!-- Top Bar with title -->
-      <div class="content-top-bar w-full h-11 flex-shrink-0 absolute left-0 top-2">
-        <div class="title text-dbd-orange text-center text-lg font-medium leading-5 absolute left-18 top-1 w-58 h-5">
-          <span class="text-dbd-orange">DBD Capital</span>
-          <span class="text-dbd-primary"> Forevers Bot</span>
-        </div>
-        <div class="mini-app text-dbd-light-gray text-center text-xs font-medium leading-4 absolute left-40 top-6 w-14 h-4">
-          mini App
-        </div>
-        
-        <!-- Close Button -->
-        <div class="close-btn w-11 h-11 flex-shrink-0 absolute left-2 top-0">
-          <div class="w-8 h-8 flex-shrink-0 fill-dbd-off-white stroke-1 stroke-gray-300 rounded-full border absolute left-1.5 top-1.5"></div>
-          <div class="close-icon w-5 h-5 flex-shrink-0 absolute left-3 top-3">
-            <div class="w-4.5 h-0.5 transform rotate-45 flex-shrink-0 rounded-3 bg-dbd-dark absolute left-0.75 top-0.75"></div>
-            <div class="w-4.5 h-0.5 transform -rotate-45 flex-shrink-0 rounded-3 bg-dbd-dark absolute left-0.75 top-0.75"></div>
-          </div>
-        </div>
-      </div>
-      
+  <div class="cart-view w-full max-w-md mx-auto bg-dbd-off-white min-h-screen flex flex-col font-montserrat">
+    <!-- Content Container -->
+    <div class="content-container bg-dbd-off-white flex-1 flex flex-col relative">
       <!-- Scrollable Cart Items Area -->
-      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-16 pb-32" v-if="cartItemsCount > 0">
+      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-4 pb-32" v-if="cartItemsCount > 0">
         <div class="space-y-2">
           <div
             v-for="item in cartItems"
