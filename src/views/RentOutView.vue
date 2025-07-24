@@ -4,7 +4,7 @@
     <div class="w-full max-w-md mx-auto px-4 pt-6 pb-3 bg-gray-100 z-30">
       <!-- Forevers Available Section - Fixed -->
       <div class="mb-2">
-        <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-3">
+        <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-4">
           <div class="flex items-center justify-between">
             <div>
               <h2 class="text-xl font-semibold text-dbd-dark leading-tight">
