@@ -1,10 +1,60 @@
 <template>
   <div>
-    <!-- Profile Menu Component -->
-    <ProfileMenu 
-      :is-visible="isProfileMenuOpen" 
+    <!-- Profile Overlay Component -->
+    <ProfileOverlay
+      :is-visible="isProfileMenuOpen"
       @close="closeProfileMenu"
     />
+
+    <!-- ID and Language Section - Above Navigation -->
+    <Transition
+      name="id-section"
+      enter-active-class="transition-all duration-300 ease-out"
+      leave-active-class="transition-all duration-200 ease-in"
+      enter-from-class="opacity-0 translate-y-full"
+      enter-to-class="opacity-100 translate-y-0"
+      leave-from-class="opacity-100 translate-y-0"
+      leave-to-class="opacity-0 translate-y-full"
+    >
+      <div v-if="isProfileMenuOpen" class="fixed bottom-20 left-0 right-0 px-4 pb-2 z-40">
+        <div class="flex items-center justify-between gap-3 max-w-sm mx-auto">
+          <!-- User ID с копированием - Enhanced visibility -->
+          <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl">
+            <div class="px-4 py-3">
+              <span class="text-[#555] text-sm font-bold">ID: </span>
+              <span class="text-[#000] text-sm font-bold">515745</span>
+            </div>
+            <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
+                <path d="M18.2806 1.19995H8.98336C8.42322 1.19995 7.88603 1.43348 7.48995 1.84917C7.09387 2.26486 6.87136 2.82866 6.87136 3.41653V4.26906H5.81536C5.2278 4.26906 4.66431 4.51402 4.24885 4.95006C3.83338 5.3861 3.59998 5.97749 3.59998 6.59414V20.4749C3.59998 21.0915 3.83338 21.6829 4.24885 22.119C4.66431 22.555 5.2278 22.8 5.81536 22.8H14.9132C15.5008 22.8 16.0643 22.555 16.4797 22.119C16.8952 21.6829 17.1286 21.0915 17.1286 20.4749V19.6998H18.2806C18.8363 19.6999 19.3699 19.4709 19.7663 19.0621C20.1627 18.6533 20.3903 18.0975 20.4 17.5143V3.41653C20.398 2.82794 20.1739 2.26417 19.7766 1.8487C19.3794 1.43323 18.8414 1.19995 18.2806 1.19995Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Language Selector с флагом - Enhanced visibility -->
+          <button
+            @click="toggleLanguageSelector"
+            class="flex items-center gap-2 px-4 py-3 bg-white/80 border-2 border-white rounded-full backdrop-blur-sm transition-all hover:bg-white/90 shadow-xl"
+          >
+            <div class="w-8 h-8 rounded-full overflow-hidden">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
+                <path d="M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z" fill="#D80027"/>
+                <path d="M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z" fill="#D80027"/>
+                <path d="M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z" fill="#D80027"/>
+                <path d="M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z" fill="#D80027"/>
+                <path d="M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z" fill="#0052B4"/>
+              </svg>
+            </div>
+            <span class="text-[#333] text-sm font-bold">ENG</span>
+            <svg width="12" height="12" viewBox="0 0 20 20" fill="none" class="text-gray-600">
+              <circle opacity="0.2" cx="10" cy="10" r="10" fill="gray"/>
+              <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="currentColor" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </Transition>
 
     <!-- Bottom Navigation -->
     <div class="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-lg border-t border-gray-100 z-50">
@@ -40,7 +90,7 @@
                 ]">
                   <div class="rounded-full border-2 border-purple-400 overflow-hidden w-6 h-6">
                     <img
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fcd0d81f444984dacbac377cc9f78a1aa%2F572074b5aefa4337aec163bd9a21aec3?format=webp&width=800"
                       alt="Profile"
                       class="w-full h-full object-cover"
                     />
@@ -199,7 +249,7 @@
 import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useCart } from '../composables/useCart.js'
-import ProfileMenu from './ProfileMenu.vue'
+import ProfileOverlay from './ProfileOverlay.vue'
 
 // Router
 const router = useRouter()
@@ -217,7 +267,6 @@ const activeTab = ref('wallet')
 // Watch route changes to update active tab
 watch(() => route.path, (newPath) => {
   const pathToTab = {
-    '/profile': 'profile',
     '/wallet': 'wallet',
     '/favorites': 'favorites',
     '/rent-out': 'favorites', // RentOut is part of Favorites section
@@ -236,7 +285,6 @@ const navigateTo = (tab) => {
 
   // Map tab names to routes
   const routeMap = {
-    profile: '/profile',
     wallet: '/wallet',
     favorites: '/favorites',
     cart: '/cart',
@@ -252,6 +300,21 @@ const toggleProfile = () => {
 
 const closeProfileMenu = () => {
   isProfileMenuOpen.value = false
+}
+
+const copyUserId = async () => {
+  try {
+    await navigator.clipboard.writeText('515745')
+    console.log('User ID copied to clipboard')
+    // TODO: Show success notification
+  } catch (err) {
+    console.error('Failed to copy user ID:', err)
+  }
+}
+
+const toggleLanguageSelector = () => {
+  console.log('Language selector clicked')
+  // TODO: Add language selection logic
 }
 </script>
 
@@ -332,5 +395,31 @@ button:active {
     min-width: 18px !important;
     line-height: 1 !important;
   }
+}
+
+/* ID section transitions */
+.id-section-enter-active,
+.id-section-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.id-section-enter-from {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.id-section-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.id-section-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.id-section-leave-to {
+  opacity: 0;
+  transform: translateY(100%);
 }
 </style>
