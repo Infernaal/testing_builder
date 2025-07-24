@@ -94,8 +94,8 @@
           <!-- Verification with Badge -->
           <div @click="handleMenuClick('verification')" class="flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
             <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-              <svg width="20" height="20" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.2511 12.4974C15.4932 12.4974 16.5 13.5045 16.5 14.7467V15.3222C16.5 16.2166 16.1805 17.0816 15.5989 17.7611C14.0295 19.5949 11.6422 20.5 8.49673 20.5C5.35076 20.5 2.96466 19.5946 1.39831 17.7601C0.818531 17.081 0.5 16.2174 0.5 15.3245V14.7467C0.5 13.5045 1.50689 12.4974 2.74896 12.4974H14.2511Z" fill="white"/>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12.75L11.25 15L15 9.75M21 12C21 16.5563 16.5563 21 12 21C7.44365 21 3 16.5563 3 12C3 7.44365 7.44365 3 12 3C16.5563 3 21 7.44365 21 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
             <span class="text-white font-bold text-base flex-1">Verification</span>
