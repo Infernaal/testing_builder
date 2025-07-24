@@ -498,6 +498,12 @@ onMounted(async () => {
     fetchTotalBalance()
   ])
 })
+
+// Cleanup
+onBeforeUnmount(() => {
+  // Remove any remaining keyboard listeners
+  document.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <style scoped>
