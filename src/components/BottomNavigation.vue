@@ -217,7 +217,6 @@ const activeTab = ref('wallet')
 // Watch route changes to update active tab
 watch(() => route.path, (newPath) => {
   const pathToTab = {
-    '/profile': 'profile',
     '/wallet': 'wallet',
     '/favorites': 'favorites',
     '/rent-out': 'favorites', // RentOut is part of Favorites section
