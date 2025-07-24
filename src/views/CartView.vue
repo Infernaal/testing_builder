@@ -192,6 +192,7 @@ const handleBuyForevers = () => {
   .scrollable-content {
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 240px !important; /* Extra space for mobile */
   }
 
   .fixed.bottom-24 {
