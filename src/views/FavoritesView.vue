@@ -38,9 +38,7 @@
           <!-- Country Header -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                <div :class="flagClasses[balance.code]" class="w-full h-full"></div>
-              </div>
+              <CountryFlag :country="balance.code" class="w-6 h-6" />
               <span class="text-gray-700 font-medium text-base">{{ balance.country }} Balance</span>
             </div>
 
