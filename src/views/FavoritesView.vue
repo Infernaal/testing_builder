@@ -338,6 +338,7 @@ const foreversAmount = ref(250)
 const amountInput = ref(null)
 const inputError = ref('')
 const isInputFocused = ref(false)
+let validationTimeout = null
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
