@@ -83,6 +83,15 @@
 
     </div>
 
+    <!-- Fixed Cart Bottom Component (only when cart has items) -->
+    <div v-if="cartItemsCount > 0" class="fixed-bottom-section">
+      <CartBottomComponent
+        :total-amount="cartTotal"
+        @back="handleBack"
+        @purchase="handlePurchase"
+      />
+    </div>
+
     <!-- Success Modal -->
     <SuccessModal
       :is-visible="showSuccessModal"
