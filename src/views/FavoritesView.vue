@@ -1,48 +1,47 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col font-sans">
+  <div class="h-screen bg-gray-100 flex flex-col font-sans overflow-hidden">
     <!-- Main Content -->
-    <main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-24 overflow-y-auto">
+    <main class="flex-1 w-full max-w-md mx-auto px-3.5 pt-4 pb-2 flex flex-col">
       <!-- Total Balance Card -->
-      <div class="bg-purple-50 border border-purple-200 rounded-2xl p-6 mb-6 relative">
+      <div class="bg-purple-50 border border-purple-200 rounded-2xl p-3 mb-2 flex-shrink-0">
         <div class="flex items-start justify-between mb-4">
-          <h2 class="text-2xl font-semibold text-black leading-tight">
+          <h2 class="text-xl font-semibold text-black leading-5">
             Forevers<br>Balance
           </h2>
 
-          <div class="flex items-center gap-2">
-            <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
-              <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
-            </svg>
-            <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
+          <div class="flex flex-col items-end gap-2">
+            <div class="flex items-center gap-2">
+              <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
+                <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
+              </svg>
+              <span class="text-2xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
+            </div>
+            <p class="text-base text-gray-600">Worth ${{ totalWorth.toLocaleString() }}</p>
           </div>
-        </div>
-
-        <div class="text-right">
-          <p class="text-lg text-gray-600">Worth ${{ totalWorth.toLocaleString() }}</p>
         </div>
 
         <button
           @click="handleRentOut"
-          class="w-full bg-gradient-to-r from-blue-700 to-purple-600 text-white font-bold py-3 px-12 rounded-full mt-6 hover:from-blue-800 hover:to-purple-700 transition-all duration-200"
+          class="w-full bg-gradient-to-r from-blue-700 to-purple-600 text-white font-bold py-3 px-12 rounded-full hover:from-blue-800 hover:to-purple-700 transition-all duration-200"
         >
           Rent Out Forevers
         </button>
       </div>
 
-      <!-- Balance Items List -->
-      <div class="space-y-4" v-if="balances.length > 0">
+      <!-- Scroll Content -->
+      <div class="flex-1 overflow-y-auto pt-2 space-y-2" v-if="balances.length > 0">
         <div
           v-for="balance in balances"
           :key="balance.id"
-          class="bg-white border border-purple-200 rounded-2xl p-4 relative"
+          class="bg-white border border-purple-200 rounded-2xl p-3 relative min-h-[216px] flex flex-col justify-between"
         >
           <!-- Country Header -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-3">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
               <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
                 <div :class="flagClasses[balance.code]" class="w-full h-full"></div>
               </div>
-              <span class="text-gray-700 font-medium">{{ balance.country }} Balance</span>
+              <span class="text-gray-700 font-medium text-base">{{ balance.country }} Balance</span>
             </div>
 
             <button
@@ -57,7 +56,7 @@
           </div>
 
           <!-- Token Info -->
-          <div class="flex items-center gap-2 mb-4 flex-wrap">
+          <div class="flex items-center gap-1 mb-3 flex-wrap">
             <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
               <path d="M23 5.53558V1H5.34689V6.75858H1V11.2942H5.34689V22.5807H10.4206V17.0457H14.7116V12.5102H10.4206V11.2942H18.8488V6.75858H10.4206V5.53558H23Z" fill="currentColor"/>
             </svg>
@@ -67,7 +66,7 @@
 
             <div
               :class="[
-                'px-2 py-1 rounded text-xs font-semibold flex items-center gap-1',
+                'px-2 py-0.5 rounded text-xs font-semibold flex items-center gap-1 ml-1',
                 balance.priceChange > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
               ]"
             >
@@ -133,14 +132,16 @@
       </div>
 
       <!-- Empty State (when no balances from backend) -->
-      <div v-else class="text-center py-12">
-        <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg width="32" height="32" viewBox="0 0 32 32" class="text-gray-400">
-            <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
-          </svg>
+      <div v-else class="flex-1 flex items-center justify-center">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="text-gray-400">
+              <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="text-lg font-medium text-gray-900 mb-2">No Balances Found</h3>
+          <p class="text-gray-600 mb-4">Your balance data will appear here when available.</p>
         </div>
-        <h3 class="text-lg font-medium text-gray-900 mb-2">No Balances Found</h3>
-        <p class="text-gray-600 mb-4">Your balance data will appear here when available.</p>
       </div>
     </main>
 
@@ -169,9 +170,9 @@ const flagClasses = {
   'DE': 'bg-gradient-to-b from-black via-red-600 to-yellow-400',
   'UAE': 'bg-gradient-to-r from-green-600 via-white to-red-600',
   'KZ': 'bg-blue-400',
-  'PL': 'bg-red-400',
-  'UA': 'bg-yellow-400',
-  'US': 'bg-blue-600'
+  'PL': 'bg-red-500',
+  'UA': 'bg-yellow-400 border-b-2 border-blue-500',
+  'US': 'bg-red-600 bg-gradient-to-r from-red-600 via-white to-blue-600'
 }
 
 // Mock data for development (remove when connecting to backend)
@@ -202,23 +203,45 @@ const mockBalances = [
     id: 'kz',
     country: 'Forevers KZ',
     code: 'KZ',
-    amount: 500,
-    usdRate: 2.5,
-    priceChange: -0.05,
-    currentValue: 1250,
-    potentialWorth: 2000,
-    availableAmount: 100
+    amount: 1000,
+    usdRate: 8,
+    priceChange: -0.17,
+    currentValue: 4000,
+    potentialWorth: 8000,
+    availableAmount: 250
   },
   {
     id: 'pl',
     country: 'Forevers PL',
     code: 'PL',
-    amount: 750,
-    usdRate: 3.2,
-    priceChange: 0.23,
-    currentValue: 2400,
-    potentialWorth: 3600,
-    availableAmount: null
+    amount: 1000,
+    usdRate: 4,
+    priceChange: -0.17,
+    currentValue: 4000,
+    potentialWorth: 8000,
+    availableAmount: 250
+  },
+  {
+    id: 'ua',
+    country: 'Forevers UA',
+    code: 'UA',
+    amount: 1000,
+    usdRate: 4,
+    priceChange: -0.17,
+    currentValue: 4000,
+    potentialWorth: 8000,
+    availableAmount: 250
+  },
+  {
+    id: 'us',
+    country: 'Forevers US',
+    code: 'US',
+    amount: 1000,
+    usdRate: 4,
+    priceChange: -0.17,
+    currentValue: 4000,
+    potentialWorth: 8000,
+    availableAmount: 250
   }
 ]
 
