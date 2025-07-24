@@ -89,6 +89,17 @@
       </div>
     </div>
 
+    <!-- Success Modal -->
+    <SuccessModal
+      :is-visible="showSuccessModal"
+      :title="'Transaction Successful!'"
+      :message="'Your wallet transaction has been completed successfully.'"
+      :payment-details="lastTransactionDetails"
+      :confirm-text="'Continue'"
+      @close="closeSuccessModal"
+      @confirm="closeSuccessModal"
+    />
+
     <!-- Bottom Navigation Component -->
     <BottomNavigation />
   </div>
