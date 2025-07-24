@@ -343,6 +343,14 @@ const amountInput = ref(null)
 const inputError = ref('')
 const isInputFocused = ref(false)
 let validationTimeout = null
+
+// Cart functionality
+const { addToCart, isAddingToCart } = useCart()
+
+// Success notification
+const showSuccessNotification = ref(false)
+const successMessage = ref('')
+let successTimeout = null
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
