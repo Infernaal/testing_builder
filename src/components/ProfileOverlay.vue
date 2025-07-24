@@ -70,11 +70,11 @@
         </div>
 
         <!-- Menu Items Section with scroll fade -->
-        <div class="relative">
+        <div class="relative mt-4">
           <!-- Scroll fade overlay at bottom -->
           <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#120B81] via-[#120B81]/90 to-transparent pointer-events-none z-10"></div>
 
-          <div class="px-6 space-y-1 overflow-y-auto scroll-smooth touch-scroll" style="height: 160px;">
+          <div class="px-6 space-y-1 overflow-y-auto scroll-smooth touch-scroll" style="height: 200px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
