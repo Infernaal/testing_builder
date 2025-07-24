@@ -45,7 +45,7 @@
             </div>
 
             <button
-              @click="handleAddBalance(balance.id)"
+              @click="openEnterAmountModal(balance)"
               class="w-16 h-11 border border-blue-700 bg-purple-50 rounded-full flex items-center justify-center hover:bg-purple-100 transition-colors"
             >
               <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
@@ -153,6 +153,109 @@
 
     <!-- Bottom Navigation -->
     <BottomNavigation />
+
+    <!-- Enter Amount Modal -->
+    <div
+      v-if="showEnterAmountModal"
+      class="fixed inset-0 z-50 flex items-center justify-center"
+      @click="closeEnterAmountModal"
+    >
+      <!-- Blur Backdrop -->
+      <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-[9px]"></div>
+
+      <!-- Modal Content -->
+      <div
+        @click.stop
+        class="relative bg-white rounded-[20px] w-[311px] p-6 mx-4 max-w-[calc(100%-32px)]"
+      >
+        <!-- Title -->
+        <h2 class="text-lg font-semibold text-black text-center mb-3">
+          Enter Amount
+        </h2>
+
+        <!-- Exchange Rate Display -->
+        <div class="mb-4">
+          <button class="w-full h-11 border border-gray-200 bg-white rounded-full px-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
+                <div :class="flagClasses[selectedBalance?.code || 'DE']" class="w-full h-full"></div>
+              </div>
+              <span class="text-sm text-black font-medium">
+                1 Forevers {{ selectedBalance?.code || 'DE' }}
+              </span>
+              <span class="text-sm text-gray-600">/</span>
+              <span class="text-sm text-blue-700 font-medium">
+                {{ selectedBalance?.usdRate || 4 }} USD
+              </span>
+            </div>
+          </button>
+        </div>
+
+        <!-- Input Fields -->
+        <div class="bg-white border border-gray-700 rounded-full p-2 flex items-center gap-2 mb-6">
+          <!-- Forevers Input -->
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-purple-50 rounded-full flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" class="text-black">
+                <path d="M22.046 2.4H7.509C6.869 2.4 6.411 2.858 6.411 3.498V7.978H2.297C1.657 8.069 1.2 8.526 1.2 9.166C1.2 9.806 1.657 10.263 2.297 10.263H6.411V20.503C6.411 21.143 6.869 21.6 7.509 21.6C8.149 21.6 8.606 21.143 8.606 20.503V15.749H13.269C13.909 15.749 14.366 15.292 14.366 14.652C14.366 14.012 13.909 13.555 13.269 13.555H8.606V10.172H17.474C18.114 10.172 18.571 9.715 18.571 9.075C18.571 8.435 18.114 7.978 17.474 7.978H8.606V4.595H21.954C22.594 4.595 23.051 4.138 23.051 3.498C23.051 2.858 22.686 2.4 22.046 2.4Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs text-gray-600 font-medium">Forevers {{ selectedBalance?.code || 'DE' }}</span>
+              <input
+                v-model="foreversAmount"
+                type="number"
+                class="text-base font-semibold text-black bg-transparent border-none outline-none w-16"
+                placeholder="250"
+              />
+            </div>
+          </div>
+
+          <!-- Exchange Icon -->
+          <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-400 flex-shrink-0">
+            <g clip-path="url(#clip0_41_9960)">
+              <path d="M8.00065 14.6667C4.31865 14.6667 1.33398 11.682 1.33398 8.00004C1.33398 4.31804 4.31865 1.33337 8.00065 1.33337C11.6827 1.33337 14.6673 4.31804 14.6673 8.00004C14.6673 11.682 11.6827 14.6667 8.00065 14.6667ZM8.00065 13.3334C9.41514 13.3334 10.7717 12.7715 11.7719 11.7713C12.7721 10.7711 13.334 9.41453 13.334 8.00004C13.334 6.58555 12.7721 5.229 11.7719 4.2288C10.7717 3.22861 9.41514 2.66671 8.00065 2.66671C6.58616 2.66671 5.22961 3.22861 4.22942 4.2288C3.22922 5.229 2.66732 6.58555 2.66732 8.00004C2.66732 9.41453 3.22922 10.7711 4.22942 11.7713C5.22961 12.7715 6.58616 13.3334 8.00065 13.3334ZM4.66732 8.66671L10.6673 8.66671V10H8.00065V12L4.66732 8.66671ZM8.00065 6.00004V4.00004L11.334 7.33337L5.33398 7.33337V6.00004H8.00065Z" fill="currentColor"/>
+            </g>
+            <defs>
+              <clipPath id="clip0_41_9960">
+                <rect width="16" height="16" fill="white"/>
+              </clipPath>
+            </defs>
+          </svg>
+
+          <!-- Dollars Input -->
+          <div class="flex items-center gap-2">
+            <div class="w-9 h-9 bg-gray-100 rounded-full flex items-center justify-center">
+              <svg width="24" height="24" viewBox="0 0 24 24" class="text-gray-600">
+                <path d="M11.852 24C11.549 24 11.298 23.906 11.1 23.717C10.903 23.528 10.804 23.289 10.804 23V21.2C9.686 21.022 8.731 20.644 7.939 20.067C7.147 19.489 6.53 18.756 6.087 17.867C5.971 17.622 5.971 17.367 6.087 17.1C6.204 16.833 6.402 16.644 6.681 16.533C6.937 16.422 7.199 16.422 7.467 16.533C7.735 16.644 7.939 16.822 8.079 17.067C8.498 17.822 9.045 18.389 9.721 18.767C10.396 19.144 11.176 19.333 12.061 19.333C13.179 19.333 14.099 19.067 14.821 18.533C15.543 18 15.904 17.267 15.904 16.333C15.904 15.356 15.584 14.6 14.943 14.067C14.303 13.533 13.098 12.989 11.328 12.433C9.651 11.922 8.399 11.244 7.572 10.4C6.745 9.556 6.332 8.5 6.332 7.233C6.332 6.011 6.745 4.989 7.572 4.167C8.399 3.344 9.476 2.878 10.804 2.767V1C10.804 0.711 10.903 0.472 11.1 0.283C11.298 0.094 11.549 0 11.852 0C12.154 0 12.405 0.094 12.603 0.283C12.801 0.472 12.9 0.711 12.9 1V2.767C13.738 2.878 14.489 3.122 15.153 3.5C15.817 3.878 16.37 4.367 16.812 4.967C16.975 5.189 17.01 5.428 16.917 5.683C16.824 5.939 16.638 6.122 16.358 6.233C16.102 6.344 15.834 6.356 15.555 6.267C15.275 6.178 15.042 6.011 14.856 5.767C14.53 5.367 14.128 5.072 13.651 4.883C13.173 4.694 12.597 4.6 11.921 4.6C10.85 4.6 10 4.833 9.371 5.3C8.742 5.767 8.428 6.4 8.428 7.2C8.428 8.044 8.777 8.728 9.476 9.25C10.175 9.772 11.467 10.311 13.354 10.867C14.937 11.333 16.108 12.006 16.865 12.883C17.622 13.761 18 14.867 18 16.2C18 17.6 17.569 18.728 16.707 19.583C15.846 20.439 14.576 20.989 12.9 21.233V23C12.9 23.289 12.801 23.528 12.603 23.717C12.405 23.906 12.154 24 11.852 24Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <span class="text-xs text-gray-600 font-medium">Dollars</span>
+              <span class="text-base font-semibold text-gray-700">
+                {{ dollarsAmount.toLocaleString() }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-3">
+          <button
+            @click="closeEnterAmountModal"
+            class="flex-1 h-11 border border-gray-700 bg-white rounded-full text-gray-700 text-base font-medium hover:bg-gray-50 transition-colors"
+          >
+            Back
+          </button>
+          <button
+            @click="handleAddToCart"
+            class="flex-1 h-11 bg-gradient-to-r from-blue-700 to-purple-600 text-white rounded-full text-lg font-bold hover:from-blue-800 hover:to-purple-700 transition-all duration-200"
+          >
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -165,6 +268,13 @@ const router = useRouter()
 
 // App state
 const isLoading = ref(false)
+const showEnterAmountModal = ref(false)
+const selectedBalance = ref(null)
+const foreversAmount = ref(250)
+const dollarsAmount = computed(() => {
+  if (!selectedBalance.value) return 1000
+  return foreversAmount.value * selectedBalance.value.usdRate
+})
 
 // Data - Ready for backend integration
 const totalBalance = ref(10196)
@@ -292,9 +402,36 @@ const handleRentOut = () => {
   router.push('/rent-out')
 }
 
-const handleAddBalance = (balanceId) => {
-  console.log('Add balance for:', balanceId)
-  // TODO: Implement add balance functionality with backend API
+const openEnterAmountModal = (balance) => {
+  selectedBalance.value = balance
+  foreversAmount.value = 250 // Default amount
+  showEnterAmountModal.value = true
+}
+
+const closeEnterAmountModal = () => {
+  showEnterAmountModal.value = false
+  selectedBalance.value = null
+}
+
+const handleAddToCart = () => {
+  console.log('Adding to cart:', {
+    balance: selectedBalance.value,
+    foreversAmount: foreversAmount.value,
+    dollarsAmount: dollarsAmount.value
+  })
+
+  // TODO: Implement add to cart functionality with backend API
+  // const payload = {
+  //   balanceId: selectedBalance.value.id,
+  //   amount: foreversAmount.value,
+  //   totalCost: dollarsAmount.value
+  // }
+  // await addToCart(payload)
+
+  closeEnterAmountModal()
+
+  // Show success notification or navigate to cart
+  // router.push('/cart')
 }
 
 // Initialize
