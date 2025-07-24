@@ -20,6 +20,9 @@ if (window.Telegram && window.Telegram.WebApp) {
   // Enable closing confirmation
   tg.enableClosingConfirmation()
 
+  // Disable vertical swipes (prevents accidental page refresh)
+  tg.disableVerticalSwipes()
+
   // Set viewport settings for better mobile experience
   document.documentElement.style.setProperty('--tg-viewport-height', tg.viewportHeight + 'px')
   document.documentElement.style.setProperty('--tg-viewport-stable-height', tg.viewportStableHeight + 'px')
@@ -41,6 +44,44 @@ if (window.Telegram && window.Telegram.WebApp) {
       document.documentElement.style.setProperty('--tg-text-color', themeParams.text_color)
     }
   })
+
+  // Add haptic feedback support
+  window.triggerHaptic = (type = 'impact', style = 'medium') => {
+    if (tg.HapticFeedback) {
+      if (type === 'impact') {
+        tg.HapticFeedback.impactOccurred(style) // light, medium, heavy
+      } else if (type === 'notification') {
+        tg.HapticFeedback.notificationOccurred(style) // error, success, warning
+      } else if (type === 'selection') {
+        tg.HapticFeedback.selectionChanged()
+      }
+    }
+  }
+
+  // Enhanced safe area handling
+  const updateSafeArea = () => {
+    const safeAreaTop = tg.safeAreaInset?.top || 0
+    const safeAreaBottom = tg.safeAreaInset?.bottom || 0
+    document.documentElement.style.setProperty('--tg-safe-area-inset-top', safeAreaTop + 'px')
+    document.documentElement.style.setProperty('--tg-safe-area-inset-bottom', safeAreaBottom + 'px')
+  }
+  updateSafeArea()
+
+  // Better keyboard handling for form inputs
+  tg.onEvent('viewportChanged', () => {
+    updateSafeArea()
+    // Adjust viewport for keyboard
+    const keyboardHeight = Math.max(0, window.innerHeight - tg.viewportHeight)
+    document.documentElement.style.setProperty('--keyboard-height', keyboardHeight + 'px')
+  })
+
+  // Add to global for easy access
+  window.Telegram.WebApp.utils = {
+    haptic: window.triggerHaptic,
+    isExpanded: () => tg.isExpanded,
+    platform: tg.platform,
+    version: tg.version
+  }
 }
 
 const app = createApp(App)
