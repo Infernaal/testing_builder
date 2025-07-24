@@ -120,12 +120,33 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
 
 const router = useRouter()
+
+// Telegram WebApp optimizations
+onMounted(() => {
+  // Set viewport height for mobile
+  const setViewportHeight = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+  }
+  setViewportHeight()
+  window.addEventListener('resize', setViewportHeight)
+  window.addEventListener('orientationchange', setViewportHeight)
+
+  // Prevent pull-to-refresh on mobile
+  document.body.style.overscrollBehavior = 'none'
+
+  // Telegram WebApp API
+  if (window.Telegram && window.Telegram.WebApp) {
+    const webapp = window.Telegram.WebApp
+    webapp.ready()
+    webapp.expand()
+  }
+})
 
 // Rent out data
 const foreversList = ref([
