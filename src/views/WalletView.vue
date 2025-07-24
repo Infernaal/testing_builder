@@ -113,33 +113,8 @@ const defaultAmount = ref(26106) // Default purchase amount from design
 const showSuccessModal = ref(false)
 const lastTransactionDetails = ref(null)
 
-// Methods
-const handleBack = () => {
-  router.push('/favorites') // Navigate back to favorites or previous page
-}
-
-const handleWalletPurchase = (paymentData) => {
-  // Handle wallet purchase logic
-  console.log('Wallet purchase data:', paymentData)
-
-  // Store transaction details for modal
-  lastTransactionDetails.value = paymentData
-
-  // Show success modal
-  showSuccessModal.value = true
-
-  // Update balances after transaction
-  if (paymentData.paymentMethod === 'loyalty') {
-    loyaltyBalance.value -= paymentData.amount
-  } else if (paymentData.paymentMethod === 'bonus') {
-    bonusBalance.value -= paymentData.amount
-  }
-}
-
-const closeSuccessModal = () => {
-  showSuccessModal.value = false
-  lastTransactionDetails.value = null
-}
+// Methods (wallet doesn't need purchase methods)
+// WalletView only displays balances, purchase logic is in CartView
 </script>
 
 <style scoped>
