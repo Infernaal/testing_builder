@@ -201,19 +201,16 @@
         </div>
 
         <!-- Input Fields -->
-        <div :class="[
-          'transition-all duration-300 ease-out',
-          inputError ? 'mb-24' : 'mb-6'
-        ]">
+        <div class="mb-6">
         <div :class="[
           'bg-white rounded-full p-2 flex items-center gap-2 min-h-[52px] transition-colors',
           inputError ? 'border-2 border-red-500' : 'border border-gray-700',
           isInputFocused && !inputError ? 'border-2 border-blue-700' : ''
         ]">
           <!-- Forevers Input -->
-          <div class="flex items-center gap-2 relative">
+          <div class="flex items-center gap-2">
             <div :class="[
-              'w-9 h-9 rounded-full flex items-center justify-center transition-colors relative',
+              'w-9 h-9 rounded-full flex items-center justify-center transition-colors',
               isInputFocused && !inputError ? 'bg-blue-50' : 'bg-purple-50'
             ]">
               <svg width="24" height="24" viewBox="0 0 24 24" :class="[
@@ -222,45 +219,6 @@
               ]">
                 <path d="M22.046 2.4H7.509C6.869 2.4 6.411 2.858 6.411 3.498V7.978H2.297C1.657 8.069 1.2 8.526 1.2 9.166C1.2 9.806 1.657 10.263 2.297 10.263H6.411V20.503C6.411 21.143 6.869 21.6 7.509 21.6C8.149 21.6 8.606 21.143 8.606 20.503V15.749H13.269C13.909 15.749 14.366 15.292 14.366 14.652C14.366 14.012 13.909 13.555 13.269 13.555H8.606V10.172H17.474C18.114 10.172 18.571 9.715 18.571 9.075C18.571 8.435 18.114 7.978 17.474 7.978H8.606V4.595H21.954C22.594 4.595 23.051 4.138 23.051 3.498C23.051 2.858 22.686 2.4 22.046 2.4Z" fill="currentColor"/>
               </svg>
-
-              <!-- Error Tooltip positioned relative to F icon -->
-              <Transition
-                name="error-tooltip"
-                enter-active-class="transition-all duration-300 ease-out"
-                leave-active-class="transition-all duration-200 ease-in"
-                enter-from-class="opacity-0 transform -translate-y-2 scale-95"
-                enter-to-class="opacity-100 transform translate-y-0 scale-100"
-                leave-from-class="opacity-100 transform translate-y-0 scale-100"
-                leave-to-class="opacity-0 transform -translate-y-1 scale-98"
-              >
-                <div v-if="inputError" class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 z-10">
-                  <!-- Tooltip Container -->
-                  <div class="relative">
-                    <!-- Triangle Pointer -->
-                    <div class="absolute -top-1.5 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-red-500 border border-red-600 rotate-45"></div>
-
-                    <!-- Tooltip Content -->
-                    <div class="bg-red-500 border border-red-600 rounded-full px-4 py-3 shadow-lg whitespace-nowrap" style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12)); min-width: 283px;">
-                      <!-- Warning Icon -->
-                      <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-20 rounded-full flex items-center justify-center">
-                        <svg width="24" height="24" viewBox="0 0 20 20" class="text-white">
-                          <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="currentColor"/>
-                        </svg>
-                      </div>
-
-                      <!-- Error Content -->
-                      <div class="ml-14 text-white">
-                        <div class="font-semibold text-base mb-1">
-                          {{ getErrorTitle() }}
-                        </div>
-                        <div class="text-sm font-medium">
-                          {{ getErrorMessage() }}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Transition>
             </div>
             <div class="flex flex-col">
               <div class="flex items-center gap-2">
