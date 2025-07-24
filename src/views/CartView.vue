@@ -192,7 +192,7 @@ const closeSuccessModal = () => {
 /* Fixed bottom section styling */
 .fixed-bottom-section {
   position: fixed;
-  bottom: 89px; /* Height of BottomNavigation */
+  bottom: 0;
   left: 0;
   right: 0;
   background: #F0F0F0;
@@ -200,6 +200,7 @@ const closeSuccessModal = () => {
   z-index: 10;
   max-width: 375px;
   margin: 0 auto;
+  padding-bottom: 89px; /* Add padding for BottomNavigation */
 }
 
 .back-button {
