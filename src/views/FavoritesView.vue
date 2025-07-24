@@ -495,6 +495,12 @@ const closeEnterAmountModal = () => {
   inputError.value = ''
   isInputFocused.value = false
 
+  // Clear validation timeout
+  if (validationTimeout) {
+    clearTimeout(validationTimeout)
+    validationTimeout = null
+  }
+
   // Remove keyboard listener
   document.removeEventListener('keydown', handleKeydown)
 }
