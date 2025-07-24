@@ -11,9 +11,7 @@
 
           <div class="flex flex-col items-end gap-2">
             <div class="flex items-center gap-2">
-              <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
-                <path d="M30.667 7.381V1.333H7.129V9.011H1.333V15.059H7.129V30.108H13.894V22.728H19.615V16.680H13.894V15.059H25.132V9.011H13.894V7.381H30.667Z" fill="currentColor"/>
-              </svg>
+              <IconSvg name="forevers" :size="32" color="primary" :hover-effect="false" />
               <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
             </div>
             <p class="text-lg text-gray-600 font-medium">Worth ${{ totalWorth.toLocaleString() }}</p>
