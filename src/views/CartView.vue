@@ -188,7 +188,7 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
-import PaymentComponent from '../components/PaymentComponent.vue'
+import PaymentBottomComponent from '../components/PaymentBottomComponent.vue'
 import SuccessModal from '../components/SuccessModal.vue'
 import { useCart } from '../composables/useCart.js'
 
