@@ -953,27 +953,7 @@ main {
   z-index: 9999;
 }
 
-/* Success notification responsive positioning */
-@media (max-width: 375px) {
-  .success-notification {
-    bottom: 100px !important;
-    left: 16px !important;
-    right: 16px !important;
-    transform: none !important;
-    min-width: auto !important;
-  }
 
-  .success-notification > div {
-    min-width: auto !important;
-    width: 100%;
-  }
-}
-
-@media (min-width: 376px) and (max-width: 768px) {
-  .success-notification {
-    bottom: 110px !important;
-  }
-}
 
 /* Cart badge responsive sizing */
 @media (max-width: 375px) {
