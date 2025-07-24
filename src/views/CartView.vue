@@ -305,6 +305,14 @@ const closeSuccessModal = () => {
     max-width: 420px;
   }
 
+  .overflow-y-auto {
+    padding-bottom: 160px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 420px;
+  }
+
   .h-12 {
     height: 52px !important;
   }
@@ -321,6 +329,14 @@ const closeSuccessModal = () => {
 /* Desktop and large tablets */
 @media (min-width: 769px) {
   .cart-view {
+    max-width: 480px;
+  }
+
+  .overflow-y-auto {
+    padding-bottom: 160px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
     max-width: 480px;
   }
 }
