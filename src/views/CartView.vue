@@ -1,51 +1,90 @@
 <template>
-  <div class="cart-view w-full max-w-md mx-auto bg-white min-h-screen flex flex-col">
+  <div class="cart-view w-full max-w-md mx-auto bg-white min-h-screen flex flex-col font-montserrat">
+    <!-- Top Bar -->
+    <div class="top-bar w-full h-17 flex-shrink-0 bg-white relative">
+      <div class="flex w-full justify-between items-center absolute left-0 top-4 h-9">
+        <div class="time flex px-1.5 justify-center items-center gap-2.5 flex-1">
+          <div class="time-text text-dbd-dark text-center text-lg font-semibold leading-6">
+            9:41
+          </div>
+        </div>
+        <div class="dbd-logo w-35 h-9 flex-shrink-0">
+          <div class="w-35 h-9 flex-shrink-0 rounded-8 bg-blue-600"></div>
+          <div class="telegram-text text-white text-center text-base font-medium leading-5 absolute left-9 top-2 w-23 h-5">
+            TELEGRAM
+          </div>
+        </div>
+        <div class="status-icons flex px-1.5 justify-center items-center gap-1.5 flex-1">
+          <!-- Status icons would go here -->
+        </div>
+      </div>
+    </div>
+
     <!-- Content Container with gray background and rounded top corners -->
-    <div class="content-container bg-gray-100 rounded-t-2xl flex-1 flex flex-col">
+    <div class="content-container bg-dbd-off-white rounded-t-2xl flex-1 flex flex-col relative">
+      <!-- Top Bar with title -->
+      <div class="content-top-bar w-full h-11 flex-shrink-0 absolute left-0 top-2">
+        <div class="title text-dbd-orange text-center text-lg font-medium leading-5 absolute left-18 top-1 w-58 h-5">
+          <span class="text-dbd-orange">DBD Capital</span>
+          <span class="text-dbd-primary"> Forevers Bot</span>
+        </div>
+        <div class="mini-app text-dbd-light-gray text-center text-xs font-medium leading-4 absolute left-40 top-6 w-14 h-4">
+          mini App
+        </div>
+        
+        <!-- Close Button -->
+        <div class="close-btn w-11 h-11 flex-shrink-0 absolute left-2 top-0">
+          <div class="w-8 h-8 flex-shrink-0 fill-dbd-off-white stroke-1 stroke-gray-300 rounded-full border absolute left-1.5 top-1.5"></div>
+          <div class="close-icon w-5 h-5 flex-shrink-0 absolute left-3 top-3">
+            <div class="w-4.5 h-0.5 transform rotate-45 flex-shrink-0 rounded-3 bg-dbd-dark absolute left-0.75 top-0.75"></div>
+            <div class="w-4.5 h-0.5 transform -rotate-45 flex-shrink-0 rounded-3 bg-dbd-dark absolute left-0.75 top-0.75"></div>
+          </div>
+        </div>
+      </div>
       
       <!-- Scrollable Cart Items Area -->
-      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-4" v-if="cartItemsCount > 0">
-        <div class="space-y-2 pb-4">
+      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-16 pb-32" v-if="cartItemsCount > 0">
+        <div class="space-y-2">
           <div
             v-for="item in cartItems"
             :key="item.id"
-            class="bg-white rounded-2xl p-3 border border-blue-100 relative cart-item"
+            class="bg-white rounded-2xl p-3 border border-dbd-primary/20 relative cart-item"
           >
             <!-- Country Flag and Code Header -->
-            <div class="flex items-center gap-1 mb-3">
+            <div class="flex items-center gap-1 mb-3 h-6">
               <CountryFlag :country="item.code" class="w-6 h-6" />
               <div class="flex items-center gap-1">
                 <!-- F Icon -->
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-900">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-dbd-dark">
                   <path d="M17.2636 4H6.61925C6.15063 4 5.8159 4.28571 5.8159 4.68571V7.48571H2.80335C2.33473 7.54286 2 7.82857 2 8.22857C2 8.62857 2.33473 8.91429 2.80335 8.91429H5.8159V15.3143C5.8159 15.7143 6.15063 16 6.61925 16C7.08787 16 7.42259 15.7143 7.42259 15.3143V12.3429H10.8368C11.3054 12.3429 11.6402 12.0571 11.6402 11.6571C11.6402 11.2571 11.3054 10.9714 10.8368 10.9714H7.42259V8.85714H13.9163C14.3849 8.85714 14.7197 8.57143 14.7197 8.17143C14.7197 7.77143 14.3849 7.48571 13.9163 7.48571H7.42259V5.37143H17.1967C17.6653 5.37143 18 5.08571 18 4.68571C18 4.28571 17.7322 4 17.2636 4Z" fill="currentColor"/>
                 </svg>
-                <span class="text-gray-900 font-semibold text-lg">{{ item.code }}</span>
+                <span class="text-dbd-dark font-semibold text-lg leading-6">{{ item.code }}</span>
               </div>
             </div>
 
             <!-- Amount and Price Section -->
             <div class="flex items-center gap-3 mb-3">
               <div class="flex-1">
-                <div class="text-gray-500 text-base font-medium mb-1">Amount</div>
-                <div class="text-gray-900 font-semibold text-lg">{{ item.foreversAmount.toLocaleString() }}</div>
+                <div class="text-dbd-gray text-base font-medium leading-6 mb-1">Amount</div>
+                <div class="text-dbd-dark font-semibold text-lg leading-6">{{ item.foreversAmount.toLocaleString() }}</div>
               </div>
               
               <!-- Vertical Divider -->
               <div class="w-px h-14 bg-gray-300"></div>
               
               <div class="flex-1">
-                <div class="text-gray-500 text-base font-medium mb-1">Price</div>
-                <div class="text-gray-500 text-base">
+                <div class="text-dbd-gray text-base font-medium leading-6 mb-0.5">Price</div>
+                <div class="text-dbd-gray text-base font-medium leading-6">
                   <span>1Forevers {{ item.code }}</span>
-                  <span class="text-gray-900 font-semibold"> = ${{ item.usdRate.toFixed(2) }}</span>
+                  <span class="text-dbd-dark font-semibold"> = ${{ item.usdRate.toFixed(2) }}</span>
                 </div>
               </div>
             </div>
 
             <!-- Purchase Amount -->
-            <div class="flex items-center gap-1 mb-0">
-              <span class="text-gray-500 text-base font-medium">Purchase to pay:</span>
-              <span class="text-blue-600 font-semibold text-lg">${{ (item.foreversAmount * item.usdRate).toLocaleString() }}</span>
+            <div class="flex items-center gap-1">
+              <span class="text-dbd-gray text-base font-medium leading-6">Purchase to pay:</span>
+              <span class="text-dbd-primary font-semibold text-lg leading-6">${{ (item.foreversAmount * item.usdRate).toLocaleString() }}</span>
             </div>
 
             <!-- Remove Button -->
@@ -53,7 +92,7 @@
               @click="removeFromCart(item.id)"
               class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center"
             >
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-red-500">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.25 3.5H14.75V2.75C14.75 1.5095 13.7405 0.5 12.5 0.5H9.5C8.2595 0.5 7.25 1.5095 7.25 2.75V3.5H2.75C1.92275 3.5 1.25 4.17275 1.25 5V5.75C1.25 6.164 1.586 6.5 2 6.5H20C20.414 6.5 20.75 6.164 20.75 5.75V5C20.75 4.17275 20.0772 3.5 19.25 3.5ZM8.75 2.75C8.75 2.33675 9.08675 2 9.5 2H12.5C12.9132 2 13.25 2.33675 13.25 2.75V3.5H8.75V2.75Z" fill="#FF1919"/>
                 <path d="M3.5 8V19.25C3.5 20.4905 4.5095 21.5 5.75 21.5H16.25C17.4905 21.5 18.5 20.4905 18.5 19.25V8H3.5ZM13.7803 15.7197C14.0735 16.013 14.0735 16.487 13.7803 16.7803C13.487 17.0735 13.013 17.0735 12.7197 16.7803L11 15.0605L9.28025 16.7803C8.987 17.0735 8.513 17.0735 8.21975 16.7803C7.9265 16.487 7.9265 16.013 8.21975 15.7197L9.9395 14L8.21975 12.2803C7.9265 11.987 7.9265 11.513 8.21975 11.2197C8.513 10.9265 8.987 10.9265 9.28025 11.2197L11 12.9395L12.7197 11.2197C13.013 10.9265 13.487 10.9265 13.7803 11.2197C14.0735 11.513 14.0735 11.987 13.7803 12.2803L12.0605 14L13.7803 15.7197Z" fill="#FF1919"/>
               </svg>
@@ -63,7 +102,7 @@
       </div>
 
       <!-- Empty Cart (takes full space when empty) -->
-      <div v-else class="flex-1 flex items-center justify-center px-3.5">
+      <div v-else class="flex-1 flex items-center justify-center px-3.5 pt-16">
         <div class="text-center">
           <div class="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center mb-4 mx-auto">
             <svg width="20" height="22" viewBox="0 0 18 20" class="text-gray-400">
@@ -74,7 +113,7 @@
           <p class="text-gray-500 mb-6">Add some Forevers to get started!</p>
           <button
             @click="$router.push('/favorites')"
-            class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors"
+            class="bg-dbd-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors"
           >
             Browse Forevers
           </button>
@@ -82,11 +121,11 @@
       </div>
 
       <!-- Fixed Bottom Section: Total and Action Buttons -->
-      <div v-if="cartItemsCount > 0" class="fixed-bottom bg-gray-100 px-3.5 pb-6 pt-4">
+      <div v-if="cartItemsCount > 0" class="fixed-bottom absolute bottom-0 left-0 right-0 bg-dbd-off-white px-3.5 pb-6 pt-4">
         <!-- Total Section -->
         <div class="flex items-center justify-center gap-1 mb-6">
-          <span class="text-gray-900 font-semibold text-xl">Total to pay:</span>
-          <span class="text-blue-600 font-semibold text-xl">${{ cartTotal.toLocaleString() }}</span>
+          <span class="text-dbd-dark font-semibold text-xl leading-8">Total to pay:</span>
+          <span class="text-dbd-primary font-semibold text-xl leading-8">${{ cartTotal.toLocaleString() }}</span>
         </div>
 
         <!-- Action Buttons -->
@@ -94,18 +133,18 @@
           <!-- Back Button -->
           <button
             @click="$router.go(-1)"
-            class="flex items-center justify-center gap-2.5 h-13 px-6 bg-gray-50 border border-gray-500 rounded-full flex-shrink-0 back-button"
+            class="flex items-center justify-center gap-2.5 h-13 px-6 bg-dbd-off-white border border-dbd-gray rounded-full flex-shrink-0 back-button min-w-30"
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-500">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-dbd-gray">
               <path d="M18.2208 9.22071L3.66019 9.22071L7.13456 5.74611C7.43894 5.44192 7.43894 4.94845 7.13456 4.6443C6.83019 4.33992 6.33672 4.33992 6.03279 4.6443L1.22828 9.4489C0.923906 9.7531 0.923906 10.2466 1.22828 10.5507L6.03279 15.3555C6.18494 15.5078 6.38433 15.5838 6.58368 15.5838C6.78303 15.5838 6.98242 15.5078 7.13456 15.3555C7.43894 15.0513 7.43894 14.5579 7.13456 14.2538L3.66019 10.779L18.2208 10.779C18.6511 10.779 19 10.4301 19 9.99983C19 9.56955 18.6511 9.22071 18.2208 9.22071Z" fill="currentColor"/>
             </svg>
-            <span class="text-gray-500 font-medium text-base">Back</span>
+            <span class="text-dbd-gray font-medium text-base leading-6">Back</span>
           </button>
 
           <!-- Buy Forevers Button -->
           <button
             @click="handleBuyForevers"
-            class="flex items-center justify-center h-13 px-12 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full text-white font-bold text-xl flex-1 buy-button"
+            class="flex items-center justify-center h-13 px-12 bg-gradient-to-r from-dbd-primary to-blue-500 rounded-full text-white font-bold text-xl leading-6 flex-1 buy-button"
           >
             Buy Forevers
           </button>
