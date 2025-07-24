@@ -609,6 +609,14 @@ const hideSuccessNotification = () => {
   }
 }
 
+const hideErrorNotification = () => {
+  showErrorNotification.value = false
+  if (errorTimeout) {
+    clearTimeout(errorTimeout)
+    errorTimeout = null
+  }
+}
+
 const validateInput = () => {
   // Clear previous errors
   inputError.value = ''
