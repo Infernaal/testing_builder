@@ -74,7 +74,7 @@
           <!-- Scroll fade overlay at bottom -->
           <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#120B81] via-[#120B81]/80 to-transparent pointer-events-none z-10"></div>
           
-          <div class="px-6 space-y-2 overflow-y-auto scroll-smooth" style="height: calc(100vh - 310px);">
+          <div class="px-6 space-y-2 overflow-y-auto scroll-smooth touch-scroll" style="height: 200px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
