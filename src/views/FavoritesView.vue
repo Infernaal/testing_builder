@@ -285,6 +285,7 @@ const isLoading = ref(false)
 const showEnterAmountModal = ref(false)
 const selectedBalance = ref(null)
 const foreversAmount = ref(250)
+const amountInput = ref(null)
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
