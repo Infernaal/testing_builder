@@ -3,7 +3,7 @@
     <!-- Content Container -->
     <div class="content-container bg-dbd-off-white flex-1 flex flex-col relative">
       <!-- Scrollable Cart Items Area -->
-      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-4 pb-32" v-if="cartItemsCount > 0">
+      <div class="scrollable-content flex-1 overflow-y-auto px-3.5 pt-4 pb-48" v-if="cartItemsCount > 0">
         <div class="space-y-2">
           <div
             v-for="item in cartItems"
