@@ -65,7 +65,7 @@
             </div>
             <span class="text-base font-medium text-dbd-dark">Bonus</span>
           </div>
-          
+
           <!-- Amount Display -->
           <div class="amount-display bg-dbd-off-white rounded-2xl border border-dbd-primary/20 p-4">
             <div class="flex flex-col">
@@ -75,6 +75,8 @@
           </div>
         </div>
       </div>
+
+
     </div>
 
     <!-- Bottom Navigation Component -->
@@ -82,15 +84,17 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
 
-export default {
-  name: 'WalletView',
-  components: {
-    BottomNavigation
-  }
-}
+// Wallet balances for display only
+const loyaltyBalance = ref(8900)
+const bonusBalance = ref(56200)
+const userBalance = ref(10196) // Forevers balance converted to USD
+
+// Methods (wallet doesn't need purchase methods)
+// WalletView only displays balances, purchase logic is in CartView
 </script>
 
 <style scoped>

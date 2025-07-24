@@ -1,39 +1,29 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat">
-    <!-- Main Content -->
-    <main class="flex-1 w-full max-w-md mx-auto px-4 pt-4 pb-24 overflow-y-auto">
-      <!-- Back Button -->
-      <div class="mb-4">
-        <button 
-          @click="goBack"
-          class="w-11 h-11 rounded-full border border-gray-300 bg-dbd-off-white flex items-center justify-center"
-        >
-          <div class="relative w-5 h-5">
-            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full rotate-45 top-2 left-0.5"></div>
-            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full -rotate-45 top-2.5 left-0.5"></div>
-          </div>
-        </button>
-      </div>
-
-      <!-- Forevers Available Section -->
-      <div class="mb-6">
-        <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-3">
+  <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat telegram-webapp">
+    <!-- Fixed Header Section -->
+    <div class="w-full max-w-md mx-auto px-4 pt-6 pb-3 bg-gray-100 z-30">
+      <!-- Forevers Available Section - Fixed -->
+      <div class="mb-2">
+        <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-4">
           <div class="flex items-center justify-between">
             <div>
-              <h2 class="text-xl font-semibold text-dbd-dark leading-tight">
+              <h2 class="text-2xl font-semibold text-dbd-dark leading-tight mb-1">
                 Forevers<br>Available
               </h2>
             </div>
-            <div class="flex items-center gap-2">
-              <svg width="32" height="32" viewBox="0 0 32 32" class="text-dbd-primary">
+            <div class="flex items-center gap-3">
+              <svg width="36" height="36" viewBox="0 0 32 32" class="text-dbd-primary">
                 <path d="M30.6666 7.38069V1.33325H7.1291V9.01136H1.33325V15.0588H7.1291V30.1075H13.894V22.7276H19.6153V16.6801H13.894V15.0588H25.1316V9.01136H13.894V7.38069H30.6666Z" fill="currentColor"/>
               </svg>
-              <span class="text-3xl font-bold text-dbd-primary">2,225</span>
+              <span class="text-4xl font-bold text-dbd-primary">2,225</span>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
+    <!-- Scrollable Content Area -->
+    <div class="flex-1 w-full max-w-md mx-auto overflow-y-auto px-4 pb-24">
       <!-- Rent Out Cards List -->
       <div class="space-y-4">
         <div 
@@ -109,7 +99,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </div>
 
     <!-- Bottom Navigation -->
     <BottomNavigation />
@@ -117,12 +107,33 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
 
 const router = useRouter()
+
+// Telegram WebApp optimizations
+onMounted(() => {
+  // Set viewport height for mobile
+  const setViewportHeight = () => {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`)
+  }
+  setViewportHeight()
+  window.addEventListener('resize', setViewportHeight)
+  window.addEventListener('orientationchange', setViewportHeight)
+
+  // Prevent pull-to-refresh on mobile
+  document.body.style.overscrollBehavior = 'none'
+
+  // Telegram WebApp API
+  if (window.Telegram && window.Telegram.WebApp) {
+    const webapp = window.Telegram.WebApp
+    webapp.ready()
+    webapp.expand()
+  }
+})
 
 // Rent out data
 const foreversList = ref([
@@ -212,42 +223,123 @@ const goBack = () => {
 
 /* Mobile first approach for Telegram mini app */
 @media (max-width: 375px) {
-  main {
+  .w-full.max-w-md {
     max-width: 100%;
     padding-left: 12px;
     padding-right: 12px;
   }
 
+  .text-4xl {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
   .text-3xl {
     font-size: 24px;
+    line-height: 28px;
   }
-  
-  .text-xl {
+
+  .text-2xl {
     font-size: 18px;
+    line-height: 22px;
   }
-  
-  .text-lg {
+
+  .text-xl {
     font-size: 16px;
+    line-height: 20px;
+  }
+
+  .text-lg {
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .text-sm {
     font-size: 12px;
+    line-height: 16px;
+  }
+
+  /* Smaller padding for mobile */
+  .bg-dbd-light-blue {
+    padding: 12px !important;
+  }
+
+  /* Adjust card spacing */
+  .space-y-4 > * + * {
+    margin-top: 12px;
   }
 }
 
-@media (min-width: 376px) and (max-width: 768px) {
-  main {
+/* Small mobile devices */
+@media (min-width: 376px) and (max-width: 480px) {
+  .w-full.max-w-md {
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .bg-dbd-light-blue {
+    padding: 16px;
+  }
+}
+
+/* Tablets and larger phones */
+@media (min-width: 481px) and (max-width: 768px) {
+  .w-full.max-w-md {
     max-width: 420px;
   }
 
   .bg-dbd-light-blue {
     padding: 20px;
   }
+
+  .text-4xl {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .text-2xl {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 
 @media (min-width: 769px) {
-  main {
+  .w-full.max-w-md {
     max-width: 480px;
+  }
+}
+
+/* Telegram WebApp optimizations */
+.telegram-webapp {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar in scrollable area */
+.overflow-y-auto {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensure fixed header doesn't interfere with scrolling */
+.z-30 {
+  position: relative;
+  z-index: 30;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+    touch-action: manipulation;
   }
 }
 

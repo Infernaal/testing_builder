@@ -29,7 +29,7 @@
       </div>
 
       <!-- Scroll Content -->
-      <div class="flex-1 overflow-y-auto pt-2 space-y-2" v-if="balances.length > 0">
+      <div class="flex-1 overflow-y-auto pt-2 pb-24 space-y-2" v-if="balances.length > 0">
         <div
           v-for="balance in balances"
           :key="balance.id"
@@ -38,9 +38,7 @@
           <!-- Country Header -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                <div :class="flagClasses[balance.code]" class="w-full h-full"></div>
-              </div>
+              <CountryFlag :country="balance.code" class="w-6 h-6" />
               <span class="text-gray-700 font-medium text-base">{{ balance.country }} Balance</span>
             </div>
 
@@ -216,9 +214,7 @@
         <div class="mb-4">
           <button class="w-full h-11 border border-gray-200 bg-white rounded-full px-4 flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
-                <div :class="flagClasses[selectedBalance?.code || 'DE']" class="w-full h-full"></div>
-              </div>
+              <CountryFlag :country="selectedBalance?.code || 'DE'" class="w-6 h-6" />
               <span class="text-sm text-black font-medium">
                 1 Forevers {{ selectedBalance?.code || 'DE' }}
               </span>
@@ -360,6 +356,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import CountryFlag from '../components/CountryFlag.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
@@ -391,15 +388,7 @@ const totalBalance = ref(10196)
 const totalWorth = ref(56000)
 const balances = ref([]) // Will be populated from backend
 
-// Flag classes for different countries
-const flagClasses = {
-  'DE': 'bg-gradient-to-b from-black via-red-600 to-yellow-400',
-  'UAE': 'bg-gradient-to-r from-green-600 via-white to-red-600',
-  'KZ': 'bg-blue-400',
-  'PL': 'bg-red-500',
-  'UA': 'bg-yellow-400 border-b-2 border-blue-500',
-  'US': 'bg-red-600 bg-gradient-to-r from-red-600 via-white to-blue-600'
-}
+// Flag classes are now handled by CountryFlag component
 
 // Mock data for development (remove when connecting to backend)
 const mockBalances = [
