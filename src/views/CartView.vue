@@ -194,7 +194,7 @@ const handleBuyForevers = () => {
     padding-right: 14px;
   }
   
-  .fixed-bottom {
+  .fixed.bottom-24 {
     padding-left: 14px;
     padding-right: 14px;
   }
