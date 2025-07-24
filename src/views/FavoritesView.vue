@@ -163,9 +163,9 @@
     >
       <div
         v-if="showSuccessNotification"
-        class="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50"
+        class="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50 success-notification px-4 sm:px-0"
       >
-        <div class="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 border border-green-600 min-w-[257px] justify-center"
+        <div class="bg-green-500 text-white px-4 sm:px-6 py-3 rounded-full shadow-lg flex items-center gap-2 sm:gap-3 border border-green-600 min-w-[257px] justify-center max-w-sm mx-auto"
              style="filter: drop-shadow(4px 8px 12px rgba(7, 184, 14, 0.13));">
           <!-- Check Icon -->
           <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
