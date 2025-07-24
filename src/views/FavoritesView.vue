@@ -639,14 +639,23 @@ main {
   margin: 0;
 }
 
-/* Animation for modal */
-.modal-enter-active, .modal-leave-active {
-  transition: all 0.3s ease;
+/* Animation for modal - enhanced smooth animations */
+.modal-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-enter-from, .modal-leave-to {
+.modal-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.modal-enter-from {
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(0.9) translateY(20px);
+}
+
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
 }
 
 /* Button hover states for touch devices */
