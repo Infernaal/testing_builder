@@ -99,18 +99,40 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
+import PaymentComponent from '../components/PaymentComponent.vue'
 import { useCart } from '../composables/useCart.js'
+
+const router = useRouter()
 
 // Cart functionality
 const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useCart()
 
+// Mock balances - replace with real data from store/API
+const loyaltyBalance = ref(8900)
+const bonusBalance = ref(56200)
+const userBalance = ref(75000)
+
 // Methods
-const handleBuyForevers = () => {
-  // Implementation for purchase flow
-  alert('Purchase functionality will be implemented')
+const handleBack = () => {
+  router.go(-1)
+}
+
+const handlePurchase = (paymentData) => {
+  // Handle the purchase logic
+  console.log('Purchase data:', paymentData)
+
+  // Show success message
+  alert(`Purchase successful! Payment method: ${paymentData.paymentMethod}, Amount: $${paymentData.amount.toLocaleString()}`)
+
+  // Clear cart after successful purchase
+  clearCart()
+
+  // Navigate to wallet or success page
+  router.push('/wallet')
 }
 </script>
 
