@@ -306,7 +306,7 @@ const closeSuccessModal = () => {
   }
 
   .overflow-y-auto {
-    padding-bottom: 160px; /* Space for fixed bottom */
+    padding-bottom: 180px; /* Space for fixed bottom */
   }
 
   .fixed-bottom-section {
@@ -333,7 +333,7 @@ const closeSuccessModal = () => {
   }
 
   .overflow-y-auto {
-    padding-bottom: 160px; /* Space for fixed bottom */
+    padding-bottom: 180px; /* Space for fixed bottom */
   }
 
   .fixed-bottom-section {
