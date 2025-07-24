@@ -60,13 +60,13 @@ export function useCart() {
 
   return {
     // State
-    cartItems: cartItems.value,
+    cartItems,
     isAddingToCart,
-    
+
     // Computed
     cartItemsCount,
     cartTotal,
-    
+
     // Methods
     addToCart,
     removeFromCart,
