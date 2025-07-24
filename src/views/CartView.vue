@@ -279,12 +279,7 @@ const handleBuyForevers = () => {
   }
 }
 
-/* Support for safe areas on iOS */
-@supports (padding: max(0px)) {
-  .fixed.bottom-24 {
-    bottom: max(89px, calc(89px + env(safe-area-inset-bottom)));
-  }
-}
+/* Support for safe areas on iOS - handled by BottomNavigation */
 
 /* Ensure smooth scrolling on mobile */
 .scrollable-content {
