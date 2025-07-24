@@ -74,9 +74,9 @@
           <!-- Scroll fade overlay at bottom -->
           <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#120B81] via-[#120B81]/80 to-transparent pointer-events-none z-10"></div>
           
-          <div class="px-6 space-y-3 overflow-y-auto scroll-smooth" style="height: calc(100vh - 360px);">
+          <div class="px-6 space-y-2 overflow-y-auto scroll-smooth" style="height: calc(100vh - 310px);">
             <!-- Calculator -->
-            <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
+            <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14.1377 0C15.1645 0 16 0.788555 16 1.75781V18.2422C16 19.2114 15.1645 20 14.1377 20H1.8623C0.835502 20 0 19.2114 0 18.2422V1.75781C0 0.788555 0.835502 0 1.8623 0H14.1377ZM1.8623 1.17188C1.52004 1.17188 1.24121 1.43473 1.24121 1.75781V18.2422C1.24121 18.5653 1.52004 18.8281 1.8623 18.8281H14.1377C14.48 18.8281 14.7587 18.5653 14.7588 18.2422V1.75781C14.7588 1.43473 14.48 1.17188 14.1377 1.17188H1.8623Z" fill="white"/>
