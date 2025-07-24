@@ -1,5 +1,5 @@
 <template>
-  <div class="cart-bottom-component bg-gray-100 px-3.5 pt-4 pb-2">
+  <div class="cart-bottom-component bg-gray-100 px-3.5 pt-4 pb-4">
     <!-- Total Section -->
     <div class="total-section flex items-center justify-center gap-1 mb-3">
       <span class="text-dbd-dark font-semibold text-lg leading-6">Total to pay:</span>
