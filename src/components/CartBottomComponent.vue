@@ -57,6 +57,11 @@ const emit = defineEmits(['back', 'purchase'])
   transform: translateY(-1px);
 }
 
+/* Custom height utility */
+.h-13 {
+  height: 52px;
+}
+
 /* Mobile optimizations for Telegram WebApp */
 @media (max-width: 375px) {
   .cart-bottom-component {
