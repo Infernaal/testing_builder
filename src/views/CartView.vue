@@ -263,9 +263,38 @@ const handleBuyForevers = () => {
   }
 }
 
+/* Tablets and larger phones */
 @media (min-width: 431px) and (max-width: 768px) {
   .cart-view {
-    max-width: 400px;
+    max-width: 420px;
+  }
+
+  .fixed.bottom-24 {
+    border-radius: 16px 16px 0 0;
+  }
+
+  .back-button {
+    min-width: 120px;
+    height: 52px;
+  }
+
+  .buy-button {
+    height: 52px;
+    font-size: 18px;
+  }
+}
+
+/* Desktop and large tablets */
+@media (min-width: 769px) {
+  .cart-view {
+    max-width: 480px;
+  }
+
+  .fixed.bottom-24 {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 480px;
+    border-radius: 20px 20px 0 0;
   }
 }
 
