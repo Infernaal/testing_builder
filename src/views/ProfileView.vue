@@ -1,9 +1,9 @@
 <template>
   <div class="profile-view w-full max-w-md mx-auto bg-white min-h-screen font-montserrat relative">
     <!-- Profile Menu Component -->
-    <ProfileMenu 
-      :isVisible="isMenuVisible" 
-      @close="closeMenu" 
+    <FigmaProfileMenu
+      :isVisible="isMenuVisible"
+      @close="closeMenu"
     />
 
     <!-- Main Content -->
