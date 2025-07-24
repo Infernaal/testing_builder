@@ -99,7 +99,6 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
-import PaymentComponent from '../components/PaymentComponent.vue'
 import SuccessModal from '../components/SuccessModal.vue'
 
 const router = useRouter()
