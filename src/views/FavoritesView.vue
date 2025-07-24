@@ -330,6 +330,7 @@
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
 
