@@ -214,7 +214,7 @@ const closeSuccessModal = () => {
 .fixed-bottom-section > div {
   background: #F0F0F0;
   border-top: 1px solid rgba(32, 25, 206, 0.1);
-  padding-bottom: 89px; /* Space for BottomNavigation */
+  padding-bottom: 105px; /* Increased space for BottomNavigation */
 }
 
 .back-button {
