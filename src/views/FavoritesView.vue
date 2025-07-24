@@ -419,12 +419,24 @@ const openEnterAmountModal = (balance) => {
   selectedBalance.value = balance
   foreversAmount.value = 250 // Default amount
   showEnterAmountModal.value = true
+
+  // Add keyboard listener for escape key
+  document.addEventListener('keydown', handleKeydown)
 }
 
 const closeEnterAmountModal = () => {
   showEnterAmountModal.value = false
   selectedBalance.value = null
   foreversAmount.value = 250
+
+  // Remove keyboard listener
+  document.removeEventListener('keydown', handleKeydown)
+}
+
+const handleKeydown = (event) => {
+  if (event.key === 'Escape') {
+    closeEnterAmountModal()
+  }
 }
 
 const validateInput = () => {
