@@ -3,7 +3,7 @@
     <!-- Content Container -->
     <div class="content-container bg-gray-100 flex-1 flex flex-col relative">
       <!-- Scrollable Cart Items Area -->
-      <div class="flex-1 overflow-y-auto px-3.5 pt-4 pb-6" v-if="cartItemsCount > 0">
+      <div class="flex-1 overflow-y-auto px-3.5 pt-4 pb-56" v-if="cartItemsCount > 0">
         <div class="space-y-2">
           <div
             v-for="item in cartItems"
@@ -80,14 +80,16 @@
         </div>
       </div>
 
-      <!-- Cart Bottom Component (only when cart has items) -->
-      <div v-if="cartItemsCount > 0" class="cart-bottom-container">
-        <CartBottomComponent
-          :total-amount="cartTotal"
-          @back="handleBack"
-          @purchase="handlePurchase"
-        />
-      </div>
+
+    </div>
+
+    <!-- Fixed Cart Bottom Component (only when cart has items) -->
+    <div v-if="cartItemsCount > 0" class="fixed-bottom-section">
+      <CartBottomComponent
+        :total-amount="cartTotal"
+        @back="handleBack"
+        @purchase="handlePurchase"
+      />
     </div>
 
     <!-- Success Modal -->
@@ -187,12 +189,32 @@ const closeSuccessModal = () => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Clean layout without fixed positioning */
+/* Fixed bottom section styling */
+.fixed-bottom-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  max-width: 375px;
+  margin: 0 auto;
+}
 
-.cart-bottom-container {
-  padding-bottom: env(safe-area-inset-bottom, 20px);
-  margin-top: auto;
-  flex-shrink: 0;
+.fixed-bottom-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F0F0F0;
+  z-index: -1;
+}
+
+.fixed-bottom-section > div {
+  background: #F0F0F0;
+  border-top: 1px solid rgba(32, 25, 206, 0.1);
+  padding-bottom: 105px; /* Increased space for BottomNavigation */
 }
 
 .back-button {
@@ -220,6 +242,11 @@ const closeSuccessModal = () => {
   .overflow-y-auto {
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 220px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 100%;
   }
 
   /* Bottom section for mobile */
@@ -269,6 +296,11 @@ const closeSuccessModal = () => {
   .overflow-y-auto {
     padding-left: 14px;
     padding-right: 14px;
+    padding-bottom: 220px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 430px;
   }
 
   /* Bottom section padding */
@@ -288,6 +320,14 @@ const closeSuccessModal = () => {
     max-width: 420px;
   }
 
+  .overflow-y-auto {
+    padding-bottom: 220px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 420px;
+  }
+
   .h-12 {
     height: 52px !important;
   }
@@ -304,6 +344,14 @@ const closeSuccessModal = () => {
 /* Desktop and large tablets */
 @media (min-width: 769px) {
   .cart-view {
+    max-width: 480px;
+  }
+
+  .overflow-y-auto {
+    padding-bottom: 220px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
     max-width: 480px;
   }
 }

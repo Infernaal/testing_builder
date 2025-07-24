@@ -1,5 +1,5 @@
 <template>
-  <div class="profile-view w-full max-w-md mx-auto bg-white min-h-screen">
+  <div class="profile-view w-full max-w-md mx-auto bg-white min-h-screen font-montserrat">
     <!-- Content Container -->
     <div class="content-container bg-white px-4 pb-24 flex items-center justify-center" style="min-height: calc(100vh - 96px);">
       
@@ -9,7 +9,8 @@
           <div class="flex flex-col items-center text-center">
             <div class="w-20 h-20 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 border-4 border-purple-300 mb-4"></div>
             <h2 class="text-2xl font-bold text-dbd-dark mb-2">Profile</h2>
-            <p class="text-dbd-gray">Coming soon...</p>
+            <p class="text-dbd-gray mb-4">Access your profile menu from the bottom navigation</p>
+            <p class="text-sm text-dbd-light-gray">Click the profile icon to open the menu</p>
           </div>
         </div>
       </div>
@@ -21,15 +22,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import BottomNavigation from '../components/BottomNavigation.vue'
-
-export default {
-  name: 'ProfileView',
-  components: {
-    BottomNavigation
-  }
-}
 </script>
 
 <style scoped>
