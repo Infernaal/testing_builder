@@ -436,6 +436,8 @@ const closeEnterAmountModal = () => {
 const handleKeydown = (event) => {
   if (event.key === 'Escape') {
     closeEnterAmountModal()
+  } else if (event.key === 'Enter') {
+    handleAddToCart()
   }
 }
 
