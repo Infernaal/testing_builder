@@ -613,6 +613,8 @@ const getErrorMessage = () => {
       return "Only numbers are allowed"
     case 'limit':
       return `Please enter the amount according to your limit (max: ${selectedBalance.value?.availableAmount})`
+    case 'failed':
+      return "Failed to add to cart. Please try again."
     default:
       return "Please check your input"
   }
