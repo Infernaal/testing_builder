@@ -193,10 +193,14 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
+import { useCart } from '../composables/useCart.js'
 
 // Router
 const router = useRouter()
 const route = useRoute()
+
+// Cart
+const { cartItemsCount } = useCart()
 
 // Computed active tab based on current route
 const activeTab = ref('wallet')
