@@ -277,6 +277,31 @@ const closeSuccessModal = () => {
 
 /* Clean layout without fixed positioning */
 
+/* Payment selection animations */
+.loyalty-option,
+.bonus-option {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loyalty-option:hover,
+.bonus-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.scale-102 {
+  transform: scale(1.02);
+}
+
+.scale-105 {
+  transform: scale(1.05);
+}
+
+/* Payment section background */
+.payment-section {
+  background: linear-gradient(to bottom, #f0f0f0, #f8f8f8);
+}
+
 .back-button {
   height: 52px;
   min-width: 119px;
