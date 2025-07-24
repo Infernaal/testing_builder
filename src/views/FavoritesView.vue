@@ -155,11 +155,20 @@
     <BottomNavigation />
 
     <!-- Enter Amount Modal -->
-    <div
-      v-if="showEnterAmountModal"
-      class="modal-overlay fixed inset-0 flex items-center justify-center"
-      @click="closeEnterAmountModal"
+    <Transition
+      name="modal"
+      enter-active-class="transition-all duration-300 ease-out"
+      leave-active-class="transition-all duration-200 ease-in"
+      enter-from-class="opacity-0 scale-95"
+      enter-to-class="opacity-100 scale-100"
+      leave-from-class="opacity-100 scale-100"
+      leave-to-class="opacity-0 scale-95"
     >
+      <div
+        v-if="showEnterAmountModal"
+        class="modal-overlay fixed inset-0 flex items-center justify-center"
+        @click="closeEnterAmountModal"
+      >
       <!-- Blur Backdrop -->
       <div class="modal-backdrop absolute inset-0 bg-black bg-opacity-20"></div>
 
@@ -258,7 +267,8 @@
           </button>
         </div>
       </div>
-    </div>
+      </div>
+    </Transition>
   </div>
 </template>
 
