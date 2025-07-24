@@ -1,8 +1,8 @@
 <template>
   <div>
-    <!-- Profile Menu Component -->
-    <ProfileMenu 
-      :is-visible="isProfileMenuOpen" 
+    <!-- Profile Overlay Component -->
+    <ProfileOverlay
+      :is-visible="isProfileMenuOpen"
       @close="closeProfileMenu"
     />
 
