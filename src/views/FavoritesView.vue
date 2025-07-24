@@ -210,7 +210,12 @@
               </svg>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs text-gray-600 font-medium">Forevers {{ selectedBalance?.code || 'DE' }}</span>
+              <div class="flex items-center gap-2">
+                <span class="text-xs text-gray-600 font-medium">Forevers {{ selectedBalance?.code || 'DE' }}</span>
+                <span v-if="selectedBalance?.availableAmount" class="text-xs text-green-600 font-medium">
+                  (max: {{ selectedBalance.availableAmount }})
+                </span>
+              </div>
               <input
                 ref="amountInput"
                 v-model.number="foreversAmount"
