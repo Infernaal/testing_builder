@@ -273,7 +273,37 @@
 
         </div>
 
+        <!-- Error Message Block (inside modal) -->
+        <Transition
+          name="error-message"
+          enter-active-class="transition-all duration-300 ease-out"
+          leave-active-class="transition-all duration-200 ease-in"
+          enter-from-class="opacity-0 transform -translate-y-2 scale-95"
+          enter-to-class="opacity-100 transform translate-y-0 scale-100"
+          leave-from-class="opacity-100 transform translate-y-0 scale-100"
+          leave-to-class="opacity-0 transform -translate-y-1 scale-98"
+        >
+          <div v-if="inputError" class="mb-4">
+            <div class="bg-red-500 border border-red-600 rounded-full px-4 py-3 shadow-lg relative" style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12));">
+              <!-- Warning Icon -->
+              <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-20 rounded-full flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 20 20" class="text-white">
+                  <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="currentColor"/>
+                </svg>
+              </div>
 
+              <!-- Error Content -->
+              <div class="ml-14 text-white">
+                <div class="font-semibold text-base mb-1">
+                  {{ getErrorTitle() }}
+                </div>
+                <div class="text-sm font-medium">
+                  {{ getErrorMessage() }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Transition>
 
         <!-- Action Buttons -->
         <div class="flex gap-3">
