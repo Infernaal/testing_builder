@@ -271,7 +271,16 @@
         </div>
 
         <!-- Error Messages -->
-        <div v-if="inputError" class="mb-4">
+        <Transition
+          name="error-message"
+          enter-active-class="transition-all duration-300 ease-out"
+          leave-active-class="transition-all duration-200 ease-in"
+          enter-from-class="opacity-0 transform -translate-y-2 scale-95"
+          enter-to-class="opacity-100 transform translate-y-0 scale-100"
+          leave-from-class="opacity-100 transform translate-y-0 scale-100"
+          leave-to-class="opacity-0 transform -translate-y-1 scale-98"
+        >
+          <div v-if="inputError" class="mb-4">
           <div class="bg-red-500 rounded-full px-4 py-3 mx-auto max-w-[283px] relative shadow-lg">
             <!-- Warning Icon -->
             <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-black bg-opacity-20 rounded-full flex items-center justify-center">
@@ -290,7 +299,8 @@
               </div>
             </div>
           </div>
-        </div>
+          </div>
+        </Transition>
 
         <!-- Action Buttons -->
         <div class="flex gap-3">
