@@ -70,7 +70,7 @@
         </div>
 
         <!-- Menu Items Section -->
-        <div class="flex-1 px-6 space-y-3 overflow-y-auto" style="max-height: calc(100vh - 380px);">
+        <div class="flex-1 px-6 space-y-3 overflow-y-auto" style="max-height: calc(100vh - 320px);">
           <!-- Calculator -->
           <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
             <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
