@@ -1,28 +1,7 @@
 import { ref, computed } from 'vue'
 
-// Global cart state with sample data for testing
-const cartItems = ref([
-  {
-    id: 'test-de-1',
-    balanceId: 'de-001',
-    country: 'Germany',
-    code: 'DE',
-    foreversAmount: 2274,
-    usdRate: 4.00,
-    totalCost: 9096.00,
-    addedAt: new Date().toISOString()
-  },
-  {
-    id: 'test-uae-1',
-    balanceId: 'uae-001',
-    country: 'United Arab Emirates',
-    code: 'UAE',
-    foreversAmount: 1890,
-    usdRate: 9.00,
-    totalCost: 17010.00,
-    addedAt: new Date().toISOString()
-  }
-])
+// Global cart state
+const cartItems = ref([])
 const isAddingToCart = ref(false)
 
 export function useCart() {
