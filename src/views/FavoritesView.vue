@@ -212,6 +212,7 @@
             <div class="flex flex-col">
               <span class="text-xs text-gray-600 font-medium">Forevers {{ selectedBalance?.code || 'DE' }}</span>
               <input
+                ref="amountInput"
                 v-model.number="foreversAmount"
                 type="number"
                 min="1"
