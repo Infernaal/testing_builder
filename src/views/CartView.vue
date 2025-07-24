@@ -129,25 +129,22 @@ const handleBack = () => {
   router.go(-1)
 }
 
-const selectPaymentMethod = (method) => {
-  selectedPaymentMethod.value = method
-}
-
-const handlePurchase = (paymentData) => {
+const handlePurchase = () => {
   // Handle the purchase logic
-  console.log('Purchase data:', paymentData)
+  console.log('Purchase initiated, total amount:', cartTotal.value)
 
   // Store purchase details for modal
-  lastPurchaseDetails.value = paymentData
+  lastPurchaseDetails.value = {
+    paymentMethod: 'cart',
+    amount: cartTotal.value,
+    termsAccepted: true
+  }
 
   // Show success modal
   showSuccessModal.value = true
 
   // Clear cart after successful purchase
   clearCart()
-
-  // Reset payment method selection
-  selectedPaymentMethod.value = ''
 }
 
 const closeSuccessModal = () => {
