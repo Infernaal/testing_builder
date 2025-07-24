@@ -40,7 +40,7 @@
                 ]">
                   <div class="rounded-full border-2 border-purple-400 overflow-hidden w-6 h-6">
                     <img
-                      src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face"
+                      src="https://cdn.builder.io/api/v1/image/assets%2Fcd0d81f444984dacbac377cc9f78a1aa%2F572074b5aefa4337aec163bd9a21aec3?format=webp&width=800"
                       alt="Profile"
                       class="w-full h-full object-cover"
                     />
