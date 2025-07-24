@@ -16,15 +16,15 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 translate-y-full"
     >
-      <div v-if="isProfileMenuOpen" class="fixed bottom-16 left-0 right-0 px-4 pb-1 z-40">
+      <div v-if="isProfileMenuOpen" class="fixed bottom-20 left-0 right-0 px-4 pb-2 z-40">
         <div class="flex items-center justify-between gap-3 max-w-sm mx-auto">
           <!-- User ID с копированием - Enhanced visibility -->
-          <div class="flex items-center bg-white/50 border-2 border-white/70 rounded-full backdrop-blur-sm shadow-lg">
+          <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl">
             <div class="px-4 py-3">
-              <span class="text-[#666] text-sm font-semibold">ID: </span>
-              <span class="text-[#333] text-sm font-bold">515745</span>
+              <span class="text-[#555] text-sm font-bold">ID: </span>
+              <span class="text-[#000] text-sm font-bold">515745</span>
             </div>
-            <button @click="copyUserId" class="w-7 h-7 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center">
+            <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
                 <path d="M18.2806 1.19995H8.98336C8.42322 1.19995 7.88603 1.43348 7.48995 1.84917C7.09387 2.26486 6.87136 2.82866 6.87136 3.41653V4.26906H5.81536C5.2278 4.26906 4.66431 4.51402 4.24885 4.95006C3.83338 5.3861 3.59998 5.97749 3.59998 6.59414V20.4749C3.59998 21.0915 3.83338 21.6829 4.24885 22.119C4.66431 22.555 5.2278 22.8 5.81536 22.8H14.9132C15.5008 22.8 16.0643 22.555 16.4797 22.119C16.8952 21.6829 17.1286 21.0915 17.1286 20.4749V19.6998H18.2806C18.8363 19.6999 19.3699 19.4709 19.7663 19.0621C20.1627 18.6533 20.3903 18.0975 20.4 17.5143V3.41653C20.398 2.82794 20.1739 2.26417 19.7766 1.8487C19.3794 1.43323 18.8414 1.19995 18.2806 1.19995Z" fill="currentColor"/>
               </svg>
@@ -34,7 +34,7 @@
           <!-- Language Selector с флагом - Enhanced visibility -->
           <button
             @click="toggleLanguageSelector"
-            class="flex items-center gap-2 px-4 py-3 bg-white/50 border-2 border-white/70 rounded-full backdrop-blur-sm transition-all hover:bg-white/60 shadow-lg"
+            class="flex items-center gap-2 px-4 py-3 bg-white/80 border-2 border-white rounded-full backdrop-blur-sm transition-all hover:bg-white/90 shadow-xl"
           >
             <div class="w-8 h-8 rounded-full overflow-hidden">
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
