@@ -280,6 +280,34 @@ span, h1 {
   display: none;
 }
 
+/* Touch-optimized scrolling for Telegram WebApp */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: smooth;
+  /* Enhanced touch scrolling for iOS */
+  -webkit-scroll-snap-type: none;
+  scroll-snap-type: none;
+  /* Better touch response */
+  touch-action: pan-y;
+  /* Momentum scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbars completely */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.touch-scroll::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Improve touch targets for better scrolling */
+.touch-scroll > * {
+  pointer-events: auto;
+}
+
 /* Scroll fade effect */
 .scroll-fade {
   mask-image: linear-gradient(to bottom, black calc(100% - 64px), transparent);
