@@ -936,6 +936,38 @@ main {
   transform: translateY(-5px) scale(0.98);
 }
 
+/* Success notification animations */
+.success-notification-enter-active,
+.success-notification-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.success-notification-enter-from {
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.success-notification-leave-to {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+}
+
+/* Cart badge animations */
+.cart-badge-enter-active,
+.cart-badge-leave-active {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-badge-enter-from {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.cart-badge-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+
 /* Input field states */
 .input-focused {
   border-color: #2019CE !important;
