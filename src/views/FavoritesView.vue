@@ -920,6 +920,59 @@ main {
   z-index: 9999;
 }
 
+/* Success notification responsive positioning */
+@media (max-width: 375px) {
+  .success-notification {
+    bottom: 100px !important;
+    left: 16px !important;
+    right: 16px !important;
+    transform: none !important;
+    min-width: auto !important;
+  }
+
+  .success-notification > div {
+    min-width: auto !important;
+    width: 100%;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .success-notification {
+    bottom: 110px !important;
+  }
+}
+
+/* Cart badge responsive sizing */
+@media (max-width: 375px) {
+  .cart-badge {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 9px !important;
+    min-width: 18px !important;
+  }
+}
+
+/* Telegram mini app optimizations */
+@media (max-width: 480px) {
+  /* Success notification for mobile */
+  .success-notification {
+    position: fixed;
+    z-index: 1000;
+  }
+
+  /* Ensure notifications don't interfere with bottom navigation */
+  .success-notification-mobile {
+    bottom: calc(89px + env(safe-area-inset-bottom, 8px)) !important;
+  }
+}
+
+/* Safe area support for notifications */
+@supports (padding: max(0px)) {
+  .success-notification {
+    bottom: max(96px, calc(96px + env(safe-area-inset-bottom)));
+  }
+}
+
 /* Error message animations */
 .error-message-enter-active,
 .error-message-leave-active {
