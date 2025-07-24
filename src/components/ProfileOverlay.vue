@@ -16,10 +16,10 @@
     >
       <!-- Blurred Background -->
       <div class="absolute inset-0 bg-black/20 backdrop-blur-md"></div>
-      
-      <!-- Profile Menu Container - Narrower to show blur -->
-      <div 
-        class="absolute inset-x-6 inset-y-12 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+
+      <!-- Profile Menu Container - Adjusted sizing -->
+      <div
+        class="absolute left-4 right-4 top-16 bottom-8 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         @click.stop
       >
         <!-- Profile Header Section -->
