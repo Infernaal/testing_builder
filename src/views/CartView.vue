@@ -184,31 +184,79 @@ const handleBuyForevers = () => {
 }
 
 /* Mobile optimizations for Telegram mini app */
-@media (max-width: 430px) {
+@media (max-width: 375px) {
   .cart-view {
     max-width: 100%;
   }
-  
+
+  .scrollable-content {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .fixed.bottom-24 {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    padding-top: 12px;
+  }
+
+  .cart-item {
+    padding: 12px;
+  }
+
+  .back-button {
+    min-width: 90px;
+    height: 44px;
+    padding-left: 12px;
+    padding-right: 12px;
+    font-size: 14px;
+  }
+
+  .buy-button {
+    height: 44px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-size: 16px;
+  }
+
+  /* Smaller text for mobile */
+  .text-xl {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .text-lg {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 430px) {
+  .cart-view {
+    max-width: 100%;
+  }
+
   .scrollable-content {
     padding-left: 14px;
     padding-right: 14px;
   }
-  
+
   .fixed.bottom-24 {
     padding-left: 14px;
     padding-right: 14px;
   }
-  
+
   .cart-item {
     padding: 12px;
   }
-  
+
   .back-button {
     min-width: 100px;
     padding-left: 16px;
     padding-right: 16px;
   }
-  
+
   .buy-button {
     padding-left: 24px;
     padding-right: 24px;
