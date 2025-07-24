@@ -876,18 +876,18 @@ main {
   z-index: 9999;
 }
 
-/* Error message animations */
-.error-message-enter-active,
-.error-message-leave-active {
+/* Error tooltip animations */
+.error-tooltip-enter-active,
+.error-tooltip-leave-active {
   transition: all 0.3s ease-out;
 }
 
-.error-message-enter-from {
+.error-tooltip-enter-from {
   opacity: 0;
   transform: translateY(-10px) scale(0.95);
 }
 
-.error-message-leave-to {
+.error-tooltip-leave-to {
   opacity: 0;
   transform: translateY(-5px) scale(0.98);
 }
