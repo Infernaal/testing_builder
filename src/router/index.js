@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import StartView from '../views/StartView.vue'
 import WalletView from '../views/WalletView.vue'
-import ProfileView from '../views/ProfileView.vue'
 import FavoritesView from '../views/FavoritesView.vue'
 import CartView from '../views/CartView.vue'
 import HoldersView from '../views/HoldersView.vue'
