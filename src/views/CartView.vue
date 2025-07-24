@@ -189,12 +189,17 @@ const closeSuccessModal = () => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Clean layout without fixed positioning */
-
-.cart-bottom-container {
-  padding-bottom: env(safe-area-inset-bottom, 20px);
-  margin-top: auto;
-  flex-shrink: 0;
+/* Fixed bottom section styling */
+.fixed-bottom-section {
+  position: fixed;
+  bottom: 89px; /* Height of BottomNavigation */
+  left: 0;
+  right: 0;
+  background: #F0F0F0;
+  border-top: 1px solid rgba(32, 25, 206, 0.1);
+  z-index: 10;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
 .back-button {
