@@ -1,5 +1,8 @@
 <template>
-  <div class="country-flag w-8 h-8 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+  <div :class="[
+    'country-flag rounded-full overflow-hidden bg-gray-200 flex items-center justify-center',
+    size === 'small' ? 'w-6 h-6' : size === 'large' ? 'w-10 h-10' : 'w-8 h-8'
+  ]">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
       
