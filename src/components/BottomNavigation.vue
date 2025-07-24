@@ -199,7 +199,7 @@
 import { ref, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useCart } from '../composables/useCart.js'
-import ProfileMenu from './ProfileMenu.vue'
+import ProfileOverlay from './ProfileOverlay.vue'
 
 // Router
 const router = useRouter()
