@@ -1,7 +1,7 @@
 <template>
-  <div class="cart-view w-full max-w-md mx-auto bg-dbd-off-white min-h-screen flex flex-col font-montserrat">
+  <div class="cart-view w-full max-w-md mx-auto bg-gray-100 min-h-screen flex flex-col font-montserrat">
     <!-- Content Container -->
-    <div class="content-container bg-dbd-off-white flex-1 flex flex-col relative">
+    <div class="content-container bg-gray-100 flex-1 flex flex-col relative">
       <!-- Scrollable Cart Items Area -->
       <div class="flex-1 overflow-y-auto px-3.5 pt-4 pb-6" v-if="cartItemsCount > 0">
         <div class="space-y-2">
