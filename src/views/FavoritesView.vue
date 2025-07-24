@@ -543,5 +543,81 @@ main {
   height: calc(100vh - 89px); /* Subtract bottom navigation height */
 }
 
+/* Modal styles */
+.modal-backdrop {
+  backdrop-filter: blur(9px);
+}
+
+/* Enhanced responsive modal sizing */
+@media (max-width: 375px) {
+  .modal-content {
+    width: calc(100vw - 32px);
+    max-width: 311px;
+    margin: 0 16px;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 768px) {
+  .modal-content {
+    width: 311px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .modal-content {
+    width: 350px;
+    margin: 0 auto;
+  }
+}
+
+/* Ensure modal inputs are touch-friendly */
+.modal-content input {
+  min-height: 20px;
+  padding: 2px 0;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.modal-content input:focus {
+  outline: none;
+  background: transparent;
+}
+
+/* Remove input number arrows on mobile */
+.modal-content input[type="number"] {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+.modal-content input[type="number"]::-webkit-outer-spin-button,
+.modal-content input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Animation for modal */
+.modal-enter-active, .modal-leave-active {
+  transition: all 0.3s ease;
+}
+
+.modal-enter-from, .modal-leave-to {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+/* Button hover states for touch devices */
+@media (hover: hover) {
+  .modal-content button:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Ensure modal stays above everything */
+.modal-overlay {
+  z-index: 9999;
+}
+
 
 </style>
