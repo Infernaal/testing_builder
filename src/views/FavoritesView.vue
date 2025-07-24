@@ -306,26 +306,14 @@ onMounted(async () => {
 @media (max-width: 375px) {
   main {
     max-width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .bg-purple-50 {
-    padding: 16px;
-  }
-
-  .text-3xl {
-    font-size: 24px;
+    padding-left: 14px;
+    padding-right: 14px;
   }
 }
 
 @media (min-width: 376px) and (max-width: 768px) {
   main {
     max-width: 420px;
-  }
-
-  .bg-purple-50 {
-    padding: 20px;
   }
 }
 
@@ -342,22 +330,64 @@ onMounted(async () => {
 
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
-  width: 0;
+  width: 2px;
+  border-radius: 30px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B7B7B7;
+  border-radius: 30px;
+  opacity: 0.4;
+}
+
+/* Hide scrollbar in Firefox */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #B7B7B7 transparent;
+}
+
+/* Smooth scroll behavior */
+.overflow-y-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* Optimize font sizes for mobile */
 @media (max-width: 375px) {
-  .text-2xl {
+  .text-xl {
     font-size: 20px;
     line-height: 24px;
+  }
+
+  .text-2xl {
+    font-size: 26px;
+    line-height: 30px;
   }
 
   .text-lg {
     font-size: 16px;
   }
 
+  .text-base {
+    font-size: 14px;
+  }
+
   .text-sm {
     font-size: 12px;
   }
+}
+
+/* Ensure consistent heights for balance cards */
+.min-h-\[216px\] {
+  min-height: 216px;
+}
+
+/* Make sure content properly fits */
+main {
+  height: calc(100vh - 89px); /* Subtract bottom navigation height */
 }
 </style>
