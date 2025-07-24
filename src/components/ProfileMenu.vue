@@ -82,7 +82,7 @@
         </div>
 
         <!-- Menu Items Section -->
-        <div class="px-3 space-y-2 flex-1 overflow-y-auto" style="height: calc(100% - 300px);">
+        <div class="px-3 space-y-2 flex-1 overflow-y-auto" style="height: calc(100% - 320px);">
           <!-- Calculator -->
           <div class="flex items-center gap-3 p-3 hover:bg-white/10 rounded-xl cursor-pointer">
             <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/40">
