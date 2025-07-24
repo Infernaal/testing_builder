@@ -120,6 +120,10 @@ const bonusBalance = ref(56200)
 const userBalance = ref(10196) // Forevers balance converted to USD
 const defaultAmount = ref(26106) // Default purchase amount from design
 
+// Modal state
+const showSuccessModal = ref(false)
+const lastTransactionDetails = ref(null)
+
 // Methods
 const handleBack = () => {
   router.push('/favorites') // Navigate back to favorites or previous page
@@ -129,8 +133,11 @@ const handleWalletPurchase = (paymentData) => {
   // Handle wallet purchase logic
   console.log('Wallet purchase data:', paymentData)
 
-  // Show success message
-  alert(`Transaction successful! Payment method: ${paymentData.paymentMethod}, Amount: $${paymentData.amount.toLocaleString()}`)
+  // Store transaction details for modal
+  lastTransactionDetails.value = paymentData
+
+  // Show success modal
+  showSuccessModal.value = true
 
   // Update balances after transaction
   if (paymentData.paymentMethod === 'loyalty') {
@@ -138,9 +145,11 @@ const handleWalletPurchase = (paymentData) => {
   } else if (paymentData.paymentMethod === 'bonus') {
     bonusBalance.value -= paymentData.amount
   }
+}
 
-  // Navigate to success page or refresh wallet
-  location.reload()
+const closeSuccessModal = () => {
+  showSuccessModal.value = false
+  lastTransactionDetails.value = null
 }
 </script>
 
