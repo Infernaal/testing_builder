@@ -101,7 +101,6 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
-import IconSvg from '../components/IconSvg.vue'
 
 const router = useRouter()
 
