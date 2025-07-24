@@ -188,17 +188,15 @@ const handleBuyForevers = () => {
     max-width: 100%;
   }
 
-  .scrollable-content {
+  .overflow-y-auto {
     padding-left: 12px;
     padding-right: 12px;
-    padding-bottom: 240px !important; /* Extra space for mobile */
   }
 
-  .fixed.bottom-24 {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+  /* Bottom section for mobile */
+  .px-3\\.5 {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
   }
 
   .cart-item {
