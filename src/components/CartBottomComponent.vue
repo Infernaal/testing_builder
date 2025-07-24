@@ -62,28 +62,29 @@ const emit = defineEmits(['back', 'purchase'])
 /* Mobile optimizations for Telegram WebApp */
 @media (max-width: 375px) {
   .cart-bottom-component {
-    padding: 16px 14px 8px 14px;
+    padding: 14px 14px 8px 14px;
   }
 
   .action-buttons .back-button {
-    height: 48px;
-    min-width: 100px;
-    padding: 12px 20px;
+    height: 40px;
+    min-width: 85px;
+    padding: 8px 16px;
+    gap: 4px;
   }
 
   .action-buttons .buy-button {
-    height: 48px;
-    font-size: 16px;
-    padding: 12px 32px;
+    height: 40px;
+    font-size: 14px;
+    padding: 8px 24px;
   }
 
   .total-section span {
-    font-size: 19px;
-    line-height: 26px;
+    font-size: 17px;
+    line-height: 22px;
   }
 
   .total-section {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 }
 
