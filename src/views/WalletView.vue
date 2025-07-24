@@ -92,15 +92,10 @@ import SuccessModal from '../components/SuccessModal.vue'
 
 const router = useRouter()
 
-// Wallet balances
+// Wallet balances for display only
 const loyaltyBalance = ref(8900)
 const bonusBalance = ref(56200)
 const userBalance = ref(10196) // Forevers balance converted to USD
-const defaultAmount = ref(26106) // Default purchase amount from design
-
-// Modal state
-const showSuccessModal = ref(false)
-const lastTransactionDetails = ref(null)
 
 // Methods (wallet doesn't need purchase methods)
 // WalletView only displays balances, purchase logic is in CartView
