@@ -7,7 +7,7 @@
     </div>
 
     <!-- Action Buttons -->
-    <div class="action-buttons flex items-center gap-2.5">
+    <div class="action-buttons flex items-center justify-center gap-2.5">
       <!-- Back Button -->
       <button
         @click="$emit('back')"
