@@ -120,14 +120,6 @@ const router = useRouter()
 // Cart functionality
 const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useCart()
 
-// Mock balances - replace with real data from store/API
-const loyaltyBalance = ref(8900)
-const bonusBalance = ref(56200)
-const userBalance = ref(75000)
-
-// Payment method selection
-const selectedPaymentMethod = ref('')
-
 // Modal state
 const showSuccessModal = ref(false)
 const lastPurchaseDetails = ref(null)
