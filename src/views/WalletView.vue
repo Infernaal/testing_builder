@@ -65,7 +65,7 @@
             </div>
             <span class="text-base font-medium text-dbd-dark">Bonus</span>
           </div>
-          
+
           <!-- Amount Display -->
           <div class="amount-display bg-dbd-off-white rounded-2xl border border-dbd-primary/20 p-4">
             <div class="flex flex-col">
@@ -74,6 +74,18 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Payment Component (for wallet transactions) -->
+      <div class="payment-section">
+        <PaymentComponent
+          :total-amount="defaultAmount"
+          :loyalty-balance="loyaltyBalance"
+          :bonus-balance="bonusBalance"
+          :user-balance="userBalance"
+          @back="handleBack"
+          @purchase="handleWalletPurchase"
+        />
       </div>
     </div>
 
