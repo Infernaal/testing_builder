@@ -517,6 +517,32 @@ const handleInputChange = () => {
   }, 500)
 }
 
+const getErrorTitle = () => {
+  switch (inputError.value) {
+    case 'empty':
+      return "Can't be empty"
+    case 'invalid':
+      return "Can't be use"
+    case 'limit':
+      return "Can't be use"
+    default:
+      return "Error"
+  }
+}
+
+const getErrorMessage = () => {
+  switch (inputError.value) {
+    case 'empty':
+      return "Please, enter your amount"
+    case 'invalid':
+      return "Only numbers are allowed"
+    case 'limit':
+      return `Please enter the amount according to your limit (max: ${selectedBalance.value?.availableAmount})`
+    default:
+      return "Please check your input"
+  }
+}
+
 const validateInput = () => {
   // Clear previous errors
   inputError.value = ''
