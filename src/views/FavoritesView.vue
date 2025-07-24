@@ -364,6 +364,11 @@ const { addToCart, isAddingToCart } = useCart()
 const showSuccessNotification = ref(false)
 const successMessage = ref('')
 let successTimeout = null
+
+// Error notification
+const showErrorNotification = ref(false)
+const errorMessage = ref('')
+let errorTimeout = null
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
