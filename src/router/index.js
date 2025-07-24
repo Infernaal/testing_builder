@@ -14,11 +14,7 @@ const router = createRouter({
       name: 'start',
       component: StartView,
     },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: ProfileView,
-    },
+
     {
       path: '/wallet',
       name: 'wallet',
