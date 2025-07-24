@@ -725,8 +725,19 @@ const handleAddToCart = async () => {
     }
   } catch (error) {
     console.error('Failed to add to cart:', error)
-    // TODO: Show error notification to user
     inputError.value = 'failed'
+
+    // Show error notification
+    showErrorNotification.value = true
+    errorMessage.value = 'Failed to add to cart. Please try again.'
+
+    // Hide notification after 3 seconds
+    if (errorTimeout) {
+      clearTimeout(errorTimeout)
+    }
+    errorTimeout = setTimeout(() => {
+      showErrorNotification.value = false
+    }, 3000)
   }
 }
 
