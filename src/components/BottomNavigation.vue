@@ -16,7 +16,7 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 translate-y-full"
     >
-      <div v-if="isProfileMenuOpen" class="fixed bottom-20 left-0 right-0 px-4 pb-2 z-40">
+      <div v-if="isProfileMenuOpen" class="fixed bottom-16 left-0 right-0 px-4 pb-1 z-40">
         <div class="flex items-center justify-between gap-3 max-w-sm mx-auto">
           <!-- User ID с копированием - Enhanced visibility -->
           <div class="flex items-center bg-white/50 border-2 border-white/70 rounded-full backdrop-blur-sm shadow-lg">
