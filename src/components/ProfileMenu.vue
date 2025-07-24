@@ -38,43 +38,43 @@
       >
         
         <!-- Profile Header Section -->
-        <div class="w-full h-24 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl m-3 p-4 relative">
-          <div class="flex items-center gap-4">
+        <div class="w-full h-28 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl m-3 p-4 relative">
+          <div class="flex items-start gap-4">
             <!-- Avatar with exact positioning -->
-            <div class="relative">
-              <div class="w-20 h-20 rounded-full border-2 border-purple-300 overflow-hidden">
-                <img 
-                  :src="profileData.avatar" 
+            <div class="relative flex-shrink-0">
+              <div class="w-16 h-16 rounded-full border-2 border-purple-300 overflow-hidden">
+                <img
+                  :src="profileData.avatar"
                   :alt="profileData.name"
                   class="w-full h-full object-cover"
                 />
               </div>
             </div>
-            
+
             <!-- User Info and Silver Badge -->
-            <div class="flex-1">
+            <div class="flex-1 min-w-0 pt-1">
               <!-- Silver Badge with exact styling -->
               <div class="flex items-center gap-3 mb-2">
-                <div class="flex items-center gap-2 px-4 py-1.5 bg-white/20 border border-white/30 rounded-full backdrop-blur-sm">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <div class="flex items-center gap-2 px-3 py-1 bg-white/20 border border-white/30 rounded-full backdrop-blur-sm">
+                  <svg width="20" height="20" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.0004 26.2497C7.24592 26.2497 1.75073 20.7545 1.75073 14.0001C1.75073 7.24564 7.24592 1.75085 14.0004 1.75085C20.7548 1.75085 26.25 7.24564 26.25 14.0001C26.25 20.7545 20.7544 26.2497 14.0004 26.2497Z" fill="white"/>
                     <path d="M20.2071 5.37145C20.73 5.37145 21.2468 5.39833 21.7567 5.4472C19.7049 3.58479 16.9828 2.44812 14 2.44812C7.63041 2.44812 2.448 7.63013 2.448 14.0001C2.448 16.2735 3.11102 18.3941 4.24973 20.1832C4.86143 11.9015 11.769 5.37145 20.2071 5.37145Z" fill="#E0E0E0"/>
                     <path d="M14.0006 25.5519C20.3702 25.5519 25.5526 20.3699 25.5526 13.9999C25.5526 10.6131 24.0873 7.56229 21.7577 5.44697C21.2478 5.39809 20.731 5.37122 20.2081 5.37122C11.7704 5.37122 4.86244 11.9017 4.25073 20.1829C6.30211 23.4072 9.90475 25.5519 14.0006 25.5519Z" fill="#B5B5B5"/>
                     <path d="M14.0004 23.1368C19.0464 23.1368 23.1369 19.0463 23.1369 14.0003C23.1369 8.95433 19.0464 4.86377 14.0004 4.86377C8.95445 4.86377 4.86389 8.95433 4.86389 14.0003C4.86389 19.0463 8.95445 23.1368 14.0004 23.1368Z" fill="#9E9E9E"/>
                     <path d="M19.4965 12.7667L15.6984 12.2148L14.0001 8.77307L12.3014 12.2148L8.50366 12.7667L11.2519 15.4452L10.6031 19.2279L14.0001 17.4421L17.397 19.2279L16.7483 15.4452L19.4965 12.7667Z" fill="#F6F6F6"/>
                   </svg>
-                  <span class="text-white text-sm font-medium">Silver</span>
+                  <span class="text-white text-xs font-medium">Silver</span>
                 </div>
               </div>
-              <h1 class="text-white text-xl font-bold">{{ profileData.name }}</h1>
+              <h1 class="text-white text-lg font-bold truncate">{{ profileData.name }}</h1>
             </div>
-            
+
             <!-- Right Arrow Button -->
-            <button 
+            <button
               @click="$emit('close')"
-              class="w-11 h-11 bg-dbd-off-white/20 border border-dbd-primary rounded-full flex items-center justify-center"
+              class="w-10 h-10 bg-dbd-off-white/20 border border-dbd-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1"
             >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" class="text-gray-400">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="text-gray-400">
                 <path d="M17.2155 11.2862L8.2216 2.29534C7.82696 1.90169 7.18757 1.90169 6.79192 2.29534C6.39728 2.68898 6.39728 3.32838 6.79192 3.72203L15.0724 11.9996L6.79292 20.2771C6.39827 20.6707 6.39827 21.3101 6.79292 21.7048C7.18756 22.0984 7.82795 22.0984 8.2226 21.7048L17.2165 12.7139C17.6051 12.3244 17.6051 11.6749 17.2155 11.2862Z" fill="#B7B7B7"/>
               </svg>
             </button>
