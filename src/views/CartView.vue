@@ -189,6 +189,12 @@ const closeSuccessModal = () => {
 
 /* Clean layout without fixed positioning */
 
+.cart-bottom-container {
+  padding-bottom: env(safe-area-inset-bottom, 20px);
+  margin-top: auto;
+  flex-shrink: 0;
+}
+
 .back-button {
   height: 52px;
   min-width: 119px;
