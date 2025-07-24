@@ -229,20 +229,44 @@ const goBack = () => {
     padding-right: 12px;
   }
 
+  .text-4xl {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
   .text-3xl {
     font-size: 24px;
+    line-height: 28px;
   }
-  
-  .text-xl {
+
+  .text-2xl {
     font-size: 18px;
+    line-height: 22px;
   }
-  
-  .text-lg {
+
+  .text-xl {
     font-size: 16px;
+    line-height: 20px;
+  }
+
+  .text-lg {
+    font-size: 14px;
+    line-height: 18px;
   }
 
   .text-sm {
     font-size: 12px;
+    line-height: 16px;
+  }
+
+  /* Smaller padding for mobile */
+  .bg-dbd-light-blue {
+    padding: 12px !important;
+  }
+
+  /* Adjust card spacing */
+  .space-y-4 > * + * {
+    margin-top: 12px;
   }
 }
 
