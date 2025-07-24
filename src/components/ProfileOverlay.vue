@@ -72,7 +72,7 @@
         <!-- Menu Items Section with scroll fade -->
         <div class="relative flex-1">
           <!-- Scroll fade overlay at bottom -->
-          <div class="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#120B81] via-[#120B81]/80 to-transparent pointer-events-none z-10"></div>
+          <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#120B81] via-[#120B81]/90 to-transparent pointer-events-none z-10"></div>
           
           <div class="px-6 space-y-2 overflow-y-auto scroll-smooth touch-scroll" style="height: 200px;">
             <!-- Calculator -->
