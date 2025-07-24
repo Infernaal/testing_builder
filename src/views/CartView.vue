@@ -272,7 +272,7 @@ const closeSuccessModal = () => {
   }
 
   /* Bottom section padding */
-  .px-3\\.5 {
+  .px-3-5 {
     padding-left: 14px !important;
     padding-right: 14px !important;
   }
