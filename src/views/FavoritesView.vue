@@ -52,7 +52,9 @@
 
           <!-- Token Info -->
           <div class="flex items-center gap-1 mb-3 flex-wrap">
-            <IconSvg name="forevers" :size="24" color="primary" :hover-effect="false" />
+            <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
+              <path d="M23 5.536V1H5.347V6.759H1V11.294H5.347V22.581H10.421V17.046H14.712V12.510H10.421V11.294H18.849V6.759H10.421V5.536H23Z" fill="currentColor"/>
+            </svg>
             <span class="text-lg font-semibold text-blue-700">{{ balance.amount.toLocaleString() }}</span>
             <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
             <div class="flex items-center gap-0.5 text-sm text-gray-600 font-medium">
