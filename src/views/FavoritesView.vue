@@ -647,33 +647,39 @@ const handleAddToCart = async () => {
     return
   }
 
-  console.log('Adding to cart:', {
-    balance: selectedBalance.value,
-    foreversAmount: foreversAmount.value,
-    dollarsAmount: dollarsAmount.value
-  })
-
   try {
-    // TODO: Implement add to cart functionality with backend API
-    // const payload = {
-    //   balanceId: selectedBalance.value.id,
-    //   amount: foreversAmount.value,
-    //   totalCost: dollarsAmount.value,
-    //   countryCode: selectedBalance.value.code
-    // }
-    // await addToCart(payload)
+    // Add to cart using the cart store
+    const cartItem = {
+      balance: selectedBalance.value,
+      foreversAmount: foreversAmount.value,
+    }
 
-    // Show success feedback
-    // You could add a toast notification here
-    console.log('Successfully added to cart!')
+    const success = await addToCart(cartItem)
 
-    closeEnterAmountModal()
+    if (success) {
+      // Show success notification
+      showSuccessNotification.value = true
+      successMessage.value = 'Forevers added successfully'
 
-    // Optionally navigate to cart or show success state
-    // router.push('/cart')
+      // Hide notification after 3 seconds
+      if (successTimeout) {
+        clearTimeout(successTimeout)
+      }
+      successTimeout = setTimeout(() => {
+        showSuccessNotification.value = false
+      }, 3000)
+
+      // Close modal
+      closeEnterAmountModal()
+
+      console.log('Successfully added to cart!')
+    } else {
+      throw new Error('Failed to add to cart')
+    }
   } catch (error) {
     console.error('Failed to add to cart:', error)
-    // Handle error (show error message to user)
+    // TODO: Show error notification to user
+    inputError.value = 'failed'
   }
 }
 
