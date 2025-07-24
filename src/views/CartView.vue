@@ -93,15 +93,13 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import { useCart } from '../composables/useCart.js'
 
-export default {
-  name: 'CartView',
-  components: {
-    BottomNavigation
-  }
-}
+// Cart functionality
+const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useCart()
 </script>
 
 <style scoped>
