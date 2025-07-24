@@ -150,7 +150,7 @@
             >
               <div
                 v-if="cartItemsCount > 0"
-                class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center min-w-[20px] shadow-lg"
+                class="absolute -top-1 -right-1 bg-orange-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center min-w-[20px] shadow-lg cart-counter-badge"
                 style="font-size: 10px; line-height: 1;"
               >
                 {{ cartItemsCount > 99 ? '99+' : cartItemsCount }}
