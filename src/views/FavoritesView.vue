@@ -203,10 +203,13 @@
             <div class="flex flex-col">
               <span class="text-xs text-gray-600 font-medium">Forevers {{ selectedBalance?.code || 'DE' }}</span>
               <input
-                v-model="foreversAmount"
+                v-model.number="foreversAmount"
                 type="number"
+                min="1"
+                :max="selectedBalance?.availableAmount || 999999"
                 class="text-base font-semibold text-black bg-transparent border-none outline-none w-16"
                 placeholder="250"
+                @input="validateInput"
               />
             </div>
           </div>
