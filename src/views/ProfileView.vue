@@ -116,7 +116,7 @@
 <script setup>
 import { ref } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
-import FigmaProfileMenu from '../components/FigmaProfileMenu.vue'
+import ProfileMenu from '../components/ProfileMenu.vue'
 
 // Profile menu visibility
 const isMenuVisible = ref(false)
