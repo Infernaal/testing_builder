@@ -97,15 +97,16 @@ const emit = defineEmits(['back', 'purchase'])
 
   .action-buttons .back-button {
     height: 48px;
+    min-width: 105px;
   }
 
   .action-buttons .buy-button {
     height: 48px;
-    font-size: 19px;
+    font-size: 17px;
   }
 
   .total-section span {
-    font-size: 19px;
+    font-size: 20px;
   }
 }
 
