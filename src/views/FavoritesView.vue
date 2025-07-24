@@ -841,5 +841,32 @@ main {
   z-index: 9999;
 }
 
+/* Error message animations */
+.error-message-enter-active,
+.error-message-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.error-message-enter-from {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+}
+
+.error-message-leave-to {
+  opacity: 0;
+  transform: translateY(-5px) scale(0.98);
+}
+
+/* Input field states */
+.input-focused {
+  border-color: #2019CE !important;
+  box-shadow: 0 0 0 2px rgba(32, 25, 206, 0.1);
+}
+
+.input-error {
+  border-color: #FF1919 !important;
+  box-shadow: 0 0 0 2px rgba(255, 25, 25, 0.1);
+}
+
 
 </style>
