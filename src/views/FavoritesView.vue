@@ -157,16 +157,16 @@
     <!-- Enter Amount Modal -->
     <div
       v-if="showEnterAmountModal"
-      class="fixed inset-0 z-50 flex items-center justify-center"
+      class="modal-overlay fixed inset-0 flex items-center justify-center"
       @click="closeEnterAmountModal"
     >
       <!-- Blur Backdrop -->
-      <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-[9px]"></div>
+      <div class="modal-backdrop absolute inset-0 bg-black bg-opacity-20"></div>
 
       <!-- Modal Content -->
       <div
         @click.stop
-        class="relative bg-white rounded-[20px] w-[311px] p-6 mx-4 max-w-[calc(100%-32px)] shadow-xl"
+        class="modal-content relative bg-white rounded-[20px] p-6 shadow-xl"
       >
         <!-- Title -->
         <h2 class="text-lg font-semibold text-black text-center mb-3">
