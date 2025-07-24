@@ -965,26 +965,7 @@ main {
   }
 }
 
-/* Telegram mini app optimizations */
-@media (max-width: 480px) {
-  /* Success notification for mobile */
-  .success-notification {
-    position: fixed;
-    z-index: 1000;
-  }
 
-  /* Ensure notifications don't interfere with bottom navigation */
-  .success-notification-mobile {
-    bottom: calc(89px + env(safe-area-inset-bottom, 8px)) !important;
-  }
-}
-
-/* Safe area support for notifications */
-@supports (padding: max(0px)) {
-  .success-notification {
-    bottom: max(96px, calc(96px + env(safe-area-inset-bottom)));
-  }
-}
 
 /* Error message animations */
 .error-message-enter-active,
