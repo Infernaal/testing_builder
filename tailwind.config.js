@@ -17,7 +17,8 @@ export default {
         'dbd-light-orange': '#FFF3E7',
       },
       fontFamily: {
-        'montserrat': ['Montserrat', 'sans-serif'],
+        'montserrat': ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'sans': ['Montserrat', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       }
     },
   },
