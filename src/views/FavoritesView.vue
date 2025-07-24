@@ -151,6 +151,35 @@
       </div>
     </main>
 
+    <!-- Success Notification -->
+    <Transition
+      name="success-notification"
+      enter-active-class="transition-all duration-500 ease-out"
+      leave-active-class="transition-all duration-300 ease-in"
+      enter-from-class="opacity-0 transform translate-y-4 scale-95"
+      enter-to-class="opacity-100 transform translate-y-0 scale-100"
+      leave-from-class="opacity-100 transform translate-y-0 scale-100"
+      leave-to-class="opacity-0 transform translate-y-2 scale-98"
+    >
+      <div
+        v-if="showSuccessNotification"
+        class="fixed bottom-24 left-1/2 transform -translate-x-1/2 z-50"
+      >
+        <div class="bg-green-500 text-white px-6 py-3 rounded-full shadow-lg flex items-center gap-3 border border-green-600 min-w-[257px] justify-center"
+             style="filter: drop-shadow(4px 8px 12px rgba(7, 184, 14, 0.13));">
+          <!-- Check Icon -->
+          <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg width="16" height="16" viewBox="0 0 16 16" class="text-white">
+              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+
+          <!-- Success Message -->
+          <span class="font-semibold text-base">{{ successMessage }}</span>
+        </div>
+      </div>
+    </Transition>
+
     <!-- Bottom Navigation -->
     <BottomNavigation />
 
