@@ -8,7 +8,7 @@
     </div>
     
     <!-- UAE Flag -->
-    <div v-else-if="country === 'UAE'" class="w-full h-full relative">
+    <div v-else-if="country === 'UAE'" class="w-full h-full relative rounded-full overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-1/3 bg-green-600"></div>
       <div class="absolute top-1/3 left-0 w-full h-1/3 bg-white"></div>
       <div class="absolute top-2/3 left-0 w-full h-1/3 bg-black"></div>
