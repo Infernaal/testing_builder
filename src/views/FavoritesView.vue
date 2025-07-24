@@ -235,7 +235,7 @@
                   inputError ? 'text-red-500' : 'text-black'
                 ]"
                 placeholder="250"
-                @input="handleInputChange"
+                @input="handleInputChange($event)"
                 @focus="handleInputFocus"
                 @blur="handleInputBlur"
               />
