@@ -223,8 +223,8 @@ const handleBuyForevers = () => {
 
 /* Support for safe areas on iOS */
 @supports (padding: max(0px)) {
-  .fixed-bottom {
-    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  .fixed.bottom-24 {
+    bottom: max(89px, calc(89px + env(safe-area-inset-bottom)));
   }
 }
 
