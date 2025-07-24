@@ -70,98 +70,97 @@
         </div>
 
         <!-- Menu Items Section with scroll fade -->
-        <div class="relative flex-1">
+        <div class="relative">
           <!-- Scroll fade overlay at bottom -->
-          <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#120B81] via-[#120B81]/90 to-transparent pointer-events-none z-10"></div>
-          
-          <div class="px-6 space-y-2 overflow-y-auto scroll-smooth touch-scroll" style="height: 200px;">
+          <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#120B81] via-[#120B81]/90 to-transparent pointer-events-none z-10"></div>
+
+          <div class="px-6 space-y-1 overflow-y-auto scroll-smooth touch-scroll" style="height: 160px;">
             <!-- Calculator -->
-            <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14.1377 0C15.1645 0 16 0.788555 16 1.75781V18.2422C16 19.2114 15.1645 20 14.1377 20H1.8623C0.835502 20 0 19.2114 0 18.2422V1.75781C0 0.788555 0.835502 0 1.8623 0H14.1377ZM1.8623 1.17188C1.52004 1.17188 1.24121 1.43473 1.24121 1.75781V18.2422C1.24121 18.5653 1.52004 18.8281 1.8623 18.8281H14.1377C14.48 18.8281 14.7587 18.5653 14.7588 18.2422V1.75781C14.7588 1.43473 14.48 1.17188 14.1377 1.17188H1.8623Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Calculator</span>
+              <span class="text-white font-medium text-sm">Calculator</span>
             </div>
 
             <!-- Ambassador -->
-            <div @click="handleMenuClick('ambassador')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('ambassador')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M7 9.64844C9.76508 9.64858 12.0066 11.9652 12.0068 14.8242C12.0068 17.6826 9.76511 19.9999 7 20C4.23394 20 1.99219 17.6827 1.99219 14.8242C1.99243 11.9651 4.23409 9.64844 7 9.64844ZM6.09668 13.8418L4.07715 14.1465L5.53906 15.6182L5.19434 17.6992L7 16.7168L8.80566 17.6992L8.46191 15.6182L9.92383 14.1465L7.90332 13.8418L7 11.9512L6.09668 13.8418ZM4.60547 0L7 3.30078L9.39453 0H14L7 9.64844L0 0H4.60547Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Ambassador</span>
+              <span class="text-white font-medium text-sm">Ambassador</span>
             </div>
 
             <!-- Verification with Badge -->
-            <div @click="handleMenuClick('verification')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('verification')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 12.75L11.25 15L15 9.75M21 12C21 16.5563 16.5563 21 12 21C7.44365 21 3 16.5563 3 12C3 7.44365 7.44365 3 12 3C16.5563 3 21 7.44365 21 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm flex-1">Verification</span>
+              <span class="text-white font-medium text-sm flex-1">Verification</span>
               <!-- Red X Badge - Fixed -->
-              <div class="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
-                <svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div class="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                <svg width="8" height="8" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9 3L3 9M3 3L9 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
             </div>
 
             <!-- Security -->
-            <div @click="handleMenuClick('security')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('security')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.78516 0.0354746C8.92389 -0.0121504 9.07611 -0.0121504 9.21484 0.0354746C10.6561 0.531013 12.1438 0.945188 13.6377 1.26497C14.8838 1.5317 16.1601 1.73823 17.4297 1.87922C17.7546 1.91522 18 2.18263 18 2.50032V8.7386C17.9998 13.165 15.3282 17.2234 11.1943 19.0784L9.26953 19.9427C9.18416 19.9808 9.09193 20.0003 9 20.0003C8.90802 20.0003 8.81583 19.9808 8.73047 19.9427L6.80566 19.0784C2.67178 17.2233 0.000192532 13.165 0 8.7386V2.50032C0 2.18263 0.245411 1.91529 0.570312 1.87922C1.83994 1.73823 3.11627 1.53164 4.3623 1.26497C5.85626 0.945192 7.34396 0.531005 8.78516 0.0354746Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Security</span>
+              <span class="text-white font-medium text-sm">Security</span>
             </div>
 
             <!-- Settings -->
-            <div @click="handleMenuClick('settings')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('settings')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12.2222 20L12.3457 19.375L12.8148 17.0913C13.5679 16.8029 14.2469 16.3972 14.8642 15.9135L17.1605 16.6827L17.7778 16.875L18.0988 16.3221L19.679 13.6778L20 13.125L19.5309 12.7163L17.7531 11.2019C17.8179 10.8083 17.9012 10.4147 17.9012 10C17.9012 9.58531 17.8179 9.19169 17.7531 8.79808L19.5309 7.28369L20 6.875L19.679 6.32215L18.0988 3.67785L17.7778 3.125L17.1605 3.31731L14.8642 4.08654C14.2469 3.60277 13.5679 3.19708 12.8148 2.90862L12.3457 0.625L12.2222 0H7.77775L7.65426 0.625L7.18516 2.90862C6.43209 3.19708 5.75306 3.60277 5.13581 4.08654L2.83947 3.31731L2.22215 3.125L1.9012 3.67785L0.32095 6.32215L0 6.875L0.469097 7.28369L2.24688 8.79808C2.18209 9.19169 2.09873 9.58531 2.09873 10C2.09873 10.4147 2.18209 10.8083 2.24688 11.2019L0.469097 12.7163L0 13.125L0.32095 13.6778L1.9012 16.3221L2.22215 16.875L2.83947 16.6827L5.13581 15.9135C5.75306 16.3972 6.43209 16.8029 7.18516 17.0913L7.65426 19.375L7.77775 20H12.2222Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Settings</span>
+              <span class="text-white font-medium text-sm">Settings</span>
             </div>
 
             <!-- Support -->
-            <div @click="handleMenuClick('support')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('support')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.99902 0C13.9325 0 17.998 3.80872 17.998 8.58691V10.1348C17.9981 10.1411 17.999 10.1479 17.999 10.1543V12.9561C17.9992 12.9624 18 12.9692 18 12.9756V14.543C17.9997 16.724 16.1499 18.4277 13.9502 18.4277H11.2695C10.9422 19.3551 10.0281 19.9951 8.99902 19.9951C7.71066 19.9949 6.59988 18.993 6.59961 17.6777C6.59962 16.3623 7.71051 15.3606 8.99902 15.3604C10.0286 15.3604 10.9435 15.9998 11.2705 16.9277H13.9502C15.1589 16.9277 16.1261 16.1539 16.4111 15.1514C16.155 15.2407 15.8817 15.293 15.5986 15.293C14.3103 15.2927 13.1995 14.2908 13.1992 12.9756V10.1543C13.1992 8.83884 14.3101 7.83714 15.5986 7.83691C15.9032 7.83691 16.1972 7.89422 16.4697 7.99707C16.1535 4.38853 12.9637 1.5 8.99902 1.5C5.03445 1.50011 1.84359 4.38856 1.52734 7.99707C1.80001 7.89396 2.09449 7.83697 2.39941 7.83691C3.6881 7.83691 4.7998 8.83869 4.7998 10.1543V12.9756C4.79953 14.291 3.68794 15.293 2.39941 15.293C1.11107 15.2927 0.000274862 14.2908 0 12.9756V8.58691C4.31105e-05 3.80879 4.0657 0.000121624 8.99902 0Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Support</span>
+              <span class="text-white font-medium text-sm">Support</span>
             </div>
 
             <!-- Help -->
-            <div @click="handleMenuClick('help')" class="flex items-center gap-3 p-2 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
-              <div class="w-10 h-10 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div @click="handleMenuClick('help')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
+              <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.69301 13.4082C9.12117 13.4082 8.6582 13.8848 8.6582 14.4566C8.6582 15.0149 9.10754 15.5051 9.69301 15.5051C10.2785 15.5051 10.7414 15.0149 10.7414 14.4566C10.7414 13.8848 10.2649 13.4082 9.69301 13.4082Z" fill="white"/>
                   <path d="M9.86984 5.46875C8.03168 5.46875 7.1875 6.55801 7.1875 7.29328C7.1875 7.82434 7.6368 8.06941 8.00445 8.06941C8.73969 8.06941 8.44016 7.02098 9.82898 7.02098C10.5098 7.02098 11.0545 7.32055 11.0545 7.94687C11.0545 8.68219 10.292 9.10426 9.84262 9.48551C9.44777 9.8259 8.93035 10.3842 8.93035 11.5552C8.93035 12.2632 9.12094 12.4674 9.67922 12.4674C10.3464 12.4674 10.4825 12.1679 10.4825 11.9092C10.4825 11.2011 10.4962 10.7927 11.2451 10.2072C11.6127 9.92125 12.7701 8.99535 12.7701 7.71543C12.7701 6.43551 11.6127 5.46875 9.86984 5.46875Z" fill="white"/>
                   <path d="M10 0C4.47328 0 0 4.47254 0 10V19.2188C0 19.6502 0.349766 20 0.78125 20H10C15.5267 20 20 15.5275 20 10C20 4.47328 15.5275 0 10 0ZM10 18.4375H1.5625V10C1.5625 5.33684 5.33621 1.5625 10 1.5625C14.6632 1.5625 18.4375 5.33621 18.4375 10C18.4375 14.6632 14.6638 18.4375 10 18.4375Z" fill="white"/>
                 </svg>
               </div>
-              <span class="text-white font-bold text-sm">Help</span>
+              <span class="text-white font-medium text-sm">Help</span>
             </div>
           </div>
         </div>
 
-        <!-- Bottom Section -->
-        <div class="absolute bottom-2 left-0 right-0 p-4">
-          <!-- Start Block - Upgrade Section -->
-          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-3 relative overflow-hidden">
+        <!-- Start Block - Compact version inside overlay -->
+        <div class="mx-4 mb-3 mt-2">
+          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-xl p-2.5 relative overflow-hidden">
             <!-- Star Icon -->
-            <div class="absolute left-2 top-3">
-              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="absolute left-1.5 top-2">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="16" cy="16" r="15.06" fill="#8C4CD1"/>
                 <path d="M28.998 8.39055C26.1133 12.4471 21.365 15.0918 16.0003 15.0918C10.6356 15.0918 5.88739 12.4471 3.00269 8.39055C5.61916 3.9341 10.4615 0.941162 16.0003 0.941162C21.5392 0.941162 26.3815 3.9341 28.998 8.39055Z" fill="#9C68E1"/>
                 <path d="M15.9997 5.11792V15.4117L19.3443 11.8949L15.9997 5.11792Z" fill="#FF9F00"/>
@@ -179,16 +178,16 @@
             </div>
 
             <!-- Background gradient -->
-            <div class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#8C4CD1]/40 to-transparent rounded-l-2xl"></div>
+            <div class="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-[#8C4CD1]/30 to-transparent rounded-l-xl"></div>
 
             <div class="flex items-center justify-between relative z-10">
-              <div class="ml-8">
-                <div class="text-[#02070E] font-bold text-base">Start</div>
+              <div class="ml-6">
+                <div class="text-[#02070E] font-bold text-sm">Start</div>
                 <div class="text-xs text-[#4B4D50]">
-                  buy <span class="font-bold text-[#8C4CD1]">123</span> more Forevers to upgrade
+                  buy <span class="font-bold text-[#8C4CD1]">123</span> more to upgrade
                 </div>
               </div>
-              <button @click="handleUpgrade" class="px-4 py-2 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-bold rounded-full text-xs hover:shadow-lg transition-all duration-200 flex-shrink-0">
+              <button @click="handleUpgrade" class="px-3 py-1.5 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-medium rounded-full text-xs hover:shadow-lg transition-all duration-200 flex-shrink-0">
                 Upgrade
               </button>
             </div>
