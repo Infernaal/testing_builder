@@ -128,6 +128,10 @@ const loyaltyBalance = ref(8900)
 const bonusBalance = ref(56200)
 const userBalance = ref(75000)
 
+// Modal state
+const showSuccessModal = ref(false)
+const lastPurchaseDetails = ref(null)
+
 // Methods
 const handleBack = () => {
   router.go(-1)
@@ -137,13 +141,21 @@ const handlePurchase = (paymentData) => {
   // Handle the purchase logic
   console.log('Purchase data:', paymentData)
 
-  // Show success message
-  alert(`Purchase successful! Payment method: ${paymentData.paymentMethod}, Amount: $${paymentData.amount.toLocaleString()}`)
+  // Store purchase details for modal
+  lastPurchaseDetails.value = paymentData
+
+  // Show success modal
+  showSuccessModal.value = true
 
   // Clear cart after successful purchase
   clearCart()
+}
 
-  // Navigate to wallet or success page
+const closeSuccessModal = () => {
+  showSuccessModal.value = false
+  lastPurchaseDetails.value = null
+
+  // Navigate to wallet after modal closes
   router.push('/wallet')
 }
 </script>
