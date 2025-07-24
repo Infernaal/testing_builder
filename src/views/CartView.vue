@@ -227,6 +227,11 @@ const closeSuccessModal = () => {
   .overflow-y-auto {
     padding-left: 12px;
     padding-right: 12px;
+    padding-bottom: 160px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 100%;
   }
 
   /* Bottom section for mobile */
