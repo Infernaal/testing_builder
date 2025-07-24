@@ -83,7 +83,7 @@
     </div>
 
     <!-- Fixed Bottom Section: Total and Action Buttons -->
-    <div v-if="cartItemsCount > 0" class="fixed bottom-24 left-0 right-0 bg-dbd-off-white px-3.5 pb-6 pt-4 border-t border-gray-100 z-40">
+    <div v-if="cartItemsCount > 0" class="fixed bottom-24 left-0 right-0 bg-dbd-off-white px-3.5 pb-3 pt-3 border-t border-gray-100 z-40">
       <!-- Total Section -->
       <div class="flex items-center justify-center gap-1 mb-6">
         <span class="text-dbd-dark font-semibold text-xl leading-8">Total to pay:</span>
