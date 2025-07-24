@@ -505,7 +505,17 @@ const handleInputBlur = () => {
   validateInput()
 }
 
-const handleInputChange = () => {
+const handleInputChange = (event) => {
+  // Filter out non-numeric characters in real-time
+  const value = event.target.value
+  const numericValue = value.replace(/[^0-9]/g, '')
+
+  // Update the input value to only contain numbers
+  if (value !== numericValue) {
+    event.target.value = numericValue
+    foreversAmount.value = numericValue
+  }
+
   // Clear error when user starts typing
   if (inputError.value) {
     inputError.value = ''
