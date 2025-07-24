@@ -1,68 +1,89 @@
 <template>
   <div class="cart-view w-full max-w-md mx-auto bg-white min-h-screen">
-    <!-- Header -->
-    <div class="bg-white px-4 py-4 border-b border-gray-100">
-      <h1 class="text-xl font-bold text-gray-900">Cart</h1>
-      <p v-if="cartItemsCount > 0" class="text-sm text-gray-600">{{ cartItemsCount }} item{{ cartItemsCount > 1 ? 's' : '' }}</p>
-    </div>
-
-    <!-- Content Container -->
-    <div class="content-container bg-gray-50 px-4 pb-24" style="min-height: calc(100vh - 150px);">
+    <!-- Content Container with gray background and rounded top corners -->
+    <div class="content-container bg-gray-100 rounded-t-2xl px-3.5 pb-24 pt-4" style="min-height: calc(100vh - 60px);">
 
       <!-- Cart Items -->
-      <div v-if="cartItemsCount > 0" class="space-y-4 py-4">
+      <div v-if="cartItemsCount > 0" class="space-y-2">
         <div
           v-for="item in cartItems"
           :key="item.id"
-          class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100"
+          class="bg-white rounded-2xl p-3 border border-blue-100 relative cart-item"
         >
-          <div class="flex items-center justify-between">
+          <!-- Country Flag and Code Header -->
+          <div class="flex items-center gap-1 mb-3">
+            <CountryFlag :country="item.code" class="w-6 h-6" />
+            <div class="flex items-center gap-1">
+              <!-- F Icon -->
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-900">
+                <path d="M17.2636 4H6.61925C6.15063 4 5.8159 4.28571 5.8159 4.68571V7.48571H2.80335C2.33473 7.54286 2 7.82857 2 8.22857C2 8.62857 2.33473 8.91429 2.80335 8.91429H5.8159V15.3143C5.8159 15.7143 6.15063 16 6.61925 16C7.08787 16 7.42259 15.7143 7.42259 15.3143V12.3429H10.8368C11.3054 12.3429 11.6402 12.0571 11.6402 11.6571C11.6402 11.2571 11.3054 10.9714 10.8368 10.9714H7.42259V8.85714H13.9163C14.3849 8.85714 14.7197 8.57143 14.7197 8.17143C14.7197 7.77143 14.3849 7.48571 13.9163 7.48571H7.42259V5.37143H17.1967C17.6653 5.37143 18 5.08571 18 4.68571C18 4.28571 17.7322 4 17.2636 4Z" fill="currentColor"/>
+              </svg>
+              <span class="text-gray-900 font-semibold text-lg">{{ item.code }}</span>
+            </div>
+          </div>
+
+          <!-- Amount and Price Section -->
+          <div class="flex items-center gap-3 mb-3">
             <div class="flex-1">
-              <h3 class="font-semibold text-gray-900">{{ item.country }}</h3>
-              <div class="flex items-center gap-2 mt-1">
-                <svg width="16" height="16" viewBox="0 0 20 20" class="text-blue-600">
-                  <path d="M19.0791 0C19.6648 0 19.9999 0.476058 20 1.14258C20 1.80914 19.5817 2.28598 18.9961 2.28613H6.77832V5.80957H14.8955C15.4812 5.80963 15.8993 6.28565 15.8994 6.95215C15.8994 7.61877 15.4812 8.09564 14.8955 8.0957H6.77832V11.6191H11.0459C11.6316 11.6191 12.0497 12.0951 12.0498 12.7617C12.0498 13.4284 11.6317 13.9043 11.0459 13.9043H6.77832V18.8574C6.7782 19.5238 6.35992 19.9998 5.77441 20C5.18872 20 4.76965 19.5239 4.76953 18.8574V8.19043H1.00391C0.418346 8.19028 9.72129e-05 7.71429 0 7.04785C0 6.38129 0.418278 5.90491 1.00391 5.80957H4.76953V1.14258C4.76965 0.476058 5.18872 0 5.77441 0H19.0791Z" fill="currentColor"/>
-                </svg>
-                <span class="text-blue-600 font-semibold">{{ item.foreversAmount.toLocaleString() }}</span>
-                <span class="text-gray-500">{{ item.code }}</span>
+              <div class="text-gray-500 text-base font-medium mb-1">Amount</div>
+              <div class="text-gray-900 font-semibold text-lg">{{ item.foreversAmount.toLocaleString() }}</div>
+            </div>
+            
+            <!-- Vertical Divider -->
+            <div class="w-px h-14 bg-gray-300"></div>
+            
+            <div class="flex-1">
+              <div class="text-gray-500 text-base font-medium mb-1">Price</div>
+              <div class="text-gray-500 text-base">
+                <span>1Forevers {{ item.code }}</span>
+                <span class="text-gray-900 font-semibold"> = ${{ item.usdRate.toFixed(2) }}</span>
               </div>
             </div>
-            <div class="text-right">
-              <div class="text-lg font-bold text-gray-900">${{ item.totalCost.toLocaleString() }}</div>
-              <div class="text-sm text-gray-500">{{ item.usdRate }} USD each</div>
-            </div>
-            <button
-              @click="removeFromCart(item.id)"
-              class="ml-4 w-8 h-8 flex items-center justify-center rounded-full bg-red-50 text-red-500 hover:bg-red-100 transition-colors"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
           </div>
-        </div>
 
-        <!-- Total -->
-        <div class="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 mt-6">
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-semibold text-gray-900">Total</span>
-            <span class="text-xl font-bold text-blue-600">${{ cartTotal.toLocaleString() }}</span>
+          <!-- Purchase Amount -->
+          <div class="flex items-center gap-1 mb-0">
+            <span class="text-gray-500 text-base font-medium">Purchase to pay:</span>
+            <span class="text-blue-600 font-semibold text-lg">${{ (item.foreversAmount * item.usdRate).toLocaleString() }}</span>
           </div>
-        </div>
 
-        <!-- Actions -->
-        <div class="space-y-3 mt-6">
+          <!-- Remove Button -->
           <button
-            class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-700 transition-colors"
+            @click="removeFromCart(item.id)"
+            class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center"
           >
-            Proceed to Checkout
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-red-500">
+              <path d="M19.25 3.5H14.75V2.75C14.75 1.5095 13.7405 0.5 12.5 0.5H9.5C8.2595 0.5 7.25 1.5095 7.25 2.75V3.5H2.75C1.92275 3.5 1.25 4.17275 1.25 5V5.75C1.25 6.164 1.586 6.5 2 6.5H20C20.414 6.5 20.75 6.164 20.75 5.75V5C20.75 4.17275 20.0772 3.5 19.25 3.5ZM8.75 2.75C8.75 2.33675 9.08675 2 9.5 2H12.5C12.9132 2 13.25 2.33675 13.25 2.75V3.5H8.75V2.75Z" fill="#FF1919"/>
+              <path d="M3.5 8V19.25C3.5 20.4905 4.5095 21.5 5.75 21.5H16.25C17.4905 21.5 18.5 20.4905 18.5 19.25V8H3.5ZM13.7803 15.7197C14.0735 16.013 14.0735 16.487 13.7803 16.7803C13.487 17.0735 13.013 17.0735 12.7197 16.7803L11 15.0605L9.28025 16.7803C8.987 17.0735 8.513 17.0735 8.21975 16.7803C7.9265 16.487 7.9265 16.013 8.21975 15.7197L9.9395 14L8.21975 12.2803C7.9265 11.987 7.9265 11.513 8.21975 11.2197C8.513 10.9265 8.987 10.9265 9.28025 11.2197L11 12.9395L12.7197 11.2197C13.013 10.9265 13.487 10.9265 13.7803 11.2197C14.0735 11.513 14.0735 11.987 13.7803 12.2803L12.0605 14L13.7803 15.7197Z" fill="#FF1919"/>
+            </svg>
           </button>
+        </div>
+
+        <!-- Total Section -->
+        <div class="flex items-center justify-center gap-1 mt-8 mb-6">
+          <span class="text-gray-900 font-semibold text-xl">Total to pay:</span>
+          <span class="text-blue-600 font-semibold text-xl">${{ cartTotal.toLocaleString() }}</span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex items-center gap-3 mt-6 px-3.5">
+          <!-- Back Button -->
           <button
-            @click="clearCart"
-            class="w-full bg-gray-100 text-gray-700 font-medium py-3 px-6 rounded-full hover:bg-gray-200 transition-colors"
+            @click="$router.go(-1)"
+            class="flex items-center justify-center gap-2.5 h-13 px-6 bg-gray-50 border border-gray-500 rounded-full flex-shrink-0 back-button"
           >
-            Clear Cart
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-gray-500">
+              <path d="M18.2208 9.22071L3.66019 9.22071L7.13456 5.74611C7.43894 5.44192 7.43894 4.94845 7.13456 4.6443C6.83019 4.33992 6.33672 4.33992 6.03279 4.6443L1.22828 9.4489C0.923906 9.7531 0.923906 10.2466 1.22828 10.5507L6.03279 15.3555C6.18494 15.5078 6.38433 15.5838 6.58368 15.5838C6.78303 15.5838 6.98242 15.5078 7.13456 15.3555C7.43894 15.0513 7.43894 14.5579 7.13456 14.2538L3.66019 10.779L18.2208 10.779C18.6511 10.779 19 10.4301 19 9.99983C19 9.56955 18.6511 9.22071 18.2208 9.22071Z" fill="currentColor"/>
+            </svg>
+            <span class="text-gray-500 font-medium text-base">Back</span>
+          </button>
+
+          <!-- Buy Forevers Button -->
+          <button
+            @click="handleBuyForevers"
+            class="flex items-center justify-center h-13 px-12 bg-gradient-to-r from-blue-600 to-blue-500 rounded-full text-white font-bold text-xl flex-1 buy-button"
+          >
+            Buy Forevers
           </button>
         </div>
       </div>
@@ -96,10 +117,17 @@
 <script setup>
 import { computed } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import CountryFlag from '../components/CountryFlag.vue'
 import { useCart } from '../composables/useCart.js'
 
 // Cart functionality
 const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useCart()
+
+// Methods
+const handleBuyForevers = () => {
+  // Implementation for purchase flow
+  alert('Purchase functionality will be implemented')
+}
 </script>
 
 <style scoped>
@@ -107,10 +135,56 @@ const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useC
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Mobile first approach for Telegram mini app */
+.cart-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.back-button {
+  height: 52px;
+  min-width: 119px;
+}
+
+.buy-button {
+  height: 52px;
+  background: linear-gradient(90deg, #2019CE 0%, #473FFF 100%);
+  transition: all 0.2s ease;
+}
+
+.buy-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(32, 25, 206, 0.3);
+}
+
+/* Mobile optimizations for Telegram mini app */
 @media (max-width: 430px) {
   .cart-view {
     max-width: 100%;
+  }
+  
+  .content-container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  
+  .cart-item {
+    padding: 12px;
+  }
+  
+  .back-button {
+    min-width: 100px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .buy-button {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 }
 
@@ -118,5 +192,22 @@ const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useC
   .cart-view {
     max-width: 400px;
   }
+}
+
+/* Support for safe areas on iOS */
+@supports (padding: max(0px)) {
+  .content-container {
+    padding-bottom: max(96px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Hide scrollbar for Telegram */
+.cart-view {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cart-view::-webkit-scrollbar {
+  display: none;
 }
 </style>
