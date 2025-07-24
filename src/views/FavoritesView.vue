@@ -341,6 +341,8 @@ import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
+import SuccessNotification from '../components/SuccessNotification.vue'
+import ErrorNotification from '../components/ErrorNotification.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
