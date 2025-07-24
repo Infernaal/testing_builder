@@ -461,6 +461,27 @@ const handleKeydown = (event) => {
   }
 }
 
+const handleInputFocus = () => {
+  isInputFocused.value = true
+}
+
+const handleInputBlur = () => {
+  isInputFocused.value = false
+  validateInput()
+}
+
+const handleInputChange = () => {
+  // Clear error when user starts typing
+  if (inputError.value) {
+    inputError.value = ''
+  }
+
+  // Validate input in real-time with debounce
+  setTimeout(() => {
+    validateInput()
+  }, 500)
+}
+
 const validateInput = () => {
   // Clear previous errors
   inputError.value = ''
