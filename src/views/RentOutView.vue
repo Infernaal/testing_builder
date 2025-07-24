@@ -1,22 +1,9 @@
 <template>
   <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat telegram-webapp">
     <!-- Fixed Header Section -->
-    <div class="w-full max-w-md mx-auto px-4 pt-4 pb-2 bg-gray-100 z-30">
-      <!-- Back Button -->
-      <div class="mb-4">
-        <button 
-          @click="goBack"
-          class="w-11 h-11 rounded-full border border-gray-300 bg-dbd-off-white flex items-center justify-center"
-        >
-          <div class="relative w-5 h-5">
-            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full rotate-45 top-2 left-0.5"></div>
-            <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full -rotate-45 top-2.5 left-0.5"></div>
-          </div>
-        </button>
-      </div>
-
+    <div class="w-full max-w-md mx-auto px-4 pt-6 pb-3 bg-gray-100 z-30">
       <!-- Forevers Available Section - Fixed -->
-      <div class="mb-4">
+      <div class="mb-2">
         <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-3">
           <div class="flex items-center justify-between">
             <div>
