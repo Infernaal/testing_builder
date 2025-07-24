@@ -725,6 +725,12 @@ onMounted(async () => {
 onBeforeUnmount(() => {
   // Remove any remaining keyboard listeners
   document.removeEventListener('keydown', handleKeydown)
+
+  // Clear success notification timeout
+  if (successTimeout) {
+    clearTimeout(successTimeout)
+    successTimeout = null
+  }
 })
 </script>
 
