@@ -548,26 +548,31 @@ const validateInput = () => {
   inputError.value = ''
 
   // Convert to string to check for text
-  const inputValue = String(foreversAmount.value)
+  const inputValue = String(foreversAmount.value).trim()
 
   // Check for empty value
-  if (!inputValue || inputValue.trim() === '' || inputValue === '0') {
+  if (!inputValue || inputValue === '' || inputValue === '0') {
     inputError.value = 'empty'
     return false
   }
 
-  // Check for non-numeric characters
-  if (!/^\d+$/.test(inputValue)) {
+  // Check for non-numeric characters (including decimal points, special characters)
+  if (!/^[0-9]+$/.test(inputValue)) {
     inputError.value = 'invalid'
     return false
   }
 
-  // Convert back to number for further validation
+  // Convert to number for further validation
   const numValue = Number(inputValue)
+
+  // Check if conversion to number is valid
+  if (isNaN(numValue) || !isFinite(numValue)) {
+    inputError.value = 'invalid'
+    return false
+  }
 
   // Check minimum value
   if (numValue < 1) {
-    foreversAmount.value = 1
     inputError.value = 'invalid'
     return false
   }
@@ -577,6 +582,9 @@ const validateInput = () => {
     inputError.value = 'limit'
     return false
   }
+
+  // Update the reactive value with the validated number
+  foreversAmount.value = numValue
 
   return true
 }
