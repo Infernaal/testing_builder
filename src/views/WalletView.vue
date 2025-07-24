@@ -94,14 +94,41 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+import PaymentComponent from '../components/PaymentComponent.vue'
 
-export default {
-  name: 'WalletView',
-  components: {
-    BottomNavigation
+const router = useRouter()
+
+// Wallet balances
+const loyaltyBalance = ref(8900)
+const bonusBalance = ref(56200)
+const userBalance = ref(10196) // Forevers balance converted to USD
+const defaultAmount = ref(26106) // Default purchase amount from design
+
+// Methods
+const handleBack = () => {
+  router.push('/favorites') // Navigate back to favorites or previous page
+}
+
+const handleWalletPurchase = (paymentData) => {
+  // Handle wallet purchase logic
+  console.log('Wallet purchase data:', paymentData)
+
+  // Show success message
+  alert(`Transaction successful! Payment method: ${paymentData.paymentMethod}, Amount: $${paymentData.amount.toLocaleString()}`)
+
+  // Update balances after transaction
+  if (paymentData.paymentMethod === 'loyalty') {
+    loyaltyBalance.value -= paymentData.amount
+  } else if (paymentData.paymentMethod === 'bonus') {
+    bonusBalance.value -= paymentData.amount
   }
+
+  // Navigate to success page or refresh wallet
+  location.reload()
 }
 </script>
 
