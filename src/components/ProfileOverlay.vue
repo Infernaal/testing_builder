@@ -156,12 +156,12 @@
         </div>
 
         <!-- Bottom Section -->
-        <div class="absolute bottom-2 left-0 right-0 p-4 space-y-3">
+        <div class="absolute bottom-2 left-0 right-0 p-4">
           <!-- Start Block - Upgrade Section -->
-          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-4 relative overflow-hidden">
+          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-3 relative overflow-hidden">
             <!-- Star Icon -->
-            <div class="absolute left-2 top-3.5">
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="absolute left-2 top-3">
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="16" cy="16" r="15.06" fill="#8C4CD1"/>
                 <path d="M28.998 8.39055C26.1133 12.4471 21.365 15.0918 16.0003 15.0918C10.6356 15.0918 5.88739 12.4471 3.00269 8.39055C5.61916 3.9341 10.4615 0.941162 16.0003 0.941162C21.5392 0.941162 26.3815 3.9341 28.998 8.39055Z" fill="#9C68E1"/>
                 <path d="M15.9997 5.11792V15.4117L19.3443 11.8949L15.9997 5.11792Z" fill="#FF9F00"/>
@@ -177,59 +177,21 @@
                 <ellipse opacity="0.3" cx="16.0003" cy="27.5882" rx="8.88235" ry="0.545" fill="#20273A"/>
               </svg>
             </div>
-            
+
             <!-- Background gradient -->
-            <div class="absolute left-0 top-0 w-36 h-full bg-gradient-to-r from-[#8C4CD1]/40 to-transparent rounded-l-2xl"></div>
-            
+            <div class="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#8C4CD1]/40 to-transparent rounded-l-2xl"></div>
+
             <div class="flex items-center justify-between relative z-10">
-              <div class="ml-10">
-                <div class="text-[#02070E] font-bold text-lg">Start</div>
-                <div class="text-sm text-[#4B4D50]">
+              <div class="ml-8">
+                <div class="text-[#02070E] font-bold text-base">Start</div>
+                <div class="text-xs text-[#4B4D50]">
                   buy <span class="font-bold text-[#8C4CD1]">123</span> more Forevers to upgrade
                 </div>
               </div>
-              <button @click="handleUpgrade" class="px-6 py-2.5 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-bold rounded-full text-sm hover:shadow-lg transition-all duration-200 flex-shrink-0">
+              <button @click="handleUpgrade" class="px-4 py-2 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-bold rounded-full text-xs hover:shadow-lg transition-all duration-200 flex-shrink-0">
                 Upgrade
               </button>
             </div>
-          </div>
-          
-          <!-- Language and ID Section - Enhanced visibility -->
-          <div class="flex items-center justify-between gap-3">
-            <!-- User ID с копированием - Enhanced visibility -->
-            <div class="flex items-center bg-white/50 border-2 border-white/70 rounded-full backdrop-blur-sm shadow-lg">
-              <div class="px-4 py-3">
-                <span class="text-[#E0E0E0] text-sm font-semibold">ID: </span>
-                <span class="text-white text-sm font-bold">{{ profileData.id }}</span>
-              </div>
-              <button @click="copyUserId" class="w-7 h-7 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
-                  <path d="M18.2806 1.19995H8.98336C8.42322 1.19995 7.88603 1.43348 7.48995 1.84917C7.09387 2.26486 6.87136 2.82866 6.87136 3.41653V4.26906H5.81536C5.2278 4.26906 4.66431 4.51402 4.24885 4.95006C3.83338 5.3861 3.59998 5.97749 3.59998 6.59414V20.4749C3.59998 21.0915 3.83338 21.6829 4.24885 22.119C4.66431 22.555 5.2278 22.8 5.81536 22.8H14.9132C15.5008 22.8 16.0643 22.555 16.4797 22.119C16.8952 21.6829 17.1286 21.0915 17.1286 20.4749V19.6998H18.2806C18.8363 19.6999 19.3699 19.4709 19.7663 19.0621C20.1627 18.6533 20.3903 18.0975 20.4 17.5143V3.41653C20.398 2.82794 20.1739 2.26417 19.7766 1.8487C19.3794 1.43323 18.8414 1.19995 18.2806 1.19995Z" fill="currentColor"/>
-                </svg>
-              </button>
-            </div>
-
-            <!-- Language Selector с флагом - Enhanced visibility -->
-            <button 
-              @click="toggleLanguageSelector"
-              class="flex items-center gap-2 px-4 py-3 bg-white/50 border-2 border-white/70 rounded-full backdrop-blur-sm transition-all hover:bg-white/60 shadow-lg"
-            >
-              <div class="w-8 h-8 rounded-full overflow-hidden">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
-                  <path d="M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z" fill="#D80027"/>
-                  <path d="M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z" fill="#D80027"/>
-                  <path d="M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z" fill="#D80027"/>
-                  <path d="M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z" fill="#D80027"/>
-                  <path d="M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z" fill="#0052B4"/>
-                </svg>
-              </div>
-              <span class="text-white text-sm font-bold">ENG</span>
-              <svg width="12" height="12" viewBox="0 0 20 20" fill="none" class="text-white/80">
-                <circle opacity="0.2" cx="10" cy="10" r="10" fill="white"/>
-                <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="white" stroke-linecap="round"/>
-              </svg>
-            </button>
           </div>
         </div>
       </div>
