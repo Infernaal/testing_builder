@@ -414,27 +414,56 @@ const openEnterAmountModal = (balance) => {
 const closeEnterAmountModal = () => {
   showEnterAmountModal.value = false
   selectedBalance.value = null
+  foreversAmount.value = 250
 }
 
-const handleAddToCart = () => {
+const validateInput = () => {
+  if (foreversAmount.value < 1) {
+    foreversAmount.value = 1
+  }
+
+  if (selectedBalance.value?.availableAmount && foreversAmount.value > selectedBalance.value.availableAmount) {
+    foreversAmount.value = selectedBalance.value.availableAmount
+  }
+}
+
+const handleAddToCart = async () => {
+  // Validate input before proceeding
+  validateInput()
+
+  if (!selectedBalance.value || foreversAmount.value <= 0) {
+    console.error('Invalid input')
+    return
+  }
+
   console.log('Adding to cart:', {
     balance: selectedBalance.value,
     foreversAmount: foreversAmount.value,
     dollarsAmount: dollarsAmount.value
   })
 
-  // TODO: Implement add to cart functionality with backend API
-  // const payload = {
-  //   balanceId: selectedBalance.value.id,
-  //   amount: foreversAmount.value,
-  //   totalCost: dollarsAmount.value
-  // }
-  // await addToCart(payload)
+  try {
+    // TODO: Implement add to cart functionality with backend API
+    // const payload = {
+    //   balanceId: selectedBalance.value.id,
+    //   amount: foreversAmount.value,
+    //   totalCost: dollarsAmount.value,
+    //   countryCode: selectedBalance.value.code
+    // }
+    // await addToCart(payload)
 
-  closeEnterAmountModal()
+    // Show success feedback
+    // You could add a toast notification here
+    console.log('Successfully added to cart!')
 
-  // Show success notification or navigate to cart
-  // router.push('/cart')
+    closeEnterAmountModal()
+
+    // Optionally navigate to cart or show success state
+    // router.push('/cart')
+  } catch (error) {
+    console.error('Failed to add to cart:', error)
+    // Handle error (show error message to user)
+  }
 }
 
 // Initialize
