@@ -46,7 +46,10 @@
               @click="openEnterAmountModal(balance)"
               class="w-16 h-11 border border-blue-700 bg-purple-50 rounded-full flex items-center justify-center hover:bg-purple-100 transition-colors"
             >
-              <IconSvg name="plus" :size="24" color="primary" :hover-effect="true" />
+              <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
+                <path d="M18 13H6C5.4 13 5 12.6 5 12C5 11.4 5.4 11 6 11H18C18.6 11 19 11.4 19 12C19 12.6 18.6 13 18 13Z" fill="currentColor"/>
+                <path d="M12 19C11.4 19 11 18.6 11 18V6C11 5.4 11.4 5 12 5C12.6 5 13 5.4 13 6V18C13 18.6 12.6 19 12 19Z" fill="currentColor"/>
+              </svg>
             </button>
           </div>
 
