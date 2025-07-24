@@ -1,7 +1,7 @@
 <template>
   <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 flex items-center justify-center">
     <!-- Germany Flag -->
-    <div v-if="country === 'DE'" class="w-full h-full relative">
+    <div v-if="country === 'DE'" class="w-full h-full relative rounded-full overflow-hidden">
       <div class="absolute top-0 left-0 w-full h-1/3 bg-black"></div>
       <div class="absolute top-1/3 left-0 w-full h-1/3 bg-red-600"></div>
       <div class="absolute top-2/3 left-0 w-full h-1/3 bg-yellow-400"></div>
