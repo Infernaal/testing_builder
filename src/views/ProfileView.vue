@@ -1,7 +1,7 @@
 <template>
   <div class="profile-view w-full max-w-md mx-auto bg-white min-h-screen font-montserrat relative">
     <!-- Profile Menu Component -->
-    <FigmaProfileMenu
+    <ProfileMenu
       :isVisible="isMenuVisible"
       @close="closeMenu"
     />
