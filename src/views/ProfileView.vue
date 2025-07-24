@@ -18,10 +18,9 @@
         <button 
           class="w-12 h-12 border border-[#2019CE] bg-[#F4F3FF] rounded-full flex items-center justify-center mr-4"
         >
-          <div class="relative w-6 h-6">
-            <div class="absolute top-2 left-1 w-6 h-0.5 bg-[#4B4D50] rounded-full transform rotate-45"></div>
-            <div class="absolute top-2 left-1 w-6 h-0.5 bg-[#4B4D50] rounded-full transform -rotate-45"></div>
-          </div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M18 6L6 18M6 6L18 18" stroke="#4B4D50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </button>
         
         <!-- Profile text -->
@@ -41,7 +40,7 @@
 
       <!-- User Avatar и Name Section - точно как в Figma -->
       <div class="px-4 mb-6">
-        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-[48px] p-4">
+        <div class="bg-white/10 backdrop-blur-lg border border-white/20 rounded-[24px] p-4">
           <div class="flex items-center gap-4">
             <!-- Avatar -->
             <div class="relative flex-shrink-0">
@@ -87,7 +86,7 @@
       </div>
 
       <!-- Menu Items Section -->
-      <div class="flex-1 px-4 space-y-3 pb-40">
+      <div class="flex-1 px-4 space-y-3 pb-44">
         <!-- Calculator -->
         <div class="flex items-center gap-4 p-4 hover:bg-white/10 rounded-xl cursor-pointer transition-all">
           <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center border border-white/40">
@@ -116,12 +115,10 @@
             </svg>
           </div>
           <span class="text-white font-bold text-base flex-1">Verification</span>
-          <!-- Red X Badge -->
+          <!-- Simple Red X Badge -->
           <div class="w-6 h-6 bg-[#FFF0F3] border border-[#FF1919] rounded-full flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M14.9228 7.16821C14.7585 6.94745 14.6305 6.70193 14.5436 6.4409C14.5201 6.18054 14.5379 5.91813 14.5962 5.66333C14.7477 5.12283 14.7046 4.54628 14.4744 4.0341C14.1456 3.57863 13.6671 3.25299 13.1226 3.11407C12.8728 3.03698 12.6365 2.92116 12.4226 2.77084C12.2398 2.5653 12.0911 2.33194 11.9819 2.07958C11.7892 1.56689 11.4246 1.13678 10.9502 0.862631C10.4256 0.692048 9.8579 0.709823 9.34519 0.912887C9.08843 0.99967 8.81951 1.04525 8.54844 1.04795C8.28733 0.989378 8.03727 0.889426 7.80776 0.751882C7.34444 0.444166 6.78837 0.307359 6.23518 0.364993C5.72041 0.534107 5.28002 0.875815 4.98858 1.33226C4.82575 1.56079 4.62746 1.76187 4.40119 1.92794C4.14391 2.04102 3.87014 2.11219 3.5903 2.13875C3.04904 2.16266 2.53279 2.37289 2.12909 2.73379C1.80194 3.18287 1.64241 3.73224 1.67814 4.28669C1.68201 4.55398 1.64344 4.82018 1.56385 5.07536C1.42625 5.30891 1.25231 5.51905 1.04854 5.6979C0.616901 6.04079 0.317739 6.52274 0.202076 7.06155C0.203417 7.60886 0.394039 8.13897 0.741655 8.56208C0.905939 8.78283 1.03392 9.02836 1.12078 9.28939C1.14429 9.54974 1.12656 9.81216 1.06823 10.067C0.916691 10.6074 0.959774 11.184 1.18997 11.6962C1.51892 12.1515 1.99733 12.4771 2.54179 12.6162C2.79166 12.6933 3.02788 12.8091 3.24182 12.9594C3.42458 13.165 3.57336 13.3983 3.68254 13.6507C3.87516 14.1634 4.23981 14.5935 4.71426 14.8676C4.77988 14.8969 4.84771 14.9209 4.91712 14.9394C5.38717 15.022 5.87062 14.9799 6.31921 14.8174C6.57597 14.7306 6.84489 14.685 7.11596 14.6823C7.37691 14.7414 7.62688 14.8413 7.85663 14.9784C8.32008 15.2858 8.87605 15.4226 9.42921 15.3653C9.94398 15.1962 10.3844 14.8545 10.6758 14.398C10.8386 14.1695 11.0369 13.9684 11.2632 13.8023C11.5205 13.6892 11.7943 13.6181 12.0741 13.5915C12.6154 13.5676 13.1316 13.3574 13.5353 12.9965C13.8625 12.5474 14.022 11.998 13.9863 11.4436C13.9824 11.1763 14.021 10.9101 14.1005 10.6549C14.2381 10.4214 14.4121 10.2112 14.6158 10.0324C15.0475 9.6895 15.3466 9.20755 15.4623 8.66874C15.461 8.12143 15.2704 7.59133 14.9228 7.16821Z" fill="#FF1919"/>
-              <path d="M15.1261 9.67421L9.56268 15.2377C9.28451 15.5158 8.91361 15.5158 8.63544 15.2377C8.35726 14.9595 8.35726 14.5886 8.63544 14.3104L14.1989 8.74697C14.4771 8.46879 14.848 8.46879 15.1261 8.74697C15.4043 9.02514 15.4043 9.39604 15.1261 9.67421Z" fill="white" transform="scale(0.6) translate(2, 2)"/>
-              <path d="M15.1262 15.2377C14.848 15.5158 14.4771 15.5158 14.199 15.2377L8.6355 9.67419C8.35732 9.39602 8.35732 9.02512 8.6355 8.74695C8.91367 8.46878 9.28457 8.46878 9.56274 8.74695L15.1262 14.3104C15.4044 14.5886 15.4044 14.9595 15.1262 15.2377Z" fill="white" transform="scale(0.6) translate(2, 2)"/>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 3L3 9M3 3L9 9" stroke="#FF1919" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
         </div>
@@ -169,8 +166,8 @@
         </div>
       </div>
 
-      <!-- Bottom Fixed Section - как в Figma дизайне -->
-      <div class="absolute bottom-24 left-0 right-0 p-4 space-y-4">
+      <!-- Bottom Fixed Section - исправлено позиционирование -->
+      <div class="absolute bottom-20 left-0 right-0 p-4 space-y-4">
         <!-- Start Block - Upgrade Section -->
         <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-4 relative overflow-hidden">
           <!-- Star Icon -->
@@ -208,7 +205,7 @@
           </div>
         </div>
         
-        <!-- Language and ID Section - точно как в Figma дизайне -->
+        <!-- Language and ID Section - исправлено для Telegram WebApp -->
         <div class="flex items-center justify-between gap-3">
           <!-- User ID с копированием -->
           <div class="flex items-center bg-white/30 border border-white/40 rounded-full backdrop-blur-sm">
@@ -224,7 +221,7 @@
           </div>
 
           <!-- Language Selector с выпадающим списком -->
-          <div class="relative">
+          <div ref="languageSelector" class="relative">
             <button 
               @click="toggleLanguageDropdown"
               class="flex items-center gap-2 px-3 py-2 bg-white/20 border border-white/30 rounded-full backdrop-blur-sm transition-all hover:bg-white/30"
@@ -257,7 +254,7 @@
             >
               <div 
                 v-if="isLanguageDropdownOpen"
-                class="absolute bottom-full right-0 mb-2 bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl overflow-hidden min-w-36"
+                class="absolute bottom-full right-0 mb-2 bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl overflow-hidden min-w-36 z-50"
               >
                 <div 
                   v-for="language in languages" 
@@ -284,7 +281,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import BottomNavigation from '../components/BottomNavigation.vue'
 import ProfileMenu from '../components/ProfileMenu.vue'
 import CountryFlag from '../components/CountryFlag.vue'
@@ -294,6 +291,7 @@ const isMenuVisible = ref(false)
 
 // Language dropdown
 const isLanguageDropdownOpen = ref(false)
+const languageSelector = ref(null)
 
 // Profile data
 const profileData = ref({
@@ -331,18 +329,26 @@ const selectLanguage = (language) => {
   isLanguageDropdownOpen.value = false
 }
 
-// Close dropdown when clicking outside
+// Close dropdown when clicking outside - ИСПРАВЛЕНО
 const handleClickOutside = (event) => {
-  if (!event.target.closest('.language-selector')) {
+  if (languageSelector.value && !languageSelector.value.contains(event.target)) {
     isLanguageDropdownOpen.value = false
   }
 }
 
 // Add event listener for clicking outside
-import { onMounted, onUnmounted } from 'vue'
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)
+  
+  // Telegram WebApp specific optimizations
+  if (window.Telegram && window.Telegram.WebApp) {
+    window.Telegram.WebApp.ready()
+    window.Telegram.WebApp.expand()
+    window.Telegram.WebApp.setHeaderColor('#120B81')
+    window.Telegram.WebApp.setBackgroundColor('#120B81')
+  }
 })
+
 onUnmounted(() => {
   document.removeEventListener('click', handleClickOutside)
 })
@@ -353,7 +359,13 @@ onUnmounted(() => {
   font-family: 'Montserrat', sans-serif;
   /* Full screen height for Telegram WebApp */
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for mobile */
   overflow: hidden;
+  /* Telegram WebApp specific */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Smooth transitions */
@@ -371,18 +383,20 @@ onUnmounted(() => {
   }
 }
 
-/* Hover effects for interactive elements */
+/* Hover effects for interactive elements - адаптировано для touch */
 button:hover {
   transform: translateY(-1px);
 }
 
 button:active {
   transform: translateY(0);
+  opacity: 0.8;
 }
 
-/* Language dropdown z-index */
-.language-selector .absolute {
-  z-index: 1000;
+/* Touch-friendly improvements */
+button {
+  min-height: 44px;
+  min-width: 44px;
 }
 
 /* Responsive text scaling for small screens */
@@ -396,5 +410,29 @@ button:active {
     font-size: 1rem;
     line-height: 1.25rem;
   }
+}
+
+/* Safe area support for devices with notches */
+@media screen and (max-height: 700px) {
+  .profile-view {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Prevent text selection on mobile */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for specific elements */
+span, h1 {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 </style>
