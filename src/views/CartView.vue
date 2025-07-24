@@ -81,7 +81,7 @@
       </div>
 
       <!-- Cart Bottom Component (only when cart has items) -->
-      <div v-if="cartItemsCount > 0">
+      <div v-if="cartItemsCount > 0" class="cart-bottom-container">
         <CartBottomComponent
           :total-amount="cartTotal"
           @back="handleBack"
