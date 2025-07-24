@@ -195,12 +195,26 @@ const closeSuccessModal = () => {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #F0F0F0;
-  border-top: 1px solid rgba(32, 25, 206, 0.1);
   z-index: 10;
   max-width: 375px;
   margin: 0 auto;
-  padding-bottom: 89px; /* Add padding for BottomNavigation */
+}
+
+.fixed-bottom-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #F0F0F0;
+  z-index: -1;
+}
+
+.fixed-bottom-section > div {
+  background: #F0F0F0;
+  border-top: 1px solid rgba(32, 25, 206, 0.1);
+  padding-bottom: 89px; /* Space for BottomNavigation */
 }
 
 .back-button {
