@@ -5,7 +5,7 @@
       <!-- Total Balance Card -->
       <div class="bg-purple-50 border border-purple-200 rounded-2xl p-3 mb-2 flex-shrink-0">
         <div class="flex items-start justify-between mb-4">
-          <h2 class="text-2xl font-semibold text-black leading-7 font-montserrat">
+          <h2 class="text-2xl font-semibold text-black leading-7">
             Forevers<br>Balance
           </h2>
 
@@ -14,15 +14,15 @@
               <svg width="32" height="32" viewBox="0 0 32 32" class="text-blue-700">
                 <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
               </svg>
-              <span class="text-3xl font-bold text-blue-700 font-montserrat">{{ totalBalance.toLocaleString() }}</span>
+              <span class="text-3xl font-bold text-blue-700">{{ totalBalance.toLocaleString() }}</span>
             </div>
-            <p class="text-lg text-gray-600 font-montserrat font-medium">Worth ${{ totalWorth.toLocaleString() }}</p>
+            <p class="text-lg text-gray-600 font-medium">Worth ${{ totalWorth.toLocaleString() }}</p>
           </div>
         </div>
 
         <button
           @click="handleRentOut"
-          class="w-full bg-gradient-to-r from-blue-700 to-purple-600 text-white font-bold py-3 px-12 rounded-full hover:from-blue-800 hover:to-purple-700 transition-all duration-200 text-sm font-montserrat"
+          class="w-full bg-gradient-to-r from-blue-700 to-purple-600 text-white font-bold py-3 px-12 rounded-full hover:from-blue-800 hover:to-purple-700 transition-all duration-200 text-sm"
         >
           Rent Out Forevers
         </button>
@@ -41,7 +41,7 @@
               <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0 bg-gray-200">
                 <div :class="flagClasses[balance.code]" class="w-full h-full"></div>
               </div>
-              <span class="text-gray-700 font-medium text-base font-montserrat">{{ balance.country }} Balance</span>
+              <span class="text-gray-700 font-medium text-base">{{ balance.country }} Balance</span>
             </div>
 
             <button
@@ -60,9 +60,9 @@
             <svg width="24" height="24" viewBox="0 0 24 24" class="text-blue-700">
               <path d="M23 5.53558V1H5.34689V6.75858H1V11.2942H5.34689V22.5807H10.4206V17.0457H14.7116V12.5102H10.4206V11.2942H18.8488V6.75858H10.4206V5.53558H23Z" fill="currentColor"/>
             </svg>
-            <span class="text-lg font-semibold text-blue-700 font-montserrat">{{ balance.amount.toLocaleString() }}</span>
+            <span class="text-lg font-semibold text-blue-700">{{ balance.amount.toLocaleString() }}</span>
             <span class="w-1 h-1 bg-gray-400 rounded-full"></span>
-            <span class="text-sm text-gray-600 font-montserrat font-medium">1₽{{ balance.code }}/{{ balance.usdRate }} USD</span>
+            <span class="text-sm text-gray-600 font-medium">1₽{{ balance.code }}/{{ balance.usdRate }} USD</span>
 
             <div
               :class="[
@@ -86,37 +86,37 @@
                   stroke-linejoin="round"
                 />
               </svg>
-              <span class="font-montserrat font-semibold">{{ balance.priceChange > 0 ? '+' : '' }}{{ balance.priceChange.toFixed(2) }}%</span>
+              <span class="font-semibold">{{ balance.priceChange > 0 ? '+' : '' }}{{ balance.priceChange.toFixed(2) }}%</span>
             </div>
           </div>
 
           <!-- Values Section -->
           <div class="bg-purple-50 rounded-xl p-3 mb-3">
             <div class="flex justify-between items-center mb-2">
-              <span class="text-sm text-gray-600 font-montserrat font-medium">Current value</span>
-              <span class="text-base font-semibold text-gray-700 font-montserrat">${{ balance.currentValue.toLocaleString() }}</span>
+              <span class="text-sm text-gray-600 font-medium">Current value</span>
+              <span class="text-base font-semibold text-gray-700">${{ balance.currentValue.toLocaleString() }}</span>
             </div>
             <div class="flex justify-between items-center">
-              <span class="text-sm text-gray-600 font-montserrat font-medium">Potential worth</span>
-              <span class="text-base font-semibold text-gray-700 font-montserrat">${{ balance.potentialWorth.toLocaleString() }}</span>
+              <span class="text-sm text-gray-600 font-medium">Potential worth</span>
+              <span class="text-base font-semibold text-gray-700">${{ balance.potentialWorth.toLocaleString() }}</span>
             </div>
           </div>
 
           <!-- Available Section -->
           <div class="bg-green-100 rounded-xl p-3 flex items-center justify-between">
             <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-600 font-montserrat font-medium">Available</span>
+              <span class="text-sm text-gray-600 font-medium">Available</span>
               <template v-if="balance.availableAmount">
                 <span class="w-1.5 h-1.5 bg-gray-400 rounded-full"></span>
                 <div class="flex items-center gap-1">
                   <svg width="14" height="14" viewBox="0 0 14 14" class="text-black">
                     <path d="M12.8602 1.40021H4.3802C4.00686 1.40021 3.7402 1.66687 3.7402 2.04021V4.65354H1.3402C0.966862 4.70687 0.700195 4.97354 0.700195 5.34687C0.700195 5.72021 0.966862 5.98687 1.3402 5.98687H3.7402V11.9602C3.7402 12.3335 4.00686 12.6002 4.3802 12.6002C4.75353 12.6002 5.0202 12.3335 5.0202 11.9602V9.18687H7.7402C8.11353 9.18687 8.3802 8.92021 8.3802 8.54687C8.3802 8.17354 8.11353 7.90687 7.7402 7.90687H5.0202V5.93354H10.1935C10.5669 5.93354 10.8335 5.66687 10.8335 5.29354C10.8335 4.92021 10.5669 4.65354 10.1935 4.65354H5.0202V2.68021H12.8069C13.1802 2.68021 13.4469 2.41354 13.4469 2.04021C13.4469 1.66687 13.2335 1.40021 12.8602 1.40021Z" fill="currentColor"/>
                   </svg>
-                  <span class="text-sm font-medium text-black font-montserrat">{{ balance.availableAmount }}</span>
+                  <span class="text-sm font-medium text-black">{{ balance.availableAmount }}</span>
                 </div>
               </template>
               <template v-else>
-                <span class="text-sm text-gray-600 font-montserrat font-medium">without restrictions</span>
+                <span class="text-sm text-gray-600 font-medium">without restrictions</span>
               </template>
             </div>
 
@@ -139,8 +139,8 @@
               <path d="M30.6666 7.38078V1.33334H7.1291V9.01145H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6802H13.894V15.0589H25.1316V9.01145H13.894V7.38078H30.6666Z" fill="currentColor"/>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-gray-900 mb-2 font-montserrat">No Balances Found</h3>
-          <p class="text-gray-600 mb-4 font-montserrat">Your balance data will appear here when available.</p>
+          <h3 class="text-lg font-medium text-gray-900 mb-2">No Balances Found</h3>
+          <p class="text-gray-600 mb-4">Your balance data will appear here when available.</p>
         </div>
       </div>
     </main>
@@ -350,10 +350,7 @@ onMounted(async () => {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Font family */
-.font-montserrat {
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
+
 
 /* Optimize font sizes for mobile */
 @media (max-width: 375px) {
@@ -403,8 +400,5 @@ main {
   height: calc(100vh - 89px); /* Subtract bottom navigation height */
 }
 
-/* Apply Montserrat font globally for this component */
-* {
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
+
 </style>
