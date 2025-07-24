@@ -168,14 +168,14 @@
         <div class="bg-green-500 text-white px-4 sm:px-6 py-3 rounded-full shadow-lg flex items-center gap-2 sm:gap-3 border border-green-600 min-w-[257px] justify-center max-w-sm mx-auto"
              style="filter: drop-shadow(4px 8px 12px rgba(7, 184, 14, 0.13));">
           <!-- Check Icon -->
-          <div class="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
-            <svg width="16" height="16" viewBox="0 0 16 16" class="text-white">
+          <div class="w-5 h-5 sm:w-6 sm:h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-white" viewBox="0 0 16 16">
               <path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
             </svg>
           </div>
 
           <!-- Success Message -->
-          <span class="font-semibold text-base">{{ successMessage }}</span>
+          <span class="font-semibold text-sm sm:text-base">{{ successMessage }}</span>
         </div>
       </div>
     </Transition>
