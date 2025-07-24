@@ -95,7 +95,7 @@ const emit = defineEmits(['back', 'purchase'])
 
 @media (min-width: 376px) and (max-width: 430px) {
   .cart-bottom-component {
-    padding: 14px 16px 28px 16px;
+    padding: 14px 16px 8px 16px;
   }
 
   .action-buttons .back-button {
