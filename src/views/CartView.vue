@@ -93,6 +93,17 @@
       </div>
     </div>
 
+    <!-- Success Modal -->
+    <SuccessModal
+      :is-visible="showSuccessModal"
+      :title="'Purchase Successful!'"
+      :message="'Your Forevers have been purchased successfully.'"
+      :payment-details="lastPurchaseDetails"
+      :confirm-text="'Continue'"
+      @close="closeSuccessModal"
+      @confirm="closeSuccessModal"
+    />
+
     <!-- Bottom Navigation Component -->
     <BottomNavigation />
   </div>
