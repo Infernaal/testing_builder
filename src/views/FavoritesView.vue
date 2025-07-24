@@ -166,7 +166,7 @@
       <!-- Modal Content -->
       <div
         @click.stop
-        class="relative bg-white rounded-[20px] w-[311px] p-6 mx-4 max-w-[calc(100%-32px)]"
+        class="relative bg-white rounded-[20px] w-[311px] p-6 mx-4 max-w-[calc(100%-32px)] shadow-xl"
       >
         <!-- Title -->
         <h2 class="text-lg font-semibold text-black text-center mb-3">
@@ -192,7 +192,7 @@
         </div>
 
         <!-- Input Fields -->
-        <div class="bg-white border border-gray-700 rounded-full p-2 flex items-center gap-2 mb-6">
+        <div class="bg-white border border-gray-700 rounded-full p-2 flex items-center gap-2 mb-6 min-h-[52px]">
           <!-- Forevers Input -->
           <div class="flex items-center gap-2">
             <div class="w-9 h-9 bg-purple-50 rounded-full flex items-center justify-center">
