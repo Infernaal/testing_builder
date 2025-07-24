@@ -281,6 +281,11 @@ const closeSuccessModal = () => {
   .overflow-y-auto {
     padding-left: 14px;
     padding-right: 14px;
+    padding-bottom: 160px; /* Space for fixed bottom */
+  }
+
+  .fixed-bottom-section {
+    max-width: 430px;
   }
 
   /* Bottom section padding */
