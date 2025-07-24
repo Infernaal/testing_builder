@@ -12,7 +12,9 @@
               </h2>
             </div>
             <div class="flex items-center gap-3">
-              <IconSvg name="forevers" :size="36" color="primary" :hover-effect="false" />
+              <svg width="36" height="36" viewBox="0 0 32 32" class="text-dbd-primary">
+                <path d="M30.6666 7.38069V1.33325H7.1291V9.01136H1.33325V15.0588H7.1291V30.1075H13.894V22.7276H19.6153V16.6801H13.894V15.0588H25.1316V9.01136H13.894V7.38069H30.6666Z" fill="currentColor"/>
+              </svg>
               <span class="text-4xl font-bold text-dbd-primary">2,225</span>
             </div>
           </div>
