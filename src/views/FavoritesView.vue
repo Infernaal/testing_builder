@@ -652,9 +652,11 @@ const validateInput = () => {
     return false
   }
 
-  // Check maximum value (available amount)
+  // Check maximum value (available amount) - strict validation
   if (selectedBalance.value?.availableAmount && numValue > selectedBalance.value.availableAmount) {
     inputError.value = 'limit'
+    // Force the value back to the maximum allowed
+    foreversAmount.value = selectedBalance.value.availableAmount
     return false
   }
 
