@@ -424,6 +424,14 @@ const openEnterAmountModal = (balance) => {
 
   // Add keyboard listener for escape key
   document.addEventListener('keydown', handleKeydown)
+
+  // Focus input field after modal is rendered
+  setTimeout(() => {
+    if (amountInput.value) {
+      amountInput.value.focus()
+      amountInput.value.select() // Select all text for easy replacement
+    }
+  }, 300) // Wait for transition to complete
 }
 
 const closeEnterAmountModal = () => {
