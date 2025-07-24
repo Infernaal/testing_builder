@@ -1,9 +1,9 @@
 <template>
-  <div class="cart-bottom-component bg-gray-100 px-4 pt-4 pb-6">
+  <div class="cart-bottom-component bg-gray-100 px-3.5 pt-4 pb-6">
     <!-- Total Section -->
-    <div class="total-section flex items-center justify-center gap-1 mb-6">
-      <span class="text-dbd-dark font-semibold text-xl">Total to pay:</span>
-      <span class="text-dbd-primary font-semibold text-xl">${{ totalAmount.toLocaleString() }}</span>
+    <div class="total-section flex items-center justify-center gap-1 mb-4">
+      <span class="text-dbd-dark font-semibold text-xl leading-7">Total to pay:</span>
+      <span class="text-dbd-primary font-semibold text-xl leading-7">${{ totalAmount.toLocaleString() }}</span>
     </div>
 
     <!-- Action Buttons -->
@@ -11,18 +11,19 @@
       <!-- Back Button -->
       <button
         @click="$emit('back')"
-        class="back-button flex items-center justify-center gap-2 h-12 px-6 bg-dbd-off-white border border-dbd-gray rounded-full flex-shrink-0 transition-all duration-200 hover:bg-gray-100"
+        class="back-button flex items-center justify-center gap-2 h-13 px-6 bg-dbd-off-white border border-dbd-gray rounded-full flex-shrink-0 transition-all duration-200 hover:bg-gray-100 min-w-[119px]"
       >
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-dbd-gray">
           <path d="M18.2208 9.22071L3.66019 9.22071L7.13456 5.74611C7.43894 5.44192 7.43894 4.94845 7.13456 4.6443C6.83019 4.33992 6.33672 4.33992 6.03279 4.6443L1.22828 9.4489C0.923906 9.7531 0.923906 10.2466 1.22828 10.5507L6.03279 15.3555C6.18494 15.5078 6.38433 15.5838 6.58368 15.5838C6.78303 15.5838 6.98242 15.5078 7.13456 15.3555C7.43894 15.0513 7.43894 14.5579 7.13456 14.2538L3.66019 10.779L18.2208 10.779C18.6511 10.779 19 10.4301 19 9.99983C19 9.56955 18.6511 9.22071 18.2208 9.22071Z" fill="currentColor"/>
         </svg>
-        <span class="text-dbd-gray font-medium text-base">Back</span>
+        <span class="text-dbd-gray font-medium text-base leading-5">Back</span>
       </button>
 
       <!-- Buy Forevers Button -->
       <button
         @click="$emit('purchase')"
-        class="buy-button flex items-center justify-center h-12 px-12 rounded-full text-white font-bold text-xl flex-1 transition-all duration-200 bg-gradient-to-r from-dbd-primary to-blue-500 hover:from-blue-600 hover:to-blue-600 hover:shadow-lg"
+        class="buy-button flex items-center justify-center h-13 px-12 rounded-full text-white font-bold text-xl leading-6 flex-1 transition-all duration-200 min-w-[222px]"
+        style="background: linear-gradient(90deg, #2019CE 0%, #473FFF 100%);"
       >
         Buy Forevers
       </button>
