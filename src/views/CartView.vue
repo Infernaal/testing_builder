@@ -165,7 +165,15 @@ const handleBuyForevers = () => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Fixed bottom section styles handled by utility classes */
+/* Fixed bottom section optimization */
+.fixed.bottom-24 {
+  min-height: 140px; /* Ensure consistent height */
+}
+
+/* Ensure no content overlap */
+.scrollable-content {
+  margin-bottom: 140px; /* Space for fixed bottom section */
+}
 
 .back-button {
   height: 52px;
