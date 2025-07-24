@@ -287,5 +287,32 @@ button:active {
   transition: transform 0.1s ease-in-out;
 }
 
+/* Cart badge styles */
+.cart-badge-enter-active,
+.cart-badge-leave-active {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cart-badge-enter-from {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.cart-badge-leave-to {
+  opacity: 0;
+  transform: scale(0);
+}
+
+/* Mobile optimizations for cart badge */
+@media (max-width: 375px) {
+  .cart-counter-badge {
+    width: 18px !important;
+    height: 18px !important;
+    font-size: 9px !important;
+    min-width: 18px !important;
+    line-height: 1 !important;
+  }
+}
+
 
 </style>
