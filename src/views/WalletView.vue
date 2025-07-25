@@ -124,16 +124,102 @@ const navigateToTransactions = () => {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile first approach for Telegram mini app */
-@media (max-width: 430px) {
+/* Comprehensive device support for Telegram WebApp */
+.wallet-view {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Very small phones */
+@media (max-width: 374px) {
+  .balance-card, .loyalty-card, .bonus-card {
+    padding: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .icon-wrapper {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .history-btn {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
+/* Small to medium phones */
+@media (min-width: 375px) and (max-width: 430px) {
   .wallet-view {
     max-width: 100%;
   }
 }
 
-@media (min-width: 431px) and (max-width: 768px) {
+/* Large phones and small tablets */
+@media (min-width: 431px) and (max-width: 767px) {
   .wallet-view {
-    max-width: 400px;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .wallet-view {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .content-container {
+    padding: 24px !important;
+  }
+
+  .balance-card, .loyalty-card, .bonus-card {
+    padding: 24px !important;
+  }
+
+  /* Tablet grid layout */
+  .loyalty-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .loyalty-card {
+    grid-column: span 2;
+  }
+}
+
+/* Large tablets */
+@media (min-width: 1024px) {
+  .wallet-view {
+    max-width: 520px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+/* Landscape optimizations */
+@media (max-height: 600px) and (orientation: landscape) {
+  .content-container {
+    padding-top: 8px !important;
+    padding-bottom: 60px !important;
+  }
+
+  .forevers-balance-section,
+  .loyalty-section,
+  .bonus-section {
+    margin-bottom: 8px !important;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .history-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
   }
 }
 </style>
