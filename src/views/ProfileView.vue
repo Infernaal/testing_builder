@@ -127,42 +127,98 @@
     </div>
 
     <!-- Language Selector and ID Section -->
-    <div class="px-4 pb-4 mt-auto">
+    <div class="px-4 pb-4 mt-auto relative">
       <div class="flex items-center justify-between gap-3">
         <!-- User ID с копированием -->
-        <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl">
+        <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl relative">
           <div class="px-4 py-3">
             <span class="text-[#555] text-sm font-bold">ID: </span>
             <span class="text-[#000] text-sm font-bold">{{ profileData.id }}</span>
           </div>
-          <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm active:scale-95">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
-              <path d="M18.2806 1.19995H8.98336C8.42322 1.19995 7.88603 1.43348 7.48995 1.84917C7.09387 2.26486 6.87136 2.82866 6.87136 3.41653V4.26906H5.81536C5.2278 4.26906 4.66431 4.51402 4.24885 4.95006C3.83338 5.3861 3.59998 5.97749 3.59998 6.59414V20.4749C3.59998 21.0915 3.83338 21.6829 4.24885 22.119C4.66431 22.555 5.2278 22.8 5.81536 22.8H14.9132C15.5008 22.8 16.0643 22.555 16.4797 22.119C16.8952 21.6829 17.1286 21.0915 17.1286 20.4749V19.6998H18.2806C18.8363 19.6999 19.3699 19.4709 19.7663 19.0621C20.1627 18.6533 20.3903 18.0975 20.4 17.5143V3.41653C20.398 2.82794 20.1739 2.26417 19.7766 1.8487C19.3794 1.43323 18.8414 1.19995 18.2806 1.19995Z" fill="currentColor"/>
-            </svg>
-          </button>
+          <!-- Copy Button with Animation -->
+          <div class="relative">
+            <!-- Default State -->
+            <div
+              v-show="!isCopied"
+              @click="copyUserId"
+              class="w-12 h-12 bg-[#FAFAFA] border border-[#443FCC] rounded-r-full flex items-center justify-center cursor-pointer transition-all active:scale-95 relative"
+            >
+              <svg width="21" height="21" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.0655 0.5H7.60611C6.97596 0.5 6.37161 0.727045 5.92603 1.13119C5.48044 1.53533 5.23011 2.08346 5.23011 2.65501V3.48385H4.04211C3.38111 3.48385 2.74718 3.72201 2.27978 4.14594C1.81239 4.56986 1.5498 5.14483 1.5498 5.74435V19.2395C1.5498 19.839 1.81239 20.414 2.27978 20.8379C2.74718 21.2618 3.38111 21.5 4.04211 21.5H14.2772C14.9382 21.5 15.5721 21.2618 16.0395 20.8379C16.5069 20.414 16.7695 19.839 16.7695 19.2395V18.486H18.0655C18.6907 18.4861 19.291 18.2634 19.7369 17.866C20.1829 17.4685 20.4389 16.9281 20.4498 16.3611V2.65501C20.4476 2.08277 20.1954 1.53465 19.7485 1.13073C19.3016 0.7268 18.6964 0.499997 18.0655 0.5ZM15.108 19.2395C15.108 19.4393 15.0204 19.631 14.8646 19.7723C14.7088 19.9136 14.4975 19.993 14.2772 19.993H4.04211C3.82178 19.993 3.61047 19.9136 3.45467 19.7723C3.29887 19.631 3.21134 19.4393 3.21134 19.2395V5.74435C3.21134 5.54451 3.29887 5.35285 3.45467 5.21154C3.61047 5.07024 3.82178 4.99085 4.04211 4.99085H14.2772C14.4975 4.99085 14.7088 5.07024 14.8646 5.21154C15.0204 5.35285 15.108 5.54451 15.108 5.74435V19.2395ZM18.7883 16.3611C18.7861 16.5337 18.709 16.6985 18.5737 16.8198C18.4383 16.9411 18.2558 17.0092 18.0655 17.0092H16.7695V5.74435C16.7695 5.14483 16.5069 4.56986 16.0395 4.14594C15.5721 3.72201 14.9382 3.48385 14.2772 3.48385H6.89165V2.65501C6.89165 2.48314 6.96693 2.31832 7.10091 2.19679C7.2349 2.07527 7.41663 2.007 7.60611 2.007H18.0655C18.16 2.006 18.2538 2.02203 18.3415 2.05414C18.4291 2.08626 18.5089 2.13384 18.5761 2.19411C18.6433 2.25438 18.6967 2.32616 18.7331 2.40527C18.7695 2.48439 18.7883 2.56927 18.7883 2.65501V16.3611Z" fill="#2019CE"/>
+              </svg>
+              <span class="absolute -left-5 top-1/2 -translate-y-1/2 text-white text-sm font-bold bg-transparent pointer-events-none">Copy</span>
+            </div>
+
+            <!-- Copied State -->
+            <div
+              v-show="isCopied"
+              class="absolute right-0 top-0 w-28 h-12 bg-[#129E0F] border border-[#07B80E] rounded-full flex items-center gap-2 px-2 transition-all duration-300 animate-fade-in"
+            >
+              <div class="w-7 h-7 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <g clip-path="url(#clip0_copied)">
+                    <path d="M11.3242 0.926106C10.7978 0.642629 10.2106 1.18934 9.86633 1.51331C9.07667 2.28275 8.40848 3.17368 7.65925 3.98362C6.82907 4.87455 6.05963 5.76548 5.20919 6.6362C4.72323 7.12216 4.19677 7.64862 3.8728 8.25607C3.14385 7.54734 2.51615 6.7779 1.70621 6.15023C1.11901 5.70477 0.147086 5.38079 0.167334 6.45396C0.207831 7.85113 1.44299 9.34952 2.35416 10.3012C2.73888 10.7061 3.24509 11.1313 3.8323 11.1516C4.54099 11.1921 5.26994 10.3417 5.69515 9.87594C6.44438 9.06601 7.05183 8.15479 7.74024 7.32464C8.63118 6.23123 9.54236 5.15803 10.413 4.04436C10.9597 3.35592 12.6809 1.65502 11.3242 0.926106ZM1.05823 6.37297C1.03798 6.37297 1.01773 6.37297 0.977238 6.39318C0.896244 6.37297 0.835499 6.35268 0.754505 6.31219C0.815251 6.27169 0.916493 6.29194 1.05823 6.37297Z" fill="#07B80E"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_copied">
+                      <rect width="11.6667" height="11.6667" fill="white" transform="translate(0.166992 0.166504)"/>
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <span class="text-white text-sm font-bold">Copied</span>
+            </div>
+          </div>
         </div>
 
         <!-- Language Selector с флагом -->
-        <button
-          @click="toggleLanguageSelector"
-          class="flex items-center gap-2 px-4 py-3 bg-white/80 border-2 border-white rounded-full backdrop-blur-sm transition-all hover:bg-white/90 shadow-xl active:scale-95"
-        >
-          <div class="w-8 h-8 rounded-full overflow-hidden">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
-              <path d="M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z" fill="#D80027"/>
-              <path d="M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z" fill="#D80027"/>
-              <path d="M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z" fill="#D80027"/>
-              <path d="M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z" fill="#D80027"/>
-              <path d="M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z" fill="#0052B4"/>
+        <div class="relative">
+          <button
+            @click="toggleLanguageSelector"
+            class="flex items-center gap-2 px-4 py-3 bg-white/80 border-2 border-white rounded-full backdrop-blur-sm transition-all hover:bg-white/90 shadow-xl active:scale-95"
+          >
+            <div class="w-8 h-8 rounded-full overflow-hidden">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
+                <path d="M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z" fill="#D80027"/>
+                <path d="M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z" fill="#D80027"/>
+                <path d="M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z" fill="#D80027"/>
+                <path d="M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z" fill="#D80027"/>
+                <path d="M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z" fill="#0052B4"/>
+              </svg>
+            </div>
+            <span class="text-[#333] text-sm font-bold">{{ selectedLanguage }}</span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 20 20"
+              fill="none"
+              class="text-gray-600 transition-transform duration-200"
+              :class="{ 'rotate-180': showLanguageDropdown }"
+            >
+              <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="currentColor" stroke-linecap="round"/>
             </svg>
+          </button>
+
+          <!-- Language Dropdown -->
+          <div
+            v-show="showLanguageDropdown"
+            class="absolute bottom-full right-2 mb-2 bg-white rounded-lg shadow-xl border border-gray-200 overflow-hidden z-50 min-w-[120px] animate-fade-in"
+          >
+            <button
+              v-for="language in languages"
+              :key="language.code"
+              @click="selectLanguage(language)"
+              class="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors text-left"
+              :class="{ 'bg-blue-50 text-blue-600': selectedLanguage === language.code }"
+            >
+              <div class="w-6 h-6 rounded-full overflow-hidden flex-shrink-0">
+                <component :is="language.flag" />
+              </div>
+              <span class="text-sm font-medium text-gray-900">{{ language.name }}</span>
+            </button>
           </div>
-          <span class="text-[#333] text-sm font-bold">ENG</span>
-          <svg width="12" height="12" viewBox="0 0 20 20" fill="none" class="text-gray-600">
-            <circle opacity="0.2" cx="10" cy="10" r="10" fill="gray"/>
-            <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="currentColor" stroke-linecap="round"/>
-          </svg>
-        </button>
+        </div>
       </div>
     </div>
 
@@ -208,7 +264,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, h } from 'vue'
 import { useRouter } from 'vue-router'
 
 // Router
@@ -220,6 +276,60 @@ const profileData = ref({
   id: '515745',
   avatar: 'https://cdn.builder.io/api/v1/image/assets%2Fcd0d81f444984dacbac377cc9f78a1aa%2F572074b5aefa4337aec163bd9a21aec3?format=webp&width=800'
 })
+
+// Copy button state
+const isCopied = ref(false)
+
+// Language selector state
+const showLanguageDropdown = ref(false)
+const selectedLanguage = ref('ENG')
+
+// Language options
+const languages = ref([
+  {
+    code: 'ENG',
+    name: 'English',
+    flag: () => h('svg', {
+      width: 24,
+      height: 24,
+      viewBox: '0 0 32 32'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#F0F0F0' }),
+      h('path', { d: 'M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z', fill: '#D80027' }),
+      h('path', { d: 'M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z', fill: '#D80027' }),
+      h('path', { d: 'M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z', fill: '#D80027' }),
+      h('path', { d: 'M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z', fill: '#D80027' }),
+      h('path', { d: 'M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z', fill: '#0052B4' })
+    ])
+  },
+  {
+    code: 'RUS',
+    name: 'Русский',
+    flag: () => h('svg', {
+      width: 24,
+      height: 24,
+      viewBox: '0 0 32 32'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#F0F0F0' }),
+      h('path', { d: 'M15.5233 0.94043C7.50043 0.94043 0.94043 7.50043 0.94043 15.5233C0.94043 23.5462 7.50043 30.1062 15.5233 30.1062C23.5462 30.1062 30.1062 23.5462 30.1062 15.5233C30.1062 7.50043 23.5462 0.94043 15.5233 0.94043Z', fill: '#F0F0F0' }),
+      h('path', { d: 'M30.1062 15.5233C30.1062 12.2598 29.0925 9.24863 27.359 6.83691H3.68767C1.95408 9.24863 0.94043 12.2598 0.94043 15.5233H30.1062Z', fill: '#0052B4' }),
+      h('path', { d: 'M15.5233 30.1062C20.4067 30.1062 24.7598 27.8462 27.359 24.21H3.68767C6.28686 27.8462 10.6399 30.1062 15.5233 30.1062Z', fill: '#D80027' })
+    ])
+  },
+  {
+    code: 'DE',
+    name: 'Deutsch',
+    flag: () => h('svg', {
+      width: 24,
+      height: 24,
+      viewBox: '0 0 32 32'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#FFDA44' }),
+      h('path', { d: 'M15.5233 0.94043C12.2598 0.94043 9.24863 1.95408 6.83691 3.68767V27.359C9.24863 29.0925 12.2598 30.1062 15.5233 30.1062C18.7868 30.1062 21.798 29.0925 24.2097 27.359V3.68767C21.798 1.95408 18.7868 0.94043 15.5233 0.94043Z', fill: '#D80027' }),
+      h('path', { d: 'M6.83691 3.68767C2.83887 6.28686 0.94043 10.6399 0.94043 15.5233H30.1062C30.1062 10.6399 28.2077 6.28686 24.2097 3.68767H6.83691Z', fill: '#000' })
+    ])
+  }
+])
 
 // Methods
 const handleMenuClick = (section) => {
@@ -235,16 +345,39 @@ const handleUpgrade = () => {
 const copyUserId = async () => {
   try {
     await navigator.clipboard.writeText(profileData.value.id)
+    isCopied.value = true
+
+    // Hide the copied state after 2 seconds
+    setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+
     console.log('User ID copied to clipboard')
-    // TODO: Show success notification
   } catch (err) {
     console.error('Failed to copy user ID:', err)
   }
 }
 
 const toggleLanguageSelector = () => {
-  console.log('Language selector clicked')
-  // TODO: Add language selection logic
+  showLanguageDropdown.value = !showLanguageDropdown.value
+}
+
+const selectLanguage = (language) => {
+  selectedLanguage.value = language.code
+  showLanguageDropdown.value = false
+  console.log('Language selected:', language.name)
+}
+
+// Close dropdown when clicking outside
+const handleClickOutside = (event) => {
+  if (!event.target.closest('.relative')) {
+    showLanguageDropdown.value = false
+  }
+}
+
+// Add event listener for clicking outside
+if (typeof window !== 'undefined') {
+  document.addEventListener('click', handleClickOutside)
 }
 </script>
 
@@ -381,5 +514,40 @@ span, h1 {
 
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* Copy button animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out forwards;
+}
+
+/* Language dropdown positioning */
+.relative {
+  position: relative;
+}
+
+/* Dropdown shadow */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth transitions */
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }
 </style>
