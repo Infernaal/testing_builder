@@ -194,11 +194,20 @@
             <div class="flex items-center gap-2">
               <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M11.043 13.5537H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M11.043 9.73828H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6.09375 9.47806L6.61458 10.5176L7.91667 8.9583" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M6.09375 12.6009L7.39583 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M7.39583 12.6009L6.09375 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <g clip-path="url(#clip0_2_20722)">
+                    <path d="M11.043 13.5537H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11.043 9.73828H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.09375 9.47806L6.61458 10.5176L7.91667 8.9583" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.09375 12.6009L7.39583 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.39583 12.6009L6.09375 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14.168 3.75448C15.1859 3.82121 15.9909 4.66789 15.9909 5.70304V15.8918C15.9909 16.9706 15.1165 17.845 14.0378 17.845H5.96484C4.88607 17.845 4.01172 16.9706 4.01172 15.8918V5.70304C4.01172 4.66789 4.81673 3.82121 5.83464 3.75448" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6.8125 5.3125H13.1927C13.732 5.3125 14.1693 4.87526 14.1693 4.33594V3.13151C14.1693 2.59219 13.732 2.15495 13.1927 2.15495H6.8125C6.27318 2.15495 5.83594 2.59219 5.83594 3.13151V4.33594C5.83594 4.87526 6.27318 5.3125 6.8125 5.3125Z" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_2_20722">
+                      <rect width="20" height="20" fill="white"/>
+                    </clipPath>
+                  </defs>
                 </svg>
               </div>
               <span class="text-sm font-medium text-dbd-gray">ID Contract</span>
