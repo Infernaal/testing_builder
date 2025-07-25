@@ -195,6 +195,7 @@ import CountryFlag from '../components/CountryFlag.vue'
 import SuccessNotification from '../components/SuccessNotification.vue'
 import ErrorNotification from '../components/ErrorNotification.vue'
 import InfoTooltip from '../components/InfoTooltip.vue'
+import EnterAmountModal from '../components/EnterAmountModal.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
