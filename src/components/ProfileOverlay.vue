@@ -299,7 +299,7 @@
                         'text-gray-700 hover:text-gray-900': selectedLanguage.code !== language.code
                       }"
                     >
-                      <div class="w-4 h-4 rounded-full overflow-hidden shadow-sm border border-white/50">
+                      <div class="w-5 h-5 rounded-full overflow-hidden shadow-sm border border-white/50 flex items-center justify-center flex-shrink-0">
                         <CountryFlag :country="language.code" size="small" />
                       </div>
                       <span class="text-sm font-medium transition-colors">{{ language.name }}</span>
