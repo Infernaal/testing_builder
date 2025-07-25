@@ -77,8 +77,8 @@
         <div class="px-3 relative flex-1 overflow-hidden">
           <!-- Custom scrollbar indicator -->
           <div class="absolute right-1 top-8 w-0.5 h-24 bg-[#B7B7B7]/40 rounded-full opacity-40"></div>
-          
-          <div class="space-y-2 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 520px); min-height: 220px; max-height: 320px;">
+
+          <div class="space-y-2 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 600px); min-height: 180px; max-height: 240px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-1.5 py-3 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white/24 rounded-full flex items-center justify-center flex-shrink-0">
@@ -155,6 +155,45 @@
                 </svg>
               </div>
               <span class="text-white font-semibold text-base">Help</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start Level Upgrade Section - Moved Up -->
+        <div class="px-3 pb-3">
+          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-4 relative overflow-hidden">
+            <!-- Star Icon -->
+            <div class="absolute left-2 top-4">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="16" cy="16" r="15.06" fill="#8C4CD1"/>
+                <path d="M28.998 8.39055C26.1133 12.4471 21.365 15.0918 16.0003 15.0918C10.6356 15.0918 5.88739 12.4471 3.00269 8.39055C5.61916 3.9341 10.4615 0.941162 16.0003 0.941162C21.5392 0.941162 26.3815 3.9341 28.998 8.39055Z" fill="#9C68E1"/>
+                <path d="M15.9997 5.11792V15.4117L19.3443 11.8949L15.9997 5.11792Z" fill="#FF9F00"/>
+                <path d="M15.9996 5.11792V15.4117L12.655 11.8949L15.9996 5.11792Z" fill="#FED110"/>
+                <path d="M26.8232 12.982L19.3443 11.8953L15.9997 15.412L26.8232 12.982Z" fill="#FED110"/>
+                <path d="M26.8232 12.9825L21.4115 18.2577L15.9997 15.4126L26.8232 12.9825Z" fill="#FF9F00"/>
+                <path d="M5.17645 12.982L12.6553 11.8953L16 15.412L5.17645 12.982Z" fill="#FF9F00"/>
+                <path d="M5.17645 12.9825L10.5882 18.2577L16 15.4126L5.17645 12.9825Z" fill="#FED110"/>
+                <path d="M15.9997 15.4124L21.4115 18.2575L22.689 25.7061L15.9997 15.4124Z" fill="#FED110"/>
+                <path d="M22.689 25.7061L15.9997 22.1894V15.4124L22.689 25.7061Z" fill="#FF9F00"/>
+                <path d="M15.9996 15.4124L10.5878 18.2575L9.31024 25.7061L15.9996 15.4124Z" fill="#FF9F00"/>
+                <path d="M9.31024 25.7061L15.9996 22.1894V15.4124L9.31024 25.7061Z" fill="#FED110"/>
+                <ellipse opacity="0.3" cx="16.0003" cy="27.5882" rx="8.88235" ry="0.545" fill="#20273A"/>
+              </svg>
+            </div>
+
+            <!-- Background gradient -->
+            <div class="absolute left-0 top-0 w-36 h-full bg-gradient-to-r from-[#8C4CD1]/40 to-transparent rounded-l-2xl"></div>
+
+            <div class="flex items-center justify-between relative z-10">
+              <div class="ml-10">
+                <div class="text-[#02070E] font-bold text-lg mb-1">Start</div>
+                <div class="text-sm text-[#4B4D50]">
+                  buy <span class="font-bold text-[#8C4CD1]">123</span> more Forevers to upgrade
+                </div>
+              </div>
+              <button @click="handleUpgrade" class="px-6 py-2.5 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-semibold rounded-full text-base hover:shadow-lg transition-all duration-200 flex-shrink-0">
+                Upgrade
+              </button>
             </div>
           </div>
         </div>
