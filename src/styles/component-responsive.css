@@ -70,11 +70,11 @@
 
 @media (min-width: 768px) {
   .enter-amount-modal {
-    @apply items-center;
+    align-items: center;
   }
-  
+
   .enter-amount-modal .modal-content {
-    @apply rounded-3xl;
+    border-radius: 1.5rem;
     max-width: 480px;
     max-height: 70vh;
   }
