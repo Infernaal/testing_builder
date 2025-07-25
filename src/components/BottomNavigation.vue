@@ -66,20 +66,20 @@
             @click="toggleProfile"
             :class="[
               'flex flex-col items-center gap-1 p-1 sm:p-2 min-w-[48px] sm:min-w-[52px] flex-1',
-              isProfileMenuOpen ? 'text-blue-700' : 'text-gray-600'
+              activeTab === 'profile' ? 'text-blue-700' : 'text-gray-600'
             ]"
           >
             <div class="relative">
               <div
                 :class="[
-                  isProfileMenuOpen
+                  activeTab === 'profile'
                     ? 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-700'
                     : 'w-6 h-6 sm:w-7 sm:h-7 rounded-lg',
                   'flex items-center justify-center transition-all duration-200'
                 ]"
               >
-                <!-- Show close icon when profile menu is open, otherwise show profile -->
-                <div v-if="isProfileMenuOpen" class="text-white">
+                <!-- Show close icon when on profile page, otherwise show profile -->
+                <div v-if="activeTab === 'profile'" class="text-white">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
