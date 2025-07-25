@@ -294,6 +294,8 @@ const closeModal = () => {
 
   inputValue.value = ''
   inputError.value = false
+  isInputFocused.value = false
+  errorMessage.value = ''
   hideError()
   emit('close')
 }
