@@ -19,7 +19,8 @@
       <!-- Tooltip content -->
       <div
         @click.stop
-        class="relative bg-white rounded-3xl p-3 max-w-sm w-full mx-4 shadow-xl border border-gray-100"
+        class="relative bg-white rounded-3xl p-3 shadow-xl border border-gray-100"
+        style="width: 300px; height: 154px;"
       >
         <!-- Close button -->
         <button
