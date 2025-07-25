@@ -521,40 +521,12 @@ const validateInput = () => {
   return true
 }
 
-const handleAddToCart = async () => {
-  // Clear any pending validation timeout first
-  if (validationTimeout) {
-    clearTimeout(validationTimeout)
-    validationTimeout = null
-  }
-
-  // Force immediate validation before proceeding
-  if (!validateInput()) {
-    console.error('Invalid input')
-    return
-  }
-
-  // Additional safety checks with explicit limits
-  const numericValue = Number(foreversAmount.value)
-
-  if (!selectedBalance.value || numericValue <= 0) {
-    console.error('Invalid input')
-    inputError.value = 'invalid'
-    return
-  }
-
-  // Extra safety check for available amount limit
-  if (selectedBalance.value.availableAmount && numericValue > selectedBalance.value.availableAmount) {
-    console.error('Amount exceeds limit')
-    inputError.value = 'limit'
-    return
-  }
-
+const handleAddToCart = async (data) => {
   try {
     // Add to cart using the cart store
     const cartItem = {
-      balance: selectedBalance.value,
-      foreversAmount: foreversAmount.value,
+      balance: data.balance,
+      foreversAmount: data.amount,
     }
 
     const success = await addToCart(cartItem)
@@ -572,16 +544,12 @@ const handleAddToCart = async () => {
         showSuccessNotification.value = false
       }, 3000)
 
-      // Close modal
-      closeEnterAmountModal()
-
       console.log('Successfully added to cart!')
     } else {
       throw new Error('Failed to add to cart')
     }
   } catch (error) {
     console.error('Failed to add to cart:', error)
-    inputError.value = 'failed'
 
     // Show error notification
     showErrorNotification.value = true
