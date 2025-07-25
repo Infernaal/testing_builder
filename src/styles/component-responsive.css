@@ -36,7 +36,7 @@
   .delete-modal {
     align-items: center;
   }
-
+  
   .delete-modal .modal-content {
     border-radius: 1rem;
     max-width: 400px;
@@ -72,7 +72,7 @@
   .enter-amount-modal {
     align-items: center;
   }
-
+  
   .enter-amount-modal .modal-content {
     border-radius: 1.5rem;
     max-width: 480px;
@@ -82,11 +82,20 @@
 
 /* Success Modal */
 .success-modal {
-  @apply fixed inset-0 z-50 flex items-center justify-center p-4;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .success-modal .modal-content {
-  @apply w-full bg-white rounded-3xl p-6;
+  width: 100%;
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
   max-width: var(--container-lg);
 }
 
@@ -110,54 +119,63 @@
 
 /* Country Flag Component */
 .country-flag {
-  @apply rounded-full overflow-hidden flex-shrink-0;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .country-flag.size-small {
-  @apply w-4 h-4;
+  width: 1rem;
+  height: 1rem;
 }
 
 .country-flag.size-medium {
-  @apply w-6 h-6;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .country-flag.size-large {
-  @apply w-8 h-8;
+  width: 2rem;
+  height: 2rem;
 }
 
 @media (max-width: 374px) {
-  .country-flag.size-small { @apply w-3 h-3; }
-  .country-flag.size-medium { @apply w-5 h-5; }
-  .country-flag.size-large { @apply w-6 h-6; }
+  .country-flag.size-small { width: 0.75rem; height: 0.75rem; }
+  .country-flag.size-medium { width: 1.25rem; height: 1.25rem; }
+  .country-flag.size-large { width: 1.5rem; height: 1.5rem; }
 }
 
 @media (min-width: 768px) {
-  .country-flag.size-small { @apply w-5 h-5; }
-  .country-flag.size-medium { @apply w-7 h-7; }
-  .country-flag.size-large { @apply w-10 h-10; }
+  .country-flag.size-small { width: 1.25rem; height: 1.25rem; }
+  .country-flag.size-medium { width: 1.75rem; height: 1.75rem; }
+  .country-flag.size-large { width: 2.5rem; height: 2.5rem; }
 }
 
 /* User Rank Component */
 .user-rank {
-  @apply flex items-center gap-1;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .user-rank .rank-icon {
-  @apply w-4 h-4;
+  width: 1rem;
+  height: 1rem;
 }
 
 .user-rank .rank-text {
-  @apply text-xs font-medium;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 @media (max-width: 374px) {
-  .user-rank .rank-icon { @apply w-3 h-3; }
-  .user-rank .rank-text { @apply text-xs; }
+  .user-rank .rank-icon { width: 0.75rem; height: 0.75rem; }
+  .user-rank .rank-text { font-size: 0.75rem; }
 }
 
 @media (min-width: 768px) {
-  .user-rank .rank-icon { @apply w-5 h-5; }
-  .user-rank .rank-text { @apply text-sm; }
+  .user-rank .rank-icon { width: 1.25rem; height: 1.25rem; }
+  .user-rank .rank-text { font-size: 0.875rem; }
 }
 
 /* ============================================================================
@@ -166,7 +184,15 @@
 
 /* Error Notification */
 .error-notification {
-  @apply fixed top-4 left-4 right-4 z-50 bg-red-500 text-white p-3 rounded-lg;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background-color: #ef4444;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
   max-width: var(--container-lg);
   margin: 0 auto;
 }
@@ -193,7 +219,15 @@
 
 /* Success Notification */
 .success-notification {
-  @apply fixed top-4 left-4 right-4 z-50 bg-green-500 text-white p-3 rounded-lg;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 50;
+  background-color: #22c55e;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
   max-width: var(--container-lg);
   margin: 0 auto;
 }
@@ -224,21 +258,42 @@
 
 /* FavoritesView */
 .favorites-view {
-  @apply h-screen bg-gray-100 flex flex-col font-sans overflow-hidden;
+  height: 100vh;
+  background-color: #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  overflow: hidden;
 }
 
 .favorites-view .main-content {
-  @apply flex-1 w-full px-3 pt-4 pb-2 flex flex-col;
+  flex: 1;
+  width: 100%;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
   max-width: var(--container-lg);
   margin: 0 auto;
 }
 
 .favorites-view .balance-card {
-  @apply bg-purple-50 border border-purple-200 rounded-2xl p-3 mb-2 flex-shrink-0;
+  background-color: #faf5ff;
+  border: 1px solid #e9d5ff;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 .favorites-view .country-card {
-  @apply bg-white border border-purple-200 rounded-2xl p-3 relative flex flex-col justify-between;
+  background-color: white;
+  border: 1px solid #e9d5ff;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   min-height: 200px;
 }
 
@@ -291,49 +346,6 @@
   .favorites-view .countries-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-  }
-}
-
-/* RentOutView */
-.rent-out-view {
-  @apply w-full bg-gray-100 min-h-screen;
-  max-width: var(--container-lg);
-  margin: 0 auto;
-}
-
-.rent-out-view .content-container {
-  @apply bg-gray-100 pt-4 pb-24 px-4;
-}
-
-@media (max-width: 374px) {
-  .rent-out-view .content-container {
-    padding: 12px 12px 80px 12px;
-  }
-}
-
-@media (min-width: 768px) {
-  .rent-out-view {
-    max-width: 480px;
-    padding: 0 20px;
-  }
-  
-  .rent-out-view .content-container {
-    padding: 20px 0 100px 0;
-  }
-}
-
-/* StartView */
-.start-view {
-  @apply w-full bg-gray-100 min-h-screen;
-  max-width: var(--container-lg);
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .start-view {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0 20px;
   }
 }
 
