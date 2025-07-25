@@ -165,11 +165,11 @@ defineEmits(['close'])
 }
 
 /* Icon styling */
-.error-notification-container .w-10.h-10 {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+.error-notification-container .w-8.h-8 {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
 }
 
 /* Typography matching Figma */
