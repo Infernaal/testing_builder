@@ -318,6 +318,7 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue'
 import CountryFlag from './CountryFlag.vue'
+import UserRank from './UserRank.vue'
 
 // Props
 const props = defineProps({
