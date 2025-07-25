@@ -58,9 +58,14 @@ defineEmits(['close'])
     min-width: auto !important;
   }
 
-  .error-notification > div {
+  .error-notification > div:not(.w-0) {
     min-width: auto !important;
     width: 100%;
+  }
+
+  /* Hide pointer on very small screens */
+  .error-notification > div.w-0 {
+    display: none;
   }
 }
 
