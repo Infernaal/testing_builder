@@ -304,7 +304,23 @@ watch(() => props.isVisible, (isVisible) => {
     document.body.style.overflow = 'hidden'
   } else {
     document.body.style.overflow = ''
+    isLanguageDropdownOpen.value = false
   }
+})
+
+// Close dropdown when clicking outside
+const handleClickOutside = (event) => {
+  if (!event.target.closest('.language-selector-container')) {
+    isLanguageDropdownOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
 })
 
 // Methods
