@@ -331,21 +331,103 @@ const copyReferralLink = async () => {
     max-width: 100%;
     padding-bottom: env(safe-area-inset-bottom, 80px);
   }
+
+  /* Ensure QR section fits on small screens */
+  .qr-section {
+    min-height: 320px;
+  }
+
+  /* Better touch targets */
+  button {
+    min-height: 44px;
+  }
 }
 
 @media (min-width: 431px) and (max-width: 768px) {
   .holders-view {
-    max-width: 400px;
+    max-width: 430px;
+    margin: 0 auto;
+  }
+
+  /* Tablet optimizations */
+  .qr-section {
+    min-height: 384px;
+  }
+}
+
+/* Landscape phone optimizations */
+@media (max-height: 600px) and (orientation: landscape) {
+  .holders-view {
+    font-size: 14px;
+  }
+
+  .qr-section {
+    height: 280px !important;
+  }
+
+  .referral-section {
+    height: 160px !important;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 350px) {
+  .px-4 {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .text-xl {
+    font-size: 18px;
+  }
+
+  .text-lg {
+    font-size: 16px;
   }
 }
 
 /* Smooth animations */
 button {
   transition: all 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 button:active {
   transform: scale(0.98);
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  button:hover {
+    transform: none;
+  }
+
+  button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Prevent text selection on mobile */
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection for specific elements */
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Improve scrolling on iOS */
+.overflow-y-auto {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 /* Custom checkbox styling */
