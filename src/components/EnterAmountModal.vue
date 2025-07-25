@@ -218,9 +218,15 @@ const handleInput = (event) => {
 
   // Check if amount exceeds available balance
   const availableAmount = props.selectedBalance?.available || 0
-  if (amount > availableAmount) {
+  const maxAllowed = availableAmount === 'unlimited' || availableAmount === null || availableAmount === 0 ? 10000 : availableAmount
+
+  if (amount > maxAllowed) {
     inputError.value = true
-    errorMessage.value = `Amount cannot exceed available balance (${availableAmount})`
+    if (maxAllowed === 10000) {
+      errorMessage.value = `Maximum amount allowed is ${maxAllowed.toLocaleString()}`
+    } else {
+      errorMessage.value = `Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`
+    }
     return
   }
 }
