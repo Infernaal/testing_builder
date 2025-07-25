@@ -214,16 +214,24 @@ const handleInput = (event) => {
   const availableAmount = props.selectedBalance?.availableAmount
   let maxAllowed
 
+  console.log('Validation check:', { availableText, availableAmount, amount })
+
   // Check if it's "without restrictions" or unlimited
-  if (!availableText || availableText.includes('without restrictions') || availableText.includes('unlimited')) {
+  if (availableText && availableText.includes('without restrictions')) {
     maxAllowed = 50000 // 50k limit for unrestricted items
-  } else {
+  } else if (availableAmount && !isNaN(Number(availableAmount))) {
     maxAllowed = Number(availableAmount) // Use actual available amount
+  } else {
+    maxAllowed = 50000 // Default to 50k if unclear
   }
+
+  console.log('Max allowed:', maxAllowed)
 
   if (amount > maxAllowed) {
     inputError.value = true
-    // Don't set errorMessage here - let the ErrorNotification component handle it in handleAddToCart
+    errorMessage.value = maxAllowed === 50000
+      ? `Maximum amount allowed is ${maxAllowed.toLocaleString()}`
+      : `Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`
     return
   }
 }
