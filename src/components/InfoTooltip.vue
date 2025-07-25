@@ -33,12 +33,12 @@
         </button>
 
         <!-- Title -->
-        <h3 class="text-lg font-semibold text-white mb-6 pt-2 px-1">
+        <h3 class="text-lg font-semibold text-white mb-4 pt-1 pr-10">
           {{ title }}
         </h3>
 
         <!-- Description -->
-        <p class="text-sm text-white leading-6 px-1 pr-8">
+        <p class="text-sm text-white leading-6 pr-4">
           {{ description }}
         </p>
       </div>
