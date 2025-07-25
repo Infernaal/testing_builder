@@ -376,6 +376,9 @@ const selectedTransaction = ref(null)
 const copyState = ref({
   isShowingCopied: false
 })
+const touchStartY = ref(0)
+const touchCurrentY = ref(0)
+const isDragging = ref(false)
 
 // Sample transaction data
 const transactions = ref([
