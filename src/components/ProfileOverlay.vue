@@ -293,7 +293,7 @@
                       v-for="language in availableLanguages"
                       :key="language.code"
                       @click="selectLanguage(language)"
-                      class="w-full flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
+                      class="w-full flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
                       :class="{
                         'bg-gradient-to-r from-[#2019CE]/20 to-purple-500/20 text-[#2019CE]': selectedLanguage.code === language.code,
                         'text-gray-700 hover:text-gray-900': selectedLanguage.code !== language.code
