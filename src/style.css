@@ -3,6 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import comprehensive responsive design system */
+@import './styles/responsive.css';
+
 /* CSS Variables for Telegram WebApp support */
 :root {
   /* Telegram WebApp variables */
