@@ -214,7 +214,7 @@
             </div>
             <div class="flex items-center gap-2">
               <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.contractId }}</span>
-              <button @click="copyToClipboard(selectedTransaction.contractId)" class="px-3 py-1 bg-dbd-blue text-white text-xs rounded-full hover:opacity-90">
+              <button @click="copyToClipboard(selectedTransaction.contractId)" class="copy-btn-active px-3 py-1 bg-dbd-blue text-white text-xs rounded-full hover:opacity-90 transition-all duration-200">
                 Copy
               </button>
             </div>
