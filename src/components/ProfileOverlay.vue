@@ -335,7 +335,8 @@ defineEmits(['close'])
 const profileData = ref({
   name: 'Jason Williams',
   id: '515745',
-  avatar: 'https://images.pexels.com/photos/15023413/pexels-photo-15023413.jpeg?auto=compress&cs=tinysrgb&w=400'
+  avatar: 'https://images.pexels.com/photos/15023413/pexels-photo-15023413.jpeg?auto=compress&cs=tinysrgb&w=400',
+  rank: 'silver' // Can be: no-rank, bronze, silver, gold, diamond, double-diamond, ambassador, royal-ambassador
 })
 
 // Language selector state
