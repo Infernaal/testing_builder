@@ -104,7 +104,7 @@
                 :class="[
                   'w-6 h-6 border-2 rounded flex items-center justify-center cursor-pointer transition-colors',
                   selectedTransactions.includes(index)
-                    ? 'bg-dbd-blue border-dbd-blue'
+                    ? 'bg-green-500 border-green-500'
                     : 'border-gray-400 bg-dbd-off-white hover:border-gray-500'
                 ]"
               >
