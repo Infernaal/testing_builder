@@ -4,20 +4,20 @@
     <div class="content-container bg-gray-100 pt-4 pb-20 sm:pb-24 space-responsive-lg">
 
       <!-- Forevers Balance Section -->
-      <div class="forevers-balance-section mb-4">
-        <div class="balance-card bg-dbd-light-blue rounded-2xl p-4">
+      <div class="forevers-balance-section mb-3 sm:mb-4">
+        <div class="balance-card bg-dbd-light-blue rounded-xl sm:rounded-2xl p-3 sm:p-4">
           <div class="flex items-center justify-between">
             <div class="balance-info">
-              <h2 class="text-lg font-semibold text-dbd-dark mb-1">
+              <h2 class="text-responsive-lg sm:text-responsive-xl font-semibold text-dbd-dark mb-1">
                 Forevers<br>Balance
               </h2>
             </div>
             <div class="balance-amount flex items-center gap-2">
               <!-- Forevers Logo SVG -->
-              <svg class="w-8 h-8" viewBox="0 0 32 32" fill="none">
+              <svg class="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 32 32" fill="none">
                 <path d="M30.6666 7.38081V1.33337H7.1291V9.01148H1.33325V15.0589H7.1291V30.1076H13.894V22.7277H19.6153V16.6803H13.894V15.0589H25.1316V9.01148H13.894V7.38081H30.6666Z" fill="#2019CE"/>
               </svg>
-              <span class="text-2xl font-bold text-dbd-primary">10,196</span>
+              <span class="text-responsive-xl sm:text-responsive-2xl font-bold text-dbd-primary">10,196</span>
             </div>
           </div>
         </div>
