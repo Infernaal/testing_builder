@@ -62,7 +62,7 @@
           </div>
 
           <!-- Success Message -->
-          <div class="text-base font-medium text-[#4B4D50] text-center">
+          <div class="text-base font-medium text-[#4B4D50] text-center mt-2">
             {{ message || 'Funds have been successfully' }}
           </div>
         </div>
