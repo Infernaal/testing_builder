@@ -156,6 +156,136 @@
 
     <!-- Bottom Navigation Component -->
     <BottomNavigation />
+
+    <!-- Transaction Details Modal -->
+    <div v-if="showTransactionModal" class="fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-20 backdrop-blur-sm">
+      <div class="w-full max-w-md bg-white rounded-t-3xl shadow-xl animate-slide-up">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between p-4 border-b">
+          <div class="flex-1 text-center">
+            <div class="w-9 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
+            <h2 class="text-base font-medium text-dbd-dark">Transaction Details</h2>
+          </div>
+          <button @click="closeTransactionModal" class="w-11 h-11 flex items-center justify-center rounded-full bg-dbd-off-white border border-gray-200">
+            <div class="w-5 h-5 relative">
+              <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full rotate-45 top-2.5 left-0.5"></div>
+              <div class="absolute w-4 h-0.5 bg-dbd-dark rounded-full -rotate-45 top-2.5 left-0.5"></div>
+            </div>
+          </button>
+        </div>
+
+        <!-- Modal Content -->
+        <div v-if="selectedTransaction" class="p-4 space-y-4 max-h-96 overflow-y-auto">
+          <!-- ID Contract -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M11.043 13.5537H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M11.043 9.73828H13.9076" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.09375 9.47806L6.61458 10.5176L7.91667 8.9583" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M6.09375 12.6009L7.39583 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.39583 12.6009L6.09375 14.4238" stroke="#4B4D50" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">ID Contract</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.contractId }}</span>
+              <button @click="copyToClipboard(selectedTransaction.contractId)" class="px-3 py-1 bg-dbd-blue text-white text-xs rounded-full hover:opacity-90">
+                Copy
+              </button>
+            </div>
+          </div>
+
+          <div class="h-px bg-gray-200"></div>
+
+          <!-- Date & Time -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-dbd-light-orange rounded-full flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M14.0625 9.1875C14.4077 9.1875 14.6875 8.90768 14.6875 8.5625C14.6875 8.21732 14.4077 7.9375 14.0625 7.9375C13.7173 7.9375 13.4375 8.21732 13.4375 8.5625C13.4375 8.90768 13.7173 9.1875 14.0625 9.1875Z" fill="#4B4D50"/>
+                  <path d="M15.5 3.25H14.6875V2.625C14.6875 2.27981 14.4077 2 14.0625 2C13.7173 2 13.4375 2.27981 13.4375 2.625V3.25H10.5938V2.625C10.5938 2.27981 10.3139 2 9.96875 2C9.62356 2 9.34375 2.27981 9.34375 2.625V3.25H6.53125V2.625C6.53125 2.27981 6.25144 2 5.90625 2C5.56106 2 5.28125 2.27981 5.28125 2.625V3.25H4.5C3.1215 3.25 2 4.3715 2 5.75V15.5C2 16.8785 3.1215 18 4.5 18H9.28125C9.62644 18 9.90625 17.7202 9.90625 17.375C9.90625 17.0298 9.62644 16.75 9.28125 16.75H4.5C3.81075 16.75 3.25 16.1892 3.25 15.5V5.75C3.25 5.06075 3.81075 4.5 4.5 4.5H5.28125V5.125C5.28125 5.47019 5.56106 5.75 5.90625 5.75C6.25144 5.75 6.53125 5.47019 6.53125 5.125V4.5H9.34375V5.125C9.34375 5.47019 9.62356 5.75 9.96875 5.75C10.3139 5.75 10.5938 5.47019 10.5938 5.125V4.5H13.4375V5.125C13.4375 5.47019 13.7173 5.75 14.0625 5.75C14.4077 5.75 14.6875 5.47019 14.6875 5.125V4.5H15.5C16.1892 4.5 16.75 5.06075 16.75 5.75V9.3125C16.75 9.65769 17.0298 9.9375 17.375 9.9375C17.7202 9.9375 18 9.65769 18 9.3125V5.75C18 4.3715 16.8785 3.25 15.5 3.25Z" fill="#4B4D50"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">Date & Time</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.date }}</span>
+              <span class="text-sm font-medium text-dbd-gray">{{ selectedTransaction.time }}</span>
+            </div>
+          </div>
+
+          <div class="h-px bg-gray-200"></div>
+
+          <!-- Amount -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M1.66797 10.0001C1.66797 5.39771 5.39893 1.66675 10.0013 1.66675C14.6037 1.66675 18.3346 5.39771 18.3346 10.0001C18.3346 14.6025 14.6037 18.3334 10.0013 18.3334C5.39893 18.3334 1.66797 14.6025 1.66797 10.0001Z" fill="#4B4D50"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">Amount</span>
+            </div>
+            <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.amount.toLocaleString() }}</span>
+          </div>
+
+          <div class="h-px bg-gray-200"></div>
+
+          <!-- Type -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M17.2636 3H6.61925C6.15063 3 5.8159 3.33333 5.8159 3.8V7.06667H2.80335C2.33473 7.13333 2 7.46667 2 7.93333C2 8.4 2.33473 8.73333 2.80335 8.73333H5.8159V16.2C5.8159 16.6667 6.15063 17 6.61925 17C7.08787 17 7.42259 16.6667 7.42259 16.2V12.7333H10.8368C11.3054 12.7333 11.6402 12.4 11.6402 11.9333C11.6402 11.4667 11.3054 11.1333 10.8368 11.1333H7.42259V8.66667H13.9163C14.3849 8.66667 14.7197 8.33333 14.7197 7.86667C14.7197 7.4 14.3849 7.06667 13.9163 7.06667H7.42259V4.6H17.1967C17.6653 4.6 18 4.26667 18 3.8C18 3.33333 17.7322 3 17.2636 3Z" fill="#4B4D50"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">Type</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M13.7564 1.77783H4.78285C4.38779 1.77783 4.1056 2.06002 4.1056 2.45508V5.22051H1.56592C1.17086 5.27695 0.888672 5.55914 0.888672 5.9542C0.888672 6.34926 1.17086 6.63145 1.56592 6.63145H4.1056V12.9524C4.1056 13.3475 4.38779 13.6297 4.78285 13.6297C5.17791 13.6297 5.4601 13.3475 5.4601 12.9524V10.0177H8.33841C8.73347 10.0177 9.01566 9.7355 9.01566 9.34044C9.01566 8.94538 8.73347 8.66319 8.33841 8.66319H5.4601V6.57501H10.9345C11.3296 6.57501 11.6118 6.29282 11.6118 5.89776C11.6118 5.5027 11.3296 5.22051 10.9345 5.22051H5.4601V3.13233H13.7C14.095 3.13233 14.3772 2.85014 14.3772 2.45508C14.3772 2.06002 14.1515 1.77783 13.7564 1.77783Z" fill="#4B4D50"/>
+                </svg>
+              </div>
+              <span class="text-base font-medium text-dbd-gray">UAE</span>
+            </div>
+          </div>
+
+          <div class="h-px bg-gray-200"></div>
+
+          <!-- Purchased -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M11.8525 24C11.5497 24 11.2994 23.9056 11.1014 23.7167C10.9035 23.5278 10.8045 23.2889 10.8045 23V21.2C9.68657 21.0222 8.73169 20.6444 7.93984 20.0667C7.14799 19.4889 6.53082 18.7556 6.08831 17.8667C5.97186 17.6222 5.97186 17.3667 6.08831 17.1C6.20476 16.8333 6.40272 16.6444 6.6822 16.5333C6.93839 16.4222 7.20039 16.4222 7.46823 16.5333C7.73606 16.6444 7.93984 16.8222 8.07958 17.0667C8.49879 17.8222 9.0461 18.3889 9.7215 18.7667C10.3969 19.1444 11.1771 19.3333 12.0621 19.3333C13.18 19.3333 14.1 19.0667 14.8219 18.5333C15.5439 18 15.9049 17.2667 15.9049 16.3333C15.9049 15.3556 15.5847 14.6 14.9442 14.0667C14.3037 13.5333 13.0985 12.9889 11.3285 12.4333C9.65163 11.9222 8.39981 11.2444 7.57303 10.4C6.74625 9.55556 6.33285 8.5 6.33285 7.23333C6.33285 6.01111 6.74625 4.98889 7.57303 4.16667C8.39981 3.34444 9.47696 2.87778 10.8045 2.76667V1C10.8045 0.711111 10.9035 0.472222 11.1014 0.283333C11.2994 0.0944446 11.5497 0 11.8525 0C12.1553 0 12.4056 0.0944446 12.6036 0.283333C12.8016 0.472222 12.9005 0.711111 12.9005 1V2.76667C13.739 2.87778 14.4901 3.12222 15.1538 3.5C15.8176 3.87778 16.3707 4.36667 16.8132 4.96667C16.9762 5.18889 17.0112 5.42778 16.918 5.68333C16.8248 5.93889 16.6385 6.12222 16.3591 6.23333C16.1029 6.34444 15.835 6.35556 15.5556 6.26667C15.2761 6.17778 15.0432 6.01111 14.8569 5.76667C14.5308 5.36667 14.1291 5.07222 13.6516 4.88333C13.1742 4.69444 12.5978 4.6 11.9224 4.6C10.851 4.6 10.001 4.83333 9.37216 5.3C8.74333 5.76667 8.42892 6.4 8.42892 7.2C8.42892 8.04444 8.77827 8.72778 9.47696 9.25C10.1756 9.77222 11.4682 10.3111 13.3547 10.8667C14.9384 11.3333 16.1087 12.0056 16.8656 12.8833C17.6225 13.7611 18.001 14.8667 18.001 16.2C18.001 17.6 17.5701 18.7278 16.7084 19.5833C15.8467 20.4389 14.5774 20.9889 12.9005 21.2333V23C12.9005 23.2889 12.8016 23.5278 12.6036 23.7167C12.4056 23.9056 12.1553 24 11.8525 24Z" fill="#4B4D50"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">Purchased</span>
+            </div>
+            <span class="text-sm font-medium text-green-600">$ +{{ formatCurrency(selectedTransaction.purchased) }}</span>
+          </div>
+
+          <div class="h-px bg-gray-200"></div>
+
+          <!-- Percentage of rent -->
+          <div class="flex justify-between items-center">
+            <div class="flex items-center gap-2">
+              <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 20L19.9351 4M6.53681 8.81929C5.22466 8.81929 4.16095 7.75126 4.16095 6.43376C4.16095 5.11627 5.22466 4.04824 6.53681 4.04824C7.84896 4.04824 8.91267 5.11627 8.91267 6.43376C8.91267 7.75126 7.84896 8.81929 6.53681 8.81929ZM17.6241 19.9518C16.312 19.9518 15.2483 18.8837 15.2483 17.5662C15.2483 16.2487 16.312 15.1807 17.6241 15.1807C18.9363 15.1807 20 16.2487 20 17.5662C20 18.8837 18.9363 19.9518 17.6241 19.9518Z" stroke="#4B4D50" stroke-width="2" stroke-linecap="round" transform="rotate(90 12 12)"/>
+                </svg>
+              </div>
+              <span class="text-sm font-medium text-dbd-gray">Percentage of rent</span>
+            </div>
+            <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.rentPercentage }}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
