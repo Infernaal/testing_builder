@@ -1,56 +1,86 @@
 <template>
-  <div 
-    v-if="isVisible"
-    class="success-modal fixed inset-0 z-50 flex items-center justify-center p-4"
-    @click="handleBackdropClick"
+  <Transition
+    name="modal"
+    enter-active-class="transition-all duration-300 ease-out"
+    leave-active-class="transition-all duration-200 ease-in"
+    enter-from-class="opacity-0 backdrop-blur-0"
+    enter-to-class="opacity-100 backdrop-blur-md"
+    leave-from-class="opacity-100 backdrop-blur-md"
+    leave-to-class="opacity-0 backdrop-blur-0"
   >
-    <!-- Backdrop -->
-    <div class="backdrop absolute inset-0 bg-black bg-opacity-50"></div>
-    
-    <!-- Modal Content -->
-    <div class="modal-content bg-white rounded-2xl p-6 max-w-sm w-full relative z-10 mx-4">
-      <!-- Success Icon -->
-      <div class="success-icon w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="text-green-500">
-          <path d="M26.6667 8L12 22.6667L5.33333 16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      
-      <!-- Title -->
-      <h2 class="text-xl font-bold text-dbd-dark text-center mb-2">
-        {{ title }}
-      </h2>
-      
-      <!-- Message -->
-      <p class="text-dbd-gray text-center mb-6">
-        {{ message }}
-      </p>
-      
-      <!-- Payment Details -->
-      <div v-if="paymentDetails" class="payment-details bg-gray-50 rounded-lg p-4 mb-6">
-        <div class="flex justify-between items-center mb-2">
-          <span class="text-sm text-dbd-gray">Payment Method:</span>
-          <span class="text-sm font-medium text-dbd-dark capitalize">{{ paymentDetails.paymentMethod }}</span>
-        </div>
-        <div class="flex justify-between items-center">
-          <span class="text-sm text-dbd-gray">Amount:</span>
-          <span class="text-sm font-bold text-dbd-primary">${{ paymentDetails.amount.toLocaleString() }}</span>
-        </div>
-      </div>
-      
-      <!-- Action Button -->
-      <button
-        @click="handleConfirm"
-        class="confirm-button w-full bg-dbd-primary text-white font-bold py-3 px-6 rounded-full hover:bg-blue-600 transition-colors"
+    <div
+      v-if="isVisible"
+      class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20 backdrop-blur-md"
+      @click.self="handleBackdropClick"
+    >
+      <!-- Modal Content -->
+      <div
+        @click.stop
+        class="relative bg-white rounded-[20px] shadow-xl font-montserrat"
+        style="width: 347px; height: 396px;"
       >
-        {{ confirmText }}
-      </button>
+        <!-- Success Icon -->
+        <div class="absolute left-[142px] top-8 w-16 h-16">
+          <div class="w-16 h-16 rounded-r-full border-2 border-[#88EF8C] bg-[#B3FFB6] flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_success_tick)">
+                <path d="M26.4264 2.07621C25.183 1.40975 23.7961 2.69507 22.9831 3.45674C21.118 5.26571 19.5397 7.36031 17.7701 9.26449C15.8093 11.3591 13.992 13.4537 11.9833 15.5007C10.8355 16.6433 9.5921 17.881 8.8269 19.3091C7.10521 17.6429 5.62264 15.8339 3.70964 14.3582C2.32272 13.3109 0.0271294 12.5493 0.0749543 15.0723C0.170604 18.3571 3.08792 21.8798 5.24004 24.1172C6.14871 25.0692 7.34433 26.0689 8.73125 26.1165C10.4051 26.2118 12.1268 24.2124 13.1311 23.1175C14.9007 21.2133 16.3355 19.071 17.9614 17.1193C20.0657 14.5487 22.2179 12.0255 24.2743 9.4073C25.5656 7.78875 29.6307 3.78989 26.4264 2.07621ZM2.17917 14.8819C2.13134 14.8819 2.08352 14.8819 1.98787 14.9294C1.79657 14.8819 1.6531 14.8342 1.4618 14.739C1.60527 14.6438 1.8444 14.6914 2.17917 14.8819Z" fill="#07B80E"/>
+              </g>
+              <defs>
+                <clipPath id="clip0_success_tick">
+                  <rect width="27.5556" height="27.4286" fill="white" transform="translate(0.0742188 0.289062)"/>
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="absolute left-6 top-[122px] w-[300px] h-[178px] flex flex-col items-center gap-5">
+          <!-- Title -->
+          <h2 class="text-[30px] font-bold text-[#292727] text-center leading-9">
+            Congratulations!
+          </h2>
+
+          <!-- Reward Box -->
+          <div class="w-[300px] h-20 relative">
+            <div class="absolute left-[49px] top-0 w-[202px] h-20 rounded-xl border border-[#FF6800] bg-[#FFE8D8]"></div>
+            <div class="absolute left-[81px] top-3 w-[138px] h-[54px] flex flex-col justify-center items-center gap-0.5">
+              <div class="text-base font-medium text-[#4B4D50] text-center">
+                You just received
+              </div>
+              <div class="flex items-center gap-1">
+                <!-- Forevers Icon -->
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.1668 4.61296V0.833313H4.4559V5.63213H0.833496V9.41178H4.4559V18.8172H8.68398V14.2048H12.2598V10.4251H8.68398V9.41178H15.7075V5.63213H8.68398V4.61296H19.1668Z" fill="#FF6800"/>
+                </svg>
+                <span class="text-2xl font-bold text-[#FF6800] text-center leading-[30px]">
+                  {{ amount || '4,164' }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Success Message -->
+          <div class="text-base font-medium text-[#4B4D50] text-center mt-2">
+            {{ message || 'Funds have been successfully' }}
+          </div>
+        </div>
+
+        <!-- OK Button -->
+        <button
+          @click="handleConfirm"
+          class="absolute left-6 top-80 w-[300px] h-11 px-12 flex justify-center items-center rounded-full bg-gradient-to-r from-[#2019CE] to-[#473FFF] hover:opacity-90 transition-all"
+        >
+          <span class="text-white text-sm font-bold">{{ confirmText || 'Ok' }}</span>
+        </button>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, onUnmounted } from 'vue'
 
 // Props
 const props = defineProps({
@@ -58,21 +88,17 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-  title: {
-    type: String,
-    default: 'Payment Successful!'
+  amount: {
+    type: [String, Number],
+    default: '4,164'
   },
   message: {
     type: String,
-    default: 'Your purchase has been completed successfully.'
-  },
-  paymentDetails: {
-    type: Object,
-    default: null
+    default: 'Funds have been successfully'
   },
   confirmText: {
     type: String,
-    default: 'Continue'
+    default: 'Ok'
   },
   autoClose: {
     type: Boolean,
@@ -106,107 +132,143 @@ const clearAutoClose = () => {
 }
 
 // Methods
-const handleBackdropClick = (event) => {
-  if (event.target === event.currentTarget) {
-    emit('close')
+const handleBackdropClick = () => {
+  // Haptic feedback for modal close
+  if (window.triggerHaptic) {
+    window.triggerHaptic('impact', 'light')
   }
+  emit('close')
 }
 
 const handleConfirm = () => {
+  // Haptic feedback for success
+  if (window.triggerHaptic) {
+    window.triggerHaptic('notification', 'success')
+  }
+  
   clearAutoClose()
   emit('confirm')
+}
+
+const handleKeyDown = (event) => {
+  if (event.key === 'Escape') {
+    handleBackdropClick()
+  } else if (event.key === 'Enter') {
+    handleConfirm()
+  }
 }
 
 // Watch for visibility changes
 watch(() => props.isVisible, (newVal) => {
   if (newVal) {
     startAutoClose()
-    // Prevent body scroll when modal is open
+    document.addEventListener('keydown', handleKeyDown)
     document.body.style.overflow = 'hidden'
   } else {
     clearAutoClose()
-    // Restore body scroll when modal is closed
+    document.removeEventListener('keydown', handleKeyDown)
     document.body.style.overflow = ''
   }
 })
 
 // Cleanup on unmount
-import { onUnmounted } from 'vue'
 onUnmounted(() => {
   clearAutoClose()
+  document.removeEventListener('keydown', handleKeyDown)
   document.body.style.overflow = ''
 })
 </script>
 
 <style scoped>
-.success-modal {
-  font-family: 'Montserrat', sans-serif;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.modal-content {
-  animation: slideInUp 0.3s ease-out;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-}
-
-.backdrop {
-  animation: fadeIn 0.3s ease-out;
-}
-
-.confirm-button {
-  transition: all 0.2s ease;
-}
-
-.confirm-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(32, 25, 206, 0.3);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Mobile optimizations for Telegram WebApp */
+/* Modal responsive sizing for Telegram WebApp */
 @media (max-width: 375px) {
   .modal-content {
-    margin: 16px;
-    padding: 20px;
-  }
-
-  .success-icon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .confirm-button {
-    padding: 12px 24px;
-    font-size: 16px;
-  }
-
-  h2 {
-    font-size: 18px;
+    width: calc(100vw - 32px) !important;
+    max-width: 347px;
+    margin: 0 16px;
   }
 }
 
-@media (min-width: 376px) and (max-width: 430px) {
+@media (min-width: 376px) and (max-width: 768px) {
   .modal-content {
-    margin: 20px;
+    width: 347px !important;
   }
+}
+
+/* Modal animations */
+.modal-enter-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.modal-enter-from {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.9) translateY(20px);
+}
+
+/* Touch-friendly button states */
+button:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Telegram WebApp optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Typography optimization for Telegram */
+.modal-content {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Button touch feedback */
+button {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Responsive text sizes for small screens */
+@media (max-width: 375px) {
+  .text-[30px] {
+    font-size: 26px;
+  }
+  
+  .text-2xl {
+    font-size: 20px;
+  }
+  
+  .text-base {
+    font-size: 15px;
+  }
+  
+  .text-sm {
+    font-size: 13px;
+  }
+}
+
+/* Improved backdrop blur for better visibility */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Better modal shadows */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
