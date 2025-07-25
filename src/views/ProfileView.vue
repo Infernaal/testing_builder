@@ -126,43 +126,120 @@
       </div>
     </div>
 
-    <!-- Language Selector and ID Section -->
-    <div class="px-4 pb-4 mt-auto">
-      <div class="flex items-center justify-between gap-3">
-        <!-- User ID с копированием -->
-        <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl">
-          <div class="px-4 py-3">
-            <span class="text-[#555] text-sm font-bold">ID: </span>
-            <span class="text-[#000] text-sm font-bold">{{ profileData.id }}</span>
+    <!-- Beautiful Bottom Section -->
+    <div class="px-6 pb-6 mt-auto">
+      <div class="flex items-center gap-4">
+        <!-- Elegant ID Card with Copy -->
+        <div class="flex-1 relative">
+          <!-- Base Card -->
+          <div
+            class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-5 py-3.5 shadow-2xl cursor-pointer group transition-all duration-300 hover:shadow-3xl hover:scale-[1.02] active:scale-[0.98]"
+            @click="copyUserId"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="flex items-center gap-1">
+                  <span class="text-gray-500 text-sm font-medium">ID</span>
+                  <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                </div>
+                <span class="text-gray-900 text-base font-bold tracking-wide">{{ profileData.id }}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-[#2019CE]/10 rounded-full flex items-center justify-center group-hover:bg-[#2019CE]/20 transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-[#2019CE]">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
-          <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm active:scale-95">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
-              <path d="M18.2806 1.19995H8.98336C8.42322 1.19995 7.88603 1.43348 7.48995 1.84917C7.09387 2.26486 6.87136 2.82866 6.87136 3.41653V4.26906H5.81536C5.2278 4.26906 4.66431 4.51402 4.24885 4.95006C3.83338 5.3861 3.59998 5.97749 3.59998 6.59414V20.4749C3.59998 21.0915 3.83338 21.6829 4.24885 22.119C4.66431 22.555 5.2278 22.8 5.81536 22.8H14.9132C15.5008 22.8 16.0643 22.555 16.4797 22.119C16.8952 21.6829 17.1286 21.0915 17.1286 20.4749V19.6998H18.2806C18.8363 19.6999 19.3699 19.4709 19.7663 19.0621C20.1627 18.6533 20.3903 18.0975 20.4 17.5143V3.41653C20.398 2.82794 20.1739 2.26417 19.7766 1.8487C19.3794 1.43323 18.8414 1.19995 18.2806 1.19995Z" fill="currentColor"/>
-            </svg>
-          </button>
+
+          <!-- Success Toast Overlay -->
+          <Transition
+            name="copy-success"
+            enter-active-class="transition-all duration-500 ease-out"
+            leave-active-class="transition-all duration-300 ease-in"
+            enter-from-class="opacity-0 scale-95 translate-y-2"
+            enter-to-class="opacity-100 scale-100 translate-y-0"
+            leave-from-class="opacity-100 scale-100 translate-y-0"
+            leave-to-class="opacity-0 scale-95 -translate-y-2"
+          >
+            <div
+              v-if="isCopied"
+              class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl px-5 py-3.5 shadow-2xl flex items-center justify-center gap-3 z-10"
+            >
+              <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white">
+                  <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+              </div>
+              <span class="text-white font-bold text-base">ID Copied!</span>
+            </div>
+          </Transition>
         </div>
 
-        <!-- Language Selector с флагом -->
-        <button
-          @click="toggleLanguageSelector"
-          class="flex items-center gap-2 px-4 py-3 bg-white/80 border-2 border-white rounded-full backdrop-blur-sm transition-all hover:bg-white/90 shadow-xl active:scale-95"
-        >
-          <div class="w-8 h-8 rounded-full overflow-hidden">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="16" fill="#F0F0F0"/>
-              <path d="M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z" fill="#D80027"/>
-              <path d="M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z" fill="#D80027"/>
-              <path d="M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z" fill="#D80027"/>
-              <path d="M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z" fill="#D80027"/>
-              <path d="M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z" fill="#0052B4"/>
+        <!-- Sophisticated Language Selector -->
+        <div class="relative">
+          <button
+            @click="toggleLanguageSelector"
+            class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-4 py-3.5 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[100px]"
+          >
+            <!-- Current Language Flag -->
+            <div class="w-6 h-6 rounded-full overflow-hidden shadow-md border border-white/30">
+              <component :is="getCurrentLanguageFlag()" />
+            </div>
+            <span class="text-gray-900 font-bold text-sm">{{ selectedLanguage }}</span>
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 24 24"
+              fill="none"
+              class="text-gray-500 transition-transform duration-300"
+              :class="{ 'rotate-180': showLanguageDropdown }"
+            >
+              <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-          </div>
-          <span class="text-[#333] text-sm font-bold">ENG</span>
-          <svg width="12" height="12" viewBox="0 0 20 20" fill="none" class="text-gray-600">
-            <circle opacity="0.2" cx="10" cy="10" r="10" fill="gray"/>
-            <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="currentColor" stroke-linecap="round"/>
-          </svg>
-        </button>
+          </button>
+
+          <!-- Beautiful Dropdown -->
+          <Transition
+            name="dropdown"
+            enter-active-class="transition-all duration-300 ease-out"
+            leave-active-class="transition-all duration-200 ease-in"
+            enter-from-class="opacity-0 scale-95 translate-y-2"
+            enter-to-class="opacity-100 scale-100 translate-y-0"
+            leave-from-class="opacity-100 scale-100 translate-y-0"
+            leave-to-class="opacity-0 scale-95 translate-y-2"
+          >
+            <div
+              v-if="showLanguageDropdown"
+              class="absolute bottom-full right-0 mb-3 bg-white/95 backdrop-blur-xl border border-white/50 rounded-2xl shadow-3xl overflow-hidden z-50 min-w-[160px]"
+            >
+              <div class="p-2 space-y-1">
+                <button
+                  v-for="language in languages"
+                  :key="language.code"
+                  @click="selectLanguage(language)"
+                  class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
+                  :class="{
+                    'bg-gradient-to-r from-[#2019CE]/20 to-purple-500/20 text-[#2019CE]': selectedLanguage === language.code,
+                    'text-gray-700 hover:text-gray-900': selectedLanguage !== language.code
+                  }"
+                >
+                  <div class="w-5 h-5 rounded-full overflow-hidden shadow-sm border border-white/50">
+                    <component :is="language.flag" />
+                  </div>
+                  <span class="text-sm font-medium transition-colors">{{ language.name }}</span>
+                  <div
+                    v-if="selectedLanguage === language.code"
+                    class="ml-auto w-2 h-2 bg-[#2019CE] rounded-full"
+                  ></div>
+                </button>
+              </div>
+            </div>
+          </Transition>
+        </div>
       </div>
     </div>
 
@@ -208,7 +285,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, h } from 'vue'
 import { useRouter } from 'vue-router'
 
 // Router
@@ -220,6 +297,77 @@ const profileData = ref({
   id: '515745',
   avatar: 'https://cdn.builder.io/api/v1/image/assets%2Fcd0d81f444984dacbac377cc9f78a1aa%2F572074b5aefa4337aec163bd9a21aec3?format=webp&width=800'
 })
+
+// Copy button state
+const isCopied = ref(false)
+
+// Language selector state
+const showLanguageDropdown = ref(false)
+const selectedLanguage = ref('ENG')
+
+// Enhanced language options with better flag components
+const languages = ref([
+  {
+    code: 'ENG',
+    name: 'English',
+    flag: () => h('svg', {
+      width: 20,
+      height: 20,
+      viewBox: '0 0 32 32',
+      class: 'rounded-full'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#F0F0F0' }),
+      h('path', { d: 'M15.3438 16.0025H31.0573C31.0573 14.6433 30.8761 13.3266 30.5385 12.0741H15.3438V16.0025Z', fill: '#D80027' }),
+      h('path', { d: 'M15.3438 8.14179H28.847C27.9252 6.63756 26.7466 5.30797 25.3723 4.21338H15.3438V8.14179Z', fill: '#D80027' }),
+      h('path', { d: 'M16.0038 31.06C19.5478 31.06 22.8053 29.8351 25.3776 27.7864H6.62988C9.20224 29.8351 12.4597 31.06 16.0038 31.06Z', fill: '#D80027' }),
+      h('path', { d: 'M3.15241 23.855H28.8496C29.5896 22.6475 30.1636 21.3275 30.5411 19.9266H1.46094C1.83841 21.3275 2.41235 22.6475 3.15241 23.855Z', fill: '#D80027' }),
+      h('path', { d: 'M7.91596 3.29305H9.28825L8.01178 4.22041L8.49937 5.72094L7.22296 4.79358L5.94655 5.72094L6.36772 4.42464C5.24384 5.36082 4.25878 6.45764 3.44702 7.67976H3.88672L3.07419 8.27005C2.94761 8.48123 2.82619 8.69576 2.70984 8.91346L3.09784 10.1076L2.37396 9.5817C2.19402 9.96294 2.02943 10.3528 1.88149 10.7507L2.30896 12.0665H3.88672L2.61025 12.9938L3.09784 14.4943L1.82143 13.567L1.05684 14.1225C0.980312 14.7377 0.94043 15.3643 0.94043 16.0002H15.9993C15.9993 7.68352 15.9993 6.70305 15.9993 0.941406C13.0244 0.941406 10.2513 1.80435 7.91596 3.29305ZM8.49937 14.4943L7.22296 13.567L5.94655 14.4943L6.43414 12.9938L5.15767 12.0665H6.73543L7.22296 10.5659L7.71049 12.0665H9.28825L8.01178 12.9938L8.49937 14.4943ZM8.01178 8.60711L8.49937 10.1076L7.22296 9.18029L5.94655 10.1076L6.43414 8.60711L5.15767 7.67976H6.73543L7.22296 6.17923L7.71049 7.67976H9.28825L8.01178 8.60711ZM13.9009 14.4943L12.6245 13.567L11.3481 14.4943L11.8357 12.9938L10.5592 12.0665H12.137L12.6245 10.5659L13.112 12.0665H14.6898L13.4133 12.9938L13.9009 14.4943ZM13.4133 8.60711L13.9009 10.1076L12.6245 9.18029L11.3481 10.1076L11.8357 8.60711L10.5592 7.67976H12.137L12.6245 6.17923L13.112 7.67976H14.6898L13.4133 8.60711ZM13.4133 4.22041L13.9009 5.72094L12.6245 4.79358L11.3481 5.72094L11.8357 4.22041L10.5592 3.29305H12.137L12.6245 1.79252L13.112 3.29305H14.6898L13.4133 4.22041Z', fill: '#0052B4' })
+    ])
+  },
+  {
+    code: 'RUS',
+    name: 'Ру��ский',
+    flag: () => h('svg', {
+      width: 20,
+      height: 20,
+      viewBox: '0 0 32 32',
+      class: 'rounded-full'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#F0F0F0' }),
+      h('path', { d: 'M30.1062 15.5233C30.1062 12.2598 29.0925 9.24863 27.359 6.83691H3.68767C1.95408 9.24863 0.94043 12.2598 0.94043 15.5233H30.1062Z', fill: '#0052B4' }),
+      h('path', { d: 'M15.5233 30.1062C20.4067 30.1062 24.7598 27.8462 27.359 24.21H3.68767C6.28686 27.8462 10.6399 30.1062 15.5233 30.1062Z', fill: '#D80027' })
+    ])
+  },
+  {
+    code: 'DE',
+    name: 'Deutsch',
+    flag: () => h('svg', {
+      width: 20,
+      height: 20,
+      viewBox: '0 0 32 32',
+      class: 'rounded-full'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#000' }),
+      h('path', { d: 'M16 0C21.5228 0 26.3137 3.15596 28.6274 7.7778H3.37258C5.68626 3.15596 10.4772 0 16 0Z', fill: '#000' }),
+      h('path', { d: 'M16 32C10.4772 32 5.68626 28.844 3.37258 24.2222H28.6274C26.3137 28.844 21.5228 32 16 32Z', fill: '#FFDA44' }),
+      h('path', { d: 'M3.37258 7.7778H28.6274C30.0693 10.3137 30.8889 13.1563 30.8889 16.1111C30.8889 19.0659 30.0693 21.9085 28.6274 24.4444H3.37258C1.93069 21.9085 1.11111 19.0659 1.11111 16.1111C1.11111 13.1563 1.93069 10.3137 3.37258 7.7778Z', fill: '#D80027' })
+    ])
+  },
+  {
+    code: 'FR',
+    name: 'Français',
+    flag: () => h('svg', {
+      width: 20,
+      height: 20,
+      viewBox: '0 0 32 32',
+      class: 'rounded-full'
+    }, [
+      h('circle', { cx: 16, cy: 16, r: 16, fill: '#F0F0F0' }),
+      h('path', { d: 'M16 0C21.5228 0 26.3137 3.15596 28.6274 7.7778V24.2222C26.3137 28.844 21.5228 32 16 32V0Z', fill: '#D80027' }),
+      h('path', { d: 'M16 0C10.4772 0 5.68626 3.15596 3.37258 7.7778V24.2222C5.68626 28.844 10.4772 32 16 32V0Z', fill: '#0052B4' })
+    ])
+  }
+])
 
 // Methods
 const handleMenuClick = (section) => {
@@ -235,16 +383,44 @@ const handleUpgrade = () => {
 const copyUserId = async () => {
   try {
     await navigator.clipboard.writeText(profileData.value.id)
+    isCopied.value = true
+
+    // Hide the copied state after 2 seconds
+    setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+
     console.log('User ID copied to clipboard')
-    // TODO: Show success notification
   } catch (err) {
     console.error('Failed to copy user ID:', err)
   }
 }
 
 const toggleLanguageSelector = () => {
-  console.log('Language selector clicked')
-  // TODO: Add language selection logic
+  showLanguageDropdown.value = !showLanguageDropdown.value
+}
+
+const selectLanguage = (language) => {
+  selectedLanguage.value = language.code
+  showLanguageDropdown.value = false
+  console.log('Language selected:', language.name)
+}
+
+const getCurrentLanguageFlag = () => {
+  const current = languages.value.find(lang => lang.code === selectedLanguage.value)
+  return current?.flag || languages.value[0].flag
+}
+
+// Close dropdown when clicking outside
+const handleClickOutside = (event) => {
+  if (!event.target.closest('.relative')) {
+    showLanguageDropdown.value = false
+  }
+}
+
+// Add event listener for clicking outside
+if (typeof window !== 'undefined') {
+  document.addEventListener('click', handleClickOutside)
 }
 </script>
 
@@ -381,5 +557,55 @@ span, h1 {
 
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+/* Copy button animations */
+/* Enhanced shadow and blur effects */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Copy success animation */
+.copy-success-enter-active {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.copy-success-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Dropdown animation */
+.dropdown-enter-active {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dropdown-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Backdrop blur enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Language dropdown positioning */
+.relative {
+  position: relative;
+}
+
+/* Dropdown shadow */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Smooth transitions */
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }
 </style>
