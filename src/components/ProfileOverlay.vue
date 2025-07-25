@@ -572,4 +572,33 @@ button:active {
 .shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
+
+/* Copy slide animation styles */
+.copy-slide-enter-active {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.copy-slide-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.copy-slide-enter-from {
+  opacity: 0;
+  transform: translateX(0) scale(0.95);
+}
+
+.copy-slide-enter-to {
+  opacity: 1;
+  transform: translateX(-64px) scale(1);
+}
+
+.copy-slide-leave-from {
+  opacity: 1;
+  transform: translateX(-64px) scale(1);
+}
+
+.copy-slide-leave-to {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.95);
+}
 </style>
