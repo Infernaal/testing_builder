@@ -18,9 +18,7 @@
       <div
         @click.stop
         class="relative bg-dbd-off-white rounded-[20px] shadow-xl font-montserrat w-full max-w-[340px] mx-auto transition-all duration-300"
-        :style="{
-          minHeight: inputError && errorMessage ? '360px' : '300px'
-        }"
+
       >
         <!-- Title -->
         <div class="flex justify-center items-center pt-4 pb-2">
@@ -42,7 +40,7 @@
         </div>
 
         <!-- Input Field -->
-        <div class="px-4 mb-6 relative">
+        <div class="px-4 relative" :class="{ 'mb-6': !inputError, 'mb-4': inputError }">
           <div
             class="w-full rounded-full border-2 bg-dbd-off-white flex items-center px-4 py-3 transition-all duration-200"
             :class="[
@@ -113,23 +111,22 @@
             </div>
           </div>
 
-          <!-- Figma Error Popup -->
-          <div v-if="inputError && errorMessage" class="absolute top-full mt-2 left-1/2 transform -translate-x-1/2 z-10" style="width: 280px;">
-            <div class="relative">
-              <!-- Error Popup -->
-              <div class="bg-red-500 rounded-full px-4 py-3 shadow-lg flex items-center">
-                <!-- Warning Icon -->
-                <div class="w-10 h-10 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-3 flex-shrink-0">
-                  <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
-                  </svg>
-                </div>
-                <!-- Error Text -->
-                <div class="flex-1 min-w-0">
-                  <div class="text-white font-semibold text-base mb-1">Can't be used</div>
-                  <div class="text-white text-sm opacity-90">{{ errorMessage }}</div>
-                </div>
-              </div>
+
+        </div>
+
+        <!-- Error Notification positioned between input and buttons -->
+        <div v-if="inputError && errorMessage" class="px-4 mb-4">
+          <div class="bg-red-500 rounded-full px-4 py-3 shadow-lg flex items-center" style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12));">
+            <!-- Warning Icon -->
+            <div class="w-10 h-10 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-3 flex-shrink-0">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
+              </svg>
+            </div>
+            <!-- Error Text -->
+            <div class="flex-1 min-w-0">
+              <div class="text-white font-semibold text-base mb-1">Can't be used</div>
+              <div class="text-white text-sm opacity-90">{{ errorMessage }}</div>
             </div>
           </div>
         </div>
@@ -197,7 +194,13 @@ const calculatedDollars = computed(() => {
   }
   const amount = parseFloat(inputValue.value) * props.selectedBalance.usdRate
 
-  // Always show full amount with proper formatting to avoid truncation
+  // Format large amounts with K suffix
+  if (amount >= 100000) {
+    return (amount / 1000).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 1 }) + 'K'
+  } else if (amount >= 10000) {
+    return (amount / 1000).toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + 'K'
+  }
+
   return amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 })
 
