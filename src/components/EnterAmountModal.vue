@@ -55,7 +55,7 @@
                 </svg>
               </div>
               <div class="flex flex-col">
-                <span class="text-gray-600 text-xs font-medium leading-3.5">Forevers {{ selectedBalance?.country }}</span>
+                <span class="text-gray-600 text-xs font-medium leading-3.5">Forevers {{ selectedBalance?.code }}</span>
                 <span :class="['text-base font-semibold leading-5', inputError ? 'text-red-500' : 'text-black']">
                   {{ inputValue || (inputError ? 'Enter' : '250') }}
                 </span>
