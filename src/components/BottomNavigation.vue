@@ -57,9 +57,9 @@
     </Transition>
 
     <!-- Bottom Navigation -->
-    <div class="fixed bottom-2 left-0 right-0 bg-white rounded-t-2xl shadow-lg border-t border-gray-100 z-50">
+    <div class="fixed bottom-1 sm:bottom-2 left-0 right-0 bg-white rounded-t-xl sm:rounded-t-2xl shadow-lg border-t border-gray-100 z-50 container-responsive">
       <!-- Navigation Items -->
-      <div class="flex items-center justify-center px-2 py-3 safe-area-pb">
+      <div class="flex items-center justify-center px-2 py-2 sm:py-3 safe-area-pb">
         <div class="flex items-center gap-2 sm:gap-4 w-full max-w-sm mx-auto px-2">
           <!-- Profile -->
           <button
