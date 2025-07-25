@@ -47,7 +47,10 @@
           </div>
           
           <!-- History Button -->
-          <button class="history-btn w-full bg-white border border-gray-300 rounded-full py-3 px-12 text-sm font-bold text-dbd-gray hover:bg-gray-50 transition-colors">
+          <button
+            @click="navigateToTransactions"
+            class="history-btn w-full bg-white border border-gray-300 rounded-full py-3 px-12 text-sm font-bold text-dbd-gray hover:bg-gray-50 transition-colors"
+          >
             Rent Out History
           </button>
         </div>
@@ -86,12 +89,20 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import BottomNavigation from '../components/BottomNavigation.vue'
+
+const router = useRouter()
 
 // Wallet balances for display only
 const loyaltyBalance = ref(8900)
 const bonusBalance = ref(56200)
 const userBalance = ref(10196) // Forevers balance converted to USD
+
+// Navigation methods
+const navigateToTransactions = () => {
+  router.push('/rent-out-transactions')
+}
 
 // Methods (wallet doesn't need purchase methods)
 // WalletView only displays balances, purchase logic is in CartView
