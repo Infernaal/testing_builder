@@ -172,6 +172,7 @@ const inputValue = ref('')
 const inputError = ref(false)
 const showError = ref(false)
 const errorMessage = ref('')
+const isInputFocused = ref(false)
 let errorTimeout = null
 
 const calculatedDollars = computed(() => {
