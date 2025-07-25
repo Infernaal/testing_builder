@@ -22,7 +22,7 @@
            style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12)); min-height: 52px;">
         
         <!-- Warning Icon -->
-        <div class="w-10 h-10 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-3 flex-shrink-0 border border-white border-opacity-30">
+        <div class="w-8 h-8 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-3 flex-shrink-0 border border-white border-opacity-30">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
           </svg>
