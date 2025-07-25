@@ -89,16 +89,29 @@
       <!-- Scrollable Transaction List -->
       <div v-else class="transaction-list space-y-2 pt-4">
         <!-- Transaction Cards -->
-        <div 
-          v-for="(transaction, index) in transactions" 
+        <div
+          v-for="(transaction, index) in transactions"
           :key="index"
-          class="transaction-card bg-dbd-off-white rounded-3xl border border-gray-200 p-3"
+          class="transaction-card bg-dbd-off-white rounded-3xl border border-gray-200 p-3 cursor-pointer hover:bg-gray-50 transition-colors"
+          @click="openTransactionDetails(transaction, index)"
         >
           <!-- Date and Time Row -->
           <div class="flex justify-between items-center mb-4">
             <div class="flex items-center gap-2">
               <!-- Checkbox -->
-              <div class="w-6 h-6 border-2 border-gray-400 rounded bg-dbd-off-white"></div>
+              <div
+                @click.stop="toggleTransactionSelection(index)"
+                :class="[
+                  'w-6 h-6 border-2 rounded flex items-center justify-center cursor-pointer transition-colors',
+                  selectedTransactions.includes(index)
+                    ? 'bg-dbd-blue border-dbd-blue'
+                    : 'border-gray-400 bg-dbd-off-white hover:border-gray-500'
+                ]"
+              >
+                <svg v-if="selectedTransactions.includes(index)" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                  <path d="M1 5L5 9L13 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
               
               <!-- Calendar Icon -->
               <div class="w-10 h-10 bg-dbd-light-orange rounded-full flex items-center justify-center">
