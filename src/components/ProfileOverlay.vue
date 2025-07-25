@@ -78,7 +78,7 @@
           <!-- Custom scrollbar indicator -->
           <div class="absolute right-1 top-2 w-0.5 h-16 bg-[#B7B7B7]/40 rounded-full opacity-40"></div>
 
-          <div class="space-y-1 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 570px); min-height: 160px; max-height: 200px;">
+          <div class="space-y-1 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 480px); min-height: 200px; max-height: 280px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-1.5 py-3 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white/24 rounded-full flex items-center justify-center flex-shrink-0">
@@ -160,7 +160,7 @@
         </div>
 
         <!-- Start Level Upgrade Section - Enhanced Size -->
-        <div class="px-3 pb-4 mt-4">
+        <div class="px-3 pb-2 mt-2">
           <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-5 relative overflow-hidden">
             <!-- Star Icon -->
             <div class="absolute left-3 top-5">
@@ -199,24 +199,41 @@
         </div>
 
         <!-- Language Selector and ID Section - Moved to Bottom -->
-        <div class="px-3 py-4">
+        <div class="px-3 py-2">
           <div class="flex items-center justify-between gap-3">
             <!-- User ID with Copy Button -->
-            <div class="relative flex items-center bg-white/30 border border-white/40 rounded-full backdrop-blur-8 shadow-lg">
+            <div class="relative flex items-center bg-white/30 border border-white/40 rounded-full backdrop-blur-8 shadow-lg overflow-visible">
               <div class="px-3 py-2">
                 <span class="text-[#B7B7B7] text-sm font-medium">ID: </span>
                 <span class="text-white text-sm font-bold">{{ profileData.id }}</span>
               </div>
-              <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors">
+              <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors relative z-10">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
                   <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
                   <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
                 </svg>
               </button>
-              <!-- Copy success message -->
-              <div v-if="showCopyMessage" class="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-1 rounded-lg shadow-lg whitespace-nowrap z-50">
-                ID copied!
-              </div>
+
+              <!-- Sliding Copy Success Animation -->
+              <Transition
+                name="copy-slide"
+                enter-active-class="transition-all duration-500 ease-out"
+                leave-active-class="transition-all duration-300 ease-in"
+                enter-from-class="opacity-0 transform translate-x-0 scale-95"
+                enter-to-class="opacity-100 transform -translate-x-16 scale-100"
+                leave-from-class="opacity-100 transform -translate-x-16 scale-100"
+                leave-to-class="opacity-0 transform -translate-x-20 scale-95"
+              >
+                <div v-if="showCopyMessage" class="absolute top-0 right-0 flex items-center bg-[#129E0F] border border-[#07B80E] rounded-full px-4 py-2 shadow-lg z-20 whitespace-nowrap">
+                  <!-- Checkmark Icon -->
+                  <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M11.3242 0.926106C10.7978 0.642629 10.2106 1.18934 9.86633 1.51331C9.07667 2.28275 8.40848 3.17368 7.65925 3.98362C6.82907 4.87455 6.05963 5.76548 5.20919 6.6362C4.72323 7.12216 4.19677 7.64862 3.8728 8.25607C3.14385 7.54734 2.51615 6.7779 1.70621 6.15023C1.11901 5.70477 0.147086 5.38079 0.167334 6.45396C0.207831 7.85113 1.44299 9.34952 2.35416 10.3012C2.73888 10.7061 3.24509 11.1313 3.8323 11.1516C4.54099 11.1921 5.26994 10.3417 5.69515 9.87594C6.44438 9.06601 7.05183 8.15479 7.74024 7.32464C8.63118 6.23123 9.54236 5.15803 10.413 4.04436C10.9597 3.35592 12.6809 1.65502 11.3242 0.926106ZM1.05823 6.37297C1.03798 6.37297 1.01773 6.37297 0.977238 6.39318C0.896244 6.37297 0.835499 6.35268 0.754505 6.31219C0.815251 6.27169 0.916493 6.29194 1.05823 6.37297Z" fill="#07B80E"/>
+                    </svg>
+                  </div>
+                  <span class="text-white text-sm font-semibold">Copied</span>
+                </div>
+              </Transition>
             </div>
 
             <!-- Language Selector with Flag and Dropdown -->
@@ -233,7 +250,7 @@
               </button>
 
               <!-- Language Dropdown -->
-              <div v-if="isLanguageDropdownOpen" class="absolute bottom-full mb-2 left-0 bg-[#120B81] border border-white/20 rounded-2xl shadow-2xl backdrop-blur-md min-w-[140px] z-50 overflow-hidden">
+              <div v-if="isLanguageDropdownOpen" class="absolute bottom-full mb-3 left-0 bg-[#120B81] border border-white/20 rounded-2xl shadow-2xl backdrop-blur-md min-w-[140px] z-50 overflow-hidden">
                 <div class="max-h-48 overflow-y-auto">
                   <button
                     v-for="language in availableLanguages"
