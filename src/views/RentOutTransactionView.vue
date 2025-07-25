@@ -296,6 +296,9 @@ import BottomNavigation from '../components/BottomNavigation.vue'
 
 const router = useRouter()
 const showExportMenu = ref(false)
+const selectedTransactions = ref([])
+const showTransactionModal = ref(false)
+const selectedTransaction = ref(null)
 
 // Sample transaction data
 const transactions = ref([
@@ -303,37 +306,49 @@ const transactions = ref([
     date: '25.02.2025',
     time: '11:30',
     amount: 2990,
-    purchased: 20212.40
+    purchased: 20212.40,
+    contractId: 'X5D122C48',
+    rentPercentage: 12
   },
   {
     date: '25.02.2025',
     time: '02:30',
     amount: 250,
-    purchased: 400.86
+    purchased: 400.86,
+    contractId: 'A3B456C78',
+    rentPercentage: 8
   },
   {
     date: '25.02.2025',
     time: '02:30',
     amount: 250,
-    purchased: 400.86
+    purchased: 400.86,
+    contractId: 'D9E123F45',
+    rentPercentage: 15
   },
   {
     date: '25.02.2025',
     time: '02:30',
     amount: 250,
-    purchased: 400.86
+    purchased: 400.86,
+    contractId: 'G7H890I23',
+    rentPercentage: 10
   },
   {
     date: '25.02.2025',
     time: '02:30',
     amount: 250,
-    purchased: 400.86
+    purchased: 400.86,
+    contractId: 'J4K567L89',
+    rentPercentage: 6
   },
   {
     date: '25.02.2025',
     time: '02:30',
     amount: 250,
-    purchased: 400.86
+    purchased: 400.86,
+    contractId: 'M1N234O56',
+    rentPercentage: 18
   }
 ])
 
