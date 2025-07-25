@@ -69,8 +69,8 @@
                   />
                 </svg>
               </div>
-              <div class="flex flex-col ml-2 flex-1 min-w-0">
-                <span class="text-dbd-gray text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis">Forevers {{ selectedBalance?.code }}</span>
+              <div class="flex flex-col ml-2 flex-1">
+                <span class="text-dbd-gray text-xs font-medium whitespace-nowrap">Forevers {{ selectedBalance?.code }}</span>
                 <input
                   ref="inputField"
                   v-model="inputValue"
