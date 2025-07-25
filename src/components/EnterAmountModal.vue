@@ -52,7 +52,7 @@
             ]"
           >
             <!-- Forevers Section -->
-            <div class="flex items-center" style="flex: 1 1 42%; min-width: 0;">
+            <div class="flex items-center" style="flex: 1 1 46%; min-width: 0;">
               <div
                 class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200"
                 :class="[
