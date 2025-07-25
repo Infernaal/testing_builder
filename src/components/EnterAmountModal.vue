@@ -221,6 +221,7 @@ const handleInput = (event) => {
 
   // Reset error state for real-time validation
   inputError.value = false
+  errorMessage.value = ''
 
   // Validate input
   if (numericValue === '') {
@@ -259,19 +260,23 @@ const handleInput = (event) => {
       ? `Maximum amount allowed is ${maxAllowed.toLocaleString()}`
       : `Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`
     return
+  } else {
+    errorMessage.value = ''
   }
 }
 
 const handleAddToCart = () => {
   if (!inputValue.value) {
-    showErrorMessage('Please enter an amount')
+    inputError.value = true
+    errorMessage.value = 'Please enter an amount'
     return
   }
 
   const amount = parseFloat(inputValue.value)
 
   if (isNaN(amount) || amount <= 0) {
-    showErrorMessage('Please enter a valid positive amount')
+    inputError.value = true
+    errorMessage.value = 'Please enter a valid positive amount'
     return
   }
 
@@ -294,16 +299,14 @@ const handleAddToCart = () => {
   console.log('handleAddToCart maxAllowed:', maxAllowed)
 
   if (amount > maxAllowed) {
-    if (maxAllowed === 50000) {
-      showErrorMessage(`Maximum amount allowed is ${maxAllowed.toLocaleString()}`)
-    } else {
-      showErrorMessage(`Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`)
-    }
+    inputError.value = true
+    errorMessage.value = maxAllowed === 50000
+      ? `Maximum amount allowed is ${maxAllowed.toLocaleString()}`
+      : `Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`
     return
   }
 
   if (inputError.value) {
-    showErrorMessage('Please enter a valid amount')
     return
   }
 
@@ -351,6 +354,7 @@ const closeModal = () => {
 
   inputValue.value = ''
   inputError.value = false
+  errorMessage.value = ''
   isInputFocused.value = false
   hideError()
   emit('close')
