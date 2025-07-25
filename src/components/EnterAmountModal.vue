@@ -34,9 +34,9 @@
           <!-- Tooltip trigger (hidden for now as per design) -->
           <div class="w-52 h-11 rounded-full border border-gray-200 bg-white relative">
             <div class="flex items-center gap-1 absolute left-4 top-2.5 w-44 h-6">
-              <CountryFlag :country="selectedBalance?.country" class="w-6 h-6" />
+              <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
               <div class="flex items-center">
-                <span class="text-black text-sm font-medium leading-5">1 Forevers {{ selectedBalance?.country }}</span>
+                <span class="text-black text-sm font-medium leading-5">1 Forevers {{ selectedBalance?.code }}</span>
                 <span class="text-gray-600 text-sm font-medium leading-normal">/</span>
                 <span class="text-blue-700 text-sm font-medium leading-6">{{ selectedBalance?.usdRate }} USD</span>
               </div>
