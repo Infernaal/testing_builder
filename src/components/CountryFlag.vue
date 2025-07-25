@@ -2,7 +2,7 @@
   <div :class="[
     'country-flag rounded-full overflow-hidden flex items-center justify-center relative',
     'shadow-sm transition-all duration-300 hover:shadow-md',
-    size === 'small' ? 'w-6 h-6' : size === 'large' ? 'w-10 h-10' : 'w-8 h-8'
+    size === 'small' ? 'w-8 h-8' : size === 'large' ? 'w-14 h-14' : 'w-10 h-10'
   ]">
     <!-- France Flag -->
     <svg v-if="country.toLowerCase() === 'france' || country.toLowerCase() === 'fr'" 
