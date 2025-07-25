@@ -22,7 +22,7 @@
 
       <!-- Profile Drop List Container -->
       <div
-        class="absolute left-4 right-4 top-2 bottom-20 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
+        class="absolute left-4 right-4 top-16 bottom-20 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
         @click.stop
       >
         <!-- Profile Header Section -->
