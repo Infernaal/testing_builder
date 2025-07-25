@@ -119,7 +119,7 @@
         </div>
 
         <!-- Buttons -->
-        <div class="px-4 pb-4 flex items-center gap-3">
+        <div class="px-4 pb-6 flex items-center gap-3">
           <!-- Back Button -->
           <button
             @click="closeModal"
