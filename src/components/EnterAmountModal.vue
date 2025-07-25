@@ -10,14 +10,14 @@
   >
     <div
       v-if="isVisible"
-      class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20 backdrop-blur-sm"
+      class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-30 backdrop-blur-md"
       @click.self="closeModal"
     >
       <!-- Modal Content -->
       <div
         @click.stop
         class="relative bg-dbd-off-white rounded-[20px] shadow-xl"
-        style="width: 311px; height: 238px;"
+        style="width: 340px; height: 238px;"
       >
         <!-- Title -->
         <div class="absolute top-3 left-1/2 transform -translate-x-1/2">
@@ -27,7 +27,7 @@
         </div>
 
         <!-- Exchange Rate Section -->
-        <div class="absolute left-[54px] top-[46px] w-[202px] h-11">
+        <div class="absolute left-[69px] top-[46px] w-[202px] h-11">
           <div class="w-full h-11 rounded-full border border-gray-200 bg-white flex items-center gap-1 px-4">
             <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
             <div class="flex items-center text-sm font-medium">
@@ -39,11 +39,11 @@
         </div>
 
         <!-- Input Field -->
-        <div class="absolute left-[15px] top-[102px] w-[281px] h-[52px]">
+        <div class="absolute left-[30px] top-[102px] w-[281px] h-[52px]">
           <div class="w-full h-full rounded-full border border-dbd-gray bg-dbd-off-white flex items-center gap-2 px-[14px]">
             <!-- Forevers Section -->
             <div class="flex items-center gap-0.5">
-              <div class="w-9 h-9 rounded-full bg-dbd-light-blue flex items-center justify-center">
+              <div class="w-9 h-9 rounded-full bg-dbd-light-blue flex items-center justify-center" style="border-radius: 50%;">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" fill="#02070E"/>
                 </svg>
@@ -95,7 +95,7 @@
         </div>
 
         <!-- Buttons -->
-        <div class="absolute left-3 top-[182px] flex items-center gap-3">
+        <div class="absolute left-[18px] top-[182px] flex items-center gap-3">
           <!-- Back Button -->
           <button
             @click="closeModal"
@@ -340,6 +340,11 @@ button {
 }
 
 /* Improved backdrop blur for better visibility */
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 .backdrop-blur-sm {
   backdrop-filter: blur(9px);
   -webkit-backdrop-filter: blur(9px);
