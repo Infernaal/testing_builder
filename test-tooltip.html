@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Tooltip</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-btn {
+            background: #2019CE;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>InfoTooltip Test</h1>
+    <p>Click the button below to test if the info tooltip works correctly:</p>
+    <button class="test-btn" onclick="window.open('http://localhost:5174/favorites', '_blank')">
+        Open Favorites Page
+    </button>
+    
+    <h2>What to test:</h2>
+    <ol>
+        <li>Click on the info icon (ⓘ) in any balance card</li>
+        <li>Check if the modal appears with blur background</li>
+        <li>Check if the close button (X) is white and properly positioned</li>
+        <li>Click the close button to ensure it closes the modal</li>
+        <li>Try clicking outside the modal to close it</li>
+        <li>Try pressing Escape key to close it</li>
+    </ol>
+</body>
+</html>
