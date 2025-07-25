@@ -40,13 +40,13 @@
         </div>
 
         <!-- Input Field -->
-        <div class="px-4 mb-6">
+        <div class="px-4 mb-6 relative">
           <div
             class="w-full rounded-full border-2 bg-dbd-off-white flex items-center px-4 py-3 transition-all duration-200"
             :class="[
               isInputFocused || inputError
                 ? inputError
-                  ? 'border-red-400 bg-red-50'
+                  ? 'border-red-500 bg-red-50'
                   : 'border-dbd-primary bg-dbd-light-blue'
                 : 'border-dbd-gray'
             ]"
