@@ -271,9 +271,13 @@ watch(() => route.path, (newPath) => {
     '/favorites': 'favorites',
     '/rent-out': 'favorites', // RentOut is part of Favorites section
     '/cart': 'cart',
-    '/holders': 'holders'
+    '/holders': 'holders',
+    '/profile': 'profile'
   }
   activeTab.value = pathToTab[newPath] || 'wallet'
+
+  // Update profile menu state based on route
+  isProfileMenuOpen.value = newPath === '/profile'
 }, { immediate: true })
 
 // Methods
