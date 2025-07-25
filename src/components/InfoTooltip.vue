@@ -139,6 +139,7 @@ h3, p {
   div[style*="width: 300px"] {
     width: calc(100vw - 72px) !important;
     max-width: 300px;
+    min-height: 140px !important;
   }
 
   .text-lg {
@@ -147,8 +148,8 @@ h3, p {
   }
 
   .text-sm {
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 13px;
+    line-height: 18px;
   }
 }
 
@@ -156,6 +157,17 @@ h3, p {
   div[style*="width: 300px"] {
     width: calc(100vw - 40px) !important;
     max-width: 280px;
+    min-height: 130px !important;
+  }
+
+  .text-lg {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .text-sm {
+    font-size: 12px;
+    line-height: 16px;
   }
 }
 </style>
