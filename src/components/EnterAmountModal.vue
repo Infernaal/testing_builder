@@ -198,16 +198,30 @@ const handleInput = (event) => {
     inputValue.value = numericValue
   }
 
+  // Reset error state for real-time validation
+  inputError.value = false
+  errorMessage.value = ''
+
   // Validate input
-  if (numericValue && parseFloat(numericValue) > 0) {
-    inputError.value = false
-    hideError()
-  } else if (numericValue === '') {
-    inputError.value = false
-    hideError()
-  } else {
+  if (numericValue === '') {
+    // Empty input is allowed
+    return
+  }
+
+  const amount = parseFloat(numericValue)
+
+  if (isNaN(amount) || amount <= 0) {
     inputError.value = true
-    showErrorMessage('Amount must be greater than 0')
+    errorMessage.value = 'Amount must be a positive number'
+    return
+  }
+
+  // Check if amount exceeds available balance
+  const availableAmount = props.selectedBalance?.available || 0
+  if (amount > availableAmount) {
+    inputError.value = true
+    errorMessage.value = `Amount cannot exceed available balance (${availableAmount})`
+    return
   }
 }
 
