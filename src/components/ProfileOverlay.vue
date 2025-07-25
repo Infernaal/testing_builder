@@ -258,7 +258,7 @@
                 class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-3 py-3 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center gap-2 min-w-[90px]"
               >
                 <!-- Current Language Flag -->
-                <div class="w-5 h-5 rounded-full overflow-hidden shadow-md border border-white/30">
+                <div class="w-6 h-6 rounded-full overflow-hidden shadow-md border border-white/30 flex items-center justify-center flex-shrink-0">
                   <CountryFlag :country="selectedLanguage.code" size="small" />
                 </div>
                 <span class="text-gray-900 font-bold text-sm">{{ selectedLanguage.name }}</span>
