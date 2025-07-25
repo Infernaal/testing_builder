@@ -330,71 +330,57 @@ watch(() => props.isVisible, async (isVisible) => {
 </script>
 
 <style scoped>
-/* Telegram WebApp modal styling - exact Figma match */
+/* Enhanced modal styling */
 .shadow-xl {
-  box-shadow: 0 8px 12px 8px rgba(2, 7, 14, 0.08);
+  box-shadow: 0 10px 25px -3px rgba(2, 7, 14, 0.12), 0 4px 6px -2px rgba(2, 7, 14, 0.05);
 }
 
-/* Clean responsive design */
-@media (max-width: 375px) {
-  .w-\[311px\] {
-    width: calc(100vw - 32px) !important;
-    max-width: 311px;
-  }
+/* Modal animations */
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Clean input styling */
-input {
-  -webkit-appearance: none;
-  -moz-appearance: textfield;
-  font-size: 16px;
+.modal-enter-from,
+.modal-leave-to {
+  opacity: 0;
+  transform: scale(0.95) translateY(10px);
+}
+
+/* Telegram WebApp optimized input */
+.telegram-input {
+  font-size: 16px !important; /* Prevents zoom on iOS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-user-select: text;
   user-select: text;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+.telegram-input::-webkit-outer-spin-button,
+.telegram-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input:focus {
+.telegram-input:focus {
   outline: none;
   border: none;
   background: transparent;
 }
 
-/* Clean button interactions */
-button:active {
-  transform: scale(0.98);
-  transition: transform 0.1s ease;
-}
-
+/* Enhanced button interactions */
 button {
   touch-action: manipulation;
   -webkit-user-select: none;
   user-select: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Telegram WebApp backdrop - exactly as Figma */
-.backdrop-blur-sm {
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+button:active {
+  transform: scale(0.97);
 }
 
-.backdrop-blur-md {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Telegram WebApp input optimizations */
-.telegram-input {
-  font-size: 16px !important; /* Prevents zoom on iOS */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Telegram specific touch improvements */
+/* Telegram specific improvements */
 @media (hover: none) {
   button:hover {
     opacity: 1 !important;
@@ -402,9 +388,36 @@ button {
   }
 
   button:active {
-    transform: scale(0.96);
-    opacity: 0.8;
+    transform: scale(0.95);
+    opacity: 0.85;
   }
+}
+
+/* Input container focus state animation */
+.border-dbd-primary {
+  animation: pulseBlue 2s infinite;
+}
+
+@keyframes pulseBlue {
+  0%, 100% {
+    border-color: #2019CE;
+    box-shadow: 0 0 0 0 rgba(32, 25, 206, 0.4);
+  }
+  50% {
+    border-color: #2019CE;
+    box-shadow: 0 0 0 4px rgba(32, 25, 206, 0.1);
+  }
+}
+
+/* Error state animation */
+.border-red-400 {
+  animation: shakeError 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes shakeError {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
 }
 
 /* Clean typography */
@@ -418,11 +431,49 @@ button {
   text-rendering: optimizeLegibility;
 }
 
-/* Responsive text scaling */
+/* Responsive design */
 @media (max-width: 375px) {
+  .max-w-\[340px\] {
+    max-width: calc(100vw - 32px);
+  }
+
   .text-lg { font-size: 17px; }
   .text-base { font-size: 15px; }
   .text-sm { font-size: 13px; }
   .text-xs { font-size: 11px; }
+}
+
+/* Smooth backdrop */
+.backdrop-blur-sm {
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+.backdrop-blur-md {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Perfect circles for icons */
+.w-9.h-9 {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+}
+
+/* Button gradient enhancement */
+.bg-gradient-to-r {
+  background: linear-gradient(90deg, #2019CE 0%, #473FFF 100%);
+  box-shadow: 0 4px 12px rgba(32, 25, 206, 0.25);
+}
+
+.bg-gradient-to-r:hover:not(:disabled) {
+  box-shadow: 0 6px 16px rgba(32, 25, 206, 0.35);
+}
+
+.bg-gradient-to-r:disabled {
+  opacity: 0.5;
+  box-shadow: none;
 }
 </style>
