@@ -199,7 +199,7 @@
         </div>
 
         <!-- Language Selector and ID Section - Moved to Bottom -->
-        <div class="px-3 py-3">
+        <div class="px-3 py-4">
           <div class="flex items-center justify-between gap-3">
             <!-- User ID with Copy Button -->
             <div class="flex items-center bg-white/30 border border-white/40 rounded-full backdrop-blur-8 shadow-lg">
