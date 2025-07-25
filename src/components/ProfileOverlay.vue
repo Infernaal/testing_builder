@@ -620,32 +620,33 @@ button:active {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Copy slide animation styles */
-.copy-slide-enter-active {
+/* Enhanced shadow and blur effects */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+/* Copy success animation */
+.copy-success-enter-active {
   transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.copy-slide-leave-active {
+.copy-success-leave-active {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.copy-slide-enter-from {
-  opacity: 0;
-  transform: translateX(0) scale(0.95);
+/* Dropdown animation */
+.dropdown-enter-active {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.copy-slide-enter-to {
-  opacity: 1;
-  transform: translateX(-64px) scale(1);
+.dropdown-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
-.copy-slide-leave-from {
-  opacity: 1;
-  transform: translateX(-64px) scale(1);
-}
-
-.copy-slide-leave-to {
-  opacity: 0;
-  transform: translateX(-80px) scale(0.95);
+/* Enhanced backdrop blur */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
 }
 </style>
