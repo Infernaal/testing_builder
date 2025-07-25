@@ -1,7 +1,7 @@
 <template>
-  <div class="wallet-view w-full max-w-md mx-auto bg-gray-100 min-h-screen">
+  <div class="wallet-view w-full bg-gray-100 min-h-screen container-responsive touch-optimized">
     <!-- Content Container -->
-    <div class="content-container bg-gray-100 pt-4 pb-24 px-4">
+    <div class="content-container bg-gray-100 pt-4 pb-20 sm:pb-24 space-responsive-lg">
 
       <!-- Forevers Balance Section -->
       <div class="forevers-balance-section mb-4">
