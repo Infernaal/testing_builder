@@ -238,6 +238,7 @@ watch(() => props.isVisible, async (isVisible) => {
   .modal-content {
     width: calc(100vw - 32px) !important;
     max-width: 311px;
+    margin: 0 16px;
   }
 }
 
@@ -247,10 +248,18 @@ watch(() => props.isVisible, async (isVisible) => {
   }
 }
 
+@media (min-width: 769px) {
+  .modal-content {
+    width: 350px !important;
+    height: 260px !important;
+  }
+}
+
 /* Remove input number arrows on mobile */
 input[type="number"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
+  font-size: 16px; /* Prevents zoom on iOS */
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -278,21 +287,92 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: scale(0.9) translateY(20px);
 }
 
-/* Smooth hover effects */
-@media (hover: hover) {
+/* Smooth hover effects - disabled for touch devices */
+@media (hover: hover) and (pointer: fine) {
   button:hover {
     transform: translateY(-1px);
+    transition: transform 0.2s ease;
   }
+}
+
+/* Touch-friendly button states */
+button:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
 }
 
 /* Telegram WebApp optimizations */
 * {
   -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Allow text selection only for input */
+input {
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 /* Input focus for Telegram */
 input:focus {
   outline: none;
   border: none;
+  background: transparent;
+}
+
+/* Ensure proper safe area handling */
+.modal-content {
+  position: relative;
+  z-index: 1000;
+  margin-top: env(safe-area-inset-top);
+  margin-bottom: env(safe-area-inset-bottom);
+}
+
+/* Optimize for Telegram's viewport */
+@supports (height: 100dvh) {
+  .fixed.inset-0 {
+    height: 100dvh;
+  }
+}
+
+/* Blur backdrop optimization */
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Typography optimization for Telegram */
+.modal-content {
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-feature-settings: 'kern' 1;
+  text-rendering: optimizeLegibility;
+}
+
+/* Button touch feedback */
+button {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Improve text legibility on small screens */
+@media (max-width: 375px) {
+  .text-lg {
+    font-size: 17px;
+  }
+
+  .text-base {
+    font-size: 15px;
+  }
+
+  .text-sm {
+    font-size: 13px;
+  }
+
+  .text-xs {
+    font-size: 11px;
+  }
 }
 </style>
