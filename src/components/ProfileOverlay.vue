@@ -17,9 +17,12 @@
       <!-- Blurred Background -->
       <div class="absolute inset-0 bg-black/20 backdrop-blur-md"></div>
       
-      <!-- Profile Menu Container - Made taller -->
-      <div 
-        class="absolute left-4 right-4 top-8 bottom-4 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+      <!-- Triangular Pointer -->
+      <div class="absolute bottom-20 right-8 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#120B81] z-60"></div>
+
+      <!-- Profile Menu Container -->
+      <div
+        class="absolute left-4 right-4 top-8 bottom-20 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
         @click.stop
       >
         <!-- Profile Header Section -->
@@ -74,12 +77,12 @@
           <!-- Scroll fade overlay at bottom -->
           <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#120B81] via-[#120B81]/90 to-transparent pointer-events-none z-10"></div>
 
-          <div class="px-6 space-y-1 overflow-y-auto scroll-smooth touch-scroll" style="height: 200px;">
+          <div class="px-6 space-y-1 overflow-y-auto scroll-smooth touch-scroll" style="height: calc(100vh - 450px); min-height: 200px; max-height: 280px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-2 py-1.5 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-8 h-8 bg-[#404040]/24 border border-white rounded-full flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M14.1377 0C15.1645 0 16 0.788555 16 1.75781V18.2422C16 19.2114 15.1645 20 14.1377 20H1.8623C0.835502 20 0 19.2114 0 18.2422V1.75781C0 0.788555 0.835502 0 1.8623 0H14.1377ZM1.8623 1.17188C1.52004 1.17188 1.24121 1.43473 1.24121 1.75781V18.2422C1.24121 18.5653 1.52004 18.8281 1.8623 18.8281H14.1377C14.48 18.8281 14.7587 18.5653 14.7588 18.2422V1.75781C14.7588 1.43473 14.48 1.17188 14.1377 1.17188H1.8623Z" fill="white"/>
+                <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12.1205 0C13.0165 0 13.75 0.630844 13.75 1.40625V14.5938C13.75 15.3692 13.0165 16 12.1205 16H1.6295C0.733494 16 0 15.3692 0 14.5938V1.40625C0 0.630844 0.733494 0 1.6295 0H12.1205ZM1.6295 0.9375C1.321 0.9375 1.07324 1.14778 1.07324 1.40625V14.5938C1.07324 14.8522 1.321 15.0625 1.6295 15.0625H12.1205C12.429 15.0625 12.6768 14.8522 12.6768 14.5938V1.40625C12.6768 1.14778 12.429 0.9375 12.1205 0.9375H1.6295ZM3.125 3.125H5.625V4.6875H3.125V3.125ZM8.125 3.125H10.625V4.6875H8.125V3.125ZM3.125 6.25H5.625V7.8125H3.125V6.25ZM8.125 6.25H10.625V7.8125H8.125V6.25ZM3.125 9.375H5.625V10.9375H3.125V9.375ZM8.125 9.375H10.625V12.5H8.125V9.375ZM3.125 12.5H5.625V14.0625H3.125V12.5Z" fill="white"/>
                 </svg>
               </div>
               <span class="text-white font-medium text-sm">Calculator</span>
@@ -103,10 +106,10 @@
                 </svg>
               </div>
               <span class="text-white font-medium text-sm flex-1">Verification</span>
-              <!-- Red X Badge - Fixed -->
-              <div class="w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-                <svg width="8" height="8" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M9 3L3 9M3 3L9 9" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Red X Badge -->
+              <div class="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M7.5 2.5L2.5 7.5M2.5 2.5L7.5 7.5" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </div>
             </div>
@@ -159,7 +162,7 @@
         <div class="mx-4 mb-3 mt-2">
           <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-xl p-2.5 relative overflow-hidden">
             <!-- Star Icon -->
-            <div class="absolute left-1.5 top-2">
+            <div class="absolute left-2 top-1/2 transform -translate-y-1/2">
               <svg width="20" height="20" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="16" cy="16" r="15.06" fill="#8C4CD1"/>
                 <path d="M28.998 8.39055C26.1133 12.4471 21.365 15.0918 16.0003 15.0918C10.6356 15.0918 5.88739 12.4471 3.00269 8.39055C5.61916 3.9341 10.4615 0.941162 16.0003 0.941162C21.5392 0.941162 26.3815 3.9341 28.998 8.39055Z" fill="#9C68E1"/>
@@ -181,7 +184,7 @@
             <div class="absolute left-0 top-0 w-24 h-full bg-gradient-to-r from-[#8C4CD1]/30 to-transparent rounded-l-xl"></div>
 
             <div class="flex items-center justify-between relative z-10">
-              <div class="ml-6">
+              <div class="ml-7">
                 <div class="text-[#02070E] font-bold text-sm">Start</div>
                 <div class="text-xs text-[#4B4D50]">
                   buy <span class="font-bold text-[#8C4CD1]">123</span> more to upgrade
@@ -352,7 +355,7 @@ button {
   touch-action: manipulation;
 }
 
-/* Hover effects только для desktop */
+/* Hover effects т��лько для desktop */
 @media (hover: hover) {
   button:hover {
     transform: translateY(-1px);
