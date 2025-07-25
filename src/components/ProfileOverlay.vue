@@ -78,7 +78,7 @@
           <!-- Custom scrollbar indicator -->
           <div class="absolute right-1 top-8 w-0.5 h-24 bg-[#B7B7B7]/40 rounded-full opacity-40"></div>
           
-          <div class="space-y-2 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 580px); min-height: 200px; max-height: 300px;">
+          <div class="space-y-2 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 520px); min-height: 220px; max-height: 320px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-1.5 py-3 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white/24 rounded-full flex items-center justify-center flex-shrink-0">
