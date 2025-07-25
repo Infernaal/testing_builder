@@ -514,6 +514,40 @@ const showCopyError = () => {
   // Could implement error state here if needed
 }
 
+// Touch handlers for modal drag-to-close
+const handleTouchStart = (event) => {
+  touchStartY.value = event.touches[0].clientY
+  isDragging.value = true
+}
+
+const handleTouchMove = (event) => {
+  if (!isDragging.value) return
+
+  touchCurrentY.value = event.touches[0].clientY
+  const deltaY = touchCurrentY.value - touchStartY.value
+
+  // Only allow downward dragging
+  if (deltaY > 0) {
+    event.preventDefault()
+    // Add visual feedback here if needed (modal following finger)
+  }
+}
+
+const handleTouchEnd = (event) => {
+  if (!isDragging.value) return
+
+  const deltaY = touchCurrentY.value - touchStartY.value
+
+  // Close modal if dragged down more than 100px
+  if (deltaY > 100) {
+    closeTransactionModal()
+  }
+
+  isDragging.value = false
+  touchStartY.value = 0
+  touchCurrentY.value = 0
+}
+
 const exportData = (format) => {
   const selectedData = selectedTransactions.value.map(index => transactions.value[index])
 
