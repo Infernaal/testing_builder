@@ -18,8 +18,8 @@
       <div class="w-0 h-0 border-l-[6px] border-r-[6px] border-b-[6px] border-transparent border-b-red-500 absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full z-10" style="margin-left: -12px;"></div>
       
       <!-- Error notification body -->
-      <div class="bg-red-500 text-white rounded-full flex items-center px-3 py-4 shadow-lg border border-red-600"
-           style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12)); min-height: 72px;">
+      <div class="bg-red-500 text-white rounded-full flex items-center px-3 py-2.5 shadow-lg border border-red-600"
+           style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12)); min-height: 52px;">
         
         <!-- Warning Icon -->
         <div class="w-10 h-10 rounded-full bg-black bg-opacity-20 flex items-center justify-center mr-3 flex-shrink-0 border border-white border-opacity-30">
