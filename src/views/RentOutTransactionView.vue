@@ -357,9 +357,78 @@ const goBack = () => {
 }
 
 const toggleExportMenu = () => {
-  if (transactions.value.length > 0) {
+  if (selectedTransactions.value.length > 0) {
     showExportMenu.value = !showExportMenu.value
   }
+}
+
+const toggleTransactionSelection = (index) => {
+  const selectedIndex = selectedTransactions.value.indexOf(index)
+  if (selectedIndex > -1) {
+    selectedTransactions.value.splice(selectedIndex, 1)
+  } else {
+    selectedTransactions.value.push(index)
+  }
+}
+
+const openTransactionDetails = (transaction, index) => {
+  selectedTransaction.value = transaction
+  showTransactionModal.value = true
+}
+
+const closeTransactionModal = () => {
+  showTransactionModal.value = false
+  selectedTransaction.value = null
+}
+
+const copyToClipboard = async (text) => {
+  try {
+    await navigator.clipboard.writeText(text)
+    // You could add a toast notification here
+  } catch (err) {
+    console.error('Failed to copy to clipboard:', err)
+  }
+}
+
+const exportData = (format) => {
+  const selectedData = selectedTransactions.value.map(index => transactions.value[index])
+
+  if (format === 'csv') {
+    exportToCSV(selectedData)
+  } else if (format === 'pdf') {
+    exportToPDF(selectedData)
+  }
+
+  showExportMenu.value = false
+}
+
+const exportToCSV = (data) => {
+  const headers = ['Date', 'Time', 'Amount', 'Purchased', 'Contract ID', 'Rent Percentage']
+  const csvContent = [
+    headers.join(','),
+    ...data.map(row => [
+      row.date,
+      row.time,
+      row.amount,
+      row.purchased,
+      row.contractId,
+      row.rentPercentage + '%'
+    ].join(','))
+  ].join('\n')
+
+  const blob = new Blob([csvContent], { type: 'text/csv' })
+  const url = window.URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url
+  a.download = 'transactions.csv'
+  a.click()
+  window.URL.revokeObjectURL(url)
+}
+
+const exportToPDF = (data) => {
+  // Simple PDF export - in a real app you'd use a library like jsPDF
+  console.log('Exporting to PDF:', data)
+  alert('PDF export functionality would be implemented here')
 }
 
 const formatCurrency = (amount) => {
