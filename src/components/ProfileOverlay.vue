@@ -255,10 +255,10 @@
             <div class="relative language-selector-container">
               <button
                 @click="toggleLanguageSelector"
-                class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-3 py-3 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center gap-2 min-w-[90px]"
+                class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-3 py-2.5 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center gap-2 min-w-[90px]"
               >
                 <!-- Current Language Flag -->
-                <div class="w-5 h-5 rounded-full overflow-hidden shadow-md border border-white/30">
+                <div class="w-6 h-6 rounded-full overflow-hidden shadow-md border border-white/30 flex items-center justify-center flex-shrink-0">
                   <CountryFlag :country="selectedLanguage.code" size="small" />
                 </div>
                 <span class="text-gray-900 font-bold text-sm">{{ selectedLanguage.name }}</span>
@@ -293,13 +293,13 @@
                       v-for="language in availableLanguages"
                       :key="language.code"
                       @click="selectLanguage(language)"
-                      class="w-full flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
+                      class="w-full flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
                       :class="{
                         'bg-gradient-to-r from-[#2019CE]/20 to-purple-500/20 text-[#2019CE]': selectedLanguage.code === language.code,
                         'text-gray-700 hover:text-gray-900': selectedLanguage.code !== language.code
                       }"
                     >
-                      <div class="w-4 h-4 rounded-full overflow-hidden shadow-sm border border-white/50">
+                      <div class="w-6 h-6 rounded-full overflow-hidden shadow-sm border border-white/50 flex items-center justify-center flex-shrink-0">
                         <CountryFlag :country="language.code" size="small" />
                       </div>
                       <span class="text-sm font-medium transition-colors">{{ language.name }}</span>
@@ -537,8 +537,6 @@ span, h1 {
 
 /* Touch-friendly improvements */
 button {
-  min-height: 44px;
-  min-width: 44px;
   touch-action: manipulation;
 }
 
