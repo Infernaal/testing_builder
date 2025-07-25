@@ -34,7 +34,7 @@
           <!-- Header -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-3">
-              <CountryFlag :country="item.code" />
+              <CountryFlag :country="item.code" size="large" />
               <span class="text-dbd-gray font-medium">{{ item.title }}</span>
             </div>
             <button class="bg-dbd-orange text-white px-3 py-2 rounded-full text-sm font-bold">
