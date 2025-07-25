@@ -530,4 +530,25 @@ onUnmounted(() => {
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
+
+/* Modal animations */
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+/* Checkbox animations */
+.transition-colors {
+  transition: all 0.2s ease-in-out;
+}
 </style>
