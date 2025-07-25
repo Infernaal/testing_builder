@@ -10,42 +10,39 @@
   >
     <div
       v-if="isVisible"
-      class="fixed inset-0 flex items-center justify-center z-50 p-4"
+      class="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20 backdrop-blur-sm"
       @click.self="closeModal"
     >
-      <!-- Blur Backdrop -->
-      <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-sm"></div>
-
       <!-- Modal Content -->
       <div
         @click.stop
-        class="relative bg-dbd-off-white rounded-[20px] shadow-xl modal-content flex flex-col"
+        class="relative bg-dbd-off-white rounded-[20px] shadow-xl"
         style="width: 311px; height: 238px;"
       >
         <!-- Title -->
-        <div class="flex justify-center items-center pt-3 pb-2">
+        <div class="absolute top-3 left-1/2 transform -translate-x-1/2">
           <h2 class="text-lg font-bold text-dbd-dark font-montserrat">
             Enter Amount
           </h2>
         </div>
 
         <!-- Exchange Rate Section -->
-        <div class="flex justify-center px-4 mb-4">
-          <div class="w-[202px] h-11 rounded-full border border-gray-200 bg-white flex items-center gap-1 px-4">
+        <div class="absolute left-[54px] top-[46px] w-[202px] h-11">
+          <div class="w-full h-11 rounded-full border border-gray-200 bg-white flex items-center gap-1 px-4">
             <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
-            <div class="flex items-center text-sm">
-              <span class="text-dbd-dark font-medium">1 Forevers {{ selectedBalance?.code }}</span>
-              <span class="text-dbd-gray font-medium mx-1">/</span>
-              <span class="text-dbd-primary font-medium">{{ selectedBalance?.usdRate }} USD</span>
+            <div class="flex items-center text-sm font-medium">
+              <span class="text-dbd-dark">1 Forevers {{ selectedBalance?.code }}</span>
+              <span class="text-dbd-gray mx-1">/</span>
+              <span class="text-dbd-primary">{{ selectedBalance?.usdRate }} USD</span>
             </div>
           </div>
         </div>
 
         <!-- Input Field -->
-        <div class="flex justify-center px-4 mb-6">
-          <div class="w-[281px] h-[52px] rounded-full border border-dbd-gray bg-dbd-off-white flex items-center gap-2 px-[14px]">
+        <div class="absolute left-[15px] top-[102px] w-[281px] h-[52px]">
+          <div class="w-full h-full rounded-full border border-dbd-gray bg-dbd-off-white flex items-center gap-2 px-[14px]">
             <!-- Forevers Section -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0.5">
               <div class="w-9 h-9 rounded-full bg-dbd-light-blue flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" fill="#02070E"/>
@@ -57,7 +54,7 @@
                   ref="inputField"
                   v-model="inputValue"
                   type="number"
-                  class="text-base font-bold text-dbd-dark bg-transparent border-none outline-none w-16 p-0 m-0"
+                  class="text-base font-bold text-dbd-dark bg-transparent border-none outline-none w-full p-0 m-0"
                   placeholder="250"
                   @input="handleInput"
                   @keydown.enter="handleAddToCart"
@@ -81,7 +78,7 @@
             </div>
 
             <!-- Dollar Section -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0.5">
               <div class="w-9 h-9 rounded-[20.3px] bg-gray-200 flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.8515 24C11.5488 24 11.2984 23.9056 11.1004 23.7167C10.9025 23.5278 10.8035 23.2889 10.8035 23V21.2C9.68559 21.0222 8.73071 20.6444 7.93886 20.0667C7.14702 19.4889 6.52984 18.7556 6.08734 17.8667C5.97089 17.6222 5.97089 17.3667 6.08734 17.1C6.20378 16.8333 6.40175 16.6444 6.68122 16.5333C6.93741 16.4222 7.19942 16.4222 7.46725 16.5333C7.73508 16.6444 7.93886 16.8222 8.0786 17.0667C8.49782 17.8222 9.04512 18.3889 9.72052 18.7667C10.3959 19.1444 11.1761 19.3333 12.0611 19.3333C13.179 19.3333 14.099 19.0667 14.821 18.5333C15.5429 18 15.9039 17.2667 15.9039 16.3333C15.9039 15.3556 15.5837 14.6 14.9432 14.0667C14.3028 13.5333 13.0975 12.9889 11.3275 12.4333C9.65065 11.9222 8.39883 11.2444 7.57205 10.4C6.74527 9.55556 6.33188 8.5 6.33188 7.23333C6.33188 6.01111 6.74527 4.98889 7.57205 4.16667C8.39883 3.34444 9.47598 2.87778 10.8035 2.76667V1C10.8035 0.711111 10.9025 0.472222 11.1004 0.283333C11.2984 0.0944446 11.5488 0 11.8515 0C12.1543 0 12.4047 0.0944446 12.6026 0.283333C12.8006 0.472222 12.8996 0.711111 12.8996 1V2.76667C13.738 2.87778 14.4891 3.12222 15.1528 3.5C15.8166 3.87778 16.3697 4.36667 16.8122 4.96667C16.9753 5.18889 17.0102 5.42778 16.917 5.68333C16.8239 5.93889 16.6376 6.12222 16.3581 6.23333C16.1019 6.34444 15.8341 6.35556 15.5546 6.26667C15.2751 6.17778 15.0422 6.01111 14.8559 5.76667C14.5298 5.36667 14.1281 5.07222 13.6507 4.88333C13.1732 4.69444 12.5968 4.6 11.9214 4.6C10.8501 4.6 10 4.83333 9.37118 5.3C8.74236 5.76667 8.42795 6.4 8.42795 7.2C8.42795 8.04444 8.77729 8.72778 9.47598 9.25C10.1747 9.77222 11.4672 10.3111 13.3537 10.8667C14.9374 11.3333 16.1077 12.0056 16.8646 12.8833C17.6215 13.7611 18 14.8667 18 16.2C18 17.6 17.5691 18.7278 16.7074 19.5833C15.8457 20.4389 14.5764 20.9889 12.8996 21.2333V23C12.8996 23.2889 12.8006 23.5278 12.6026 23.7167C12.4047 23.9056 12.1543 24 11.8515 24Z" fill="#4B4D50"/>
@@ -98,7 +95,7 @@
         </div>
 
         <!-- Buttons -->
-        <div class="flex justify-center px-3 gap-3 mt-auto mb-3">
+        <div class="absolute left-3 top-[182px] flex items-center gap-3">
           <!-- Back Button -->
           <button
             @click="closeModal"
@@ -250,13 +247,6 @@ watch(() => props.isVisible, async (isVisible) => {
   }
 }
 
-@media (min-width: 769px) {
-  .modal-content {
-    width: 350px !important;
-    height: 260px !important;
-  }
-}
-
 /* Remove input number arrows on mobile */
 input[type="number"] {
   -webkit-appearance: none;
@@ -289,14 +279,6 @@ input[type="number"]::-webkit-inner-spin-button {
   transform: scale(0.9) translateY(20px);
 }
 
-/* Smooth hover effects - disabled for touch devices */
-@media (hover: hover) and (pointer: fine) {
-  button:hover {
-    transform: translateY(-1px);
-    transition: transform 0.2s ease;
-  }
-}
-
 /* Touch-friendly button states */
 button:active {
   transform: scale(0.98);
@@ -324,12 +306,6 @@ input:focus {
   background: transparent;
 }
 
-/* Blur backdrop optimization */
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
 /* Typography optimization for Telegram */
 .modal-content {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -344,7 +320,7 @@ button {
   user-select: none;
 }
 
-/* Improve text legibility on small screens */
+/* Responsive text sizes for small screens */
 @media (max-width: 375px) {
   .text-lg {
     font-size: 17px;
@@ -361,5 +337,16 @@ button {
   .text-xs {
     font-size: 11px;
   }
+}
+
+/* Improved backdrop blur for better visibility */
+.backdrop-blur-sm {
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+}
+
+/* Better modal shadows */
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 </style>
