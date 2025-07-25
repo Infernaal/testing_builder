@@ -5,6 +5,7 @@ import FavoritesView from '../views/FavoritesView.vue'
 import CartView from '../views/CartView.vue'
 import HoldersView from '../views/HoldersView.vue'
 import RentOutView from '../views/RentOutView.vue'
+import RentOutTransactionView from '../views/RentOutTransactionView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -39,6 +40,11 @@ const router = createRouter({
       path: '/rent-out',
       name: 'rent-out',
       component: RentOutView,
+    },
+    {
+      path: '/rent-out-transactions',
+      name: 'rent-out-transactions',
+      component: RentOutTransactionView,
     },
     // Redirect /home to /wallet as default
     {
