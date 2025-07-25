@@ -389,6 +389,11 @@ const selectLanguage = (language) => {
   console.log('Language selected:', language.name)
 }
 
+const getCurrentLanguageFlag = () => {
+  const current = languages.value.find(lang => lang.code === selectedLanguage.value)
+  return current?.flag || languages.value[0].flag
+}
+
 // Close dropdown when clicking outside
 const handleClickOutside = (event) => {
   if (!event.target.closest('.relative')) {
@@ -538,19 +543,34 @@ span, h1 {
 }
 
 /* Copy button animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateX(10px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
+/* Enhanced shadow and blur effects */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out forwards;
+/* Copy success animation */
+.copy-success-enter-active {
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.copy-success-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Dropdown animation */
+.dropdown-enter-active {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dropdown-leave-active {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+/* Backdrop blur enhancement */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
 }
 
 /* Language dropdown positioning */
