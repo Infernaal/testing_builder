@@ -34,11 +34,11 @@
 
 @media (min-width: 768px) {
   .delete-modal {
-    @apply items-center;
+    align-items: center;
   }
-  
+
   .delete-modal .modal-content {
-    @apply rounded-2xl;
+    border-radius: 1rem;
     max-width: 400px;
   }
 }
