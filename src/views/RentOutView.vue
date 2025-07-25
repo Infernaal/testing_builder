@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gray-100 flex flex-col font-montserrat telegram-webapp">
+  <div class="rent-out-view touch-optimized">
     <!-- Fixed Header Section -->
-    <div class="w-full max-w-md mx-auto px-4 pt-6 pb-3 bg-gray-100 z-30">
+    <div class="content-container">
       <!-- Forevers Available Section - Fixed -->
       <div class="mb-2">
         <div class="bg-dbd-light-blue border border-purple-200 rounded-2xl p-4">
