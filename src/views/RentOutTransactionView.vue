@@ -188,7 +188,7 @@
       <div class="w-full max-w-md bg-white rounded-t-3xl shadow-xl animate-slide-up">
         <!-- Modal Header -->
         <div class="flex items-center justify-between p-4" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
-          <div class="flex-1 text-center">
+          <div class="flex-1">
             <h2 class="text-base font-medium text-dbd-dark">Transaction Details</h2>
           </div>
           <button @click="closeTransactionModal" class="w-11 h-11 flex items-center justify-center rounded-full bg-dbd-off-white border border-gray-200">
