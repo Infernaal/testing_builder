@@ -335,25 +335,44 @@ const handleUpgrade = () => {
 }
 
 const copyUserId = async () => {
-  try {
-    await navigator.clipboard.writeText(profileData.value.id)
+  const showSuccessMessage = () => {
     showCopyMessage.value = true
     setTimeout(() => {
       showCopyMessage.value = false
     }, 2000)
-  } catch (err) {
-    console.error('Failed to copy user ID:', err)
-    // Fallback for older browsers
+  }
+
+  // Check if modern clipboard API is available and allowed
+  if (navigator.clipboard && window.isSecureContext) {
+    try {
+      await navigator.clipboard.writeText(profileData.value.id)
+      showSuccessMessage()
+      return
+    } catch (err) {
+      console.log('Clipboard API failed, using fallback:', err.message)
+    }
+  }
+
+  // Fallback method for older browsers or when clipboard API is blocked
+  try {
     const textArea = document.createElement('textarea')
     textArea.value = profileData.value.id
+    textArea.style.position = 'fixed'
+    textArea.style.left = '-999999px'
+    textArea.style.top = '-999999px'
     document.body.appendChild(textArea)
+    textArea.focus()
     textArea.select()
-    document.execCommand('copy')
+    const successful = document.execCommand('copy')
     document.body.removeChild(textArea)
-    showCopyMessage.value = true
-    setTimeout(() => {
-      showCopyMessage.value = false
-    }, 2000)
+
+    if (successful) {
+      showSuccessMessage()
+    } else {
+      console.error('Fallback copy method failed')
+    }
+  } catch (err) {
+    console.error('All copy methods failed:', err)
   }
 }
 
