@@ -357,26 +357,33 @@ span, h1 {
   height: 0;
 }
 
-/* Animations - Enhanced slide effect */
-.profile-overlay-enter-active,
+/* Animations - Slide up from bottom like emerging from BottomNavigation */
+.profile-overlay-enter-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .profile-overlay-leave-active {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .profile-overlay-enter-from {
   opacity: 0;
+  transform: translateY(100%);
 }
 
 .profile-overlay-enter-to {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-overlay-leave-from {
   opacity: 1;
+  transform: translateY(0);
 }
 
 .profile-overlay-leave-to {
   opacity: 0;
+  transform: translateY(100%);
 }
 
 /* Touch-friendly improvements */
