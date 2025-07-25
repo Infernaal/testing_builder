@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-white telegram-webapp">
+  <div class="min-h-screen bg-white telegram-webapp container-responsive touch-optimized">
     <RouterView />
   </div>
 </template>
