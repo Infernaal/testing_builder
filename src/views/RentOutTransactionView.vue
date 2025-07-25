@@ -410,10 +410,66 @@ const closeTransactionModal = () => {
 
 const copyToClipboard = async (text) => {
   try {
-    await navigator.clipboard.writeText(text)
-    // You could add a toast notification here
+    // Try modern Clipboard API first
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text)
+      showCopySuccess()
+      return
+    }
   } catch (err) {
-    console.error('Failed to copy to clipboard:', err)
+    console.log('Clipboard API failed, trying fallback method:', err)
+  }
+
+  // Fallback method using execCommand
+  try {
+    const textArea = document.createElement('textarea')
+    textArea.value = text
+    textArea.style.position = 'fixed'
+    textArea.style.left = '-999999px'
+    textArea.style.top = '-999999px'
+    document.body.appendChild(textArea)
+    textArea.focus()
+    textArea.select()
+
+    const successful = document.execCommand('copy')
+    document.body.removeChild(textArea)
+
+    if (successful) {
+      showCopySuccess()
+    } else {
+      showCopyError()
+    }
+  } catch (err) {
+    console.error('Fallback copy method also failed:', err)
+    showCopyError()
+  }
+}
+
+const showCopySuccess = () => {
+  // Simple visual feedback - you could enhance this with a toast library
+  const button = document.querySelector('.copy-btn-active')
+  if (button) {
+    const originalText = button.textContent
+    button.textContent = 'Copied!'
+    button.style.backgroundColor = '#07B80E'
+    setTimeout(() => {
+      button.textContent = originalText
+      button.style.backgroundColor = ''
+    }, 1500)
+  }
+}
+
+const showCopyError = () => {
+  // Show error feedback
+  const button = document.querySelector('.copy-btn-active')
+  if (button) {
+    const originalText = button.textContent
+    button.textContent = 'Failed'
+    button.style.backgroundColor = '#FF1919'
+    setTimeout(() => {
+      button.textContent = originalText
+      button.style.backgroundColor = ''
+    }, 1500)
   }
 }
 
