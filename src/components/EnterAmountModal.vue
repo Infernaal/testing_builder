@@ -212,7 +212,6 @@ const handleInput = (event) => {
 
   if (isNaN(amount) || amount <= 0) {
     inputError.value = true
-    errorMessage.value = 'Amount must be a positive number'
     return
   }
 
