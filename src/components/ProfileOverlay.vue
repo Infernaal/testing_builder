@@ -220,7 +220,7 @@
             </div>
 
             <!-- Language Selector with Flag and Dropdown -->
-            <div class="relative">
+            <div class="relative language-selector-container">
               <button
                 @click="toggleLanguageSelector"
                 class="flex items-center gap-2 px-3 py-2 bg-white/20 border border-white/40 rounded-full backdrop-blur-8 transition-all hover:bg-white/30 shadow-lg"
