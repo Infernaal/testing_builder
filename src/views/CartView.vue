@@ -102,7 +102,7 @@
     <!-- Success Modal -->
     <SuccessModal
       :is-visible="showSuccessModal"
-      :amount="totalForeversAmount.toLocaleString()"
+      :amount="lastPurchaseDetails?.foreversAmount?.toLocaleString() || '0'"
       :message="'Funds have been successfully'"
       @close="closeSuccessModal"
       @confirm="closeSuccessModal"
