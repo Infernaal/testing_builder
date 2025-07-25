@@ -198,72 +198,119 @@
           </div>
         </div>
 
-        <!-- Language Selector and ID Section - Moved to Bottom -->
-        <div class="px-3 py-2">
-          <div class="flex items-center justify-between gap-3">
-            <!-- User ID with Copy Button -->
-            <div class="relative flex items-center bg-white/30 border border-white/40 rounded-full backdrop-blur-8 shadow-lg overflow-visible">
-              <div class="px-3 py-2">
-                <span class="text-[#B7B7B7] text-sm font-medium">ID: </span>
-                <span class="text-white text-sm font-bold">{{ profileData.id }}</span>
+        <!-- Beautiful Bottom Section -->
+        <div class="px-4 py-3">
+          <div class="flex items-center gap-4">
+            <!-- Elegant ID Card with Copy -->
+            <div class="flex-1 relative">
+              <!-- Base Card -->
+              <div
+                class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-4 py-3 shadow-2xl cursor-pointer group transition-all duration-300 hover:shadow-3xl hover:scale-[1.02] active:scale-[0.98]"
+                @click="copyUserId"
+              >
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-1">
+                      <span class="text-gray-500 text-sm font-medium">ID</span>
+                      <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    </div>
+                    <span class="text-gray-900 text-base font-bold tracking-wide">{{ profileData.id }}</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-[#2019CE]/10 rounded-full flex items-center justify-center group-hover:bg-[#2019CE]/20 transition-colors">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-[#2019CE]">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <button @click="copyUserId" class="w-8 h-8 bg-white rounded-r-full border border-[#D8D8D8] flex items-center justify-center shadow-sm hover:bg-gray-50 transition-colors relative z-10">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-gray-700">
-                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" stroke="currentColor" stroke-width="2" fill="none"/>
-                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2" fill="none"/>
-                </svg>
-              </button>
 
-              <!-- Sliding Copy Success Animation -->
+              <!-- Success Toast Overlay -->
               <Transition
-                name="copy-slide"
+                name="copy-success"
                 enter-active-class="transition-all duration-500 ease-out"
                 leave-active-class="transition-all duration-300 ease-in"
-                enter-from-class="opacity-0 transform translate-x-0 scale-95"
-                enter-to-class="opacity-100 transform -translate-x-16 scale-100"
-                leave-from-class="opacity-100 transform -translate-x-16 scale-100"
-                leave-to-class="opacity-0 transform -translate-x-20 scale-95"
+                enter-from-class="opacity-0 scale-95 translate-y-2"
+                enter-to-class="opacity-100 scale-100 translate-y-0"
+                leave-from-class="opacity-100 scale-100 translate-y-0"
+                leave-to-class="opacity-0 scale-95 -translate-y-2"
               >
-                <div v-if="showCopyMessage" class="absolute top-0 right-0 flex items-center bg-[#129E0F] border border-[#07B80E] rounded-full px-4 py-2 shadow-lg z-20 whitespace-nowrap">
-                  <!-- Checkmark Icon -->
-                  <div class="w-6 h-6 bg-white rounded-full flex items-center justify-center mr-2 flex-shrink-0">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path d="M11.3242 0.926106C10.7978 0.642629 10.2106 1.18934 9.86633 1.51331C9.07667 2.28275 8.40848 3.17368 7.65925 3.98362C6.82907 4.87455 6.05963 5.76548 5.20919 6.6362C4.72323 7.12216 4.19677 7.64862 3.8728 8.25607C3.14385 7.54734 2.51615 6.7779 1.70621 6.15023C1.11901 5.70477 0.147086 5.38079 0.167334 6.45396C0.207831 7.85113 1.44299 9.34952 2.35416 10.3012C2.73888 10.7061 3.24509 11.1313 3.8323 11.1516C4.54099 11.1921 5.26994 10.3417 5.69515 9.87594C6.44438 9.06601 7.05183 8.15479 7.74024 7.32464C8.63118 6.23123 9.54236 5.15803 10.413 4.04436C10.9597 3.35592 12.6809 1.65502 11.3242 0.926106ZM1.05823 6.37297C1.03798 6.37297 1.01773 6.37297 0.977238 6.39318C0.896244 6.37297 0.835499 6.35268 0.754505 6.31219C0.815251 6.27169 0.916493 6.29194 1.05823 6.37297Z" fill="#07B80E"/>
+                <div
+                  v-if="showCopyMessage"
+                  class="absolute inset-0 bg-gradient-to-r from-emerald-500 to-green-500 rounded-2xl px-4 py-3 shadow-2xl flex items-center justify-center gap-3 z-10"
+                >
+                  <div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="text-white">
+                      <polyline points="20,6 9,17 4,12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
                     </svg>
                   </div>
-                  <span class="text-white text-sm font-semibold">Copied</span>
+                  <span class="text-white font-bold text-base">ID Copied!</span>
                 </div>
               </Transition>
             </div>
 
-            <!-- Language Selector with Flag and Dropdown -->
+            <!-- Sophisticated Language Selector -->
             <div class="relative language-selector-container">
               <button
                 @click="toggleLanguageSelector"
-                class="flex items-center gap-2 px-3 py-2 bg-white/20 border border-white/40 rounded-full backdrop-blur-8 transition-all hover:bg-white/30 shadow-lg"
+                class="bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-xl border border-white/50 rounded-2xl px-3 py-3 shadow-2xl transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-95 flex items-center gap-2 min-w-[90px]"
               >
-                <CountryFlag :country="selectedLanguage.code" size="small" />
-                <span class="text-[#FAFAFA] text-sm font-medium">{{ selectedLanguage.name }}</span>
-                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" class="text-white/60 transition-transform" :class="{ 'rotate-180': isLanguageDropdownOpen }">
-                  <path d="M5.71387 8.57146L9.99958 12.8572L14.2853 8.57146" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <!-- Current Language Flag -->
+                <div class="w-5 h-5 rounded-full overflow-hidden shadow-md border border-white/30">
+                  <CountryFlag :country="selectedLanguage.code" size="small" />
+                </div>
+                <span class="text-gray-900 font-bold text-sm">{{ selectedLanguage.name }}</span>
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  class="text-gray-500 transition-transform duration-300"
+                  :class="{ 'rotate-180': isLanguageDropdownOpen }"
+                >
+                  <polyline points="6,9 12,15 18,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </button>
 
-              <!-- Language Dropdown -->
-              <div v-if="isLanguageDropdownOpen" class="absolute bottom-full mb-3 left-0 bg-[#120B81] border border-white/20 rounded-2xl shadow-2xl backdrop-blur-md min-w-[140px] z-50 overflow-hidden">
-                <div class="max-h-48 overflow-y-auto">
-                  <button
-                    v-for="language in availableLanguages"
-                    :key="language.code"
-                    @click="selectLanguage(language)"
-                    class="w-full flex items-center gap-3 px-4 py-3 hover:bg-white/10 transition-colors text-left"
-                    :class="{ 'bg-white/20': selectedLanguage.code === language.code }"
-                  >
-                    <CountryFlag :country="language.code" size="small" />
-                    <span class="text-white text-sm font-medium">{{ language.name }}</span>
-                  </button>
+              <!-- Beautiful Dropdown -->
+              <Transition
+                name="dropdown"
+                enter-active-class="transition-all duration-300 ease-out"
+                leave-active-class="transition-all duration-200 ease-in"
+                enter-from-class="opacity-0 scale-95 translate-y-2"
+                enter-to-class="opacity-100 scale-100 translate-y-0"
+                leave-from-class="opacity-100 scale-100 translate-y-0"
+                leave-to-class="opacity-0 scale-95 translate-y-2"
+              >
+                <div
+                  v-if="isLanguageDropdownOpen"
+                  class="absolute bottom-full right-0 mb-3 mr-2 bg-white/95 backdrop-blur-xl border border-white/50 rounded-2xl shadow-3xl overflow-hidden z-50 min-w-[140px]"
+                >
+                  <div class="p-2 space-y-1">
+                    <button
+                      v-for="language in availableLanguages"
+                      :key="language.code"
+                      @click="selectLanguage(language)"
+                      class="w-full flex items-center gap-3 px-3 py-2 rounded-xl transition-all duration-200 hover:bg-gradient-to-r hover:from-[#2019CE]/10 hover:to-purple-500/10 text-left group"
+                      :class="{
+                        'bg-gradient-to-r from-[#2019CE]/20 to-purple-500/20 text-[#2019CE]': selectedLanguage.code === language.code,
+                        'text-gray-700 hover:text-gray-900': selectedLanguage.code !== language.code
+                      }"
+                    >
+                      <div class="w-4 h-4 rounded-full overflow-hidden shadow-sm border border-white/50">
+                        <CountryFlag :country="language.code" size="small" />
+                      </div>
+                      <span class="text-sm font-medium transition-colors">{{ language.name }}</span>
+                      <div
+                        v-if="selectedLanguage.code === language.code"
+                        class="ml-auto w-2 h-2 bg-[#2019CE] rounded-full"
+                      ></div>
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </Transition>
             </div>
           </div>
         </div>
