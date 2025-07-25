@@ -103,7 +103,7 @@
                   </div>
                   <!-- Dropdown Arrow -->
                   <div class="absolute -bottom-1 -right-1 bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center w-2.5 h-2.5">
-                    <svg :class="isProfileMenuOpen ? 'rotate-180 w-1.5 h-1 transition-transform duration-200 text-gray-600' : 'w-1.5 h-1 transition-transform duration-200 text-gray-600'" viewBox="0 0 8 6">
+                    <svg :class="activeTab === 'profile' ? 'rotate-180 w-1.5 h-1 transition-transform duration-200 text-gray-600' : 'w-1.5 h-1 transition-transform duration-200 text-gray-600'" viewBox="0 0 8 6">
                       <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
