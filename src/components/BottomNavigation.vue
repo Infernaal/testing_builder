@@ -57,7 +57,7 @@
     </Transition>
 
     <!-- Bottom Navigation -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-lg border-t border-gray-100 z-50">
+    <div class="fixed bottom-2 left-0 right-0 bg-white rounded-t-2xl shadow-lg border-t border-gray-100 z-50">
       <!-- Navigation Items -->
       <div class="flex items-center justify-center px-2 py-3 safe-area-pb">
         <div class="flex items-center gap-2 sm:gap-4 w-full max-w-sm mx-auto px-2">
@@ -92,7 +92,7 @@
                     <img
                       src="https://images.pexels.com/photos/15023413/pexels-photo-15023413.jpeg?auto=compress&cs=tinysrgb&w=400"
                       alt="Profile"
-                      class="w-full h-full object-cover"
+                      class="w-full h-full object-cover rounded-full"
                     />
                   </div>
                   <!-- Silver Badge -->
