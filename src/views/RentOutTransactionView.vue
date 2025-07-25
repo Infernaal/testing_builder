@@ -257,16 +257,12 @@ onUnmounted(() => {
 
 /* Custom scrollbar */
 .content-container::-webkit-scrollbar {
-  width: 4px;
+  display: none;
 }
 
-.content-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.content-container::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+.content-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Telegram WebApp optimizations */
