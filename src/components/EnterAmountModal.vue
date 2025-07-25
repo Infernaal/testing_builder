@@ -52,7 +52,7 @@
             ]"
           >
             <!-- Forevers Section -->
-            <div class="flex items-center" style="flex: 1 1 45%; min-width: 0;">
+            <div class="flex items-center" style="flex: 1 1 42%; min-width: 0;">
               <div
                 class="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200"
                 :class="[
@@ -69,7 +69,7 @@
                   />
                 </svg>
               </div>
-              <div class="flex flex-col ml-3 flex-1 min-w-0">
+              <div class="flex flex-col ml-2 flex-1 min-w-0">
                 <span class="text-dbd-gray text-xs font-medium whitespace-nowrap overflow-hidden text-ellipsis">Forevers {{ selectedBalance?.code }}</span>
                 <input
                   ref="inputField"
