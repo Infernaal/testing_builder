@@ -356,7 +356,7 @@ const toggleLanguageSelector = () => {
 
 /* Safe area support for iOS */
 .safe-area-pb {
-  padding-bottom: env(safe-area-inset-bottom, 8px);
+  padding-bottom: calc(env(safe-area-inset-bottom, 8px) + 8px);
 }
 
 /* Touch interactions */
