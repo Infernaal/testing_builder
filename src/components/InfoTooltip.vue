@@ -25,9 +25,9 @@
         <!-- Close button -->
         <button
           @click="closeTooltip"
-          class="absolute top-3 right-3 w-8 h-8 bg-white border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-sm"
+          class="absolute top-3 right-3 w-8 h-8 bg-white border border-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors shadow-sm"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" class="text-gray-700">
+          <svg width="16" height="16" viewBox="0 0 16 16" class="text-black">
             <path d="M12.854 3.854a.5.5 0 0 0-.708-.708L8 7.293 3.854 3.146a.5.5 0 1 0-.708.708L7.293 8l-4.147 4.146a.5.5 0 0 0 .708.708L8 8.707l4.146 4.147a.5.5 0 0 0 .708-.708L8.707 8l4.147-4.146z" fill="currentColor"/>
           </svg>
         </button>
