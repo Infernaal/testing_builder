@@ -17,12 +17,12 @@
       <!-- Blurred Background Overlay -->
       <div class="absolute inset-0 bg-gray-500/10 backdrop-blur-md"></div>
 
-      <!-- Triangular Pointer at Bottom -->
-      <div class="absolute bottom-16 right-6 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#120B81] z-60"></div>
+      <!-- Triangular Pointer at Bottom pointing to BottomNavigation -->
+      <div class="absolute bottom-20 left-8 w-0 h-0 border-l-[12px] border-r-[12px] border-t-[12px] border-l-transparent border-r-transparent border-t-[#120B81] z-60"></div>
 
       <!-- Profile Drop List Container -->
       <div
-        class="absolute left-4 right-4 top-8 bottom-16 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
+        class="absolute left-4 right-4 top-4 bottom-20 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
         @click.stop
       >
         <!-- Profile Header Section -->
