@@ -201,7 +201,6 @@ const handleInput = (event) => {
 
   // Reset error state for real-time validation
   inputError.value = false
-  errorMessage.value = ''
 
   // Validate input
   if (numericValue === '') {
