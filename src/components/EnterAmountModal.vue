@@ -465,16 +465,54 @@ button:active {
   text-rendering: optimizeLegibility;
 }
 
-/* Responsive design */
+/* Telegram WebApp specific optimizations */
 @media (max-width: 375px) {
   .max-w-\[340px\] {
-    max-width: calc(100vw - 32px);
+    max-width: calc(100vw - 24px);
   }
 
-  .text-lg { font-size: 17px; }
-  .text-base { font-size: 15px; }
-  .text-sm { font-size: 13px; }
-  .text-xs { font-size: 11px; }
+  /* Smaller font sizes for mobile */
+  .text-lg { font-size: 16px; }
+  .text-base { font-size: 14px; }
+  .text-sm { font-size: 12px; }
+  .text-xs { font-size: 10px; }
+
+  /* Compact spacing for mobile */
+  .px-4 { padding-left: 12px; padding-right: 12px; }
+  .py-3 { padding-top: 8px; padding-bottom: 8px; }
+}
+
+/* Telegram WebApp viewport handling */
+@media (max-height: 600px) {
+  .min-h-\[300px\] {
+    min-height: 280px;
+  }
+
+  .pb-6 {
+    padding-bottom: 16px;
+  }
+}
+
+/* Better number formatting display */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Telegram theme compatibility */
+@media (prefers-color-scheme: dark) {
+  .bg-dbd-off-white {
+    background-color: #1e1e1e;
+  }
+
+  .text-dbd-dark {
+    color: #ffffff;
+  }
+
+  .border-gray-100 {
+    border-color: #2a2a2a;
+  }
 }
 
 /* Smooth backdrop */
