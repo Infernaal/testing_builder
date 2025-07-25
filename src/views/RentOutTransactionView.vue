@@ -228,7 +228,7 @@
             <div class="flex items-center gap-2">
               <span class="text-sm font-medium text-dbd-dark">{{ selectedTransaction.contractId }}</span>
               <!-- Copy Button with Fixed Width to Prevent Jumping -->
-              <div class="w-20 flex justify-end">
+              <div class="w-24 flex justify-end pl-2">
                 <!-- Default State -->
                 <button
                   v-if="!copyState.isShowingCopied"
