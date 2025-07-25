@@ -360,6 +360,9 @@ const showExportMenu = ref(false)
 const selectedTransactions = ref([])
 const showTransactionModal = ref(false)
 const selectedTransaction = ref(null)
+const copyState = ref({
+  isShowingCopied: false
+})
 
 // Sample transaction data
 const transactions = ref([
