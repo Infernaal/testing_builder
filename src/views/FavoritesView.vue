@@ -350,20 +350,7 @@ const handleRentOut = () => {
 
 const openEnterAmountModal = (balance) => {
   selectedBalance.value = balance
-  foreversAmount.value = 250 // Default amount
-  inputError.value = '' // Clear any previous errors
   showEnterAmountModal.value = true
-
-  // Add keyboard listener for escape key
-  document.addEventListener('keydown', handleKeydown)
-
-  // Focus input field after modal is rendered
-  setTimeout(() => {
-    if (amountInput.value) {
-      amountInput.value.focus()
-      amountInput.value.select() // Select all text for easy replacement
-    }
-  }, 300) // Wait for transition to complete
 }
 
 const closeEnterAmountModal = () => {
