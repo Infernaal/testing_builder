@@ -124,7 +124,10 @@
               </template>
             </div>
 
-            <button class="w-6 h-6 border border-gray-300 bg-white rounded-full flex items-center justify-center">
+            <button
+              @click="showInfoTooltip = true"
+              class="w-6 h-6 border border-gray-300 bg-white rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
+            >
               <svg width="20" height="20" viewBox="0 0 20 20" class="text-gray-600">
                 <path d="M10 2C5.5888 2 2 5.58885 2 10C2 14.4112 5.5888 18 10 18C14.4112 18 18 14.4112 18 10C18 5.58885 14.4112 2 10 2ZM10 16.5455C6.39079 16.5455 3.45455 13.6092 3.45455 10C3.45455 6.39088 6.39079 3.45455 10 3.45455C13.6092 3.45455 16.5455 6.39088 16.5455 10C16.5455 13.6092 13.6092 16.5455 10 16.5455Z" fill="currentColor"/>
                 <path d="M10 5.39453C9.46543 5.39453 9.03052 5.82973 9.03052 6.36466C9.03052 6.89911 9.46543 7.33393 10 7.33393C10.5346 7.33393 10.9695 6.89911 10.9695 6.36466C10.9695 5.82973 10.5346 5.39453 10 5.39453Z" fill="currentColor"/>
@@ -161,6 +164,14 @@
       :is-visible="showErrorNotification"
       :message="errorMessage"
       @close="hideErrorNotification"
+    />
+
+    <!-- Info Tooltip -->
+    <InfoTooltip
+      :is-visible="showInfoTooltip"
+      title="Forevers Balance"
+      description="Dubadu Forevers ads you own. You invest and own your own advertising billboard on dubadu.com, and we rent it out."
+      @close="showInfoTooltip = false"
     />
 
     <!-- Bottom Navigation -->
@@ -343,6 +354,7 @@ import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
 import SuccessNotification from '../components/SuccessNotification.vue'
 import ErrorNotification from '../components/ErrorNotification.vue'
+import InfoTooltip from '../components/InfoTooltip.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
@@ -369,6 +381,9 @@ let successTimeout = null
 const showErrorNotification = ref(false)
 const errorMessage = ref('')
 let errorTimeout = null
+
+// Info tooltip state
+const showInfoTooltip = ref(false)
 const dollarsAmount = computed(() => {
   if (!selectedBalance.value) return 1000
   return foreversAmount.value * selectedBalance.value.usdRate
