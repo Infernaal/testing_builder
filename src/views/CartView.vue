@@ -102,10 +102,8 @@
     <!-- Success Modal -->
     <SuccessModal
       :is-visible="showSuccessModal"
-      :title="'Purchase Successful!'"
-      :message="'Your Forevers have been purchased successfully.'"
-      :payment-details="lastPurchaseDetails"
-      :confirm-text="'Continue'"
+      :amount="totalForeversAmount.toLocaleString()"
+      :message="'Funds have been successfully'"
       @close="closeSuccessModal"
       @confirm="closeSuccessModal"
     />
@@ -137,6 +135,11 @@ const router = useRouter()
 
 // Cart functionality
 const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useCart()
+
+// Computed properties
+const totalForeversAmount = computed(() => {
+  return cartItems.value.reduce((total, item) => total + item.foreversAmount, 0)
+})
 
 // Modal state
 const showSuccessModal = ref(false)
