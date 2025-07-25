@@ -537,8 +537,6 @@ span, h1 {
 
 /* Touch-friendly improvements */
 button {
-  min-height: 44px;
-  min-width: 44px;
   touch-action: manipulation;
 }
 
