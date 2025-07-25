@@ -19,11 +19,8 @@
       <!-- Modal Content -->
       <div
         @click.stop
-        class="modal-content relative bg-gray-50 rounded-[20px] shadow-xl transition-all duration-200"
-        :style="{ 
-          width: '311px', 
-          height: inputError ? '318px' : '238px'
-        }"
+        class="modal-content relative bg-white rounded-[20px] shadow-xl"
+        style="width: 311px; height: 238px;"
       >
         <!-- Header -->
         <div class="absolute left-1/2 top-3 transform -translate-x-1/2">
@@ -33,34 +30,34 @@
         </div>
 
         <!-- Exchange Rate Section -->
-        <div class="absolute left-14 top-12 w-52 h-11">
-          <div class="w-52 h-11 rounded-full border border-gray-200 bg-white relative flex items-center px-4">
-            <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
-            <div class="flex items-center ml-2">
-              <span class="text-black text-sm font-medium">1 Forevers {{ selectedBalance?.code }}</span>
-              <span class="text-gray-600 text-sm font-medium mx-1">/</span>
-              <span class="text-blue-700 text-sm font-medium">{{ selectedBalance?.usdRate }} USD</span>
+        <div class="absolute left-14 top-12 w-52 h-11 relative">
+          <!-- Tooltip trigger (hidden for now as per design) -->
+          <div class="w-52 h-11 rounded-full border border-gray-200 bg-white relative">
+            <div class="flex items-center gap-1 absolute left-4 top-2.5 w-44 h-6">
+              <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
+              <div class="flex items-center">
+                <span class="text-black text-sm font-medium leading-5">1 Forevers {{ selectedBalance?.code }}</span>
+                <span class="text-gray-600 text-sm font-medium leading-normal">/</span>
+                <span class="text-blue-700 text-sm font-medium leading-6">{{ selectedBalance?.usdRate }} USD</span>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Input Field -->
-        <div class="absolute left-4 top-[102px] w-[281px] h-[52px]">
-          <div 
-            class="w-full h-full rounded-full border bg-gray-50 flex items-center gap-2 px-4"
-            :class="inputError ? 'border-gray-700' : 'border-gray-700'"
-          >
-            <!-- Forevers Section -->
-            <div class="flex items-center gap-2">
+        <div class="absolute left-4 top-26 w-[283px] h-13">
+          <div class="w-full h-13 rounded-full border border-gray-700 bg-white flex items-center gap-2 px-4">
+            <!-- Forevers Icon Section -->
+            <div class="flex items-center gap-0.5">
               <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" fill="#02070E"/>
+                  <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" :fill="inputError ? '#FF1919' : '#4B4D50'"/>
                 </svg>
               </div>
               <div class="flex flex-col">
-                <span class="text-gray-600 text-xs font-medium">Forevers {{ selectedBalance?.code }}</span>
-                <span :class="['text-base font-semibold', inputError ? 'text-red-500' : 'text-black']">
-                  {{ inputValue || '250' }}
+                <span class="text-gray-600 text-xs font-medium leading-3.5">Forevers {{ selectedBalance?.code }}</span>
+                <span :class="['text-base font-semibold leading-5', inputError ? 'text-red-500' : 'text-black']">
+                  {{ inputValue || (inputError ? 'Enter' : '250') }}
                 </span>
               </div>
             </div>
@@ -78,15 +75,15 @@
             </svg>
 
             <!-- Dollar Section -->
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-0.5">
               <div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11.8515 24C11.5488 24 11.2984 23.9056 11.1004 23.7167C10.9025 23.5278 10.8035 23.2889 10.8035 23V21.2C9.68559 21.0222 8.73071 20.6444 7.93886 20.0667C7.14702 19.4889 6.52984 18.7556 6.08734 17.8667C5.97089 17.6222 5.97089 17.3667 6.08734 17.1C6.20378 16.8333 6.40175 16.6444 6.68122 16.5333C6.93741 16.4222 7.19942 16.4222 7.46725 16.5333C7.73508 16.6444 7.93886 16.8222 8.0786 17.0667C8.49782 17.8222 9.04512 18.3889 9.72052 18.7667C10.3959 19.1444 11.1761 19.3333 12.0611 19.3333C13.179 19.3333 14.099 19.0667 14.821 18.5333C15.5429 18 15.9039 17.2667 15.9039 16.3333C15.9039 15.3556 15.5837 14.6 14.9432 14.0667C14.3028 13.5333 13.0975 12.9889 11.3275 12.4333C9.65065 11.9222 8.39883 11.2444 7.57205 10.4C6.74527 9.55556 6.33188 8.5 6.33188 7.23333C6.33188 6.01111 6.74527 4.98889 7.57205 4.16667C8.39883 3.34444 9.47598 2.87778 10.8035 2.76667V1C10.8035 0.711111 10.9025 0.472222 11.1004 0.283333C11.2984 0.0944446 11.5488 0 11.8515 0C12.1543 0 12.4047 0.0944446 12.6026 0.283333C12.8006 0.472222 12.8996 0.711111 12.8996 1V2.76667C13.738 2.87778 14.4891 3.12222 15.1528 3.5C15.8166 3.87778 16.3697 4.36667 16.8122 4.96667C16.9753 5.18889 17.0102 5.42778 16.917 5.68333C16.8239 5.93889 16.6376 6.12222 16.3581 6.233C16.1019 6.34444 15.8341 6.35556 15.5546 6.26667C15.2751 6.17778 15.0422 6.01111 14.8559 5.76667C14.5298 5.36667 14.1281 5.07222 13.6507 4.88333C13.1732 4.69444 12.5968 4.6 11.9214 4.6C10.8501 4.6 10 4.83333 9.37118 5.3C8.74236 5.76667 8.42795 6.4 8.42795 7.2C8.42795 8.04444 8.77729 8.72778 9.47598 9.25C10.1747 9.77222 11.4672 10.3111 13.3537 10.8667C14.9374 11.3333 16.1077 12.0056 16.8646 12.8833C17.6215 13.7611 18 14.8667 18 16.2C18 17.6 17.5691 18.7278 16.7074 19.5833C15.8457 20.4389 14.5764 20.9889 12.8996 21.2333V23C12.8996 23.2889 12.8006 23.5278 12.6026 23.7167C12.4047 23.9056 12.1543 24 11.8515 24Z" fill="#4B4D50"/>
+                  <path d="M11.8515 24C11.5488 24 11.2984 23.9056 11.1004 23.7167C10.9025 23.5278 10.8035 23.2889 10.8035 23V21.2C9.68559 21.0222 8.73071 20.6444 7.93886 20.0667C7.14702 19.4889 6.52984 18.7556 6.08734 17.8667C5.97089 17.6222 5.97089 17.3667 6.08734 17.1C6.20378 16.8333 6.40175 16.6444 6.68122 16.5333C6.93741 16.4222 7.19942 16.4222 7.46725 16.5333C7.73508 16.6444 7.93886 16.8222 8.0786 17.0667C8.49782 17.8222 9.04512 18.3889 9.72052 18.7667C10.3959 19.1444 11.1761 19.3333 12.0611 19.3333C13.179 19.3333 14.099 19.0667 14.821 18.5333C15.5429 18 15.9039 17.2667 15.9039 16.3333C15.9039 15.3556 15.5837 14.6 14.9432 14.0667C14.3028 13.5333 13.0975 12.9889 11.3275 12.4333C9.65065 11.9222 8.39883 11.2444 7.57205 10.4C6.74527 9.55556 6.33188 8.5 6.33188 7.23333C6.33188 6.01111 6.74527 4.98889 7.57205 4.16667C8.39883 3.34444 9.47598 2.87778 10.8035 2.76667V1C10.8035 0.711111 10.9025 0.472222 11.1004 0.283333C11.2984 0.0944446 11.5488 0 11.8515 0C12.1543 0 12.4047 0.0944446 12.6026 0.283333C12.8006 0.472222 12.8996 0.711111 12.8996 1V2.76667C13.738 2.87778 14.4891 3.12222 15.1528 3.5C15.8166 3.87778 16.3697 4.36667 16.8122 4.96667C16.9753 5.18889 17.0102 5.42778 16.917 5.68333C16.8239 5.93889 16.6376 6.12222 16.3581 6.23333C16.1019 6.34444 15.8341 6.35556 15.5546 6.26667C15.2751 6.17778 15.0422 6.01111 14.8559 5.76667C14.5298 5.36667 14.1281 5.07222 13.6507 4.88333C13.1732 4.69444 12.5968 4.6 11.9214 4.6C10.8501 4.6 10 4.83333 9.37118 5.3C8.74236 5.76667 8.42795 6.4 8.42795 7.2C8.42795 8.04444 8.77729 8.72778 9.47598 9.25C10.1747 9.77222 11.4672 10.3111 13.3537 10.8667C14.9374 11.3333 16.1077 12.0056 16.8646 12.8833C17.6215 13.7611 18 14.8667 18 16.2C18 17.6 17.5691 18.7278 16.7074 19.5833C15.8457 20.4389 14.5764 20.9889 12.8996 21.2333V23C12.8996 23.2889 12.8006 23.5278 12.6026 23.7167C12.4047 23.9056 12.1543 24 11.8515 24Z" fill="#4B4D50"/>
                 </svg>
               </div>
               <div class="flex flex-col">
-                <span class="text-gray-600 text-xs font-medium">Dollars</span>
-                <span class="text-gray-600 text-base font-semibold">
+                <span class="text-gray-600 text-xs font-medium leading-3.5">Dollars</span>
+                <span class="text-gray-600 text-base font-semibold leading-5">
                   {{ calculatedDollars }}
                 </span>
               </div>
@@ -98,7 +95,7 @@
             ref="inputField"
             v-model="inputValue"
             type="number"
-            class="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
+            class="absolute inset-0 opacity-0 w-full h-full"
             :placeholder="`Enter ${selectedBalance?.code} amount`"
             @input="validateInput"
             @keydown.enter="handleAddToCart"
@@ -106,50 +103,36 @@
           />
         </div>
 
-        <!-- Error Message (inside modal, expanding it) -->
-        <Transition
-          name="error-slide"
-          enter-active-class="transition-all duration-200 ease-out"
-          leave-active-class="transition-all duration-150 ease-in"
-          enter-from-class="opacity-0 transform translate-y-2"
-          enter-to-class="opacity-100 transform translate-y-0"
-          leave-from-class="opacity-100 transform translate-y-0"
-          leave-to-class="opacity-0 transform translate-y-2"
+        <!-- Error Message -->
+        <div 
+          v-if="inputError" 
+          class="absolute left-4 top-44 w-72 h-20"
         >
-          <div 
-            v-if="inputError" 
-            class="absolute left-4 top-[170px] w-[283px]"
-          >
-            <div class="w-full rounded-full border border-red-600 bg-red-500 shadow-lg flex items-center gap-3 px-3 py-4" 
-                 style="filter: drop-shadow(4px 8px 12px rgba(255, 25, 25, 0.12));">
-              <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
-                <div class="w-10 h-10 rounded-full border border-white bg-gray-700 bg-opacity-25 flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
-                  </svg>
-                </div>
+          <div class="w-72 h-20 rounded-full border border-red-600 bg-red-500 shadow-lg flex items-center gap-3 px-3">
+            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
+              <div class="w-10 h-10 rounded-full border border-white bg-gray-700 bg-opacity-25 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
+                </svg>
               </div>
-              <div class="flex flex-col justify-center flex-1 min-w-0">
-                <div class="text-white text-base font-semibold leading-5">
-                  {{ errorTitle }}
-                </div>
-                <div class="text-white text-sm font-medium leading-4">
-                  {{ errorMessage }}
-                </div>
+            </div>
+            <div class="flex flex-col justify-center flex-1">
+              <div class="text-white text-base font-semibold leading-5 mb-1">
+                {{ errorTitle }}
+              </div>
+              <div class="text-white text-sm font-medium leading-4">
+                {{ errorMessage }}
               </div>
             </div>
           </div>
-        </Transition>
+        </div>
 
         <!-- Buttons -->
-        <div 
-          class="absolute left-3 flex items-center gap-3 w-[287px] h-11"
-          :class="inputError ? 'top-[262px]' : 'top-[182px]'"
-        >
+        <div class="absolute left-3 top-48 flex items-center gap-3 w-72 h-11">
           <!-- Back Button -->
           <button
             @click="closeModal"
-            class="w-[89px] h-11 rounded-full border border-gray-700 bg-gray-50 flex items-center justify-center hover:bg-gray-100 transition-colors"
+            class="w-22 h-11 rounded-full border border-gray-700 bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
           >
             <span class="text-gray-700 text-base font-medium">Back</span>
           </button>
@@ -158,7 +141,7 @@
           <button
             @click="handleAddToCart"
             :disabled="!inputValue || inputError"
-            class="w-[190px] h-11 rounded-full text-white text-xl font-bold transition-colors"
+            class="flex-1 h-11 rounded-full text-white text-xl font-bold transition-colors"
             :class="[
               !inputValue || inputError 
                 ? 'bg-gray-400 cursor-not-allowed' 
@@ -174,7 +157,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import CountryFlag from './CountryFlag.vue'
 
 const props = defineProps({
@@ -310,6 +293,7 @@ onUnmounted(() => {
 @media (min-width: 769px) {
   .modal-content {
     width: 350px !important;
+    height: 250px !important;
   }
 }
 
@@ -355,25 +339,6 @@ onUnmounted(() => {
 .modal-leave-to {
   opacity: 0;
   transform: scale(0.9) translateY(20px);
-}
-
-/* Error message animations */
-.error-slide-enter-active {
-  transition: all 0.2s ease-out;
-}
-
-.error-slide-leave-active {
-  transition: all 0.15s ease-in;
-}
-
-.error-slide-enter-from {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.error-slide-leave-to {
-  opacity: 0;
-  transform: translateY(-4px);
 }
 
 /* Smooth hover effects */
