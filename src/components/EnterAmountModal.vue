@@ -10,55 +10,59 @@
   >
     <div
       v-if="isVisible"
-      class="modal-overlay fixed inset-0 flex items-center justify-center z-50"
+      class="fixed inset-0 flex items-center justify-center z-50"
       @click="closeModal"
     >
       <!-- Blur Backdrop -->
-      <div class="modal-backdrop absolute inset-0 bg-black bg-opacity-20"></div>
+      <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-sm"></div>
 
       <!-- Modal Content -->
       <div
         @click.stop
-        class="modal-content relative bg-white rounded-[20px] shadow-xl"
+        class="relative bg-dbd-off-white rounded-[20px] shadow-xl modal-content"
         style="width: 311px; height: 238px;"
       >
-        <!-- Header -->
-        <div class="absolute left-1/2 top-3 transform -translate-x-1/2">
-          <h2 class="text-lg font-semibold text-black leading-6">
+        <!-- Title -->
+        <div class="absolute left-[90px] top-3 w-[132px] h-[26px] flex items-center justify-center">
+          <h2 class="text-lg font-bold text-dbd-dark font-montserrat">
             Enter Amount
           </h2>
         </div>
 
         <!-- Exchange Rate Section -->
-        <div class="absolute left-14 top-12 w-52 h-11 relative">
-          <!-- Tooltip trigger (hidden for now as per design) -->
-          <div class="w-52 h-11 rounded-full border border-gray-200 bg-white relative">
-            <div class="flex items-center gap-1 absolute left-4 top-2.5 w-44 h-6">
-              <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
-              <div class="flex items-center">
-                <span class="text-black text-sm font-medium leading-5">1 Forevers {{ selectedBalance?.code }}</span>
-                <span class="text-gray-600 text-sm font-medium leading-normal">/</span>
-                <span class="text-blue-700 text-sm font-medium leading-6">{{ selectedBalance?.usdRate }} USD</span>
-              </div>
+        <div class="absolute left-[54px] top-[46px] w-[202px] h-11">
+          <div class="w-full h-11 rounded-full border border-gray-200 bg-white flex items-center gap-1 px-4">
+            <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
+            <div class="flex items-center">
+              <span class="text-dbd-dark text-sm font-medium">1 Forevers {{ selectedBalance?.code }}</span>
+              <span class="text-dbd-gray text-sm font-medium mx-1">/</span>
+              <span class="text-dbd-primary text-sm font-medium">{{ selectedBalance?.usdRate }} USD</span>
             </div>
           </div>
         </div>
 
         <!-- Input Field -->
-        <div class="absolute left-4 top-26 w-[283px] h-13">
-          <div class="w-full h-13 rounded-full border border-gray-700 bg-white flex items-center gap-2 px-4">
-            <!-- Forevers Icon Section -->
+        <div class="absolute left-[15px] top-[102px] w-[281px] h-[52px]">
+          <div class="w-full h-full rounded-full border border-dbd-gray bg-dbd-off-white flex items-center gap-2 px-[14px]">
+            <!-- Forevers Section -->
             <div class="flex items-center gap-0.5">
-              <div class="w-9 h-9 rounded-full bg-blue-50 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-[29px] bg-dbd-light-blue flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" :fill="inputError ? '#FF1919' : '#4B4D50'"/>
+                  <path d="M22.0457 2.40039H7.50852C6.86852 2.40039 6.41138 2.85753 6.41138 3.49753V7.97753H2.29709C1.65709 8.06896 1.19995 8.52611 1.19995 9.16611C1.19995 9.80611 1.65709 10.2632 2.29709 10.2632H6.41138V20.5033C6.41138 21.1432 6.86852 21.6004 7.50852 21.6004C8.14852 21.6004 8.60567 21.1432 8.60567 20.5033V15.749H13.2685C13.9085 15.749 14.3657 15.2918 14.3657 14.6518C14.3657 14.0118 13.9085 13.5547 13.2685 13.5547H8.60567V10.1718H17.4742C18.1142 10.1718 18.5714 9.71468 18.5714 9.07468C18.5714 8.43468 18.1142 7.97753 17.4742 7.97753H8.60567V4.59468H21.9542C22.5942 4.59468 23.0514 4.13753 23.0514 3.49753C23.0514 2.85753 22.6857 2.40039 22.0457 2.40039Z" fill="#02070E"/>
                 </svg>
               </div>
               <div class="flex flex-col">
-                <span class="text-gray-600 text-xs font-medium leading-3.5">Forevers {{ selectedBalance?.code }}</span>
-                <span :class="['text-base font-semibold leading-5', inputError ? 'text-red-500' : 'text-black']">
-                  {{ inputValue || (inputError ? 'Enter' : '250') }}
-                </span>
+                <span class="text-dbd-gray text-xs font-medium leading-[14px]">Forevers {{ selectedBalance?.code }}</span>
+                <input
+                  ref="inputField"
+                  v-model="inputValue"
+                  type="number"
+                  class="text-base font-bold text-dbd-dark bg-transparent border-none outline-none w-16 p-0"
+                  placeholder="250"
+                  @input="handleInput"
+                  @keydown.enter="handleAddToCart"
+                  @keydown.escape="closeModal"
+                />
               </div>
             </div>
 
@@ -76,79 +80,38 @@
 
             <!-- Dollar Section -->
             <div class="flex items-center gap-0.5">
-              <div class="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center">
+              <div class="w-9 h-9 rounded-[20.3px] bg-gray-200 flex items-center justify-center">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M11.8515 24C11.5488 24 11.2984 23.9056 11.1004 23.7167C10.9025 23.5278 10.8035 23.2889 10.8035 23V21.2C9.68559 21.0222 8.73071 20.6444 7.93886 20.0667C7.14702 19.4889 6.52984 18.7556 6.08734 17.8667C5.97089 17.6222 5.97089 17.3667 6.08734 17.1C6.20378 16.8333 6.40175 16.6444 6.68122 16.5333C6.93741 16.4222 7.19942 16.4222 7.46725 16.5333C7.73508 16.6444 7.93886 16.8222 8.0786 17.0667C8.49782 17.8222 9.04512 18.3889 9.72052 18.7667C10.3959 19.1444 11.1761 19.3333 12.0611 19.3333C13.179 19.3333 14.099 19.0667 14.821 18.5333C15.5429 18 15.9039 17.2667 15.9039 16.3333C15.9039 15.3556 15.5837 14.6 14.9432 14.0667C14.3028 13.5333 13.0975 12.9889 11.3275 12.4333C9.65065 11.9222 8.39883 11.2444 7.57205 10.4C6.74527 9.55556 6.33188 8.5 6.33188 7.23333C6.33188 6.01111 6.74527 4.98889 7.57205 4.16667C8.39883 3.34444 9.47598 2.87778 10.8035 2.76667V1C10.8035 0.711111 10.9025 0.472222 11.1004 0.283333C11.2984 0.0944446 11.5488 0 11.8515 0C12.1543 0 12.4047 0.0944446 12.6026 0.283333C12.8006 0.472222 12.8996 0.711111 12.8996 1V2.76667C13.738 2.87778 14.4891 3.12222 15.1528 3.5C15.8166 3.87778 16.3697 4.36667 16.8122 4.96667C16.9753 5.18889 17.0102 5.42778 16.917 5.68333C16.8239 5.93889 16.6376 6.12222 16.3581 6.23333C16.1019 6.34444 15.8341 6.35556 15.5546 6.26667C15.2751 6.17778 15.0422 6.01111 14.8559 5.76667C14.5298 5.36667 14.1281 5.07222 13.6507 4.88333C13.1732 4.69444 12.5968 4.6 11.9214 4.6C10.8501 4.6 10 4.83333 9.37118 5.3C8.74236 5.76667 8.42795 6.4 8.42795 7.2C8.42795 8.04444 8.77729 8.72778 9.47598 9.25C10.1747 9.77222 11.4672 10.3111 13.3537 10.8667C14.9374 11.3333 16.1077 12.0056 16.8646 12.8833C17.6215 13.7611 18 14.8667 18 16.2C18 17.6 17.5691 18.7278 16.7074 19.5833C15.8457 20.4389 14.5764 20.9889 12.8996 21.2333V23C12.8996 23.2889 12.8006 23.5278 12.6026 23.7167C12.4047 23.9056 12.1543 24 11.8515 24Z" fill="#4B4D50"/>
                 </svg>
               </div>
               <div class="flex flex-col">
-                <span class="text-gray-600 text-xs font-medium leading-3.5">Dollars</span>
-                <span class="text-gray-600 text-base font-semibold leading-5">
+                <span class="text-dbd-gray text-xs font-medium leading-[14px]">Dollars</span>
+                <span class="text-base font-bold text-dbd-gray">
                   {{ calculatedDollars }}
                 </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hidden input for capturing user input -->
-          <input
-            ref="inputField"
-            v-model="inputValue"
-            type="number"
-            class="absolute inset-0 opacity-0 w-full h-full"
-            :placeholder="`Enter ${selectedBalance?.code} amount`"
-            @input="validateInput"
-            @keydown.enter="handleAddToCart"
-            @keydown.escape="closeModal"
-          />
-        </div>
-
-        <!-- Error Message -->
-        <div 
-          v-if="inputError" 
-          class="absolute left-4 top-44 w-72 h-20"
-        >
-          <div class="w-72 h-20 rounded-full border border-red-600 bg-red-500 shadow-lg flex items-center gap-3 px-3">
-            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0">
-              <div class="w-10 h-10 rounded-full border border-white bg-gray-700 bg-opacity-25 flex items-center justify-center">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M19.7408 16.2967L11.1162 1.64545C10.6472 0.784823 9.35324 0.784859 8.88114 1.6455C8.88114 1.64545 0.256622 16.2967 0.256622 16.2967C-0.427786 17.3687 0.337271 19.0391 1.60051 18.9993C1.60046 18.9993 18.3969 18.9993 18.3969 18.9993C19.6579 19.0374 20.4321 17.3725 19.7408 16.2967ZM8.86009 15.8781C9.15379 14.4507 11.1404 14.6596 11.1618 16.1205C11.0791 17.9021 8.59938 17.6324 8.86009 15.8781ZM11.1618 12.4632C11.1221 14.0415 8.87825 14.0442 8.83553 12.4631V6.86705C8.87991 5.28892 11.119 5.28691 11.1618 6.86707C11.1618 6.86705 11.1618 12.4632 11.1618 12.4632Z" fill="#FAFAFA"/>
-                </svg>
-              </div>
-            </div>
-            <div class="flex flex-col justify-center flex-1">
-              <div class="text-white text-base font-semibold leading-5 mb-1">
-                {{ errorTitle }}
-              </div>
-              <div class="text-white text-sm font-medium leading-4">
-                {{ errorMessage }}
               </div>
             </div>
           </div>
         </div>
 
         <!-- Buttons -->
-        <div class="absolute left-3 top-48 flex items-center gap-3 w-72 h-11">
+        <div class="absolute left-3 top-[182px] flex items-center gap-4">
           <!-- Back Button -->
           <button
             @click="closeModal"
-            class="w-22 h-11 rounded-full border border-gray-700 bg-white flex items-center justify-center hover:bg-gray-50 transition-colors"
+            class="inline-flex h-11 px-6 justify-center items-center gap-2.5 rounded-full border border-dbd-gray bg-dbd-off-white hover:bg-gray-100 transition-colors"
           >
-            <span class="text-gray-700 text-base font-medium">Back</span>
+            <span class="text-dbd-gray text-base font-medium">Back</span>
           </button>
 
           <!-- Add to Cart Button -->
           <button
             @click="handleAddToCart"
             :disabled="!inputValue || inputError"
-            class="flex-1 h-11 rounded-full text-white text-xl font-bold transition-colors"
-            :class="[
-              !inputValue || inputError 
-                ? 'bg-gray-400 cursor-not-allowed' 
-                : 'bg-gradient-to-r from-blue-700 to-blue-500 hover:from-blue-800 hover:to-blue-600'
-            ]"
+            class="flex w-[190px] h-11 px-12 justify-center items-center gap-2.5 rounded-full bg-gradient-to-r from-dbd-primary to-[#473FFF] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
-            Add to Cart
+            <span class="text-white text-xl font-bold">Add to Cart</span>
           </button>
         </div>
       </div>
@@ -157,7 +120,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import CountryFlag from './CountryFlag.vue'
 
 const props = defineProps({
@@ -175,9 +138,7 @@ const emit = defineEmits(['close', 'add-to-cart'])
 
 const inputField = ref(null)
 const inputValue = ref('')
-const inputError = ref('')
-const errorTitle = ref('')
-const errorMessage = ref('')
+const inputError = ref(false)
 
 const calculatedDollars = computed(() => {
   if (!inputValue.value || !props.selectedBalance?.usdRate) {
@@ -187,57 +148,39 @@ const calculatedDollars = computed(() => {
   return amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 })
 
-const validateInput = () => {
-  const value = inputValue.value
+const handleInput = (event) => {
+  // Filter out non-numeric characters in real-time
+  const value = event.target.value
+  const numericValue = value.replace(/[^0-9]/g, '')
   
-  // Clear previous errors
-  inputError.value = ''
-  errorTitle.value = ''
-  errorMessage.value = ''
-  
-  if (!value) {
-    inputError.value = 'empty'
-    errorTitle.value = "Can't be empty"
-    errorMessage.value = "Please, enter your amount"
-    return false
+  if (value !== numericValue) {
+    event.target.value = numericValue
+    inputValue.value = numericValue
   }
   
-  // Check for invalid characters
-  if (!/^\d+\.?\d*$/.test(value)) {
-    inputError.value = 'invalid'
-    errorTitle.value = "Can't be use"
-    errorMessage.value = 'The "^" symbol is not allowed'
-    return false
+  // Validate input
+  if (numericValue && parseFloat(numericValue) > 0) {
+    inputError.value = false
+  } else {
+    inputError.value = true
   }
-  
-  const numValue = parseFloat(value)
-  
-  // Check if amount is too high (example limit)
-  if (numValue > 2000) {
-    inputError.value = 'limit'
-    errorTitle.value = "Can't be use"
-    errorMessage.value = 'Please enter the amount according to your limit'
-    return false
-  }
-  
-  return true
 }
 
 const handleAddToCart = () => {
-  if (validateInput()) {
-    emit('add-to-cart', {
-      amount: parseFloat(inputValue.value),
-      balance: props.selectedBalance
-    })
-    closeModal()
+  if (!inputValue.value || inputError.value) {
+    return
   }
+  
+  emit('add-to-cart', {
+    amount: parseFloat(inputValue.value),
+    balance: props.selectedBalance
+  })
+  closeModal()
 }
 
 const closeModal = () => {
   inputValue.value = ''
-  inputError.value = ''
-  errorTitle.value = ''
-  errorMessage.value = ''
+  inputError.value = false
   emit('close')
 }
 
@@ -247,15 +190,20 @@ const handleKeyDown = (event) => {
   }
 }
 
-watch(() => props.isVisible, (isVisible) => {
+watch(() => props.isVisible, async (isVisible) => {
   if (isVisible) {
     document.addEventListener('keydown', handleKeyDown)
     document.body.style.overflow = 'hidden'
     
+    // Set default value
+    inputValue.value = '250'
+    
     // Focus input field after modal is rendered
+    await nextTick()
     setTimeout(() => {
       if (inputField.value) {
         inputField.value.focus()
+        inputField.value.select()
       }
     }, 100)
   } else {
@@ -263,20 +211,10 @@ watch(() => props.isVisible, (isVisible) => {
     document.body.style.overflow = ''
   }
 })
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', handleKeyDown)
-  document.body.style.overflow = ''
-})
 </script>
 
 <style scoped>
-/* Modal styles */
-.modal-backdrop {
-  backdrop-filter: blur(9px);
-}
-
-/* Enhanced responsive modal sizing */
+/* Modal responsive sizing for Telegram WebApp */
 @media (max-width: 375px) {
   .modal-content {
     width: calc(100vw - 32px) !important;
@@ -290,39 +228,19 @@ onUnmounted(() => {
   }
 }
 
-@media (min-width: 769px) {
-  .modal-content {
-    width: 350px !important;
-    height: 250px !important;
-  }
-}
-
-/* Ensure modal inputs are touch-friendly */
-.modal-content input {
-  min-height: 44px;
-  border-radius: 22px;
-  font-size: 16px;
-  padding: 0 16px;
-}
-
-.modal-content input:focus {
-  outline: none;
-  border-color: #2019CE;
-}
-
 /* Remove input number arrows on mobile */
-.modal-content input[type="number"] {
+input[type="number"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
 
-.modal-content input[type="number"]::-webkit-outer-spin-button,
-.modal-content input[type="number"]::-webkit-inner-spin-button {
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Animation for modal - enhanced smooth animations */
+/* Modal animations */
 .modal-enter-active {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -343,19 +261,19 @@ onUnmounted(() => {
 
 /* Smooth hover effects */
 @media (hover: hover) {
-  .modal-content button:hover {
+  button:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 }
 
-/* Ensure modal stays above everything */
-.modal-overlay {
-  z-index: 9999;
+/* Telegram WebApp optimizations */
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Typography */
-.modal-content {
-  font-family: 'Montserrat', sans-serif;
+/* Input focus for Telegram */
+input:focus {
+  outline: none;
+  border: none;
 }
 </style>
