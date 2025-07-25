@@ -26,7 +26,7 @@
         @click.stop
       >
         <!-- Profile Header Section -->
-        <div class="w-full px-3 pt-4 pb-3">
+        <div class="w-full px-3 pt-6 pb-4">
           <div class="bg-[#605F87]/24 border border-[#D8D8D8]/24 backdrop-blur-lg rounded-[50px_20px_20px_50px] p-4">
             <div class="flex items-center gap-4">
               <!-- Large Avatar -->
