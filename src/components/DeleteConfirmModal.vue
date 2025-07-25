@@ -19,26 +19,30 @@
       <!-- Modal content -->
       <div
         @click.stop
-        class="relative bg-dbd-off-white rounded-2xl p-6 shadow-xl"
+        class="relative bg-dbd-off-white rounded-2xl shadow-xl"
         style="width: 229px; height: 198px;"
       >
         <!-- Title -->
-        <h3 class="text-lg font-semibold text-dbd-dark text-center mb-4 mt-1">
-          Delete Position?
-        </h3>
+        <div class="absolute left-9 top-6 w-38 h-6">
+          <h3 class="text-lg font-semibold text-dbd-dark text-center">
+            Delete Position?
+          </h3>
+        </div>
 
         <!-- Description -->
-        <p class="text-base text-dbd-gray text-center leading-5 mb-6 px-1">
-          Are you sure you want<br>to delete this item?
-        </p>
+        <div class="absolute left-6 top-16 w-45 h-11">
+          <p class="text-base text-dbd-gray text-center leading-5">
+            Are you sure you want<br>to delete this item?
+          </p>
+        </div>
 
-        <!-- Action Buttons -->
-        <div class="flex items-center gap-3 justify-center">
+        <!-- Action Buttons Container -->
+        <div class="absolute left-6 top-32 flex items-center gap-3" style="width: 181px; height: 44px;">
           <!-- No Button -->
           <button
             @click="onCancel"
-            class="flex items-center justify-center h-11 px-6 rounded-full border border-dbd-gray bg-dbd-off-white hover:bg-gray-50 transition-colors"
-            style="width: 84px;"
+            class="flex items-center justify-center rounded-full border border-dbd-gray bg-dbd-off-white hover:bg-gray-50 transition-colors"
+            style="width: 84px; height: 44px; padding: 12px 24px;"
           >
             <span class="text-dbd-gray text-base font-medium">No</span>
           </button>
@@ -46,8 +50,8 @@
           <!-- Yes Button -->
           <button
             @click="onConfirm"
-            class="flex items-center justify-center h-11 px-6 rounded-full bg-red-500 border border-white text-white hover:bg-red-600 transition-colors"
-            style="width: 85px;"
+            class="flex items-center justify-center rounded-full border border-white text-white hover:bg-red-600 transition-colors"
+            style="width: 85px; height: 44px; padding: 12px 24px; background: #FF1919;"
           >
             <span class="text-white text-base font-medium">Yes</span>
           </button>
