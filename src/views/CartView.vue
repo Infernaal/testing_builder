@@ -12,7 +12,7 @@
           >
             <!-- Country Flag and Code Header -->
             <div class="flex items-center gap-1 mb-3 h-6">
-              <CountryFlag :country="item.code" class="w-6 h-6" />
+              <CountryFlag :country="item.code" class="w-8 h-8" />
               <div class="flex items-center gap-1">
                 <!-- F Icon -->
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-dbd-dark">
