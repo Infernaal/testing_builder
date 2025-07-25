@@ -218,33 +218,33 @@
                  style="background: linear-gradient(93deg, #000482 33.15%, rgba(3, 0, 155, 0.84) 76.97%);">
               
               <!-- Content -->
-              <div class="p-5 space-y-4">
-                <div class="space-y-2">
-                  <h3 class="text-white text-2xl font-bold leading-8">
+              <div class="p-4 sm:p-5 space-y-3 sm:space-y-4">
+                <div class="space-y-1 sm:space-y-2">
+                  <h3 class="text-white text-xl sm:text-2xl font-bold leading-6 sm:leading-8">
                     Web Referral Link
                   </h3>
-                  <p class="text-white text-base font-medium leading-6 max-w-52">
+                  <p class="text-white text-sm sm:text-base font-medium leading-5 sm:leading-6 max-w-48 sm:max-w-52">
                     Copy the link bellow and share with your friends.
                   </p>
                 </div>
 
                 <!-- Copy Link Container -->
-                <div class="relative w-full h-12 rounded-full border border-dbd-primary/60 bg-white/10 flex items-center">
-                  <div class="flex-1 px-6 py-3">
-                    <span class="text-white text-lg font-semibold underline">
+                <div class="relative w-full h-10 sm:h-12 rounded-full border border-dbd-primary/60 bg-white/10 flex items-center">
+                  <div class="flex-1 px-4 sm:px-6 py-2 sm:py-3">
+                    <span class="text-white text-base sm:text-lg font-semibold underline truncate block">
                       {{ referralLink }}
                     </span>
                   </div>
-                  
+
                   <!-- Copy Button -->
-                  <button 
+                  <button
                     @click="copyReferralLink"
-                    class="absolute right-0 top-0 h-12 px-4 bg-white rounded-r-full border border-dbd-primary flex items-center justify-center gap-2 transition-all duration-200 hover:bg-gray-50"
+                    class="absolute right-0 top-0 h-10 sm:h-12 px-3 sm:px-4 bg-white rounded-r-full border border-dbd-primary flex items-center justify-center gap-1 sm:gap-2 transition-all duration-200 hover:bg-gray-50"
                   >
-                    <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
                     </svg>
-                    <span class="text-white text-sm font-semibold">Copy</span>
+                    <span class="text-gray-700 text-xs sm:text-sm font-semibold hidden sm:inline">Copy</span>
                   </button>
                 </div>
               </div>
