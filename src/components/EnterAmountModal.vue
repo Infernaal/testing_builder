@@ -96,7 +96,7 @@
             v-model="inputValue"
             type="number"
             class="absolute inset-0 opacity-0 w-full h-full"
-            :placeholder="`Enter ${selectedBalance?.country} amount`"
+            :placeholder="`Enter ${selectedBalance?.code} amount`"
             @input="validateInput"
             @keydown.enter="handleAddToCart"
             @keydown.escape="closeModal"
