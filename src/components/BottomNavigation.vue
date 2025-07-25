@@ -299,7 +299,13 @@ const navigateTo = (tab) => {
 }
 
 const toggleProfile = () => {
-  isProfileMenuOpen.value = !isProfileMenuOpen.value
+  if (route.path === '/profile') {
+    // If we're on profile page, go back to wallet (default)
+    router.push('/wallet')
+  } else {
+    // Navigate to profile page
+    router.push('/profile')
+  }
 }
 
 const closeProfileMenu = () => {
