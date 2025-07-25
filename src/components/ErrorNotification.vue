@@ -30,8 +30,8 @@
         
         <!-- Error Text Content -->
         <div class="flex-1 min-w-0">
-          <div class="text-white font-semibold text-base leading-5 mb-1">{{ title || "Can't be used" }}</div>
-          <div class="text-white text-sm font-medium leading-tight opacity-95">{{ message }}</div>
+          <div class="text-white font-semibold text-sm leading-4 mb-0.5">{{ title || "Can't be used" }}</div>
+          <div class="text-white text-xs font-medium leading-tight opacity-95">{{ message }}</div>
         </div>
       </div>
     </div>
