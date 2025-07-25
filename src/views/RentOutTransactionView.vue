@@ -167,12 +167,8 @@ import BottomNavigation from '../components/BottomNavigation.vue'
 const router = useRouter()
 const showExportMenu = ref(false)
 
-// Sample transaction data - empty for demonstration of empty state
-// Toggle this between [] and sample data to test both states
+// Sample transaction data
 const transactions = ref([
-  // Empty array to show empty state
-  // Uncomment below for sample data:
-  /*
   {
     date: '25.02.2025',
     time: '11:30',
@@ -209,7 +205,6 @@ const transactions = ref([
     amount: 250,
     purchased: 400.86
   }
-  */
 ])
 
 const goBack = () => {
