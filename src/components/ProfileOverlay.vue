@@ -255,7 +255,7 @@
                 class="flex items-center gap-3 px-4 py-3 bg-white/30 backdrop-blur-[32px] border border-white/40 rounded-full transition-all duration-300 hover:bg-white/35 active:scale-95 min-w-[140px] h-[48px]"
               >
                 <!-- Flag Container -->
-                <div class="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center bg-[#D4D4D4] flex-shrink-0">
+                <div class="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-[#D4D4D4] flex-shrink-0">
                   <CountryFlag :country="selectedLanguage.code" size="medium" />
                 </div>
 
@@ -302,7 +302,7 @@
                         'text-gray-700 hover:text-gray-900': selectedLanguage.code !== language.code
                       }"
                     >
-                      <div class="w-6 h-6 rounded-full overflow-hidden shadow-sm border border-white/50 flex items-center justify-center flex-shrink-0">
+                      <div class="w-8 h-8 rounded-full overflow-hidden shadow-sm border border-white/50 flex items-center justify-center flex-shrink-0">
                         <CountryFlag :country="language.code" size="small" />
                       </div>
                       <span class="text-sm font-medium transition-colors">{{ language.name }}</span>
