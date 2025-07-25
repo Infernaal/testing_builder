@@ -86,9 +86,9 @@
             </div>
 
             <!-- QR Code Container -->
-            <div class="absolute left-1/2 top-6 transform -translate-x-1/2 w-56 h-56 bg-white rounded-2xl border border-gray-200 shadow-lg flex flex-col items-center justify-center">
+            <div class="absolute left-1/2 top-4 sm:top-6 transform -translate-x-1/2 w-48 h-48 sm:w-56 sm:h-56 bg-white rounded-2xl border border-gray-200 shadow-lg flex flex-col items-center justify-center">
               <!-- QR Code Placeholder -->
-              <div class="w-36 h-36 bg-gray-800 rounded-lg flex items-center justify-center mb-4">
+              <div class="w-28 h-28 sm:w-36 sm:h-36 bg-gray-800 rounded-lg flex items-center justify-center mb-2 sm:mb-4">
                 <div class="grid grid-cols-8 gap-1">
                   <!-- QR Pattern Mock -->
                   <div v-for="i in 64" :key="i" 
@@ -99,13 +99,13 @@
               </div>
               
               <!-- Link Text -->
-              <div class="text-dbd-primary text-lg font-semibold">
+              <div class="text-dbd-primary text-sm sm:text-lg font-semibold px-2 text-center">
                 {{ referralLink }}
               </div>
             </div>
 
             <!-- Terms Checkbox -->
-            <div class="absolute bottom-16 left-4 right-4 flex items-center gap-2">
+            <div class="absolute bottom-12 sm:bottom-16 left-4 right-4 flex items-start gap-2">
               <div class="flex-shrink-0">
                 <label class="flex items-center cursor-pointer">
                   <input 
@@ -120,20 +120,20 @@
                   </div>
                 </label>
               </div>
-              <div class="text-white text-base font-medium">
-                I agree that I have read the 
+              <div class="text-white text-sm sm:text-base font-medium leading-relaxed">
+                I agree that I have read the
                 <span class="text-dbd-orange underline cursor-pointer">Terms and Conditions</span>
               </div>
             </div>
 
             <!-- Share Button -->
-            <div class="absolute bottom-4 left-6 right-6">
-              <button 
+            <div class="absolute bottom-2 sm:bottom-4 left-4 sm:left-6 right-4 sm:right-6">
+              <button
                 :disabled="!agreedToTerms"
                 :class="[
-                  'w-full py-3 px-12 rounded-full font-semibold text-base transition-all duration-200',
-                  agreedToTerms 
-                    ? 'bg-dbd-primary text-white hover:bg-blue-700' 
+                  'w-full py-2 sm:py-3 px-8 sm:px-12 rounded-full font-semibold text-sm sm:text-base transition-all duration-200',
+                  agreedToTerms
+                    ? 'bg-dbd-primary text-white hover:bg-blue-700'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
                 ]"
                 @click="shareQRCode"
