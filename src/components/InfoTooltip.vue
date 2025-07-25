@@ -49,7 +49,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   isVisible: {
@@ -71,6 +71,31 @@ const emit = defineEmits(['close'])
 const closeTooltip = () => {
   emit('close')
 }
+
+const handleKeyDown = (event) => {
+  if (event.key === 'Escape' && props.isVisible) {
+    closeTooltip()
+  }
+}
+
+// Watch for visibility changes to add/remove event listeners
+watch(() => props.isVisible, (isVisible) => {
+  if (isVisible) {
+    document.addEventListener('keydown', handleKeyDown)
+    // Prevent body scroll when tooltip is open
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.removeEventListener('keydown', handleKeyDown)
+    // Restore body scroll
+    document.body.style.overflow = ''
+  }
+})
+
+// Cleanup on unmount
+onBeforeUnmount(() => {
+  document.removeEventListener('keydown', handleKeyDown)
+  document.body.style.overflow = ''
+})
 </script>
 
 <style scoped>
