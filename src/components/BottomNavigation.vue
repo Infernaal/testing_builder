@@ -1,12 +1,12 @@
 <template>
   <div>
-    <!-- Profile Overlay Component (disabled - using ProfileView instead) -->
+    <!-- Profile Overlay Component -->
     <ProfileOverlay
-      :is-visible="false"
+      :is-visible="isProfileMenuOpen"
       @close="closeProfileMenu"
     />
 
-    <!-- ID and Language Section - Above Navigation (hidden since we have ProfileView) -->
+    <!-- ID and Language Section - Above Navigation -->
     <Transition
       name="id-section"
       enter-active-class="transition-all duration-300 ease-out"
@@ -16,7 +16,7 @@
       leave-from-class="opacity-100 translate-y-0"
       leave-to-class="opacity-0 translate-y-full"
     >
-      <div v-if="false" class="fixed bottom-20 left-0 right-0 px-4 pb-2 z-40">
+      <div v-if="isProfileMenuOpen" class="fixed bottom-20 left-0 right-0 px-4 pb-2 z-40">
         <div class="flex items-center justify-between gap-3 max-w-sm mx-auto">
           <!-- User ID с копированием - Enhanced visibility -->
           <div class="flex items-center bg-white/80 border-2 border-white rounded-full backdrop-blur-sm shadow-xl">
@@ -66,20 +66,20 @@
             @click="toggleProfile"
             :class="[
               'flex flex-col items-center gap-1 p-1 sm:p-2 min-w-[48px] sm:min-w-[52px] flex-1',
-              activeTab === 'profile' ? 'text-blue-700' : 'text-gray-600'
+              isProfileMenuOpen ? 'text-blue-700' : 'text-gray-600'
             ]"
           >
             <div class="relative">
               <div
                 :class="[
-                  activeTab === 'profile'
+                  isProfileMenuOpen
                     ? 'w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-blue-700'
                     : 'w-6 h-6 sm:w-7 sm:h-7 rounded-lg',
                   'flex items-center justify-center transition-all duration-200'
                 ]"
               >
-                <!-- Show close icon when on profile page, otherwise show profile -->
-                <div v-if="activeTab === 'profile'" class="text-white">
+                <!-- Show close icon when profile menu is open, otherwise show profile -->
+                <div v-if="isProfileMenuOpen" class="text-white">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
@@ -103,7 +103,7 @@
                   </div>
                   <!-- Dropdown Arrow -->
                   <div class="absolute -bottom-1 -right-1 bg-gray-100 border border-gray-300 rounded-full flex items-center justify-center w-2.5 h-2.5">
-                    <svg :class="activeTab === 'profile' ? 'rotate-180 w-1.5 h-1 transition-transform duration-200 text-gray-600' : 'w-1.5 h-1 transition-transform duration-200 text-gray-600'" viewBox="0 0 8 6">
+                    <svg :class="isProfileMenuOpen ? 'rotate-180 w-1.5 h-1 transition-transform duration-200 text-gray-600' : 'w-1.5 h-1 transition-transform duration-200 text-gray-600'" viewBox="0 0 8 6">
                       <path d="M1 1L4 4L7 1" stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </div>
@@ -271,13 +271,9 @@ watch(() => route.path, (newPath) => {
     '/favorites': 'favorites',
     '/rent-out': 'favorites', // RentOut is part of Favorites section
     '/cart': 'cart',
-    '/holders': 'holders',
-    '/profile': 'profile'
+    '/holders': 'holders'
   }
   activeTab.value = pathToTab[newPath] || 'wallet'
-
-  // Update profile menu state based on route
-  isProfileMenuOpen.value = newPath === '/profile'
 }, { immediate: true })
 
 // Methods
@@ -299,13 +295,7 @@ const navigateTo = (tab) => {
 }
 
 const toggleProfile = () => {
-  if (route.path === '/profile') {
-    // If we're on profile page, go back to wallet (default)
-    router.push('/wallet')
-  } else {
-    // Navigate to profile page
-    router.push('/profile')
-  }
+  isProfileMenuOpen.value = !isProfileMenuOpen.value
 }
 
 const closeProfileMenu = () => {
