@@ -141,15 +141,26 @@ watch(() => props.isVisible, (isVisible) => {
     width: calc(100vw - 32px) !important;
     max-width: 229px;
   }
-  
-  .text-lg {
-    font-size: 16px;
-    line-height: 22px;
+
+  /* Maintain exact proportions for smaller screens */
+  .absolute.left-6 {
+    left: calc(6/229 * 100%) !important;
   }
-  
-  .text-base {
-    font-size: 14px;
-    line-height: 18px;
+
+  .absolute.left-9 {
+    left: calc(9/229 * 100%) !important;
+  }
+
+  .absolute.top-6 {
+    top: calc(6/198 * 100%) !important;
+  }
+
+  .absolute.top-16 {
+    top: calc(16/198 * 100%) !important;
+  }
+
+  .absolute.top-32 {
+    top: calc(32/198 * 100%) !important;
   }
 }
 
@@ -158,21 +169,19 @@ watch(() => props.isVisible, (isVisible) => {
     width: calc(100vw - 24px) !important;
     max-width: 220px;
   }
-  
-  .gap-3 {
-    gap: 8px;
-  }
-  
+
   button[style*="width: 84px"] {
-    width: 75px !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    width: calc(84/229 * 100%) !important;
+    min-width: 70px;
   }
-  
+
   button[style*="width: 85px"] {
-    width: 75px !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    width: calc(85/229 * 100%) !important;
+    min-width: 70px;
+  }
+
+  div[style*="width: 181px"] {
+    width: calc(181/229 * 100%) !important;
   }
 }
 </style>
