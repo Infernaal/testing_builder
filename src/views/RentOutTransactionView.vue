@@ -483,31 +483,19 @@ const copyToClipboard = async (text) => {
 }
 
 const showCopySuccess = () => {
-  // Simple visual feedback - you could enhance this with a toast library
-  const button = document.querySelector('.copy-btn-active')
-  if (button) {
-    const originalText = button.textContent
-    button.textContent = 'Copied!'
-    button.style.backgroundColor = '#07B80E'
-    setTimeout(() => {
-      button.textContent = originalText
-      button.style.backgroundColor = ''
-    }, 1500)
-  }
+  // Show the green "Copied" state
+  copyState.value.isShowingCopied = true
+
+  // Reset back to default state after 2 seconds
+  setTimeout(() => {
+    copyState.value.isShowingCopied = false
+  }, 2000)
 }
 
 const showCopyError = () => {
-  // Show error feedback
-  const button = document.querySelector('.copy-btn-active')
-  if (button) {
-    const originalText = button.textContent
-    button.textContent = 'Failed'
-    button.style.backgroundColor = '#FF1919'
-    setTimeout(() => {
-      button.textContent = originalText
-      button.style.backgroundColor = ''
-    }, 1500)
-  }
+  // For error case, briefly show red feedback
+  console.error('Copy failed')
+  // Could implement error state here if needed
 }
 
 const exportData = (format) => {
