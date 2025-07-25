@@ -201,7 +201,7 @@
         </div>
 
         <!-- Start Level Upgrade Section - Enhanced Size -->
-        <div class="px-3 pb-4">
+        <div class="px-3 pb-6">
           <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-4 relative overflow-hidden">
             <!-- Star Icon -->
             <div class="absolute left-2 top-4">
@@ -237,19 +237,6 @@
               </button>
             </div>
           </div>
-        </div>
-
-        <!-- Close Button with X at Bottom -->
-        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-          <button 
-            @click="$emit('close')"
-            class="w-11 h-11 bg-[#F4F3FF] border border-[#2019CE] rounded-full flex items-center justify-center shadow-lg"
-          >
-            <div class="w-6 h-6 flex items-center justify-center">
-              <div class="w-6 h-0.5 bg-[#4B4D50] rounded-full transform rotate-45"></div>
-              <div class="w-6 h-0.5 bg-[#4B4D50] rounded-full transform -rotate-45 absolute"></div>
-            </div>
-          </button>
         </div>
       </div>
     </div>
