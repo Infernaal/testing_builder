@@ -28,9 +28,9 @@
 
         <!-- Exchange Rate Section -->
         <div class="absolute left-[69px] top-[46px] w-[202px] h-11">
-          <div class="w-full h-11 rounded-full border border-gray-200 bg-white flex items-center gap-1 px-4">
-            <CountryFlag :country="selectedBalance?.code" class="w-6 h-6" />
-            <div class="flex items-center text-sm font-medium">
+          <div class="w-full h-11 rounded-full border border-gray-200 bg-white flex items-center gap-2 px-4">
+            <CountryFlag :country="selectedBalance?.code" class="w-6 h-6 flex-shrink-0" />
+            <div class="flex items-center text-sm font-medium whitespace-nowrap overflow-hidden">
               <span class="text-dbd-dark">1 Forevers {{ selectedBalance?.code }}</span>
               <span class="text-dbd-gray mx-1">/</span>
               <span class="text-dbd-primary">{{ selectedBalance?.usdRate }} USD</span>
@@ -108,7 +108,7 @@
           <button
             @click="handleAddToCart"
             :disabled="!inputValue || inputError"
-            class="flex w-[190px] h-11 px-12 justify-center items-center rounded-full bg-gradient-to-r from-dbd-primary to-[#473FFF] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            class="flex w-[220px] h-11 px-6 justify-center items-center rounded-full bg-gradient-to-r from-dbd-primary to-[#473FFF] hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
           >
             <span class="text-white text-xl font-bold">Add to Cart</span>
           </button>
@@ -116,11 +116,19 @@
       </div>
     </div>
   </Transition>
+
+  <!-- Error Notification -->
+  <ErrorNotification
+    :is-visible="showError"
+    :message="errorMessage"
+    @close="hideError"
+  />
 </template>
 
 <script setup>
 import { ref, computed, watch, nextTick } from 'vue'
 import CountryFlag from './CountryFlag.vue'
+import ErrorNotification from './ErrorNotification.vue'
 
 const props = defineProps({
   isVisible: {
@@ -138,6 +146,9 @@ const emit = defineEmits(['close', 'add-to-cart'])
 const inputField = ref(null)
 const inputValue = ref('')
 const inputError = ref(false)
+const showError = ref(false)
+const errorMessage = ref('')
+let errorTimeout = null
 
 const calculatedDollars = computed(() => {
   if (!inputValue.value || !props.selectedBalance?.usdRate) {
@@ -152,43 +163,80 @@ const handleInput = (event) => {
   if (window.triggerHaptic) {
     window.triggerHaptic('selection')
   }
-  
+
   // Filter out non-numeric characters in real-time
   const value = event.target.value
   const numericValue = value.replace(/[^0-9]/g, '')
-  
+
   if (value !== numericValue) {
     event.target.value = numericValue
     inputValue.value = numericValue
   }
-  
+
   // Validate input
   if (numericValue && parseFloat(numericValue) > 0) {
     inputError.value = false
+    hideError()
+  } else if (numericValue === '') {
+    inputError.value = false
+    hideError()
   } else {
     inputError.value = true
+    showErrorMessage('Amount must be greater than 0')
   }
 }
 
 const handleAddToCart = () => {
-  if (!inputValue.value || inputError.value) {
-    // Haptic feedback for error
-    if (window.triggerHaptic) {
-      window.triggerHaptic('notification', 'error')
-    }
+  if (!inputValue.value) {
+    showErrorMessage('Please enter an amount')
     return
   }
-  
+
+  if (inputError.value) {
+    showErrorMessage('Please enter a valid amount')
+    return
+  }
+
+  const amount = parseFloat(inputValue.value)
+  if (amount <= 0) {
+    showErrorMessage('Amount must be greater than 0')
+    return
+  }
+
   // Haptic feedback for success
   if (window.triggerHaptic) {
     window.triggerHaptic('notification', 'success')
   }
-  
+
   emit('add-to-cart', {
-    amount: parseFloat(inputValue.value),
+    amount: amount,
     balance: props.selectedBalance
   })
   closeModal()
+}
+
+const showErrorMessage = (message) => {
+  if (window.triggerHaptic) {
+    window.triggerHaptic('notification', 'error')
+  }
+
+  errorMessage.value = message
+  showError.value = true
+
+  if (errorTimeout) {
+    clearTimeout(errorTimeout)
+  }
+
+  errorTimeout = setTimeout(() => {
+    showError.value = false
+  }, 3000)
+}
+
+const hideError = () => {
+  showError.value = false
+  if (errorTimeout) {
+    clearTimeout(errorTimeout)
+  }
 }
 
 const closeModal = () => {
@@ -196,9 +244,10 @@ const closeModal = () => {
   if (window.triggerHaptic) {
     window.triggerHaptic('impact', 'light')
   }
-  
+
   inputValue.value = ''
   inputError.value = false
+  hideError()
   emit('close')
 }
 
