@@ -22,7 +22,7 @@
 
       <!-- Profile Drop List Container -->
       <div
-        class="absolute left-4 right-4 top-16 bottom-20 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
+        class="absolute left-4 right-4 top-4 bottom-4 bg-gradient-to-br from-[#120B81] via-[#1A1086] to-[#09074E] rounded-3xl overflow-hidden shadow-2xl border border-white/8 backdrop-blur-8"
         @click.stop
       >
         <!-- Profile Header Section -->
@@ -69,7 +69,7 @@
           <!-- Custom scrollbar indicator -->
           <div class="absolute right-1 top-2 w-0.5 h-16 bg-[#B7B7B7]/40 rounded-full opacity-40"></div>
 
-          <div class="space-y-1 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 480px); min-height: 200px; max-height: 280px;">
+          <div class="space-y-1 overflow-y-auto scroll-smooth touch-scroll pr-2" style="height: calc(100vh - 380px); min-height: 150px; max-height: 200px;">
             <!-- Calculator -->
             <div @click="handleMenuClick('calculator')" class="flex items-center gap-3 px-1.5 py-3 hover:bg-white/10 rounded-lg cursor-pointer transition-all">
               <div class="w-10 h-10 bg-[#404040]/24 border border-white/24 rounded-full flex items-center justify-center flex-shrink-0">
@@ -151,8 +151,8 @@
         </div>
 
         <!-- Start Level Upgrade Section - Enhanced Size -->
-        <div class="px-3 pb-2 mt-2">
-          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-5 relative overflow-hidden">
+        <div class="px-3 pb-2 mt-1">
+          <div class="bg-[#F1E7FF] border border-[#DCCCF1] rounded-2xl p-3 relative overflow-hidden">
             <!-- Star Icon -->
             <div class="absolute left-3 top-5">
               <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,13 +176,13 @@
             <div class="absolute left-0 top-0 w-40 h-full bg-gradient-to-r from-[#8C4CD1]/40 to-transparent rounded-l-2xl"></div>
 
             <div class="flex items-center justify-between relative z-10">
-              <div class="ml-12">
-                <div class="text-[#02070E] font-bold text-xl mb-1">Start</div>
-                <div class="text-sm text-[#4B4D50]">
+              <div class="ml-10">
+                <div class="text-[#02070E] font-bold text-lg mb-1">Start</div>
+                <div class="text-xs text-[#4B4D50]">
                   buy <span class="font-bold text-[#8C4CD1]">123</span> more Forevers to upgrade
                 </div>
               </div>
-              <button @click="handleUpgrade" class="px-6 py-3 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-semibold rounded-full text-base hover:shadow-lg transition-all duration-200 flex-shrink-0">
+              <button @click="handleUpgrade" class="px-4 py-2 bg-gradient-to-r from-[#2019CE] to-[#473FFF] text-white font-semibold rounded-full text-sm hover:shadow-lg transition-all duration-200 flex-shrink-0">
                 Upgrade
               </button>
             </div>
@@ -190,13 +190,13 @@
         </div>
 
         <!-- Figma-styled Bottom Section -->
-        <div class="px-3 pb-4 pt-2">
-          <div class="flex items-center justify-center gap-8 mt-2">
+        <div class="px-3 pb-2 pt-1">
+          <div class="flex items-center justify-center gap-4 mt-1">
             <!-- ID Button with Figma Design -->
             <div class="relative">
               <button
                 @click="copyUserId"
-                class="flex items-center gap-3 px-4 py-3 bg-white/30 backdrop-blur-[32px] border border-white/40 rounded-full transition-all duration-300 hover:bg-white/35 active:scale-95 min-w-[140px] h-[48px]"
+                class="flex items-center gap-2 px-3 py-2 bg-white/30 backdrop-blur-[32px] border border-white/40 rounded-full transition-all duration-300 hover:bg-white/35 active:scale-95 min-w-[120px] h-[40px]"
               >
                 <!-- ID Text -->
                 <div class="flex items-center gap-1.5">
@@ -243,7 +243,7 @@
             <div class="relative language-selector-container">
               <button
                 @click="toggleLanguageSelector"
-                class="flex items-center gap-3 px-4 py-3 bg-white/30 backdrop-blur-[32px] border border-white/40 rounded-full transition-all duration-300 hover:bg-white/35 active:scale-95 min-w-[140px] h-[48px]"
+                class="flex items-center gap-2 px-3 py-2 bg-white/30 backdrop-blur-[32px] border border-white/40 rounded-full transition-all duration-300 hover:bg-white/35 active:scale-95 min-w-[120px] h-[40px]"
               >
                 <!-- Flag Container -->
                 <div class="w-11 h-11 rounded-full overflow-hidden flex items-center justify-center bg-[#D4D4D4] flex-shrink-0">
