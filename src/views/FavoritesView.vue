@@ -3,7 +3,7 @@
     <!-- Main Content -->
     <main class="main-content">
       <!-- Total Balance Card -->
-      <div class="bg-purple-50 border border-purple-200 rounded-2xl p-3 mb-2 flex-shrink-0">
+      <div class="balance-card">
         <div class="flex items-start justify-between mb-4">
           <h2 class="text-2xl font-semibold text-black leading-7">
             Forevers<br>Balance
