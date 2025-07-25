@@ -199,8 +199,8 @@
         </div>
 
         <!-- Figma-styled Bottom Section -->
-        <div class="px-3 pb-4">
-          <div class="flex items-center justify-center gap-8">
+        <div class="px-3 pb-4 pt-2">
+          <div class="flex items-center justify-center gap-8 mt-2">
             <!-- ID Button with Figma Design -->
             <div class="relative">
               <button
