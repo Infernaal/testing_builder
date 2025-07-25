@@ -80,11 +80,33 @@ defineEmits(['close'])
   .error-notification {
     position: fixed;
     z-index: 1000;
+    bottom: calc(100px + env(safe-area-inset-bottom, 8px)) !important;
   }
 
   .error-notification-mobile {
     bottom: calc(89px + env(safe-area-inset-bottom, 8px)) !important;
   }
+
+  /* Adjust pointer for mobile */
+  .error-notification > div.w-0 {
+    border-l-width: 6px;
+    border-r-width: 6px;
+    border-t-width: 8px;
+  }
+}
+
+/* Telegram WebApp specific styles */
+@media (max-height: 600px) {
+  .error-notification {
+    bottom: 80px !important;
+  }
+}
+
+/* Touch-friendly for Telegram */
+.error-notification > div:not(.w-0) {
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Safe area support for notifications */
