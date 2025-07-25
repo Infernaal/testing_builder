@@ -231,11 +231,7 @@ const handleInput = (event) => {
 
   if (amount > maxAllowed) {
     inputError.value = true
-    if (maxAllowed === 50000) {
-      errorMessage.value = `Maximum amount allowed is ${maxAllowed.toLocaleString()}`
-    } else {
-      errorMessage.value = `Amount cannot exceed available balance (${maxAllowed.toLocaleString()})`
-    }
+    // Don't set errorMessage here - let the ErrorNotification component handle it in handleAddToCart
     return
   }
 }
