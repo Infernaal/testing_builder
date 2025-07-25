@@ -18,7 +18,7 @@
       <div
         @click.stop
         class="relative bg-dbd-off-white rounded-[20px] shadow-xl font-montserrat w-full max-w-[340px] mx-auto"
-        style="height: 260px;"
+        style="min-height: 300px;"
       >
         <!-- Title -->
         <div class="flex justify-center items-center pt-4 pb-2">
