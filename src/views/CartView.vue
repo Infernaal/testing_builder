@@ -49,8 +49,8 @@
 
             <!-- Remove Button -->
             <button
-              @click="removeFromCart(item.id)"
-              class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center"
+              @click="showDeleteConfirm(item)"
+              class="absolute top-3 right-3 w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors"
             >
               <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19.25 3.5H14.75V2.75C14.75 1.5095 13.7405 0.5 12.5 0.5H9.5C8.2595 0.5 7.25 1.5095 7.25 2.75V3.5H2.75C1.92275 3.5 1.25 4.17275 1.25 5V5.75C1.25 6.164 1.586 6.5 2 6.5H20C20.414 6.5 20.75 6.164 20.75 5.75V5C20.75 4.17275 20.0772 3.5 19.25 3.5ZM8.75 2.75C8.75 2.33675 9.08675 2 9.5 2H12.5C12.9132 2 13.25 2.33675 13.25 2.75V3.5H8.75V2.75Z" fill="#FF1919"/>
@@ -92,6 +92,13 @@
       />
     </div>
 
+    <!-- Delete Confirmation Modal -->
+    <DeleteConfirmModal
+      :is-visible="showDeleteModal"
+      @cancel="cancelDelete"
+      @confirm="confirmDelete"
+    />
+
     <!-- Success Modal -->
     <SuccessModal
       :is-visible="showSuccessModal"
@@ -101,6 +108,13 @@
       :confirm-text="'Continue'"
       @close="closeSuccessModal"
       @confirm="closeSuccessModal"
+    />
+
+    <!-- Delete Success Notification -->
+    <SuccessNotification
+      :is-visible="showDeleteSuccess"
+      message="Position delete successfully"
+      @close="showDeleteSuccess = false"
     />
 
     <!-- Bottom Navigation Component -->
@@ -115,6 +129,8 @@ import BottomNavigation from '../components/BottomNavigation.vue'
 import CountryFlag from '../components/CountryFlag.vue'
 import CartBottomComponent from '../components/CartBottomComponent.vue'
 import SuccessModal from '../components/SuccessModal.vue'
+import DeleteConfirmModal from '../components/DeleteConfirmModal.vue'
+import SuccessNotification from '../components/SuccessNotification.vue'
 import { useCart } from '../composables/useCart.js'
 
 const router = useRouter()
@@ -125,6 +141,13 @@ const { cartItems, cartItemsCount, cartTotal, removeFromCart, clearCart } = useC
 // Modal state
 const showSuccessModal = ref(false)
 const lastPurchaseDetails = ref(null)
+
+// Delete confirmation modal state
+const showDeleteModal = ref(false)
+const itemToDelete = ref(null)
+
+// Success notification state
+const showDeleteSuccess = ref(false)
 
 // Methods
 const handleBack = () => {
@@ -155,6 +178,33 @@ const closeSuccessModal = () => {
 
   // Navigate to wallet after modal closes
   router.push('/wallet')
+}
+
+// Delete confirmation methods
+const showDeleteConfirm = (item) => {
+  itemToDelete.value = item
+  showDeleteModal.value = true
+}
+
+const cancelDelete = () => {
+  showDeleteModal.value = false
+  itemToDelete.value = null
+}
+
+const confirmDelete = () => {
+  if (itemToDelete.value) {
+    removeFromCart(itemToDelete.value.id)
+    showDeleteModal.value = false
+    itemToDelete.value = null
+
+    // Show success notification
+    showDeleteSuccess.value = true
+
+    // Hide notification after 3 seconds
+    setTimeout(() => {
+      showDeleteSuccess.value = false
+    }, 3000)
+  }
 }
 </script>
 
