@@ -156,28 +156,28 @@
             </div>
 
             <!-- Steps -->
-            <div class="flex items-center justify-center gap-6 py-6">
+            <div class="flex items-center justify-center gap-4 sm:gap-6 py-4 sm:py-6">
               <!-- Progress Line -->
-              <div class="absolute flex items-center justify-between w-72 mx-auto">
-                <div class="flex-1 h-px bg-dbd-light-gray mx-11"></div>
-                <div class="flex-1 h-px bg-dbd-light-gray mx-11"></div>
+              <div class="absolute flex items-center justify-between w-60 sm:w-72 mx-auto">
+                <div class="flex-1 h-px bg-dbd-light-gray mx-8 sm:mx-11"></div>
+                <div class="flex-1 h-px bg-dbd-light-gray mx-8 sm:mx-11"></div>
               </div>
-              
+
               <!-- Step circles -->
-              <div class="relative flex items-center justify-between w-72 mx-auto">
+              <div class="relative flex items-center justify-between w-60 sm:w-72 mx-auto">
                 <!-- Step 1 -->
-                <div class="w-10 h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
-                  <span class="text-white text-sm font-semibold">1</span>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
+                  <span class="text-white text-xs sm:text-sm font-semibold">1</span>
                 </div>
-                
+
                 <!-- Step 2 -->
-                <div class="w-10 h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
-                  <span class="text-white text-sm font-semibold">2</span>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
+                  <span class="text-white text-xs sm:text-sm font-semibold">2</span>
                 </div>
-                
+
                 <!-- Step 3 -->
-                <div class="w-10 h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
-                  <span class="text-white text-sm font-semibold">3</span>
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-dbd-primary rounded-r-full flex items-center justify-center">
+                  <span class="text-white text-xs sm:text-sm font-semibold">3</span>
                 </div>
               </div>
             </div>
@@ -214,7 +214,7 @@
             </div>
 
             <!-- Web Referral Link Section -->
-            <div class="relative w-full h-52 rounded-3xl overflow-hidden" 
+            <div class="relative w-full h-44 sm:h-52 rounded-3xl overflow-hidden"
                  style="background: linear-gradient(93deg, #000482 33.15%, rgba(3, 0, 155, 0.84) 76.97%);">
               
               <!-- Content -->
