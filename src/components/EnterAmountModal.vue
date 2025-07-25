@@ -149,15 +149,20 @@ const calculatedDollars = computed(() => {
 })
 
 const handleInput = (event) => {
+  // Haptic feedback for input
+  if (window.triggerHaptic) {
+    window.triggerHaptic('selection')
+  }
+
   // Filter out non-numeric characters in real-time
   const value = event.target.value
   const numericValue = value.replace(/[^0-9]/g, '')
-  
+
   if (value !== numericValue) {
     event.target.value = numericValue
     inputValue.value = numericValue
   }
-  
+
   // Validate input
   if (numericValue && parseFloat(numericValue) > 0) {
     inputError.value = false
@@ -168,9 +173,18 @@ const handleInput = (event) => {
 
 const handleAddToCart = () => {
   if (!inputValue.value || inputError.value) {
+    // Haptic feedback for error
+    if (window.triggerHaptic) {
+      window.triggerHaptic('notification', 'error')
+    }
     return
   }
-  
+
+  // Haptic feedback for success
+  if (window.triggerHaptic) {
+    window.triggerHaptic('notification', 'success')
+  }
+
   emit('add-to-cart', {
     amount: parseFloat(inputValue.value),
     balance: props.selectedBalance
@@ -179,6 +193,11 @@ const handleAddToCart = () => {
 }
 
 const closeModal = () => {
+  // Haptic feedback for modal close
+  if (window.triggerHaptic) {
+    window.triggerHaptic('impact', 'light')
+  }
+
   inputValue.value = ''
   inputError.value = false
   emit('close')
