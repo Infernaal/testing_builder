@@ -187,7 +187,7 @@
     <div v-if="showTransactionModal" class="fixed inset-0 z-50 flex items-end justify-center bg-black bg-opacity-20 backdrop-blur-sm">
       <div class="w-full max-w-md bg-white rounded-t-3xl shadow-xl animate-slide-up">
         <!-- Modal Header -->
-        <div class="flex items-center justify-between p-4 border-b" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
+        <div class="flex items-center justify-between p-4" @touchstart="handleTouchStart" @touchmove="handleTouchMove" @touchend="handleTouchEnd">
           <div class="flex-1 text-center">
             <div class="w-16 h-1.5 bg-gray-300 rounded-full mx-auto mb-4 cursor-pointer"></div>
             <h2 class="text-base font-medium text-dbd-dark">Transaction Details</h2>
