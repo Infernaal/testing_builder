@@ -139,18 +139,26 @@ h3, p {
 
 /* Mobile optimizations */
 @media (max-width: 375px) {
-  .max-w-sm {
-    max-width: calc(100vw - 72px);
+  div[style*="width: 300px"] {
+    width: calc(100vw - 72px) !important;
+    max-width: 300px;
   }
-  
+
   .text-lg {
     font-size: 16px;
     line-height: 20px;
   }
-  
+
   .text-sm {
     font-size: 14px;
     line-height: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  div[style*="width: 300px"] {
+    width: calc(100vw - 40px) !important;
+    max-width: 280px;
   }
 }
 </style>
