@@ -40,7 +40,7 @@
         </div>
 
         <!-- Input Field -->
-        <div class="px-4 relative" :class="{ 'mb-6': !inputError, 'mb-4': inputError }">
+        <div class="px-4 relative" :class="{ 'mb-6': !inputError, 'mb-2': inputError }">
           <div
             class="w-full rounded-full border-2 bg-dbd-off-white flex items-center px-4 py-3 transition-all duration-200"
             :class="[
