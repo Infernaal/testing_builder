@@ -231,14 +231,22 @@ const handleAddToCart = () => {
     return
   }
 
-  if (inputError.value) {
-    showErrorMessage('Please enter a valid amount')
+  const amount = parseFloat(inputValue.value)
+
+  if (isNaN(amount) || amount <= 0) {
+    showErrorMessage('Please enter a valid positive amount')
     return
   }
 
-  const amount = parseFloat(inputValue.value)
-  if (amount <= 0) {
-    showErrorMessage('Amount must be greater than 0')
+  // Check available balance
+  const availableAmount = props.selectedBalance?.available || 0
+  if (amount > availableAmount) {
+    showErrorMessage(`Amount cannot exceed available balance (${availableAmount})`)
+    return
+  }
+
+  if (inputError.value) {
+    showErrorMessage(errorMessage.value || 'Please correct the errors')
     return
   }
 
