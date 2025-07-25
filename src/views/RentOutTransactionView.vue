@@ -664,6 +664,59 @@ onUnmounted(() => {
   .empty-state {
     min-height: calc(100vh - 180px) !important;
   }
+
+  .transaction-card {
+    padding: 12px;
+  }
+}
+
+/* Mobile touch optimizations for Telegram */
+.rent-out-transaction-view {
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+
+/* Export dropdown responsive adjustments */
+@media (max-width: 380px) {
+  .export-btn {
+    width: 120px;
+    height: 48px;
+  }
+
+  .export-btn span {
+    font-size: 0.875rem;
+  }
+}
+
+/* Transaction modal optimizations for Telegram */
+@media (max-height: 700px) {
+  .transaction-modal .max-h-96 {
+    max-height: 280px;
+  }
+}
+
+/* Copy button fixed width to prevent layout shifts */
+.copy-btn-default,
+.copy-btn-copied {
+  min-width: 70px;
+  justify-content: center;
+}
+
+/* Touch-friendly targets for Telegram WebApp */
+@media (pointer: coarse) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .transaction-card {
+    padding: 16px;
+  }
+
+  .modal-header-handle {
+    padding: 8px;
+    margin: -8px;
+  }
 }
 
 /* Smooth animations */
