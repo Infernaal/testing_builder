@@ -269,7 +269,7 @@ const handleAddToCart = () => {
   }
 
   if (inputError.value) {
-    showErrorMessage(errorMessage.value || 'Please correct the errors')
+    showErrorMessage('Please enter a valid amount')
     return
   }
 
