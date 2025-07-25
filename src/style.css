@@ -6,6 +6,9 @@
 /* Import comprehensive responsive design system */
 @import './styles/responsive.css';
 
+/* Import component-specific responsive styles */
+@import './styles/component-responsive.css';
+
 /* CSS Variables for Telegram WebApp support */
 :root {
   /* Telegram WebApp variables */
