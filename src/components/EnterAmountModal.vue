@@ -115,7 +115,7 @@
         </div>
 
         <!-- Error Notification positioned between input and buttons -->
-        <div v-if="inputError && errorMessage" class="px-4 mb-4">
+        <div v-if="inputError && errorMessage" class="px-4 mb-6 mt-2">
           <ErrorNotification
             :is-visible="inputError && !!errorMessage"
             :message="errorMessage"
