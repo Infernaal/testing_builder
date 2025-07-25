@@ -1,7 +1,7 @@
 <template>
   <div class="holders-view w-full min-h-screen bg-gray-100 font-montserrat">
     <!-- Main Content -->
-    <div class="w-full max-w-md mx-auto bg-gray-100 min-h-screen relative">
+    <div class="w-full max-w-md mx-auto bg-gray-100 min-h-screen relative overflow-x-hidden">
       <!-- Content Container -->
       <div class="bg-gray-100 rounded-t-2xl relative">
         <!-- Title Section -->
@@ -17,9 +17,9 @@
         </div>
 
         <!-- Scroll Content -->
-        <div class="px-4 pt-6 pb-6 space-y-5">
+        <div class="px-4 pt-6 pb-20 space-y-5">
           <!-- QR Code Section -->
-          <div class="relative w-full h-96 rounded-3xl overflow-hidden" 
+          <div class="relative w-full h-80 sm:h-96 rounded-3xl overflow-hidden"
                style="background: linear-gradient(93deg, #000482 33.15%, rgba(3, 0, 155, 0.84) 76.97%);">
             
             <!-- Background Icons -->
