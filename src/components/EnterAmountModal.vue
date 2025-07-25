@@ -112,7 +112,7 @@
         </div>
 
         <!-- Error Message -->
-        <div v-if="inputError && errorMessage" class="px-4 mb-4">
+        <div v-if="inputError && errorMessage" class="px-4 mb-6">
           <div class="bg-red-50 border border-red-200 rounded-lg px-3 py-2">
             <p class="text-red-600 text-sm font-medium">{{ errorMessage }}</p>
           </div>
