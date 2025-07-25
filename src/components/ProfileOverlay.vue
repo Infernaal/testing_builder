@@ -198,7 +198,7 @@
           </div>
         </div>
 
-        <!-- Language Selector and ID Section -->
+        <!-- Language Selector and ID Section - Moved to Bottom -->
         <div class="px-3 py-4">
           <div class="flex items-center justify-between gap-3">
             <!-- User ID with Copy Button -->
